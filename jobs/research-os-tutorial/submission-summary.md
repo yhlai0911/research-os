@@ -18,7 +18,7 @@ The supplied YouTube video is used only as a teaching-structure reference: stron
 - [x] HyperFrames runtime, layout, contrast, and snapshots pass.
 - [x] MP4 render exists and duration is verified with `ffprobe`.
 - [x] Cost ledger includes paid-attempt exposure and zero-credit steps.
-- [ ] ZIP is rebuilt from a clean committed source and read back.
+- [x] ZIP is rebuilt from a clean committed source and read back.
 
 ## Accepted warning
 
