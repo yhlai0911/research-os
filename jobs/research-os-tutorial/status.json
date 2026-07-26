@@ -1,0 +1,19 @@
+{
+  "project": "research-os-tutorial",
+  "status": "complete",
+  "stage": "delivered",
+  "updated_at": "2026-07-26T15:41:28+08:00",
+  "outputs": [
+    {
+      "path": "output/research-os-tutorial-zh-TW.mp4",
+      "sha256": "0803b5e34f2a847f41eeabb220f2ca916d7000c604871511a11f5468fb6cb4fd",
+      "duration_seconds": 170.166667,
+      "size_bytes": 26303356
+    },
+    {
+      "path": "snapshots/contact-sheet.jpg",
+      "status": "verified"
+    }
+  ],
+  "blockers": []
+}

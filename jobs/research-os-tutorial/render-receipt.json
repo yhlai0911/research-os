@@ -1,0 +1,37 @@
+{
+  "project": "research-os-tutorial",
+  "rendered_at": "2026-07-26T15:40:57+08:00",
+  "framework": "hyperframes@0.7.72",
+  "render_job_id": "d7cb15af-b2b1-436d-a145-0621ba437178",
+  "output": {
+    "path": "output/research-os-tutorial-zh-TW.mp4",
+    "sha256": "0803b5e34f2a847f41eeabb220f2ca916d7000c604871511a11f5468fb6cb4fd",
+    "size_bytes": 26303356,
+    "duration_seconds": 170.166667,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "fps": 30
+    },
+    "audio": {
+      "codec": "aac",
+      "sample_rate": 48000,
+      "channels": 2
+    }
+  },
+  "quality_gates": {
+    "hyperframes_check_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 1,
+    "runtime_errors": 0,
+    "layout_errors": 0,
+    "contrast_warnings": 0,
+    "snapshots_verified": 9,
+    "long_silences_over_3_seconds": 0
+  },
+  "accepted_warning": {
+    "code": "timeline_track_too_dense",
+    "reason": "Eight scenes intentionally share a persistent evidence-desk background, progress rail, root-level audio, and one global timeline."
+  }
+}

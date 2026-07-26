@@ -22,6 +22,8 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
 
 ## 快速開始
 
+第一次使用請先讀 [`docs/USAGE_GUIDE.zh-TW.md`](docs/USAGE_GUIDE.zh-TW.md)。它不是指令清單，而是一條可實際照做的完整路徑：從安裝、輸入一句模糊主題、回答必要決策，到讀取 Research Brief、研究計畫、proposal 或 paper blueprint。常用提示詞可直接複製自 [`docs/PROMPT_COOKBOOK.zh-TW.md`](docs/PROMPT_COOKBOOK.zh-TW.md)，遇到卡關則查閱 [`docs/TROUBLESHOOTING.zh-TW.md`](docs/TROUBLESHOOTING.zh-TW.md)。
+
 驗證 repository：
 
 ```bash
@@ -49,7 +51,9 @@ uv run python scripts/install_skills.py \
 ```text
 /develop-research
 
-我有一個主題或方向，希望最後形成一份研究計畫／企劃案／論文。
+我想研究「生成式 AI 是否改善大學生的財務素養」，
+最後要形成一份可以交給校內審查的研究計畫。
+目前只有題目，沒有文獻、資料或方法。
 ```
 
 若只想先建立持久工作區，可執行：
@@ -59,6 +63,27 @@ uv run python scripts/install_skills.py \
 ```
 
 端到端主流程也會在明確授權的專案範圍內自動建立這份 additive contract。`.research/` 包含研究脈絡、決策紀錄、claim ledger、研究 brief、研究計畫、workpackage、review、pilot、proposal、paper 與 handoff 的 canonical paths。
+
+### 不同起點要用哪個入口？
+
+| 你的狀態 | 建議入口 | 會得到什麼 |
+|---|---|---|
+| 只有模糊方向 | `/develop-research` | 經查證與追問後形成 Research Brief 及指定成果 |
+| 想先判斷題目值不值得做 | `/idea-triage` | `kill / repair / pilot / advance` 判決 |
+| 想被逐題追問 | `/grill-research-idea` | 一次一個決策的研究問題樹 |
+| 已有設計，想轉成正式計畫 | `/to-research-plan` | 可執行、可審查的學術研究計畫 |
+| 已有設計，想申請經費或提案 | `/to-proposal` | 符合目標受眾的 grant／project proposal |
+| 已有研究成果與證據 | `/to-paper-draft` | 有 provenance 的論文草稿；沒有結果時只產出 blueprint |
+
+完整的「金融衝擊 Wave–Diffusion」案例導覽見 [`examples/financial-wave-diffusion/WALKTHROUGH.zh-TW.md`](examples/financial-wave-diffusion/WALKTHROUGH.zh-TW.md)。
+
+### 影片教學
+
+Repository 內附一支 2 分 50 秒的繁體中文 HyperFrames 教學影片，示範從模糊題目、單一決策 frontier、證據 gates、Research Brief 到不同成果輸出的完整概念：
+
+- [觀看 MP4](jobs/research-os-tutorial/output/research-os-tutorial-zh-TW.mp4)
+- [分鏡與重製說明](jobs/research-os-tutorial/README.md)
+- [視覺 contact sheet](jobs/research-os-tutorial/snapshots/contact-sheet.jpg)
 
 ## Skill 組成
 

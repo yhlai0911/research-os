@@ -1,0 +1,65 @@
+{
+  "tts_provider": "elevenlabs",
+  "voice_id": "kZ9lus3MKUfpqRaOvpJH",
+  "bgm": null,
+  "bgm_pending": false,
+  "bgm_provider": null,
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": null,
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [
+    {
+      "id": "scene-01",
+      "path": "assets/voice/scene-01.wav",
+      "duration_s": 14.489,
+      "words": []
+    },
+    {
+      "id": "scene-02",
+      "path": "assets/voice/scene-02.wav",
+      "duration_s": 17.508,
+      "words": []
+    },
+    {
+      "id": "scene-03",
+      "path": "assets/voice/scene-03.wav",
+      "duration_s": 18.112,
+      "words": []
+    },
+    {
+      "id": "scene-04",
+      "path": "assets/voice/scene-04.wav",
+      "duration_s": 17.879,
+      "words": []
+    },
+    {
+      "id": "scene-05",
+      "path": "assets/voice/scene-05.wav",
+      "duration_s": 22.059,
+      "words": []
+    },
+    {
+      "id": "scene-06",
+      "path": "assets/voice/scene-06.wav",
+      "duration_s": 18.251,
+      "words": []
+    },
+    {
+      "id": "scene-07",
+      "path": "assets/voice/scene-07.wav",
+      "duration_s": 24.752,
+      "words": []
+    },
+    {
+      "id": "scene-08",
+      "path": "assets/voice/scene-08.wav",
+      "duration_s": 21.084,
+      "words": []
+    }
+  ],
+  "sfx": [],
+  "total_duration_s": 154.134
+}

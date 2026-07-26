@@ -1,6 +1,6 @@
 [project]
 name = "research-os-tooling"
-version = "1.0.0"
+version = "1.1.0"
 description = "Validation, installation, and release tooling for Research OS skills."
 requires-python = ">=3.11"
 dependencies = [

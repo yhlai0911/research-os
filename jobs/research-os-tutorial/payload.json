@@ -1,0 +1,14 @@
+{
+  "project": "research-os-tutorial",
+  "requested_at": "2026-07-26T00:00:00+08:00",
+  "request": "Strengthen Research OS teaching content and create a HyperFrames tutorial video inspired by the explanatory structure of https://www.youtube.com/watch?v=aR97E7aKEgg.",
+  "language": "zh-TW",
+  "format": "1920x1080",
+  "framework": "HyperFrames",
+  "tts": {
+    "provider": "elevenlabs",
+    "voice_id": "kZ9lus3MKUfpqRaOvpJH",
+    "authorization": "User explicitly supplied the voice ID in the active task."
+  },
+  "reference_policy": "Use the reference video's pedagogical structure only; do not copy frames, transcript, thumbnail, branding, or copyrighted visual material."
+}

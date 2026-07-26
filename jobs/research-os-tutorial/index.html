@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="zh-Hant" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Research OS 使用教學</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ink: #0b1020;
+        --paper: #f2f4e9;
+        --amber: #ffce57;
+        --muted: #98a2b8;
+        --panel: #151c30;
+        --line: rgba(242, 244, 233, 0.18);
+        --danger: #ed7b6f;
+        --safe: #9ebc86;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: var(--ink);
+        color: var(--paper);
+      }
+
+      body {
+        font-family: "Noto Sans JP", sans-serif;
+      }
+
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+
+      .full-bleed {
+        position: absolute;
+        inset: 0;
+      }
+
+      .global-bg {
+        background:
+          radial-gradient(circle at 82% 18%, rgba(255, 206, 87, 0.16), transparent 28%),
+          radial-gradient(circle at 16% 88%, rgba(255, 206, 87, 0.08), transparent 34%),
+          var(--ink);
+      }
+
+      .grid {
+        background-image:
+          linear-gradient(rgba(242, 244, 233, 0.055) 2px, transparent 2px),
+          linear-gradient(90deg, rgba(242, 244, 233, 0.055) 2px, transparent 2px);
+        background-size: 80px 80px;
+        mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+      }
+
+      .grain {
+        opacity: 0.18;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+        mix-blend-mode: soft-light;
+      }
+
+      .corner {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        opacity: 0.75;
+      }
+
+      .corner::before,
+      .corner::after {
+        content: "";
+        position: absolute;
+        background: var(--amber);
+      }
+
+      .corner::before {
+        width: 64px;
+        height: 3px;
+      }
+
+      .corner::after {
+        width: 3px;
+        height: 64px;
+      }
+
+      .corner.tl {
+        left: 54px;
+        top: 50px;
+      }
+
+      .corner.br {
+        right: 54px;
+        bottom: 50px;
+        transform: rotate(180deg);
+      }
+
+      .top-rail {
+        position: absolute;
+        left: 124px;
+        right: 124px;
+        top: 58px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--line);
+        font-family: "Space Mono", monospace;
+        font-size: 20px;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .brand {
+        color: var(--paper);
+        font-weight: 700;
+      }
+
+      .brand b {
+        color: var(--amber);
+      }
+
+      .scene-counter {
+        color: var(--amber);
+      }
+
+      .progress-track {
+        position: absolute;
+        left: 124px;
+        right: 124px;
+        top: 112px;
+        height: 6px;
+        border-radius: 99px;
+        overflow: hidden;
+        background: rgba(242, 244, 233, 0.08);
+      }
+
+      .progress-fill {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--amber);
+        transform-origin: left center;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .scene-body {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        padding: 158px 124px 174px;
+        display: grid;
+        align-items: center;
+      }
+
+      .two-col {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 74px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+        font-family: "Space Mono", monospace;
+        font-size: 22px;
+        letter-spacing: 0.12em;
+        color: var(--amber);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 52px;
+        height: 4px;
+        background: var(--amber);
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 1460px;
+        font-size: 104px;
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        font-weight: 900;
+      }
+
+      h2 {
+        font-size: 76px;
+        line-height: 1.14;
+        letter-spacing: -0.035em;
+        font-weight: 900;
+      }
+
+      .accent {
+        color: var(--amber);
+      }
+
+      .lede {
+        max-width: 760px;
+        margin-top: 28px;
+        font-size: 34px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+
+      .ghost {
+        position: absolute;
+        right: 54px;
+        bottom: 92px;
+        font-family: "Space Mono", monospace;
+        font-size: 168px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.08em;
+        color: #656a77;
+        white-space: nowrap;
+      }
+
+      .panel {
+        position: relative;
+        border: 3px solid var(--line);
+        border-radius: 24px;
+        background: rgba(21, 28, 48, 0.92);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+      }
+
+      .panel::after {
+        content: attr(data-label);
+        position: absolute;
+        top: -18px;
+        right: 24px;
+        padding: 7px 14px;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        background: var(--ink);
+        font-family: "Space Mono", monospace;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .status-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 18px;
+        border: 2px solid currentColor;
+        border-radius: 999px;
+        font-family: "Space Mono", monospace;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .status-chip.warn {
+        color: var(--amber);
+      }
+
+      .status-chip.blocked {
+        color: var(--danger);
+      }
+
+      .status-chip.safe {
+        color: var(--safe);
+      }
+
+      .caption {
+        position: absolute;
+        left: 260px;
+        right: 260px;
+        bottom: 68px;
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 28px;
+        border: 2px solid rgba(242, 244, 233, 0.18);
+        border-radius: 20px;
+        background: rgba(6, 10, 22, 0.88);
+        box-shadow: 0 12px 38px rgba(0, 0, 0, 0.35);
+        font-size: 31px;
+        line-height: 1.4;
+        text-align: center;
+        color: var(--paper);
+      }
+
+      .hook-warnings {
+        display: grid;
+        gap: 18px;
+        padding: 34px;
+      }
+
+      .warning-row {
+        min-height: 96px;
+        display: grid;
+        grid-template-columns: 54px 1fr auto;
+        align-items: center;
+        gap: 20px;
+        padding: 0 24px;
+        border: 2px solid var(--line);
+        border-radius: 18px;
+        background: rgba(11, 16, 32, 0.72);
+      }
+
+      .warning-index {
+        font-family: "Space Mono", monospace;
+        font-size: 20px;
+        color: var(--amber);
+      }
+
+      .warning-row strong {
+        font-size: 27px;
+      }
+
+      .warning-row span:last-child {
+        font-family: "Space Mono", monospace;
+        font-size: 16px;
+        color: var(--danger);
+      }
+
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 34px;
+      }
+
+      .compare-card {
+        min-height: 420px;
+        padding: 28px;
+      }
+
+      .compare-card h3 {
+        margin: 0 0 24px;
+        font-size: 31px;
+      }
+
+      .fake-lines {
+        display: grid;
+        gap: 15px;
+      }
+
+      .fake-line {
+        display: block;
+        height: 14px;
+        border-radius: 99px;
+        background: rgba(242, 244, 233, 0.15);
+      }
+
+      .fake-line:nth-child(2n) {
+        width: 82%;
+      }
+
+      .fake-line:nth-child(3n) {
+        width: 66%;
+      }
+
+      .skill-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .skill-row {
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        border-left: 5px solid var(--amber);
+        background: rgba(255, 206, 87, 0.08);
+        font-family: "Space Mono", monospace;
+        font-size: 17px;
+      }
+
+      .terminal {
+        padding: 34px 38px 38px;
+        min-height: 560px;
+      }
+
+      .terminal-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 46px;
+        border-bottom: 2px solid var(--line);
+        margin-bottom: 28px;
+      }
+
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: rgba(242, 244, 233, 0.22);
+      }
+
+      .terminal-copy {
+        font-family: "Space Mono", monospace;
+        font-size: 26px;
+        line-height: 1.65;
+        color: var(--paper);
+      }
+
+      .terminal-copy .command {
+        color: var(--amber);
+        font-weight: 700;
+      }
+
+      .prompt-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .prompt-tag {
+        padding: 9px 14px;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        font-family: "Space Mono", monospace;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .decision-tree {
+        position: relative;
+        min-height: 570px;
+        padding: 36px;
+      }
+
+      .tree-line {
+        position: absolute;
+        left: 118px;
+        top: 102px;
+        width: 5px;
+        height: 370px;
+        background: rgba(242, 244, 233, 0.14);
+      }
+
+      .tree-node {
+        position: relative;
+        min-height: 104px;
+        margin: 0 0 30px 66px;
+        padding: 20px 24px;
+        border: 2px solid var(--line);
+        border-radius: 18px;
+        background: rgba(11, 16, 32, 0.76);
+      }
+
+      .tree-node::before {
+        content: "";
+        position: absolute;
+        left: -58px;
+        top: 38px;
+        width: 42px;
+        height: 4px;
+        background: var(--line);
+      }
+
+      .tree-node.current {
+        border-color: var(--amber);
+        box-shadow: 0 0 42px rgba(255, 206, 87, 0.14);
+      }
+
+      .tree-node h3 {
+        margin: 0 0 8px;
+        font-size: 27px;
+      }
+
+      .tree-node p {
+        font-size: 20px;
+        color: var(--muted);
+      }
+
+      .gate-flow {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        margin-top: 46px;
+      }
+
+      .gate {
+        position: relative;
+        min-height: 250px;
+        padding: 24px 18px;
+        border: 3px solid var(--line);
+        border-radius: 20px;
+        background: rgba(21, 28, 48, 0.88);
+      }
+
+      .gate:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -22px;
+        top: 96px;
+        z-index: 3;
+        font-family: "Space Mono", monospace;
+        font-size: 34px;
+        color: var(--amber);
+      }
+
+      .gate-index {
+        font-family: "Space Mono", monospace;
+        font-size: 18px;
+        color: var(--amber);
+      }
+
+      .gate h3 {
+        margin: 38px 0 18px;
+        font-size: 28px;
+      }
+
+      .gate p {
+        font-size: 19px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .brief-core {
+        position: relative;
+        width: 550px;
+        min-height: 360px;
+        margin: 0 auto;
+        padding: 40px;
+        border: 4px solid var(--amber);
+      }
+
+      .brief-core h3 {
+        margin: 0 0 18px;
+        font-size: 46px;
+      }
+
+      .brief-core p {
+        font-size: 24px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .output-card {
+        position: absolute;
+        width: 340px;
+        min-height: 180px;
+        padding: 26px;
+        border: 3px solid var(--line);
+        border-radius: 20px;
+        background: rgba(21, 28, 48, 0.95);
+      }
+
+      .output-card h4 {
+        margin: 0 0 12px;
+        font-size: 28px;
+      }
+
+      .output-card p {
+        font-family: "Space Mono", monospace;
+        font-size: 16px;
+        color: var(--muted);
+      }
+
+      .output-card.plan {
+        left: 110px;
+        top: 262px;
+      }
+
+      .output-card.proposal {
+        right: 110px;
+        top: 262px;
+      }
+
+      .output-card.paper {
+        left: 50%;
+        bottom: 136px;
+        transform: translateX(-50%);
+      }
+
+      .equation-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 36px;
+      }
+
+      .equation-card {
+        min-height: 200px;
+        padding: 24px;
+        border: 3px solid var(--line);
+        border-radius: 20px;
+        background: rgba(21, 28, 48, 0.9);
+      }
+
+      .equation-card h3 {
+        margin: 0 0 28px;
+        font-size: 26px;
+      }
+
+      .equation {
+        font-family: "Space Mono", monospace;
+        font-size: 28px;
+        color: var(--amber);
+      }
+
+      .equation-card.removed {
+        border-color: rgba(237, 123, 111, 0.6);
+        opacity: 0.38;
+      }
+
+      .final-question {
+        margin-top: 32px;
+        padding: 24px 30px;
+        border-left: 7px solid var(--amber);
+        background: rgba(255, 206, 87, 0.08);
+        font-size: 32px;
+        line-height: 1.45;
+      }
+
+      .status-ruler {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+        margin-top: 48px;
+      }
+
+      .status-box {
+        min-height: 150px;
+        padding: 24px 20px;
+        border-top: 7px solid var(--line);
+        background: rgba(21, 28, 48, 0.7);
+      }
+
+      .status-box h3 {
+        margin: 0 0 14px;
+        font-family: "Space Mono", monospace;
+        font-size: 21px;
+      }
+
+      .status-box p {
+        font-size: 18px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .status-box:nth-child(1) {
+        border-color: var(--safe);
+      }
+
+      .status-box:nth-child(3) {
+        border-color: var(--amber);
+      }
+
+      .status-box:nth-child(4),
+      .status-box:nth-child(5) {
+        border-color: var(--danger);
+      }
+
+      .cta-line {
+        margin-top: 42px;
+        font-size: 45px;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="170.134"
+    >
+      <div class="full-bleed global-bg"></div>
+      <div class="full-bleed grid"></div>
+      <div class="full-bleed grain"></div>
+      <div class="corner tl"></div>
+      <div class="corner br"></div>
+
+      <section id="scene-01" class="clip scene" data-start="0" data-duration="16.489" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>FROM TOPIC TO EVIDENCE</span><span class="scene-counter">01 / 08</span></div>
+        <div class="progress-track"><span id="progress-01" class="progress-fill"></span></div>
+        <div class="scene-body two-col">
+          <div>
+            <div class="eyebrow anim-01">研究不是文字量</div>
+            <h1 class="anim-01">一句模糊題目，<span class="accent">不能直接變論文</span></h1>
+            <p class="lede anim-01">先讓研究站得住，再開始寫。</p>
+          </div>
+          <div class="panel hook-warnings anim-01" data-label="UNRESOLVED">
+            <div class="warning-row item-01"><span class="warning-index">01</span><strong>文獻缺口未知</strong><span>UNVERIFIED</span></div>
+            <div class="warning-row item-01"><span class="warning-index">02</span><strong>資料可得性未知</strong><span>UNVERIFIED</span></div>
+            <div class="warning-row item-01"><span class="warning-index">03</span><strong>推論強度未知</strong><span>UNVERIFIED</span></div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">TOPIC ≠ PAPER</div>
+      </section>
+
+      <section id="scene-02" class="clip scene" data-start="16.489" data-duration="19.508" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>COMPOSABLE SKILLS</span><span class="scene-counter">02 / 08</span></div>
+        <div class="progress-track"><span id="progress-02" class="progress-fill"></span></div>
+        <div class="scene-body">
+          <div>
+            <div class="eyebrow anim-02">不是代寫器</div>
+            <h2 class="anim-02">固定大流程，會把早期錯誤一路傳下去。</h2>
+            <div class="compare">
+              <div class="panel compare-card anim-02" data-label="FAST DRAFT">
+                <h3>漂亮，但沒有 provenance</h3>
+                <div class="fake-lines"><span class="fake-line"></span><span class="fake-line"></span><span class="fake-line"></span><span class="fake-line"></span><span class="fake-line"></span><span class="fake-line"></span><span class="fake-line"></span></div>
+                <div style="margin-top: 30px"><span class="status-chip blocked">EVIDENCE MISSING</span></div>
+              </div>
+              <div class="panel compare-card anim-02" data-label="RESEARCH OS">
+                <h3>小而可組合的研究紀律</h3>
+                <div class="skill-stack">
+                  <div class="skill-row skill-02"><span>research-grilling</span><span>DECISION</span></div>
+                  <div class="skill-row skill-02"><span>gap-audit</span><span>DIFFERENCE</span></div>
+                  <div class="skill-row skill-02"><span>identification-design</span><span>COUNTERFACTUAL</span></div>
+                  <div class="skill-row skill-02"><span>falsification-first</span><span>KILL TEST</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">MODULAR</div>
+      </section>
+
+      <section id="scene-03" class="clip scene" data-start="35.997" data-duration="20.112" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>QUICK START</span><span class="scene-counter">03 / 08</span></div>
+        <div class="progress-track"><span id="progress-03" class="progress-fill"></span></div>
+        <div class="scene-body two-col">
+          <div>
+            <div class="eyebrow anim-03">這樣開始</div>
+            <h2 class="anim-03">交代任務，<span class="accent">不是只丟名詞</span></h2>
+            <p class="lede anim-03">主題、目的地、受眾、目前狀態與限制。</p>
+            <div class="prompt-tags anim-03">
+              <span class="prompt-tag">TOPIC</span><span class="prompt-tag">DESTINATION</span><span class="prompt-tag">AUDIENCE</span><span class="prompt-tag">EVIDENCE</span><span class="prompt-tag">EXCLUSIONS</span>
+            </div>
+          </div>
+          <div class="panel terminal anim-03" data-label="TERMINAL">
+            <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="terminal-copy">
+              <span class="command">/develop-research</span><br />
+              我想研究「生成式 AI 是否改善大學生的財務素養」，最後形成校內研究計畫。<br />
+              <span style="color: var(--muted)">免費資料 · 六個月 · 不虛構結果</span>
+            </div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">MISSION</div>
+      </section>
+
+      <section id="scene-04" class="clip scene" data-start="56.109" data-duration="19.879" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>ONE FRONTIER AT A TIME</span><span class="scene-counter">04 / 08</span></div>
+        <div class="progress-track"><span id="progress-04" class="progress-fill"></span></div>
+        <div class="scene-body two-col">
+          <div>
+            <div class="eyebrow anim-04">一次一個決策</div>
+            <h2 class="anim-04">只解決最會影響下游的 <span class="accent">current frontier</span></h2>
+            <div style="display:grid; gap:18px; margin-top:34px">
+              <div class="panel anim-04" data-label="AGENT" style="padding:24px 28px"><strong style="font-size:28px">可查事實</strong><p style="margin-top:8px; font-size:22px; color:var(--muted)">文獻、資料規格、方法前提</p></div>
+              <div class="panel anim-04" data-label="RESEARCHER" style="padding:24px 28px; border-color:var(--amber)"><strong style="font-size:28px">價值與取捨</strong><p style="margin-top:8px; font-size:22px; color:var(--muted)">目的、範圍、承諾、不可逆決定</p></div>
+            </div>
+          </div>
+          <div class="panel decision-tree anim-04" data-label="DECISION TREE">
+            <div class="tree-line"></div>
+            <div class="tree-node current node-04"><h3>主要結果變數？</h3><p>知識測驗，或決策品質？</p></div>
+            <div class="tree-node node-04"><h3>識別策略</h3><p>依前一選擇重新生成選項</p></div>
+            <div class="tree-node node-04"><h3>資料與樣本</h3><p>未到 frontier，不提前詢問</p></div>
+            <div class="tree-node node-04"><h3>輸出格式</h3><p>沿用已記錄目的地</p></div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">DECIDE</div>
+      </section>
+
+      <section id="scene-05" class="clip scene" data-start="75.988" data-duration="24.059" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>CLAIM → EVIDENCE → REVIEW</span><span class="scene-counter">05 / 08</span></div>
+        <div class="progress-track"><span id="progress-05" class="progress-fill"></span></div>
+        <div class="scene-body">
+          <div>
+            <div class="eyebrow anim-05">查證、攻擊、修補</div>
+            <h2 class="anim-05">研究主張要通過<span class="accent">可失敗的 gates</span></h2>
+            <div class="gate-flow">
+              <div class="gate gate-05"><span class="gate-index">01</span><h3>SOURCE</h3><p>高信任來源與精確 locator</p></div>
+              <div class="gate gate-05"><span class="gate-index">02</span><h3>GAP</h3><p>closest work 與真正差異</p></div>
+              <div class="gate gate-05"><span class="gate-index">03</span><h3>IDENTIFY</h3><p>estimand、counterfactual、威脅</p></div>
+              <div class="gate gate-05"><span class="gate-index">04</span><h3>PILOT</h3><p>用最小 tracer 殺死錯設計</p></div>
+              <div class="gate gate-05"><span class="gate-index">05</span><h3>REVIEW</h3><p>由最弱的 load-bearing 軸決定</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">FALSIFY</div>
+      </section>
+
+      <section id="scene-06" class="clip scene" data-start="100.047" data-duration="20.251" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>ONE BRIEF · MANY OUTPUTS</span><span class="scene-counter">06 / 08</span></div>
+        <div class="progress-track"><span id="progress-06" class="progress-fill"></span></div>
+        <div class="scene-body">
+          <div class="eyebrow anim-06" style="position:absolute; left:124px; top:158px; z-index:4">同一份研究契約，多種成果</div>
+          <div class="panel brief-core anim-06" data-label="CANONICAL">
+            <h3>Research Brief</h3>
+            <p>question · contribution · theory · constructs · identification · data · method · falsifiers</p>
+            <div style="margin-top:28px"><span class="status-chip warn">CONDITIONAL</span></div>
+          </div>
+          <div class="output-card plan output-06"><h4>研究計畫</h4><p>ACADEMIC REVIEW</p></div>
+          <div class="output-card proposal output-06"><h4>企劃／Proposal</h4><p>FUNDABILITY</p></div>
+          <div class="output-card paper output-06"><h4>Paper blueprint</h4><p>NO RESULTS → NO MANUSCRIPT CLAIMS</p></div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">COLLAPSE</div>
+      </section>
+
+      <section id="scene-07" class="clip scene" data-start="120.298" data-duration="26.752" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>WORKED EXAMPLE</span><span class="scene-counter">07 / 08</span></div>
+        <div class="progress-track"><span id="progress-07" class="progress-fill"></span></div>
+        <div class="scene-body">
+          <div>
+            <div class="eyebrow anim-07">金融衝擊 Wave–Diffusion</div>
+            <h2 class="anim-07">不是保住所有想法，而是留下<span class="accent">可區分的問題</span></h2>
+            <div class="equation-row">
+              <div class="equation-card eq-07"><h3>WAVE</h3><div class="equation">ü + γu̇ = −c²Lu</div></div>
+              <div class="equation-card eq-07"><h3>HEAT</h3><div class="equation">u̇ = −κLu</div></div>
+              <div class="equation-card eq-07"><h3>LAPLACE</h3><div class="equation">L(u−μ) = 0</div></div>
+              <div class="equation-card removed eq-07"><h3>MAXWELL–BOLTZMANN</h3><div class="equation">EXCLUDED</div></div>
+            </div>
+            <div class="final-question anim-07">有限速度的阻尼傳播，能否和普通擴散由資料中的可拒絕限制區分？</div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">REPAIR</div>
+      </section>
+
+      <section id="scene-08" class="clip scene" data-start="147.050" data-duration="23.084" data-track-index="1">
+        <div class="top-rail"><span class="brand"><b>R/</b> RESEARCH OS</span><span>HONEST STATUS</span><span class="scene-counter">08 / 08</span></div>
+        <div class="progress-track"><span id="progress-08" class="progress-fill"></span></div>
+        <div class="scene-body">
+          <div>
+            <div class="eyebrow anim-08">停止，也是一種研究能力</div>
+            <h2 class="anim-08">沒有證據，就不把<span class="accent">流暢文字</span>當成完成。</h2>
+            <div class="status-ruler">
+              <div class="status-box status-08"><h3>COMPLETE</h3><p>必要 gates 與 readback 都通過</p></div>
+              <div class="status-box status-08"><h3>PARTIAL</h3><p>可用，但仍有明確限制</p></div>
+              <div class="status-box status-08"><h3>CONDITIONAL</h3><p>核心主張等待 named gate</p></div>
+              <div class="status-box status-08"><h3>BLOCKED</h3><p>證據不足，停止補猜</p></div>
+              <div class="status-box status-08"><h3>KILL</h3><p>題目在現有限制下不值得做</p></div>
+            </div>
+            <div class="cta-line anim-08">輸入主題、目的與限制。從第一個真正重要的問題開始。</div>
+          </div>
+        </div>
+        <div class="ghost" data-layout-allow-occlusion data-layout-allow-overlap aria-hidden="true">START</div>
+      </section>
+
+      <div id="caption-01" class="clip caption" data-start="0.8" data-duration="14.489" data-track-index="20">AI 可以立刻寫三十頁；Research OS 先確認研究是否站得住。</div>
+      <div id="caption-02" class="clip caption" data-start="17.289" data-duration="17.508" data-track-index="20">不是固定大流程，而是依問題組合小而明確的研究 skills。</div>
+      <div id="caption-03" class="clip caption" data-start="36.797" data-duration="18.112" data-track-index="20">交代主題、目的地、受眾、目前狀態與限制。</div>
+      <div id="caption-04" class="clip caption" data-start="56.909" data-duration="17.879" data-track-index="20">可查事實由 Agent 查；研究者決定目的、取捨與承諾。</div>
+      <div id="caption-05" class="clip caption" data-start="76.788" data-duration="22.059" data-track-index="20">查證、反證、pilot 與 reviewer attack，都要能讓設計失敗。</div>
+      <div id="caption-06" class="clip caption" data-start="100.847" data-duration="18.251" data-track-index="20">Research Brief 是單一研究契約，再轉譯成不同成果。</div>
+      <div id="caption-07" class="clip caption" data-start="121.098" data-duration="24.752" data-track-index="20">刪掉不能區分的裝飾，只留下可由資料拒絕的研究問題。</div>
+      <div id="caption-08" class="clip caption" data-start="147.850" data-duration="21.084" data-track-index="20">Conditional、blocked 或 kill，都是比虛構完成更可靠的答案。</div>
+
+      <audio id="audio-01" class="clip" src="assets/voice/scene-01.wav" data-start="0.8" data-duration="14.489" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-02" class="clip" src="assets/voice/scene-02.wav" data-start="17.289" data-duration="17.508" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-03" class="clip" src="assets/voice/scene-03.wav" data-start="36.797" data-duration="18.112" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-04" class="clip" src="assets/voice/scene-04.wav" data-start="56.909" data-duration="17.879" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-05" class="clip" src="assets/voice/scene-05.wav" data-start="76.788" data-duration="22.059" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-06" class="clip" src="assets/voice/scene-06.wav" data-start="100.847" data-duration="18.251" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-07" class="clip" src="assets/voice/scene-07.wav" data-start="121.098" data-duration="24.752" data-track-index="10" data-volume="1"></audio>
+      <audio id="audio-08" class="clip" src="assets/voice/scene-08.wav" data-start="147.850" data-duration="21.084" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      const scenes = [
+        { id: "01", start: 0, duration: 16.489 },
+        { id: "02", start: 16.489, duration: 19.508 },
+        { id: "03", start: 35.997, duration: 20.112 },
+        { id: "04", start: 56.109, duration: 19.879 },
+        { id: "05", start: 75.988, duration: 24.059 },
+        { id: "06", start: 100.047, duration: 20.251 },
+        { id: "07", start: 120.298, duration: 26.752 },
+        { id: "08", start: 147.05, duration: 23.084 }
+      ];
+
+      scenes.forEach((scene, index) => {
+        const selector = `.anim-${scene.id}`;
+        tl.fromTo(selector, { opacity: 0, y: 54 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power3.out" }, scene.start + 0.25);
+        tl.fromTo(`#progress-${scene.id}`, { scaleX: 0 }, { scaleX: (index + 1) / 8, duration: 1.1, ease: "power2.out" }, scene.start + 0.15);
+      });
+
+      tl.fromTo(".item-01", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.55, stagger: 0.22, ease: "back.out(1.4)" }, 1.35);
+      tl.fromTo(".skill-02", { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 0.5, stagger: 0.14, ease: "power3.out" }, 18.3);
+      tl.fromTo(".node-04", { opacity: 0, x: 72 }, { opacity: 1, x: 0, duration: 0.55, stagger: 0.18, ease: "power2.out" }, 57.4);
+      tl.fromTo(".gate-05", { opacity: 0, y: 80, rotation: 1.5 }, { opacity: 1, y: 0, rotation: 0, duration: 0.65, stagger: 0.22, ease: "power3.out" }, 77.0);
+      tl.fromTo(".output-06", { opacity: 0, scale: 0.82 }, { opacity: 1, scale: 1, duration: 0.7, stagger: 0.18, ease: "back.out(1.4)" }, 102.0);
+      tl.fromTo(".eq-07", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.65, stagger: 0.18, ease: "power3.out" }, 121.7);
+      tl.fromTo(".status-08", { opacity: 0, y: 55 }, { opacity: 1, y: 0, duration: 0.55, stagger: 0.14, ease: "power2.out" }, 148.5);
+
+      document.querySelectorAll(".caption").forEach((el) => {
+        const start = Number(el.dataset.start);
+        const duration = Number(el.dataset.duration);
+        tl.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, start);
+        tl.to(el, { opacity: 0, y: -18, duration: 0.25, ease: "power2.in" }, start + duration - 0.25);
+      });
+
+      tl.fromTo(".grid", { opacity: 0.55, x: 0 }, { opacity: 0.82, x: -80, duration: 170.134, ease: "none" }, 0);
+      tl.fromTo(".ghost", { opacity: 0.45, x: 40 }, { opacity: 1, x: 0, duration: 1.2, ease: "power2.out", stagger: 0.08 }, 0.5);
+      tl.to(".corner.tl", { rotation: 90, duration: 6, ease: "sine.inOut", repeat: 27, yoyo: true }, 0);
+      tl.to(".corner.br", { rotation: 270, duration: 7, ease: "sine.inOut", repeat: 23, yoyo: true }, 0);
+
+      window.__timelines.main = tl;
+    </script>
+  </body>
+</html>

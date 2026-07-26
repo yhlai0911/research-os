@@ -31,6 +31,41 @@ def test_catalog_is_synchronized() -> None:
     assert result.returncode == 0, result.stderr
 
 
+def test_tutorial_delivery_is_present_and_receipted() -> None:
+    required_docs = (
+        ROOT / "docs" / "USAGE_GUIDE.zh-TW.md",
+        ROOT / "docs" / "PROMPT_COOKBOOK.zh-TW.md",
+        ROOT / "docs" / "TROUBLESHOOTING.zh-TW.md",
+        ROOT
+        / "examples"
+        / "financial-wave-diffusion"
+        / "WALKTHROUGH.zh-TW.md",
+    )
+    for path in required_docs:
+        assert path.is_file() and path.stat().st_size > 500
+
+    tutorial = ROOT / "jobs" / "research-os-tutorial"
+    video = tutorial / "output" / "research-os-tutorial-zh-TW.mp4"
+    receipt = json.loads((tutorial / "render-receipt.json").read_text())
+    assert video.is_file() and video.stat().st_size == receipt["output"]["size_bytes"]
+    assert hashlib.sha256(video.read_bytes()).hexdigest() == receipt["output"]["sha256"]
+    assert receipt["quality_gates"]["hyperframes_check_ok"] is True
+    assert receipt["quality_gates"]["runtime_errors"] == 0
+    assert receipt["quality_gates"]["layout_errors"] == 0
+    assert receipt["quality_gates"]["contrast_warnings"] == 0
+
+    ledger = json.loads((tutorial / "cost_ledger.json").read_text())
+    assert len(ledger["paid_submission_attempts"]) == 21
+    assert sum(
+        event["status"] == "success"
+        for event in ledger["paid_submission_attempts"]
+    ) == 8
+    assert all(
+        event["credits"] == "unreported" and event["usd"] == "unreported"
+        for event in ledger["paid_submission_attempts"]
+    )
+
+
 def test_repository_validates() -> None:
     result = run_script("validate_repository.py")
     assert result.returncode == 0, result.stdout + result.stderr

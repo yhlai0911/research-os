@@ -2,6 +2,14 @@
 
 All notable changes to Research OS are recorded here.
 
+## 1.1.0 — 2026-07-26
+
+- Added a complete Traditional Chinese usage guide covering installation, one-frontier interaction, deliverable selection, artifact readback, statuses, and a worked mini example.
+- Added a copyable prompt cookbook for vague topics, equation-led research, data-first work, plan repair, proposals, papers, and handoffs.
+- Added a troubleshooting guide for over-questioning, blocked outputs, novelty overclaims, artifact conflicts, exclusions, invocation, and validation.
+- Added a step-by-step Traditional Chinese walkthrough of the Financial Wave–Diffusion example.
+- Added a reproducible 1920×1080 HyperFrames tutorial project with storyboard, locked script, ElevenLabs narration, captions, QA snapshots, cost ledger, render receipt, and a 2m50s MP4.
+
 ## 1.0.0 — 2026-07-26
 
 - Added 39 catalogued skills: 13 explicit orchestrators, 25 model-invoked research primitives, and one skill-engineering meta skill.
