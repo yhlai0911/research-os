@@ -1,0 +1,6 @@
+interface:
+  display_name: "Writing Research Skills"
+  short_description: "Design and maintain predictable research skills"
+  default_prompt: "Use $writing-research-skills to create or improve a Research OS skill."
+policy:
+  allow_implicit_invocation: false

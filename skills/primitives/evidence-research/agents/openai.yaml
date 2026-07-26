@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Research"
+  short_description: "Trace research claims to high-trust primary sources"
+  default_prompt: "Use $evidence-research to investigate this claim against primary sources."

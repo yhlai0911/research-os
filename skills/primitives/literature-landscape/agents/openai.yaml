@@ -1,0 +1,4 @@
+interface:
+  display_name: "Literature Landscape"
+  short_description: "Map theories, methods, data, findings, and disputes"
+  default_prompt: "Use $literature-landscape to map the literature around this research question."

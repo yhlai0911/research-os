@@ -1,0 +1,6 @@
+interface:
+  display_name: "Grill Research Idea"
+  short_description: "Interrogate a research idea one decision at a time"
+  default_prompt: "Use $grill-research-idea to stress-test and sharpen my research idea."
+policy:
+  allow_implicit_invocation: false

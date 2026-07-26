@@ -1,0 +1,4 @@
+interface:
+  display_name: "Falsification First"
+  short_description: "Try to kill the paper before reviewers do"
+  default_prompt: "Use $falsification-first to design tests that could kill this paper's central claim."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Contribution Design"
+  short_description: "Turn novelty into a defensible contribution delta"
+  default_prompt: "Use $contribution-design to turn this idea into a defensible contribution."

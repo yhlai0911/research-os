@@ -1,0 +1,8 @@
+schema_version: 1
+statuses:
+  - "unverified"
+  - "verified"
+  - "contested"
+  - "superseded"
+  - "blocked"
+claims: []

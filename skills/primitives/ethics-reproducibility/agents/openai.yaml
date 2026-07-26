@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ethics and Reproducibility"
+  short_description: "Design ethical, reproducible, and auditable research"
+  default_prompt: "Use $ethics-reproducibility to audit this design for ethics and reproducibility."

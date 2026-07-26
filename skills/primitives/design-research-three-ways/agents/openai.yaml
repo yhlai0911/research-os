@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Research Three Ways"
+  short_description: "Generate and compare three genuinely different designs"
+  default_prompt: "Use $design-research-three-ways to develop three contrasting designs for this question."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Identification Design"
+  short_description: "Define estimands, counterfactuals, and threats"
+  default_prompt: "Use $identification-design to define the estimand, counterfactual, and identification strategy."

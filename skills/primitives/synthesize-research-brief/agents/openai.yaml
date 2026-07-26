@@ -1,0 +1,4 @@
+interface:
+  display_name: "Synthesize Research Brief"
+  short_description: "Collapse verified research state into one contract"
+  default_prompt: "Use $synthesize-research-brief to collapse this verified research state into the canonical Research Brief."

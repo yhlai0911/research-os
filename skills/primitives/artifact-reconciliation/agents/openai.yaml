@@ -1,0 +1,4 @@
+interface:
+  display_name: "Artifact Reconciliation"
+  short_description: "Resolve conflicts without losing provenance"
+  default_prompt: "Use $artifact-reconciliation to resolve these conflicting research artifacts without losing provenance."

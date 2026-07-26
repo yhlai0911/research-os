@@ -1,0 +1,4 @@
+interface:
+  display_name: "Theory Builder"
+  short_description: "Build mechanisms, boundary conditions, and predictions"
+  default_prompt: "Use $theory-builder to derive a mechanism and testable predictions for this question."

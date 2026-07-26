@@ -1,0 +1,4 @@
+interface:
+  display_name: "Journal Fit"
+  short_description: "Match contribution and evidence to a journal audience"
+  default_prompt: "Use $journal-fit to assess the best journal audience and required changes."

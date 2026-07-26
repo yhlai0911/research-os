@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Review"
+  short_description: "Run independent reviewer attacks across six axes"
+  default_prompt: "Use $research-review to review this work as a skeptical journal panel."

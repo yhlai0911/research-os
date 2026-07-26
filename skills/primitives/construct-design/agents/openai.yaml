@@ -1,0 +1,4 @@
+interface:
+  display_name: "Construct Design"
+  short_description: "Define constructs and defensible measurement models"
+  default_prompt: "Use $construct-design to define and operationalize the constructs in this study."

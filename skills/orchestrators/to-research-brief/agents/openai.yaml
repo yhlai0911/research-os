@@ -1,0 +1,6 @@
+interface:
+  display_name: "To Research Brief"
+  short_description: "Collapse a discussion into a research contract"
+  default_prompt: "Use $to-research-brief to turn this discussion into a rigorous research brief."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Equation Builder"
+  short_description: "Derive equations with economic and dimensional meaning"
+  default_prompt: "Use $equation-builder to derive the equations and audit every symbol's meaning."

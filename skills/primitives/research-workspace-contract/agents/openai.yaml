@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Workspace Contract"
+  short_description: "Establish canonical research state without overwrite"
+  default_prompt: "Use $research-workspace-contract to establish and verify the canonical research workspace for this authorized workflow."

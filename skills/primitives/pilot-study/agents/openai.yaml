@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pilot Study"
+  short_description: "Build the smallest empirical or interaction tracer"
+  default_prompt: "Use $pilot-study to design the smallest end-to-end tracer study for this project."

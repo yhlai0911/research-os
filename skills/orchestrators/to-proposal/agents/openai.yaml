@@ -1,0 +1,6 @@
+interface:
+  display_name: "To Proposal"
+  short_description: "Turn a research design into a credible proposal"
+  default_prompt: "Use $to-proposal to turn this research design into a credible proposal."
+policy:
+  allow_implicit_invocation: false

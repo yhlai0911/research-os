@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gap Audit"
+  short_description: "Test whether a claimed research gap is real"
+  default_prompt: "Use $gap-audit to test whether this claimed research gap survives the literature."

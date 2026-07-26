@@ -1,0 +1,6 @@
+interface:
+  display_name: "Execute Workpackage"
+  short_description: "Claim and execute one verified research workpackage"
+  default_prompt: "Use $execute-workpackage to claim and execute the next eligible research workpackage."
+policy:
+  allow_implicit_invocation: false

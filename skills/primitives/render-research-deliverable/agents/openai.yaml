@@ -1,0 +1,4 @@
+interface:
+  display_name: "Render Research Deliverable"
+  short_description: "Render verified research into the requested artifact"
+  default_prompt: "Use $render-research-deliverable to turn this verified Research Brief into the requested final artifact."

@@ -1,0 +1,71 @@
+schema_version: 1
+statuses:
+  - "unverified"
+  - "verified"
+  - "contested"
+  - "superseded"
+  - "blocked"
+claims:
+  - id: "C001"
+    text: "Diebold and Yilmaz propose total and directional volatility spillover measures from generalized VAR forecast-error variance decompositions."
+    scope: "Closest connectedness baseline"
+    status: "verified"
+    sources:
+      - url: "https://financialconnectedness.org/book/research.html"
+        role: "Author-maintained research page"
+        locator: "Diebold and Yilmaz (2012) entry"
+    entailment: "The author-maintained page explicitly describes generalized VAR, order-invariant forecast-error variance decompositions, and total and directional spillover measures."
+    caveats: "This verifies the method description, not the absence of later finite-speed extensions."
+    checked_at: "2026-07-26"
+
+  - id: "C002"
+    text: "Telegraph-process finance models and hyperbolic option-pricing equations predate this proposed empirical study."
+    scope: "Novelty boundary"
+    status: "verified"
+    sources:
+      - url: "https://arxiv.org/abs/0712.3428"
+        role: "Primary preprint"
+        locator: "Full PDF p. 2 and model derivation"
+    entailment: "The inspected full preprint defines financial market models based on generalized telegraph processes and derives a hyperbolic fundamental equation."
+    caveats: "The paper concerns market models and option pricing, not cross-market volatility transmission."
+    checked_at: "2026-07-26"
+
+  - id: "C003"
+    text: "The classical telegraph equation arises as a finite-speed limit of correlated discontinuous movements."
+    scope: "Mathematical provenance"
+    status: "blocked"
+    sources:
+      - url: "https://doi.org/10.1093/qjmam/4.2.129"
+        role: "Primary journal article"
+        locator: "Abstract"
+    entailment: "The primary-source abstract states the claimed limiting result, but the full article was not inspectable in this run."
+    caveats: "Keep blocked until the full primary article is inspected. Even then, the mathematical result would not establish that financial shocks follow the same process."
+    checked_at: "2026-07-26"
+
+  - id: "C004"
+    text: "Temporal distance between market closing hours is empirically relevant to global return-spillover networks."
+    scope: "Identification threat and graph candidate"
+    status: "verified"
+    sources:
+      - url: "https://arxiv.org/abs/1507.06242"
+        role: "Primary preprint"
+        locator: "Full PDF pp. 1, 4, 10, and 29"
+    entailment: "The inspected full preprint documents return alignment for non-synchronous trading and reports temporal distance between closing hours as significant for spillover probability."
+    caveats: "The study examines return spillovers and Granger-causality networks, not the proposed volatility PDE restrictions."
+    checked_at: "2026-07-26"
+
+  - id: "C005"
+    text: "No prior study has jointly tested graph diffusion against constrained damped-wave dynamics for global equity volatility transmission."
+    scope: "Central novelty claim"
+    status: "blocked"
+    status_history:
+      - status: "unverified"
+        changed_at: "2026-07-26"
+        reason: "Initial candidate claim before a systematic literature-boundary search."
+      - status: "blocked"
+        changed_at: "2026-07-26"
+        reason: "The required reproducible boundary search has not been executed, so the claim cannot support a contribution statement."
+    sources: []
+    entailment: ""
+    caveats: "Requires a systematic boundary search across finance, spatial econometrics, network dynamics, and econophysics before use in a manuscript."
+    checked_at: "2026-07-26"

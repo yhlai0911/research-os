@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Writing"
+  short_description: "Write evidence-led academic prose as an argument"
+  default_prompt: "Use $research-writing to turn these verified findings into academic prose."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Citation Audit"
+  short_description: "Verify that citations entail the claims they support"
+  default_prompt: "Use $citation-audit to verify every material claim and citation in this draft."

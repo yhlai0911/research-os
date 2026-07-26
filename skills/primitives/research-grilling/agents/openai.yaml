@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Grilling"
+  short_description: "Resolve research decisions one branch at a time"
+  default_prompt: "Use $research-grilling to resolve the key decisions in my research idea."

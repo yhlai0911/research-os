@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Domain Modeling"
+  short_description: "Sharpen constructs, terms, relations, and decisions"
+  default_prompt: "Use $research-domain-modeling to sharpen the constructs and vocabulary in this project."

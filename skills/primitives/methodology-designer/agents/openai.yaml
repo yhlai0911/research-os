@@ -1,0 +1,4 @@
+interface:
+  display_name: "Methodology Designer"
+  short_description: "Align questions, estimands, data, models, and tests"
+  default_prompt: "Use $methodology-designer to align the question, estimand, data, model, and evaluation."

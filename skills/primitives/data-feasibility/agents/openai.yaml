@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Feasibility"
+  short_description: "Verify data access, timing, coverage, and fitness"
+  default_prompt: "Use $data-feasibility to verify whether the required data can actually support this study."
