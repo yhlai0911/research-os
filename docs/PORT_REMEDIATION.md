@@ -26,11 +26,11 @@ This ledger records the final Research OS disposition of prompt- and repository-
 | Triage could restart renamed ideas | concept signatures, aliases, evidence-frontier `checked_at`, discover/resume queues, dedup, reason codes, and verified `no-op` | prompt regression test |
 | Interaction uncertainty did not fit an empirical pilot | `pilot-study` selects an empirical tracer or quarantined interaction prototype with actors, states, variants, observations, thresholds, and separate promotion authority | prompt regression test |
 | Research Brief writer and plan prerequisite authority could drift | `synthesize-research-brief` is the sole canonical writer; renderer rejects Brief destinations; `to-research-plan` never initializes or synthesizes missing prerequisites | unique-writer and wrapper-authority regression test |
-| Cross-harness enforcement was ambiguous | v1 is explicitly Codex-first; other harnesses require generated and tested invocation adapters | README and architecture contract |
+| Cross-harness enforcement was ambiguous | catalog generates Codex metadata in-repo and Claude Code invocation frontmatter at install time; each harness has an independent verifier path | Codex/Claude install integration tests, README, and architecture contract |
 
 ## Deliberately outside the v1 core
 
-- Claude-, Cursor-, or vendor-specific invocation adapters and plugin manifests;
+- Claude Marketplace plugin distribution plus Cursor- or other vendor-specific invocation adapters;
 - receipt-aware managed upgrade and uninstall;
 - cryptographic release signing or automatic GitHub Release publication;
 - recurring research-operation automation;

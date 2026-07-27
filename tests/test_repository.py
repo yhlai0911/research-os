@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-import json
 import hashlib
+import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -17,12 +18,15 @@ from scripts.validate_repository import load_yaml_strict  # noqa: E402
 CATALOG = yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text())
 
 
-def run_script(name: str, *args: str) -> subprocess.CompletedProcess[str]:
+def run_script(
+    name: str, *args: str, env: dict[str, str] | None = None
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         [sys.executable, str(ROOT / "scripts" / name), *args],
         check=False,
         capture_output=True,
         text=True,
+        env=env,
     )
 
 
@@ -804,6 +808,88 @@ def test_installer_flattens_without_overwrite(tmp_path: Path) -> None:
     assert not json.loads(repeated.stdout)["conflicts"]
 
 
+def test_codex_install_defaults_to_codex_home_and_verifies_all_skills(
+    tmp_path: Path,
+) -> None:
+    codex_home = tmp_path / "codex-home"
+    env = {**os.environ, "CODEX_HOME": str(codex_home)}
+    target = codex_home / "skills"
+
+    preview = run_script("install_skills.py", "--dry-run", env=env)
+    assert preview.returncode == 0, preview.stderr
+    preview_receipt = json.loads(preview.stdout)
+    assert preview_receipt["target"] == str(target)
+    assert len(preview_receipt["planned"]) == len(CATALOG["skills"])
+    assert not target.exists()
+
+    installed = run_script("install_skills.py", env=env)
+    assert installed.returncode == 0, installed.stderr
+    assert len(json.loads(installed.stdout)["created"]) == len(CATALOG["skills"])
+
+    verified = run_script("verify_install.py", env=env)
+    assert verified.returncode == 0, verified.stdout + verified.stderr
+    assert f"INSTALL OK: {len(CATALOG['skills'])} skills" in verified.stdout
+
+
+def test_claude_code_install_generates_invocation_adapter_and_verifies(
+    tmp_path: Path,
+) -> None:
+    home = tmp_path / "home"
+    env = {**os.environ, "HOME": str(home)}
+    target = home / ".claude" / "skills"
+
+    installed = run_script("install_skills.py", "--harness", "claude-code", env=env)
+    assert installed.returncode == 0, installed.stderr
+    receipt = json.loads(installed.stdout)
+    assert receipt["harness"] == "claude-code"
+    assert receipt["target"] == str(target)
+    assert len(receipt["created"]) == len(CATALOG["skills"])
+    assert len(receipt["source_skills"]) == len(CATALOG["skills"])
+    assert receipt["source_skills"] != receipt["skills"]
+
+    user_skill = target / "develop-research" / "SKILL.md"
+    model_skill = target / "research-review" / "SKILL.md"
+    assert "disable-model-invocation: true" in user_skill.read_text()
+    assert "user-invocable: false" in model_skill.read_text()
+    assert "disable-model-invocation" not in (
+        ROOT / "skills" / "orchestrators" / "develop-research" / "SKILL.md"
+    ).read_text()
+
+    verified = run_script(
+        "verify_install.py", "--harness", "claude-code", env=env
+    )
+    assert verified.returncode == 0, verified.stdout + verified.stderr
+    assert f"INSTALL OK: {len(CATALOG['skills'])} skills" in verified.stdout
+
+
+def test_claude_code_install_rejects_symlink_mode(tmp_path: Path) -> None:
+    result = run_script(
+        "install_skills.py",
+        "--harness",
+        "claude-code",
+        "--mode",
+        "symlink",
+        "--target",
+        str(tmp_path),
+    )
+    assert result.returncode == 2
+    assert "requires copy mode" in result.stderr
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_install_verifier_detects_partial_or_modified_skill(tmp_path: Path) -> None:
+    installed = run_script("install_skills.py", "--target", str(tmp_path))
+    assert installed.returncode == 0, installed.stderr
+
+    metadata = tmp_path / "develop-research" / "agents" / "openai.yaml"
+    metadata.unlink()
+    verified = run_script("verify_install.py", "--target", str(tmp_path))
+
+    assert verified.returncode == 2
+    assert "INSTALL FAILED" in verified.stdout
+    assert str(metadata) in verified.stdout
+
+
 def test_installer_preflights_all_conflicts_before_writing(tmp_path: Path) -> None:
     conflict = tmp_path / "ask-research"
     conflict.mkdir()
@@ -857,3 +943,6 @@ def test_installer_symlink_mode_is_idempotent_and_receipted(tmp_path: Path) -> N
     repeated_receipt = json.loads(repeated.stdout)
     assert repeated_receipt["marker"] == "preserved"
     assert not repeated_receipt["conflicts"]
+
+    verified = run_script("verify_install.py", "--target", str(tmp_path))
+    assert verified.returncode == 0, verified.stdout + verified.stderr

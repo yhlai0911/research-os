@@ -20,11 +20,99 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
 
 `/develop-research` 是端到端主流程，不會強迫每個題目走同一份 checklist。它每輪只解決最會影響下游的 frontier，並保留使用者排除過的領域、方法與資料限制。只想選擇工作流時用 `/ask-research`；大型跨 session 計畫可用 `/research-wayfinder`；已拆解的實作工作可用 `/execute-workpackage` 原子認領並留下 receipt；canonical artifacts 衝突時由 `artifact-reconciliation` 保留雙方 lineage、建立 superseding artifact，並驗證唯一 current pointer；其餘 orchestrators 是明確的快捷入口。
 
-## 快速開始
+## 安裝到 Codex（完整 39 skills）
 
-第一次使用請先讀 [`docs/USAGE_GUIDE.zh-TW.md`](docs/USAGE_GUIDE.zh-TW.md)。它不是指令清單，而是一條可實際照做的完整路徑：從安裝、輸入一句模糊主題、回答必要決策，到讀取 Research Brief、研究計畫、proposal 或 paper blueprint。常用提示詞可直接複製自 [`docs/PROMPT_COOKBOOK.zh-TW.md`](docs/PROMPT_COOKBOOK.zh-TW.md)，遇到卡關則查閱 [`docs/TROUBLESHOOTING.zh-TW.md`](docs/TROUBLESHOOTING.zh-TW.md)。
+Research OS 是一套 **39 個 skills 的集合**，不是一個可由 repository 根網址當成單一 skill 安裝的 skill。不要對 `https://github.com/yhlai0911/research-os` 直接使用 Codex 的單一 skill GitHub 安裝器；它需要每個 skill 的內部路徑，也不具備本專案的整批 preflight 與 receipt。這條 Codex 安裝流程不需要 `.claude-plugin/plugin.json`。
 
-驗證 repository：
+### 直接交給 Codex 安裝
+
+把下面整段貼給 Codex：
+
+```text
+請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
+這是 39 個 skills 的集合，不是單一 skill。
+請 clone repository，使用 uv 執行：
+1. uv sync --locked
+2. uv run python scripts/install_skills.py --dry-run
+3. dry-run 沒有 conflicts 才執行 uv run python scripts/install_skills.py
+4. uv run python scripts/verify_install.py
+不要使用單一 skill GitHub 安裝器處理 repository 根網址，
+也不要尋找或建立 .claude-plugin/plugin.json。
+最後讀回 .research-os-install.json，回報 source commit，
+並確認結果為 INSTALL OK: 39 skills。
+```
+
+### 在終端機手動安裝
+
+```bash
+git clone https://github.com/yhlai0911/research-os.git
+cd research-os
+uv sync --locked
+uv run python scripts/install_skills.py --dry-run
+uv run python scripts/install_skills.py
+uv run python scripts/verify_install.py
+```
+
+未提供 `--target` 時，安裝器會使用 `$CODEX_HOME/skills`；若未設定 `CODEX_HOME`，則使用 `~/.codex/skills`。只有刻意安裝到其他 Codex skills 目錄時才需加上 `--target /明確的/skills/路徑`。
+
+安裝器會先完成 39 個目標的全批 preflight；任何同名 skill 內容不同時，整批停止、不覆寫，也不留下半套新安裝。成功後會寫入 `.research-os-install.json`，`verify_install.py` 會重新核對 catalog、39 個 skill 目錄、`SKILL.md`、`agents/openai.yaml`、內容 hash 與 receipt。新 skills 會在 Codex 的下一輪或新 task 載入。
+
+第一次使用可接著閱讀 [`docs/USAGE_GUIDE.zh-TW.md`](docs/USAGE_GUIDE.zh-TW.md)。常用提示詞可直接複製自 [`docs/PROMPT_COOKBOOK.zh-TW.md`](docs/PROMPT_COOKBOOK.zh-TW.md)，遇到卡關則查閱 [`docs/TROUBLESHOOTING.zh-TW.md`](docs/TROUBLESHOOTING.zh-TW.md)。
+
+## 安裝到 Claude Code（完整 39 skills）
+
+Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`。Research OS 會在安裝時從同一份 catalog 生成 Claude Code invocation adapter：14 個 user-only skills 加上 `disable-model-invocation: true`，25 個 model-only skills 加上 `user-invocable: false`；repository 內的 canonical `SKILL.md` 不會被改寫。這是純 skills 安裝，不需要 plugin manifest。[Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills#where-skills-live)
+
+### 直接交給 Claude Code 安裝
+
+把下面整段貼給 Claude Code：
+
+```text
+請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
+這是 39 個 skills 的集合，不是單一 skill。
+請 clone repository，使用 uv 執行：
+1. uv sync --locked
+2. uv run python scripts/install_skills.py --harness claude-code --dry-run
+3. dry-run 沒有 conflicts 才執行
+   uv run python scripts/install_skills.py --harness claude-code
+4. uv run python scripts/verify_install.py --harness claude-code
+最後讀回 ~/.claude/skills/.research-os-install.json，
+回報 source commit，並確認結果為 INSTALL OK: 39 skills。
+```
+
+### 在終端機安裝為個人 skills
+
+```bash
+git clone https://github.com/yhlai0911/research-os.git
+cd research-os
+uv sync --locked
+uv run python scripts/install_skills.py --harness claude-code --dry-run
+uv run python scripts/install_skills.py --harness claude-code
+uv run python scripts/verify_install.py --harness claude-code
+```
+
+### 安裝到單一專案
+
+在 Research OS repository 根目錄執行，並把目標 project 換成明確路徑：
+
+```bash
+uv run python scripts/install_skills.py \
+  --harness claude-code \
+  --target /absolute/path/to/project/.claude/skills \
+  --dry-run
+uv run python scripts/install_skills.py \
+  --harness claude-code \
+  --target /absolute/path/to/project/.claude/skills
+uv run python scripts/verify_install.py \
+  --harness claude-code \
+  --target /absolute/path/to/project/.claude/skills
+```
+
+如果 `~/.claude/skills/` 或專案 `.claude/skills/` 在 Claude Code session 啟動時已存在，新增 skills 可被即時偵測；若頂層 skills 目錄是安裝時才建立，請重啟 Claude Code。可用 `/skills` 檢查清單，再以 `/develop-research` 測試 user-only 入口。[Claude Code 官方 live change detection](https://code.claude.com/docs/en/skills#live-change-detection)
+
+Claude Code 官方安裝規格、standalone skills 與 Marketplace plugin 的差異，整理於 [`docs/research/claude-code-skills-installation.md`](docs/research/claude-code-skills-installation.md)。
+
+### 維護者驗證 repository
 
 ```bash
 uv sync --locked --all-groups
@@ -32,19 +120,6 @@ uv run python scripts/sync_catalog.py --check
 uv run python scripts/validate_repository.py
 uv run pytest
 ```
-
-安裝到一個新的 Agent Skills 目錄：
-
-```bash
-uv run python scripts/install_skills.py \
-  --target /absolute/path/to/skills \
-  --dry-run
-
-uv run python scripts/install_skills.py \
-  --target /absolute/path/to/skills
-```
-
-安裝器會先完成全目標 preflight；任何既有 skill 內容不同時，整批停止、不覆寫、也不留下半套新安裝。
 
 最簡單的使用方式：
 
@@ -97,7 +172,7 @@ v1.0 共 39 個 catalogued skills：13 個 orchestrators、25 個 primitives、1
 
 41 個 upstream skills 的逐檔 prompt 稽核、移植矩陣與修補紀錄見 [`docs/MATT_SKILLS_ANALYSIS.md`](docs/MATT_SKILLS_ANALYSIS.md)、[`docs/MATT_PORT_MAP.yaml`](docs/MATT_PORT_MAP.yaml) 與 [`docs/PORT_REMEDIATION.md`](docs/PORT_REMEDIATION.md)；fresh-agent 行為測試收在 [`tests/forward-evals/`](tests/forward-evals/)。
 
-本版是 **Codex-first** distribution：`agents/openai.yaml` 的 user/model invocation policy 由 catalog 生成並機械驗證。核心 `SKILL.md` 可供其他 Agent harness 參考，但 Claude、Cursor 或其他平台在沒有對應 generated adapter 與驗證前，不宣稱具備相同的 invocation enforcement。
+本版以 catalog 作為跨 harness source of truth：Codex 的 `agents/openai.yaml` 由 catalog 生成並機械驗證；Claude Code 則在安裝時生成對應的 `disable-model-invocation`／`user-invocable` frontmatter 並做 readback。其他 Agent harness 在沒有 generated adapter 與驗證前，不宣稱具備相同的 invocation enforcement。
 
 從乾淨且已提交的來源建立 deterministic release：
 

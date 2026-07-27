@@ -2,6 +2,15 @@
 
 All notable changes to Research OS are recorded here.
 
+## Unreleased
+
+- Clarified that Research OS is a 39-skill Codex suite rather than one root skill, and added a copyable Codex installation workflow.
+- Made the installer default to `$CODEX_HOME/skills` or `~/.codex/skills` and added final installed-tree hash readback.
+- Added `scripts/verify_install.py` to verify every catalogued skill, Codex metadata file, content hash, and installation receipt.
+- Added regression coverage for the default Codex target and incomplete-install detection.
+- Added a catalog-generated Claude Code adapter for personal and project skills, preserving user/model invocation boundaries without changing canonical `SKILL.md` frontmatter.
+- Added official-source Claude Code installation, discovery, live-reload, and troubleshooting guidance.
+
 ## 1.1.0 — 2026-07-26
 
 - Added a complete Traditional Chinese usage guide covering installation, one-frontier interaction, deliverable selection, artifact readback, statuses, and a worked mini example.

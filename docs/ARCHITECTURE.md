@@ -90,7 +90,37 @@ The loop is adaptive: it does not run every primitive or assume a fixed Wave →
 
 `scripts/validate_repository.py` checks catalog equality, exact descriptions, invocation policy, UI metadata, local links, placeholders, resource hygiene, workspace contracts, the pinned 41-skill upstream port map, and version alignment. This removes the manual mirror drift observed in the reference repository.
 
-Version 1.0 is Codex-first. OpenAI invocation metadata is generated and enforced; other harnesses require their own generated adapter before cross-harness equivalence can be claimed.
+Codex metadata is generated in the repository. Claude Code metadata is generated at installation time so canonical `SKILL.md` frontmatter remains limited to `name` and `description`. Other harnesses require their own generated and verified adapter before cross-harness equivalence can be claimed.
+
+### Codex installation contract
+
+Research OS is distributed as one catalogued suite of 39 skills, not as one root skill. A bare GitHub repository URL is therefore not a valid input to Codex's single-skill installer, which requires one or more internal skill paths.
+
+The repository-owned installer is the suite authority:
+
+1. resolve the target to `$CODEX_HOME/skills` or `~/.codex/skills` unless explicitly overridden;
+2. preflight every catalogued destination and the ownership marker before any write;
+3. stage and hash every pending skill;
+4. promote the complete set or roll back;
+5. write `.research-os-install.json` with catalog version, source commit, mode, and per-skill hashes;
+6. run `scripts/verify_install.py` to read back all 39 directories, required Codex metadata, hashes, and receipt.
+
+Claude plugin manifests are outside this Codex-first contract. Adding one cannot prove a complete Codex installation.
+
+### Claude Code installation contract
+
+Claude Code discovers standalone personal skills at `~/.claude/skills/<name>/SKILL.md` and project skills at `.claude/skills/<name>/SKILL.md`. `scripts/install_skills.py --harness claude-code` materializes all 39 catalogued skills into one of those standard locations.
+
+The adapter is deterministic and catalog-driven:
+
+- `invocation: user` generates `disable-model-invocation: true`;
+- `invocation: model` generates `user-invocable: false`;
+- source `SKILL.md` files remain unchanged;
+- copy mode is required because the installed frontmatter differs from source;
+- the receipt records `harness: claude-code`, source hashes, and installed hashes;
+- `scripts/verify_install.py --harness claude-code` verifies paths, frontmatter policy, hashes, and receipt.
+
+This standalone-skills contract does not require `.claude-plugin/plugin.json`. A future marketplace plugin would be a separate generated distribution surface with namespaced commands and its own add, install, reload, version, and validation gates.
 
 ## Mutation boundary
 

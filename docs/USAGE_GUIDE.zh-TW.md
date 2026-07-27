@@ -6,7 +6,67 @@ Research OS 不是「輸入題目，立刻吐出三十頁文字」的生成器�
 
 ## 1. 安裝與驗證
 
-在 repository 根目錄執行：
+Research OS 是 39 個 skills 的套件，不是單一 skill。Codex 的單一 skill GitHub 安裝器不能只靠 repository 根網址安裝整套 Research OS；請先 clone repository，再使用本專案的 catalog-driven 安裝器。這個流程不使用 Claude plugin，也不需要 `.claude-plugin/plugin.json`。
+
+直接把下面整段交給 Codex 即可：
+
+```text
+請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
+這是 39 個 skills 的集合，不是單一 skill。
+請 clone repository，以 uv 執行 install_skills.py 的 dry-run 與正式安裝，
+再執行 verify_install.py；遇到任何 conflict 必須停止，不得覆寫。
+不要使用單一 skill GitHub 安裝器處理 repository 根網址，
+也不要尋找或建立 .claude-plugin/plugin.json。
+完成時必須回報 source commit 與 INSTALL OK: 39 skills。
+```
+
+若要在終端機手動安裝：
+
+```bash
+git clone https://github.com/yhlai0911/research-os.git
+cd research-os
+uv sync --locked
+uv run python scripts/install_skills.py --dry-run
+uv run python scripts/install_skills.py
+uv run python scripts/verify_install.py
+```
+
+預設安裝目標是 `$CODEX_HOME/skills`；若未設定 `CODEX_HOME`，則是 `~/.codex/skills`。只有需要非預設位置時才明確指定：
+
+```bash
+uv run python scripts/install_skills.py \
+  --target /absolute/path/to/skills \
+  --dry-run
+uv run python scripts/install_skills.py \
+  --target /absolute/path/to/skills
+uv run python scripts/verify_install.py \
+  --target /absolute/path/to/skills
+```
+
+安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，39 個 skills 整批停止，不覆寫既有資料，也不留下半套安裝。成功後必須看到 `INSTALL OK: 39 skills`；新 skills 會在 Codex 下一輪或新 task 載入。
+
+### Claude Code
+
+Claude Code 個人 skills 的官方位置是 `~/.claude/skills/`，專案 skills 則是 `<project>/.claude/skills/`。請使用同一個安裝器的 Claude Code harness，讓 catalog 自動生成正確的 invocation metadata，不要直接複製未轉換的來源目錄：
+
+```bash
+git clone https://github.com/yhlai0911/research-os.git
+cd research-os
+uv sync --locked
+uv run python scripts/install_skills.py --harness claude-code --dry-run
+uv run python scripts/install_skills.py --harness claude-code
+uv run python scripts/verify_install.py --harness claude-code
+```
+
+這會將完整 39 skills 安裝到 `~/.claude/skills/`。若只供一個專案使用，三個 install／verify commands 都加上：
+
+```bash
+--target /absolute/path/to/project/.claude/skills
+```
+
+安裝器會為 user-only skills 生成 `disable-model-invocation: true`，為 model-only skills 生成 `user-invocable: false`，但不修改 repository 來源。驗證成功後，用 Claude Code 的 `/skills` 檢查清單並以 `/develop-research` 測試。若頂層 skills 目錄在目前 session 啟動後才建立，需重啟 Claude Code；已存在的 skills 目錄則支援即時偵測。詳見 [Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills)。
+
+維護者若要驗證 repository 本身，再執行：
 
 ```bash
 uv sync --locked --all-groups
@@ -14,23 +74,6 @@ uv run python scripts/sync_catalog.py --check
 uv run python scripts/validate_repository.py
 uv run pytest
 ```
-
-先預覽安裝目標：
-
-```bash
-uv run python scripts/install_skills.py \
-  --target /absolute/path/to/skills \
-  --dry-run
-```
-
-確認後再安裝：
-
-```bash
-uv run python scripts/install_skills.py \
-  --target /absolute/path/to/skills
-```
-
-安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，整批停止，不覆寫既有資料，也不留下半套安裝。
 
 ## 2. 用一句完整任務啟動
 
