@@ -92,7 +92,7 @@ Laplace relation 不再被強迫當作第三個可觀察 regime，而是作為�
 可以直接使用：
 
 ```text
-/develop-research
+/research-auto
 
 我想把[方程式／理論／其他領域概念]用於[領域]，
 最後形成[研究計畫／proposal／paper blueprint]。
