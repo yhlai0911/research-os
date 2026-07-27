@@ -9,7 +9,7 @@ Build an **audit trail** that lets another qualified researcher determine what w
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, proposals, reviews, pilots, workpackages, papers, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, proposal, methodology, data-feasibility review, pilots, workpackages, papers, disclosures, and relevant decisions at their resolved paths.
 4. Identify the jurisdiction, institution, funder, venue, data provider, participant population, and collaboration obligations that govern the work. Stop when the governing context or a required resolved path is unknown; request workspace repair instead of inventing a parallel path.
@@ -42,9 +42,9 @@ Invoke `$data-feasibility` for license and access semantics, `$citation-audit` f
 
 ## Write back
 
-Reuse the current registered review for the same artifact, or create `<artifact-id>-ethics-reproducibility.md` under the resolved reviews directory (baseline `.research/reviews/`). Begin it with `Status: complete|partial|blocked`, `Updated`, target identity, and scope. Include the gate matrix, evidence pointers, blockers, reproducibility manifest, and release plan. Record approvals, exemptions, licenses, preregistration choices, deviations, and disclosure decisions under the resolved decisions directory. Update `.research/config.yaml` only after user confirmation and without deleting prior policy. Update affected entries in the resolved claims registry when reproducibility changes their support status.
+Reuse the current registered review for the same artifact, or create `<artifact-id>-ethics-reproducibility.md` under the resolved reviews directory. Begin it with `Status: complete|partial|blocked`, `Updated`, target identity, and scope. Include the gate matrix, evidence pointers, blockers, reproducibility manifest, and release plan. Record approvals, exemptions, licenses, preregistration choices, deviations, and disclosure decisions under the resolved decisions directory. Update `.research/config.yaml` only after user confirmation and without deleting prior policy. Update affected entries in the resolved claims registry when reproducibility changes their support status.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Set artifact status `complete` only when every applicable ethics gate passes or is justified as not applicable and the required audit trail is reproducible. Use `partial` only for non-safety reproducibility gaps that do not authorize a blocked action, and `blocked` whenever a required ethics, license, approval, governing-context, or resolved-path gate is blocked.
 

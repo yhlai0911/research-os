@@ -9,11 +9,11 @@ Build a **claim chain** from the exact claim to inspectable primary evidence. Tr
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context and claims paths, then read the resolved files before searching; use `.research/evidence/claims.yaml` only as the baseline claim-registry path.
+- Resolve `.research/config.yaml` and its canonical context and claims paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the resolved files before searching; use `.research/evidence/claims.yaml` only as the baseline claim-registry path.
 - Preserve `schema_version`, `statuses`, existing claim IDs, and unrelated entries. Use only the configured statuses: `unverified`, `verified`, `contested`, `superseded`, and `blocked`.
 - Re-read the resolved claims registry immediately before writing. Link new material claims from the relevant map, brief, review, or paper instead of duplicating the chain.
 - Record the evidence-task outcome and affected claim IDs in the resolved context; do not add an unregistered top-level status field to the claims registry.
-- Record that outcome in one `## Artifact index` table with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; use the claim IDs as the current evidence pointer and preserve superseded rows.
+- Record that outcome in the resolved context per the writeback protocol; use the claim IDs as the current evidence pointer and preserve superseded rows.
 - Stop with `blocked: research_workspace_not_initialized` when `config.yaml` or a required resolved path is absent.
 
 ## Trace the claim

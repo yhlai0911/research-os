@@ -1,6 +1,6 @@
 # Forward evaluation: adaptive topic
 
-- Skill: `$develop-research`
+- Skill: `$research-auto`
 - Scope: first interactive turn
 - Isolated workspace: `/tmp/research-os-forward/adaptive`
 - Verdict: pass

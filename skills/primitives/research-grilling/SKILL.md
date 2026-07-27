@@ -9,10 +9,9 @@ Resolve a **decision tree** one dependency at a time. Investigate facts; reserve
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, decisions, and templates paths, then read the resolved context and only the linked artifacts needed for the current branch.
+- Resolve `.research/config.yaml` and its canonical context, decisions, and templates paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the resolved context and only the linked artifacts needed for the current branch.
 - Treat `.research/` and any configured adapters as one source of truth. Re-read a target immediately before writing, preserve unrelated edits, and link new records from the resolved context.
-- Maintain one `## Artifact index` in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the existing row for the same kind and topic; preserve superseded rows.
-- Stop with `blocked: research_workspace_not_initialized` when `config.yaml` or a required resolved path is missing. Ask the user to run `$setup-research-os`; do not create a parallel workspace.
+- Stop with `blocked: research_workspace_not_initialized` when `config.yaml` or a required resolved path is missing. Ask the user to run `$research-setup`; do not create a parallel workspace.
 - Report the interview outcome as `complete`, `partial`, or `blocked`. Keep that run outcome distinct from each decision record's lifecycle status. Never convert an unknown fact into a user decision.
 
 ## Work the decision tree
@@ -37,7 +36,7 @@ Create a Research Decision Record only when all four admission tests pass:
 3. viable alternatives create a genuine trade-off; and
 4. downstream research artifacts would become ambiguous or invalid if the rationale were lost.
 
-For an admitted decision, write one record under the configured decisions directory (baseline `.research/decisions/`). Read `decision-record.md` from the resolved templates directory and preserve its schema. Follow a configured naming rule when present; otherwise scan existing `RDR-NNNN` records and increment the highest number.
+For an admitted decision, write one record under the configured decisions directory. Read `decision-record.md` from the resolved templates directory and preserve its schema. Follow a configured naming rule when present; otherwise scan existing `RDR-NNNN` records and increment the highest number.
 
 Use decision status `accepted` after user confirmation, `proposed` while a choice remains open, `blocked` when a required fact is unavailable, and `superseded` only with a replacement record. Put the question, evidence, and unresolved dependencies in **Context**; the chosen option and rationale in **Decision**; rejected options in **Alternatives**; downstream effects in **Consequences**; and observable reopening conditions in **Revisit when**. Preserve superseded records and point them to the replacement.
 

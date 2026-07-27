@@ -1,6 +1,6 @@
 # Forward evaluation: blocked claims
 
-- Skill: `$develop-research`
+- Skill: `$research-auto`
 - Scope: first necessary user-decision boundary
 - Isolated workspace: `/tmp/research-os-forward/blocked-claims`
 - Verdict: pass

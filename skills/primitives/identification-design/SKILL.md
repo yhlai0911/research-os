@@ -9,7 +9,7 @@ Treat the **counterfactual** as the organizing object. Require every causal clai
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, reviews, papers, proposals, workpackages, decisions, and templates paths from that file. Treat paths such as `.research/CONTEXT.md` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, proposal, paper, workpackage, review, and relevant decisions.
 4. Identify every causal, mechanism, transmission, treatment, policy, and structural claim in scope. Stop when a required resolved path is absent; ask the user to run or repair the setup workflow instead of inventing a parallel schema.
@@ -37,7 +37,7 @@ Write one design per target ID under the resolved briefs directory as `<target-i
 
 Record a hard-to-reverse design choice with `decision-record.md` from the resolved templates directory. Follow a configured naming rule when present; otherwise scan the resolved decisions directory for `RDR-NNNN` records and increment the highest number. Never invent a second decision filename convention.
 
-Register the brief through the single `## Artifact index` table in the resolved context, using columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows. Map verdicts mechanically:
+Register the brief in the resolved context per the writeback protocol. Map verdicts mechanically:
 
 | Identification verdict | Identification brief | Dependent causal candidate, contribution, or equation |
 |---|---|---|

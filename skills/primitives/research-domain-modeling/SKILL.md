@@ -9,9 +9,8 @@ Use the **construct** as the unit of meaning. Separate what the study means from
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, maps, and decisions paths, then read the resolved context and current topic artifacts.
-- Use an existing registered domain map; otherwise create `domain-model-<topic-slug>.md` under the resolved maps directory (baseline `.research/maps/`) and register it in the resolved context.
-- Register it through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
+- Resolve `.research/config.yaml` and its canonical context, maps, and decisions paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the resolved context and current topic artifacts.
+- Use an existing registered domain map; otherwise create `domain-model-<topic-slug>.md` under the resolved maps directory and register it in the resolved context.
 - Re-read before writing and preserve unrelated entries. Treat conversation text as a proposal until it is accepted and written to `.research/`.
 - Stop with `blocked: research_workspace_not_initialized` when the contract files are absent.
 

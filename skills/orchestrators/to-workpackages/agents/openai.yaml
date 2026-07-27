@@ -1,6 +1,0 @@
-interface:
-  display_name: "To Workpackages"
-  short_description: "Split a research brief into tracer workpackages"
-  default_prompt: "Use $to-workpackages to split this research brief into dependency-aware tracer studies."
-policy:
-  allow_implicit_invocation: false

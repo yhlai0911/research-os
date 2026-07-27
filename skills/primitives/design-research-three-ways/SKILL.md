@@ -9,10 +9,9 @@ Create a **contrast**, not three cosmetic variants. Hold the question and constr
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, maps, and decisions paths, then read the domain, theory, construct, evidence, and feasibility artifacts needed for the question.
-- Use an existing registered comparison; otherwise create `design-contrast-<topic-slug>.md` under the resolved maps directory (baseline `.research/maps/`) and register it in the resolved context.
+- Resolve `.research/config.yaml` and its canonical context, maps, and decisions paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the domain, theory, construct, evidence, and feasibility artifacts needed for the question.
+- Use an existing registered comparison; otherwise create `design-contrast-<topic-slug>.md` under the resolved maps directory and register it in the resolved context.
 - Record a selected design under the resolved decisions directory; keep all three candidates in the map.
-- Register the comparison through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
 - Stop with `blocked: research_workspace_not_initialized` when the contract is absent.
 
 ## Fix the shared brief

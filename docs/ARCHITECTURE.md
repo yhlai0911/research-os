@@ -8,9 +8,13 @@ Research OS seeks process predictability under uncertain evidence. It does not p
 
 ### User-invoked orchestrators
 
-These skills expose long flows, project setup, durable synthesis, or artifact creation. Codex metadata sets `policy.allow_implicit_invocation: false`. The agent may recommend one through `/ask-research`, but a user-only skill never silently launches another user-only skill.
+These skills expose long flows, project setup, durable synthesis, or artifact creation. Codex metadata sets `policy.allow_implicit_invocation: false`. The agent may recommend one through `/research-help`, but a user-only skill never silently launches another user-only skill.
 
-`develop-research` is the flagship end-to-end orchestrator. It starts from the user's actual seed and chooses one model-invoked primitive at a time according to the live bottleneck. It may establish the workspace contract because invocation explicitly authorizes the scoped local workflow; it still cannot launch a different user-only orchestrator.
+Six of them form the **mainline**, `research-1-grill` through `research-6-review`. The numbering is load-bearing rather than cosmetic: the pipeline's order is the first thing a user sees in the skill list, and each mainline skill states its own position and names its successor on reaching a completion gate. Handing off is not the same as launching — a mainline skill names the next step and stops. `research-3-falsify` precedes decomposition so that no execution cost is committed to a claim with no predeclared way to fail.
+
+`research-auto` is the adaptive alternative to walking the mainline by hand. It starts from the user's actual seed and chooses one model-invoked primitive at a time according to the live bottleneck. It may establish the workspace contract because invocation explicitly authorizes the scoped local workflow; it still cannot launch a different user-only orchestrator.
+
+`research-status` is read-only. It reports mainline position, current artifacts, and unresolved claims from the Artifact index and the claim registry, and never advances or repairs anything.
 
 ### Model-invoked primitives
 
@@ -18,11 +22,11 @@ These skills contain reusable research discipline and rich trigger descriptions.
 
 ### Router
 
-`ask-research` is the route-only entry point. It names the right human-invoked next step and stops. Most users who already want a finished research artifact should invoke `develop-research`; the router exists for users who only need orientation.
+`research-help` is the route-only entry point. It names the right human-invoked next step and stops. The numbered mainline already answers "what comes next" for anyone inside the pipeline, so the router now serves the narrower case of a user who does not yet know which entry point applies.
 
 ## Durable project contract
 
-`research-workspace-contract` owns initialization and resolution of `.research/config.yaml`; `setup-research-os` is its explicit thin wrapper. The default contract is:
+`research-workspace-contract` owns initialization and resolution of `.research/config.yaml`; `research-setup` is its explicit thin wrapper. The default contract is:
 
 ```text
 .research/
@@ -42,6 +46,8 @@ These skills contain reusable research discipline and rich trigger descriptions.
 └── templates/
 ```
 
+`research-workspace-contract/references/writeback-protocol.md` is the single definition of the resolution procedure, the Artifact index contract, and the three index statuses. Skills bind to it by link and state only what is specific to their own artifact. `validate_repository.py` enforces the link rather than the literal table header; the earlier string check produced the same bookkeeping in 33 files and would have propagated it to every new skill.
+
 Authority is partitioned:
 
 - vocabulary, scope, current question, and current-artifact index → `CONTEXT.md`;
@@ -53,7 +59,7 @@ Authority is partitioned:
 
 Artifacts link to each other instead of restating each other.
 
-One ready workpackage is executed through `execute-workpackage`. A filesystem-level atomic claim prevents concurrent owners from running the same package; only a sealed, read-back receipt unlocks dependent work.
+One ready workpackage is executed through `research-5-run`. A filesystem-level atomic claim prevents concurrent owners from running the same package; only a sealed, read-back receipt unlocks dependent work.
 
 Canonical conflicts are not resolved by last-writer-wins. `artifact-reconciliation` pins both identities and lineages, separates factual evidence from human choice and schema/execution conflicts, creates one superseding artifact, invalidates stale consumers, and proves one current pointer.
 
@@ -61,10 +67,25 @@ Revision review uses one deterministic comparison packet generated from immutabl
 
 ## Research control flow
 
+Two routes reach the same durable state. The mainline is explicit and user-paced:
+
+```text
+research-setup
+    ↓
+1 grill ──→ 2 brief ──→ 3 falsify ──→ 4 tasks ──→ 5 run ──→ 6 review
+    │          │            │            │          │          │
+    └──────────┴────────────┴────────────┴──────────┴──────────┘
+         each step registers its artifact, names the next step, and stops
+                                    ↓
+                    to-plan / to-proposal / to-paper
+```
+
+`research-status` reads that state at any point without advancing it. The adaptive route collapses the same gates into one loop:
+
 ```text
 topic / direction / equation / data / draft / review
     ↓
-develop-research
+research-auto
     ↓
 current frontier ──→ one narrow primitive ──→ durable readback
     ↑                                           ↓
@@ -94,7 +115,7 @@ Codex metadata is generated in the repository. Claude Code metadata is generated
 
 ### Codex installation contract
 
-Research OS is distributed as one catalogued suite of 39 skills, not as one root skill. A bare GitHub repository URL is therefore not a valid input to Codex's single-skill installer, which requires one or more internal skill paths.
+Research OS is distributed as one catalogued suite of 42 skills, not as one root skill. A bare GitHub repository URL is therefore not a valid input to Codex's single-skill installer, which requires one or more internal skill paths.
 
 The repository-owned installer is the suite authority:
 
@@ -109,7 +130,7 @@ Claude plugin manifests are outside this Codex-first contract. Adding one cannot
 
 ### Claude Code installation contract
 
-Claude Code discovers standalone personal skills at `~/.claude/skills/<name>/SKILL.md` and project skills at `.claude/skills/<name>/SKILL.md`. `scripts/install_skills.py --harness claude-code` materializes all 39 catalogued skills into one of those standard locations.
+Claude Code discovers standalone personal skills at `~/.claude/skills/<name>/SKILL.md` and project skills at `.claude/skills/<name>/SKILL.md`. `scripts/install_skills.py --harness claude-code` materializes all 42 catalogued skills into one of those standard locations.
 
 The adapter is deterministic and catalog-driven:
 

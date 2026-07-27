@@ -1,6 +1,6 @@
 # Forward evaluation: no-results paper gate
 
-- Skill: `$to-paper-draft`
+- Skill: `$to-paper`
 - Isolated workspace: `/tmp/research-os-forward/paper-gate`
 - Verdict: pass
 

@@ -11,9 +11,9 @@ This skill is the only writer of the canonical Research Brief. Renderers and des
 
 ## Resolve the workspace
 
-Read only `.research/config.yaml` first. Resolve context, decisions, claims, maps, pilots, reviews, briefs, and templates. Read the resolved context and only current linked artifacts. Use `research-brief.md` from the resolved templates directory.
+Resolve `.research/config.yaml` and register every outcome per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). This skill needs context, decisions, claims, maps, pilots, reviews, briefs, and templates; use `research-brief.md` from the resolved templates directory.
 
-Stop with `blocked: research_workspace_not_initialized` when config or a required resolved path is absent. Call `$research-workspace-contract` only when the surrounding workflow carries explicit local-setup authority.
+Call `$research-workspace-contract` only when the surrounding workflow carries explicit local-setup authority.
 
 ## Prove readiness
 
@@ -62,9 +62,7 @@ Reuse the current registered brief or allocate one stable ID. Assign its domain 
 - `conditional` when named conditions must pass before execution or stronger claims;
 - `blocked` when a load-bearing fact, decision, or validity condition is unresolved.
 
-Record version, updated time, inputs, claim and decision links, acceptance, and readiness rationale. Register the brief in the resolved context's single `## Artifact index`:
-
-`| Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes |`
+Record version, updated time, inputs, claim and decision links, acceptance, and readiness rationale. Register the brief in the resolved context per the writeback protocol.
 
 Map `ready` to index `complete`, `conditional` to `partial`, and `blocked` to `blocked`. Re-read the brief, changed claims or decisions, and index row. A complete run requires all pointers and statuses to agree.
 

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Step 3 - Try to Kill It"
+  short_description: "Predeclare what evidence would kill the design"
+  default_prompt: "Use $research-3-falsify to predeclare what evidence would kill this research design."
+policy:
+  allow_implicit_invocation: false

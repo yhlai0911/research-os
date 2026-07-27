@@ -55,7 +55,7 @@ Before release, forward evaluations run the public prompts against fresh agents 
 
 The public installation path must:
 
-1. identify Research OS as a 39-skill suite rather than one root skill;
+1. identify Research OS as a 42-skill suite rather than one root skill;
 2. default to `$CODEX_HOME/skills` or `~/.codex/skills` without a placeholder;
 3. fail before writing when any destination or ownership marker conflicts;
 4. install every catalogued `SKILL.md` and `agents/openai.yaml`;

@@ -59,11 +59,14 @@ def test_tutorial_delivery_is_present_and_receipted() -> None:
     assert receipt["quality_gates"]["contrast_warnings"] == 0
 
     ledger = json.loads((tutorial / "cost_ledger.json").read_text())
-    assert len(ledger["paid_submission_attempts"]) == 21
-    assert sum(
-        event["status"] == "success"
-        for event in ledger["paid_submission_attempts"]
-    ) == 8
+    attempts = ledger["paid_submission_attempts"]
+    # 21 attempts / 8 successes built v1; the v2 narration rebuild added the rest,
+    # including probes and one discarded take. The ledger records every paid
+    # submission because the API never returns per-request credits.
+    assert len(attempts) == 46
+    assert sum(event["status"] == "success" for event in attempts) == 23
+    assert ledger["totals"]["unreported_paid_submission_attempts"] == len(attempts)
+    assert ledger["totals"]["successful_voice_clips"] == 23
     assert all(
         event["credits"] == "unreported" and event["usd"] == "unreported"
         for event in ledger["paid_submission_attempts"]
@@ -73,6 +76,51 @@ def test_tutorial_delivery_is_present_and_receipted() -> None:
 def test_repository_validates() -> None:
     result = run_script("validate_repository.py")
     assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_writeback_protocol_binding_fails_closed() -> None:
+    """Prove the shared-contract rule catches a skill that drops the link.
+
+    The rule replaced a literal-string check that had copied the same
+    bookkeeping into 33 files. A pass-fail-pass cycle shows the replacement
+    still enforces the binding rather than passing vacuously.
+    """
+    protocol = (
+        ROOT
+        / "skills"
+        / "primitives"
+        / "research-workspace-contract"
+        / "references"
+        / "writeback-protocol.md"
+    )
+    assert protocol.is_file()
+    protocol_text = protocol.read_text(encoding="utf-8")
+    assert (
+        "| Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes |"
+        in protocol_text
+    )
+
+    target = ROOT / "skills" / "primitives" / "falsification-first" / "SKILL.md"
+    original = target.read_text(encoding="utf-8")
+    assert "references/writeback-protocol.md" in original
+
+    assert run_script("validate_repository.py").returncode == 0
+
+    target.write_text(
+        original.replace(
+            "[writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md)",
+            "the workspace contract",
+        ),
+        encoding="utf-8",
+    )
+    try:
+        failing = run_script("validate_repository.py")
+        assert failing.returncode == 1
+        assert "must link to references/writeback-protocol.md" in failing.stdout
+    finally:
+        target.write_text(original, encoding="utf-8")
+
+    assert run_script("validate_repository.py").returncode == 0
 
 
 def test_workspace_initializer_is_additive_and_idempotent(tmp_path: Path) -> None:
@@ -424,7 +472,7 @@ def test_prompt_ports_keep_load_bearing_matt_mechanics() -> None:
         assert marker in workspace
 
     triage = (
-        ROOT / "skills" / "orchestrators" / "idea-triage" / "SKILL.md"
+        ROOT / "skills" / "orchestrators" / "research-triage" / "SKILL.md"
     ).read_text(encoding="utf-8")
     for marker in (
         "**discover**",
@@ -460,7 +508,7 @@ def test_brief_writer_and_plan_authority_are_unambiguous() -> None:
         / "SKILL.md"
     ).read_text(encoding="utf-8")
     plan = (
-        ROOT / "skills" / "orchestrators" / "to-research-plan" / "SKILL.md"
+        ROOT / "skills" / "orchestrators" / "to-plan" / "SKILL.md"
     ).read_text(encoding="utf-8")
     assert "only writer of the canonical Research Brief" in synthesize
     assert "blocked: canonical_writer_mismatch" in renderer
@@ -801,7 +849,7 @@ def test_installer_flattens_without_overwrite(tmp_path: Path) -> None:
     assert result.returncode == 0, result.stderr
     receipt = json.loads(result.stdout)
     assert len(receipt["skills"]) == len(CATALOG["skills"])
-    assert (tmp_path / "ask-research" / "SKILL.md").is_file()
+    assert (tmp_path / "research-help" / "SKILL.md").is_file()
 
     repeated = run_script("install_skills.py", "--target", str(tmp_path))
     assert repeated.returncode == 0, repeated.stderr
@@ -847,12 +895,12 @@ def test_claude_code_install_generates_invocation_adapter_and_verifies(
     assert len(receipt["source_skills"]) == len(CATALOG["skills"])
     assert receipt["source_skills"] != receipt["skills"]
 
-    user_skill = target / "develop-research" / "SKILL.md"
+    user_skill = target / "research-auto" / "SKILL.md"
     model_skill = target / "research-review" / "SKILL.md"
     assert "disable-model-invocation: true" in user_skill.read_text()
     assert "user-invocable: false" in model_skill.read_text()
     assert "disable-model-invocation" not in (
-        ROOT / "skills" / "orchestrators" / "develop-research" / "SKILL.md"
+        ROOT / "skills" / "orchestrators" / "research-auto" / "SKILL.md"
     ).read_text()
 
     verified = run_script(
@@ -881,7 +929,7 @@ def test_install_verifier_detects_partial_or_modified_skill(tmp_path: Path) -> N
     installed = run_script("install_skills.py", "--target", str(tmp_path))
     assert installed.returncode == 0, installed.stderr
 
-    metadata = tmp_path / "develop-research" / "agents" / "openai.yaml"
+    metadata = tmp_path / "research-auto" / "agents" / "openai.yaml"
     metadata.unlink()
     verified = run_script("verify_install.py", "--target", str(tmp_path))
 
@@ -891,7 +939,7 @@ def test_install_verifier_detects_partial_or_modified_skill(tmp_path: Path) -> N
 
 
 def test_installer_preflights_all_conflicts_before_writing(tmp_path: Path) -> None:
-    conflict = tmp_path / "ask-research"
+    conflict = tmp_path / "research-help"
     conflict.mkdir()
     (conflict / "SKILL.md").write_text("conflicting local skill\n", encoding="utf-8")
 
@@ -901,7 +949,7 @@ def test_installer_preflights_all_conflicts_before_writing(tmp_path: Path) -> No
     assert result.returncode == 2
     assert str(conflict) in receipt["conflicts"]
     assert receipt["created"] == []
-    assert not (tmp_path / "setup-research-os").exists()
+    assert not (tmp_path / "research-setup").exists()
     assert not (tmp_path / ".research-os-install.json").exists()
 
 
@@ -918,7 +966,7 @@ def test_installer_preflights_marker_and_preserves_user_owned_file(
     assert result.returncode == 2
     assert str(marker) in receipt["conflicts"]
     assert marker.read_text(encoding="utf-8") == original
-    assert not (tmp_path / "ask-research").exists()
+    assert not (tmp_path / "research-help").exists()
 
 
 def test_installer_symlink_mode_is_idempotent_and_receipted(tmp_path: Path) -> None:
@@ -927,7 +975,7 @@ def test_installer_symlink_mode_is_idempotent_and_receipted(tmp_path: Path) -> N
     )
     assert first.returncode == 0, first.stderr
     first_receipt = json.loads(first.stdout)
-    assert (tmp_path / "ask-research").is_symlink()
+    assert (tmp_path / "research-help").is_symlink()
     marker = json.loads(
         (tmp_path / ".research-os-install.json").read_text(encoding="utf-8")
     )

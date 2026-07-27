@@ -9,7 +9,7 @@ Build a **tracer study**: preserve the full path from source to research verdict
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, reviews, pilots, workpackages, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, identification design, data-feasibility review, methodology, falsification plan, workpackages, and ethics decisions at their resolved paths.
 4. Name the single uncertainty the pilot must reduce. Stop when the pilot has no decision it can change or a required resolved path is missing; request workspace repair instead of inventing a parallel path.
@@ -57,7 +57,7 @@ Delegate unresolved access to `$data-feasibility`, causal design to `$identifica
 
 Reuse the current registered pilot ID for the same topic, or allocate a stable pilot ID and create `plan.md` under the resolved pilots directory (baseline `.research/pilots/<pilot-id>/plan.md`). Begin the plan with `Status: complete|partial|blocked`, `Updated`, and scope. When executed, add `result.md` beneath the same pilot identifier, give it the same status metadata, and preserve all output pointers there. Update affected entries in the resolved claims registry using only its declared statuses; record whether the result verifies, contests, or blocks each exact claim. Record any threshold-changing repair under the resolved decisions directory.
 
-Register the current plan or executed result in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the current plan or executed result in the resolved context per the writeback protocol.
 
 For a design-only request, set the plan `complete` when it is executable without hidden assumptions; use `partial` for unresolved nonfatal design dependencies and `blocked` when a required authorization, ethics gate, access premise, or resolved path is unavailable. For an executed pilot, map `go` to `complete`, `repair` to `partial`, and `stop` to `complete` as a diagnostic outcome while marking the dependent study blocked; do not describe an unexecuted plan as an executed result.
 

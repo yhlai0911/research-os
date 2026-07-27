@@ -1,6 +1,6 @@
 # Forward evaluation: existing-design repair
 
-- Skill: `$develop-research`
+- Skill: `$research-auto`
 - Scope: existing design through first necessary user-decision boundary
 - Isolated workspace: `/tmp/research-os-forward/existing-design`
 - Verdict: pass

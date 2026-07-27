@@ -6,10 +6,10 @@ This ledger records the final Research OS disposition of prompt- and repository-
 
 | Finding | Final Research OS mechanism | Mechanical proof |
 |---|---|---|
-| No adaptive topic-to-output flow | `develop-research` recomputes one load-bearing frontier, separates facts from decisions, preserves exclusions, and stops at destination readiness | fresh-agent adaptive evaluation |
+| No adaptive topic-to-output flow | `research-auto` recomputes one load-bearing frontier, separates facts from decisions, preserves exclusions, and stops at destination readiness | fresh-agent adaptive evaluation |
 | Source contract mixed with rendered output | `synthesize-research-brief` is the only Research Brief writer; `render-research-deliverable` owns destination profiles and derived-export provenance | validator plus no-results paper evaluation |
-| No academic research-plan output | `to-research-plan`, a canonical plans path, template, and renderer profile | workspace and catalog tests |
-| Workpackage graph had no executor | `execute-workpackage` claims and executes one immutable ready package, runs package/project gates, and seals a receipt | atomic competition/idempotence tests |
+| No academic research-plan output | `to-plan`, a canonical plans path, template, and renderer profile | workspace and catalog tests |
+| Workpackage graph had no executor | `research-5-run` claims and executes one immutable ready package, runs package/project gates, and seals a receipt | atomic competition/idempotence tests |
 | Wayfinder charting could collapse into work | explicit `chart` and `work` modes; chart stops after create-then-wire; work claims before reading or asking | prompt audit plus shared atomic helper |
 | Concurrent nodes could double-run | versioned atomic directory claim with owner, source hash, `already-claimed`, `already-sealed`, release history, and sealed-version conflict | claim race, release, mutation, and no-op tests |
 | Claim sealing trusted mutable source or prose receipt | source hash is recomputed; JSON receipt schema, owner, claim ID, source hash, and result must match | negative seal tests |
@@ -25,7 +25,7 @@ This ledger records the final Research OS disposition of prompt- and repository-
 | Canonical conflicts could stop but not recover | `artifact-reconciliation` classifies authority, preserves both lineages, supersedes parents, invalidates stale consumers, and proves exactly one current pointer | validator, composition graph, and prompt regression test |
 | Triage could restart renamed ideas | concept signatures, aliases, evidence-frontier `checked_at`, discover/resume queues, dedup, reason codes, and verified `no-op` | prompt regression test |
 | Interaction uncertainty did not fit an empirical pilot | `pilot-study` selects an empirical tracer or quarantined interaction prototype with actors, states, variants, observations, thresholds, and separate promotion authority | prompt regression test |
-| Research Brief writer and plan prerequisite authority could drift | `synthesize-research-brief` is the sole canonical writer; renderer rejects Brief destinations; `to-research-plan` never initializes or synthesizes missing prerequisites | unique-writer and wrapper-authority regression test |
+| Research Brief writer and plan prerequisite authority could drift | `synthesize-research-brief` is the sole canonical writer; renderer rejects Brief destinations; `to-plan` never initializes or synthesizes missing prerequisites | unique-writer and wrapper-authority regression test |
 | Cross-harness enforcement was ambiguous | catalog generates Codex metadata in-repo and Claude Code invocation frontmatter at install time; each harness has an independent verifier path | Codex/Claude install integration tests, README, and architecture contract |
 
 ## Deliberately outside the v1 core

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Research Wayfinder"
-  short_description: "Map multi-session research decisions through fog"
-  default_prompt: "Use $research-wayfinder to map this large, uncertain research effort."
-policy:
-  allow_implicit_invocation: false

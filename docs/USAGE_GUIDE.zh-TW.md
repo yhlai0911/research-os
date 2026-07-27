@@ -6,18 +6,18 @@ Research OS 不是「輸入題目，立刻吐出三十頁文字」的生成器�
 
 ## 1. 安裝與驗證
 
-Research OS 是 39 個 skills 的套件，不是單一 skill。Codex 的單一 skill GitHub 安裝器不能只靠 repository 根網址安裝整套 Research OS；請先 clone repository，再使用本專案的 catalog-driven 安裝器。這個流程不使用 Claude plugin，也不需要 `.claude-plugin/plugin.json`。
+Research OS 是 42 個 skills 的套件，不是單一 skill。Codex 的單一 skill GitHub 安裝器不能只靠 repository 根網址安裝整套 Research OS；請先 clone repository，再使用本專案的 catalog-driven 安裝器。這個流程不使用 Claude plugin，也不需要 `.claude-plugin/plugin.json`。
 
 直接把下面整段交給 Codex 即可：
 
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
-這是 39 個 skills 的集合，不是單一 skill。
+這是 42 個 skills 的集合，不是單一 skill。
 請 clone repository，以 uv 執行 install_skills.py 的 dry-run 與正式安裝，
 再執行 verify_install.py；遇到任何 conflict 必須停止，不得覆寫。
 不要使用單一 skill GitHub 安裝器處理 repository 根網址，
 也不要尋找或建立 .claude-plugin/plugin.json。
-完成時必須回報 source commit 與 INSTALL OK: 39 skills。
+完成時必須回報 source commit 與 INSTALL OK: 42 skills。
 ```
 
 若要在終端機手動安裝：
@@ -43,7 +43,7 @@ uv run python scripts/verify_install.py \
   --target /absolute/path/to/skills
 ```
 
-安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，39 個 skills 整批停止，不覆寫既有資料，也不留下半套安裝。成功後必須看到 `INSTALL OK: 39 skills`；新 skills 會在 Codex 下一輪或新 task 載入。
+安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，42 個 skills 整批停止，不覆寫既有資料，也不留下半套安裝。成功後必須看到 `INSTALL OK: 42 skills`；新 skills 會在 Codex 下一輪或新 task 載入。
 
 ### Claude Code
 
@@ -58,13 +58,13 @@ uv run python scripts/install_skills.py --harness claude-code
 uv run python scripts/verify_install.py --harness claude-code
 ```
 
-這會將完整 39 skills 安裝到 `~/.claude/skills/`。若只供一個專案使用，三個 install／verify commands 都加上：
+這會將完整 42 skills 安裝到 `~/.claude/skills/`。若只供一個專案使用，三個 install／verify commands 都加上：
 
 ```bash
 --target /absolute/path/to/project/.claude/skills
 ```
 
-安裝器會為 user-only skills 生成 `disable-model-invocation: true`，為 model-only skills 生成 `user-invocable: false`，但不修改 repository 來源。驗證成功後，用 Claude Code 的 `/skills` 檢查清單並以 `/develop-research` 測試。若頂層 skills 目錄在目前 session 啟動後才建立，需重啟 Claude Code；已存在的 skills 目錄則支援即時偵測。詳見 [Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills)。
+安裝器會為 user-only skills 生成 `disable-model-invocation: true`，為 model-only skills 生成 `user-invocable: false`，但不修改 repository 來源。驗證成功後，用 Claude Code 的 `/skills` 檢查清單；輸入 `/research-` 應看到主線六步依號碼排列。若頂層 skills 目錄在目前 session 啟動後才建立，需重啟 Claude Code；已存在的 skills 目錄則支援即時偵測。詳見 [Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills)。
 
 維護者若要驗證 repository 本身，再執行：
 
@@ -75,18 +75,40 @@ uv run python scripts/validate_repository.py
 uv run pytest
 ```
 
-## 2. 用一句完整任務啟動
+## 2. 選一條路：主線或自動駕駛
 
-最穩定的起點不是只寫一個名詞，而是同時交代「主題、目的、目前狀態」：
+兩條路會抵達同樣的 `.research/` 狀態，差別在誰控制節奏。
+
+**主線（推薦第一次使用）**——六步，每步結束會告訴你下一步是什麼，然後停下來等你：
 
 ```text
-/develop-research
+/research-setup        建立 .research/ 工作區（一次性）
+/research-1-grill      逼問：把模糊想法問成可研究的問題
+/research-2-brief      鎖定：把討論收斂成一份研究契約
+/research-3-falsify    找碴：先講清楚什麼結果會推翻你
+/research-4-tasks      拆解：切成可獨立驗證的研究任務
+/research-5-run        執行：認領並跑一個任務
+/research-6-review     審查：用審稿人的角度攻擊自己
+```
+
+任何時候都可以用 `/research-status` 查看自己在第幾步、已經有什麼、還缺什麼。
+
+**自動駕駛**——你不想逐步下指令時，`/research-auto` 會自己判斷該走哪一步。
+
+## 3. 用一句完整任務啟動
+
+不論走哪條路，最穩定的起點不是只寫一個名詞，而是同時交代「主題、目的、目前狀態」：
+
+```text
+/research-1-grill
 
 我想研究「生成式 AI 是否改善大學生的財務素養」，
 最後要形成一份可以交給校內審查的研究計畫。
 目前只有題目，沒有文獻、資料或方法。
 請使用繁體中文。
 ```
+
+把 `/research-1-grill` 換成 `/research-auto`，同一段描述也適用於自動駕駛。
 
 如果你已知限制，直接寫出來：
 
@@ -97,7 +119,7 @@ uv run pytest
 
 Research OS 會保留這些排除條件，不會在後續悄悄把被排除的方法放回來。
 
-## 3. 它接下來會做什麼？
+## 4. 它接下來會做什麼？
 
 主流程每輪只處理一個最關鍵的 frontier：
 
@@ -118,7 +140,7 @@ Research OS 會保留這些排除條件，不會在後續悄悄把被排除的�
 
 這個問題需要研究者決策；「有哪些已驗證量表」「資料是否免費」「相近研究做過什麼」則應由 Agent 查證，不應全部丟回給你。
 
-## 4. 如何回答追問？
+## 5. 如何回答追問？
 
 不需要使用學術術語。只要表達真正的偏好與限制：
 
@@ -146,12 +168,12 @@ Research OS 會保留這些排除條件，不會在後續悄悄把被排除的�
 取代前面的決定：不再限定台灣資料，改成優先使用可重現的跨國公開資料。
 ```
 
-## 5. 如何選擇輸出？
+## 6. 如何選擇輸出？
 
 ### 學術研究計畫
 
 ```text
-/to-research-plan
+/to-plan
 
 把目前已驗證的 Research Brief 轉成學術研究計畫。
 受眾是校內研究審查委員，請使用財經學術散文體，
@@ -172,16 +194,16 @@ Research OS 會保留這些排除條件，不會在後續悄悄把被排除的�
 ### 論文
 
 ```text
-/to-paper-draft
+/to-paper
 
 依目前 artifacts 產出論文。
 若尚未執行實證，請只建立 paper blueprint、理論命題、
 方法與預期表格，不得虛構結果。
 ```
 
-`/to-paper-draft` 不代表一定會得到一篇看似完成的 manuscript。若沒有已登錄的實證結果，正確輸出是 paper blueprint；這是證據防線，不是功能不足。
+`/to-paper` 不代表一定會得到一篇看似完成的 manuscript。若沒有已登錄的實證結果，正確輸出是 paper blueprint；這是證據防線，不是功能不足。
 
-## 6. 如何讀取 `.research/`？
+## 7. 如何讀取 `.research/`？
 
 `.research/` 是專案的單一研究狀態，不是聊天紀錄備份。
 
@@ -201,12 +223,12 @@ Research OS 會保留這些排除條件，不會在後續悄悄把被排除的�
 
 判讀時先看 `CONTEXT.md` 的 current pointer，再開啟它指向的 artifact。不要因資料夾中存在多個舊版本，就自行挑一份看起來最新的檔案。
 
-## 7. 一個完整的小型示範
+## 8. 一個完整的小型示範
 
 ### 使用者
 
 ```text
-/develop-research
+/research-auto
 
 我想研究央行升息消息如何傳到不同產業 ETF。
 資料要免費，最後要寫成財金期刊論文。
@@ -230,7 +252,7 @@ Research OS 會保留這些排除條件，不會在後續悄悄把被排除的�
 - `blocked`：目前證據不足以支持指定成果。
 - `kill`：題目在現有限制下不值得繼續；這也是有效研究結果。
 
-## 8. 使用原則
+## 9. 使用原則
 
 - 把 Research OS 當成研究共同設計者，不是代寫器。
 - 讓 Agent 查事實；你負責價值判斷、範圍與不可逆承諾。

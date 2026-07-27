@@ -9,7 +9,7 @@ Lead with **kill**: define what evidence would make the project abandon or mater
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, maps, pilots, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, literature map, identification design, methodology, pilot results, and relevant decisions at their resolved paths.
 4. Select the smallest set of claims whose failure would change the paper's contribution. Stop when no central claim can be named or a required resolved path is missing; request workspace repair instead of inventing a parallel path.
@@ -33,9 +33,9 @@ Delegate missing data checks to `$data-feasibility`, design validity to `$identi
 
 ## Write back
 
-Reuse the current registered falsification plan for the same topic, or create `<artifact-id>-falsification.md` under the resolved briefs directory (baseline `.research/briefs/`). Begin it with `Status: complete|partial|blocked`, `Updated`, and scope, then include the complete claim-to-falsifier matrix and predeclared action rules. Update each affected entry in the resolved claims registry with its falsifier, threshold, and plan pointer. Record any later repair that changes a hard-to-reverse choice under the resolved decisions directory; never overwrite the original threshold after outcomes are known.
+Reuse the current registered falsification plan for the same topic, or create `<artifact-id>-falsification.md` under the resolved briefs directory. Begin it with `Status: complete|partial|blocked`, `Updated`, and scope, then include the complete claim-to-falsifier matrix and predeclared action rules. Update each affected entry in the resolved claims registry with its falsifier, threshold, and plan pointer. Record any later repair that changes a hard-to-reverse choice under the resolved decisions directory; never overwrite the original threshold after outcomes are known.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Set artifact status `complete` only when every central claim has a predeclared discriminating plan; use `partial` when a nonfatal branch remains unresolved or a decisive test is `pilot-required`, and `blocked` when no central claim, falsifier, or required resolved path can be established.
 

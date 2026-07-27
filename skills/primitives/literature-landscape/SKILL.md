@@ -9,11 +9,9 @@ Build a **map** of the field's structure, not a chronological list of papers.
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, claims, and maps paths, then read the resolved context, claim registry, and relevant domain map.
-- Use an existing registered landscape; otherwise create `literature-landscape-<topic-slug>.md` under the resolved maps directory (baseline `.research/maps/`) and register it in the resolved context.
-- Register it through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
-- Read only the sources and claim entries needed for the current map branch. Add detailed source verification to `claims.yaml`; keep synthesis in the map.
-- Stop with `blocked: research_workspace_not_initialized` when the workspace contract is absent.
+- Resolve `.research/config.yaml` and register every outcome per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). This skill needs the resolved context, claims, and maps paths.
+- Use an existing registered landscape; otherwise create `literature-landscape-<topic-slug>.md` under the resolved maps directory.
+- Read only the sources and claim entries needed for the current map branch. Add detailed source verification to the claim registry; keep synthesis in the map.
 
 ## Map the landscape
 

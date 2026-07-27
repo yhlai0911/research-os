@@ -1,20 +1,22 @@
-version: "1.1.0"
+version: "2.0.0"
 source_of_truth: true
 defaults:
   lifecycle: "stable"
   distribution: "core"
   replaced_by: null
 composition:
+  research-help: [research-grilling]
+  research-setup: [research-workspace-contract]
+  research-2-brief: [research-workspace-contract, synthesize-research-brief]
+  research-3-falsify: [falsification-first]
+  research-5-run: [research-review]
+  research-6-review: [research-review]
+  research-auto: [design-research-three-ways, falsification-first, pilot-study, render-research-deliverable, research-domain-modeling, research-grilling, research-review, research-workspace-contract, synthesize-research-brief]
+  research-save: [artifact-reconciliation]
+  to-paper: [render-research-deliverable, research-2-brief, research-auto]
+  to-plan: [render-research-deliverable, research-2-brief, research-auto]
+  to-proposal: [render-research-deliverable, research-2-brief, research-auto, research-grilling]
   artifact-reconciliation: [citation-audit]
-  ask-research: [research-grilling]
-  develop-research: [design-research-three-ways, falsification-first, pilot-study, render-research-deliverable, research-domain-modeling, research-grilling, research-review, research-workspace-contract, synthesize-research-brief]
-  execute-workpackage: [research-review]
-  research-handoff: [artifact-reconciliation]
-  setup-research-os: [research-workspace-contract]
-  to-paper-draft: [develop-research, render-research-deliverable, to-research-brief]
-  to-proposal: [develop-research, render-research-deliverable, research-grilling, to-research-brief]
-  to-research-brief: [research-workspace-contract, synthesize-research-brief]
-  to-research-plan: [develop-research, render-research-deliverable, to-research-brief]
   citation-audit: [evidence-research]
   contribution-design: [identification-design]
   data-feasibility: [construct-design, evidence-research, pilot-study]
@@ -31,110 +33,100 @@ composition:
   pilot-study: [data-feasibility, ethics-reproducibility, identification-design]
   render-research-deliverable: [citation-audit, research-review, research-writing, synthesize-research-brief]
   research-domain-modeling: [artifact-reconciliation, research-grilling]
-  research-grilling: [artifact-reconciliation, setup-research-os]
+  research-grilling: [artifact-reconciliation, research-setup]
   research-review: [citation-audit, data-feasibility, ethics-reproducibility, identification-design]
   research-writing: [citation-audit, journal-fit]
   synthesize-research-brief: [artifact-reconciliation, research-grilling, research-workspace-contract]
   theory-builder: [equation-builder, identification-design, research-domain-modeling]
 skills:
-  - name: "ask-research"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "route"
-    display_name: "Ask Research"
-    short_description: "Route a research task to the right workflow"
-    default_prompt: "Use $ask-research to help me choose the right Research OS workflow."
-    description: "Route a research task to the right Research OS workflow."
+  # ---- one-time setup ----
 
-  - name: "develop-research"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "adaptive loop"
-    display_name: "Develop Research"
-    short_description: "Turn a topic into a verified research deliverable"
-    default_prompt: "Use $develop-research to turn this topic into a verified Research Brief and the research deliverable I need."
-    description: "Develop a topic, direction, problem, source, or partial idea through adaptive interviewing, evidence research, reviewer attack, and repair until it becomes a verified Research Brief and the requested research plan, proposal, project brief, paper blueprint, or manuscript draft."
-
-  - name: "setup-research-os"
+  - name: "research-setup"
     bucket: "orchestrators"
     invocation: "user"
     leading_word: "contract"
-    display_name: "Setup Research OS"
+    display_name: "Research Setup"
     short_description: "Initialize a durable research workspace contract"
-    default_prompt: "Use $setup-research-os to initialize this project as a Research OS workspace."
+    default_prompt: "Use $research-setup to initialize this project as a Research OS workspace."
     description: "Initialize a project with the durable Research OS workspace contract."
 
-  - name: "grill-research-idea"
+  # ---- mainline, steps 1 to 6 ----
+
+  - name: "research-1-grill"
     bucket: "orchestrators"
     invocation: "user"
     leading_word: "decision tree"
-    display_name: "Grill Research Idea"
+    display_name: "Step 1 - Grill the Idea"
     short_description: "Interrogate a research idea one decision at a time"
-    default_prompt: "Use $grill-research-idea to stress-test and sharpen my research idea."
+    default_prompt: "Use $research-1-grill to stress-test and sharpen my research idea."
     description: "Interrogate a research idea one decision at a time until it is researchable."
 
-  - name: "idea-triage"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "verdict"
-    display_name: "Idea Triage"
-    short_description: "Kill, repair, pilot, or advance research ideas"
-    default_prompt: "Use $idea-triage to decide whether this research idea should be killed, repaired, piloted, or advanced."
-    description: "Classify research ideas as kill, repair, pilot, or advance."
-
-  - name: "research-wayfinder"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "fog"
-    display_name: "Research Wayfinder"
-    short_description: "Map multi-session research decisions through fog"
-    default_prompt: "Use $research-wayfinder to map this large, uncertain research effort."
-    description: "Map a multi-session research effort as decisions that progressively clear the fog."
-
-  - name: "to-research-brief"
+  - name: "research-2-brief"
     bucket: "orchestrators"
     invocation: "user"
     leading_word: "collapse"
-    display_name: "To Research Brief"
+    display_name: "Step 2 - Lock the Design"
     short_description: "Collapse a discussion into a research contract"
-    default_prompt: "Use $to-research-brief to turn this discussion into a rigorous research brief."
+    default_prompt: "Use $research-2-brief to turn this discussion into a rigorous research brief."
     description: "Collapse the current discussion and evidence into a rigorous research brief."
 
-  - name: "to-research-plan"
+  - name: "research-3-falsify"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "kill"
+    display_name: "Step 3 - Try to Kill It"
+    short_description: "Predeclare what evidence would kill the design"
+    default_prompt: "Use $research-3-falsify to predeclare what evidence would kill this research design."
+    description: "Predeclare what evidence would kill the current research design before any expensive work begins."
+
+  - name: "research-4-tasks"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "tracer study"
+    display_name: "Step 4 - Split into Tasks"
+    short_description: "Split a research brief into tracer workpackages"
+    default_prompt: "Use $research-4-tasks to split this research brief into dependency-aware tracer studies."
+    description: "Split a research brief into dependency-aware tracer workpackages."
+
+  - name: "research-5-run"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "claim"
+    display_name: "Step 5 - Run a Task"
+    short_description: "Claim and execute one verified research workpackage"
+    default_prompt: "Use $research-5-run to claim and execute the next eligible research workpackage."
+    description: "Claim and execute one eligible research workpackage with bounded authority, falsification gates, receipts, and readback."
+
+  - name: "research-6-review"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "reject"
+    display_name: "Step 6 - Review"
+    short_description: "Attack the design as a skeptical journal panel"
+    default_prompt: "Use $research-6-review to review this work as a skeptical journal panel."
+    description: "Attack the current research design or draft as a skeptical journal panel and record every finding."
+
+  # ---- check position at any time ----
+
+  - name: "research-status"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "position"
+    display_name: "Research Status"
+    short_description: "Show position, artifacts, gaps, and next action"
+    default_prompt: "Use $research-status to show where this project stands and what to do next."
+    description: "Show where the project stands on the mainline, what exists so far, and what the next action is."
+
+  # ---- deliverables ----
+
+  - name: "to-plan"
     bucket: "orchestrators"
     invocation: "user"
     leading_word: "execution case"
     display_name: "To Research Plan"
     short_description: "Build an executable academic research plan"
-    default_prompt: "Use $to-research-plan to turn this verified Research Brief into an executable academic research plan."
+    default_prompt: "Use $to-plan to turn this verified Research Brief into an executable academic research plan."
     description: "Convert a verified Research Brief into an executable academic research plan."
-
-  - name: "to-workpackages"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "tracer study"
-    display_name: "To Workpackages"
-    short_description: "Split a research brief into tracer workpackages"
-    default_prompt: "Use $to-workpackages to split this research brief into dependency-aware tracer studies."
-    description: "Split a research brief into dependency-aware tracer workpackages."
-
-  - name: "execute-workpackage"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "claim"
-    display_name: "Execute Workpackage"
-    short_description: "Claim and execute one verified research workpackage"
-    default_prompt: "Use $execute-workpackage to claim and execute the next eligible research workpackage."
-    description: "Claim and execute one eligible research workpackage with bounded authority, falsification gates, receipts, and readback."
-
-  - name: "to-paper-draft"
-    bucket: "orchestrators"
-    invocation: "user"
-    leading_word: "argument"
-    display_name: "To Paper Draft"
-    short_description: "Draft a paper from verified research artifacts"
-    default_prompt: "Use $to-paper-draft to draft an academic paper from the verified project artifacts."
-    description: "Draft an academic paper from verified research artifacts."
 
   - name: "to-proposal"
     bucket: "orchestrators"
@@ -145,14 +137,61 @@ skills:
     default_prompt: "Use $to-proposal to turn this research design into a credible proposal."
     description: "Turn a research design into a grant, institutional, or project proposal."
 
-  - name: "research-handoff"
+  - name: "to-paper"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "argument"
+    display_name: "To Paper"
+    short_description: "Draft a paper from verified research artifacts"
+    default_prompt: "Use $to-paper to draft an academic paper from the verified project artifacts."
+    description: "Draft an academic paper from verified research artifacts."
+
+  # ---- off-mainline entries ----
+
+  - name: "research-auto"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "adaptive loop"
+    display_name: "Research Auto"
+    short_description: "Turn a topic into a verified research deliverable"
+    default_prompt: "Use $research-auto to turn this topic into a verified Research Brief and the research deliverable I need."
+    description: "Develop a topic, direction, problem, source, or partial idea through adaptive interviewing, evidence research, reviewer attack, and repair until it becomes a verified Research Brief and the requested research plan, proposal, project brief, paper blueprint, or manuscript draft."
+
+  - name: "research-triage"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "verdict"
+    display_name: "Idea Verdict"
+    short_description: "Kill, repair, pilot, or advance research ideas"
+    default_prompt: "Use $research-triage to decide whether this research idea should be killed, repaired, piloted, or advanced."
+    description: "Classify research ideas as kill, repair, pilot, or advance."
+
+  - name: "research-map"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "fog"
+    display_name: "Map a Big Project"
+    short_description: "Map multi-session research decisions through fog"
+    default_prompt: "Use $research-map to map this large, uncertain research effort."
+    description: "Map a multi-session research effort as decisions that progressively clear the fog."
+
+  - name: "research-save"
     bucket: "orchestrators"
     invocation: "user"
     leading_word: "continuity"
-    display_name: "Research Handoff"
+    display_name: "Save Progress"
     short_description: "Create a verifiable cross-session research handoff"
-    default_prompt: "Use $research-handoff to prepare a verifiable handoff for the next research session."
+    default_prompt: "Use $research-save to prepare a verifiable handoff for the next research session."
     description: "Create a verifiable handoff that preserves research continuity across sessions."
+
+  - name: "research-help"
+    bucket: "orchestrators"
+    invocation: "user"
+    leading_word: "route"
+    display_name: "Research Help"
+    short_description: "Route a research task to the right workflow"
+    default_prompt: "Use $research-help to help me choose the right Research OS workflow."
+    description: "Route a research task to the right Research OS workflow."
 
   - name: "writing-research-skills"
     bucket: "meta"

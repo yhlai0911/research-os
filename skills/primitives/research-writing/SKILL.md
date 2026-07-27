@@ -9,7 +9,7 @@ Build an **argument** in which each paragraph earns the next claim. Write from v
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, maps, papers, reviews, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md`, `.research/evidence/claims.yaml`, and `.research/papers/` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry. Pin the target paper, section, audience, and version under the resolved papers directory, then read the active brief, contribution design, theory, methodology, results, reviews, decisions, and only the evidence linked to the target claims.
 4. Stop when the requested section has no declared purpose or verified claim set, or when a required resolved path is missing; request workspace repair instead of inventing a parallel draft location.
@@ -52,7 +52,7 @@ Invoke `$citation-audit` for entailment, `$journal-fit` for audience-specific re
 
 Write or revise the pinned artifact under the resolved papers directory (baseline `.research/papers/<paper-id>/`). Reuse the current registered paper and preserve existing file conventions; never create a parallel duplicate merely because the baseline path differs. In Explore mode, preserve raw input separately and do not mutate it. In Shape mode, save accepted blocks and their source pointers without overwriting user edits. Update resolved claim entries with the draft locations where they are used. Record a hard-to-reverse narrative or scope choice under the resolved decisions directory only when the user confirms it.
 
-Register the current draft or writing outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Keep `Status: complete|partial|blocked`, `Updated`, and scope in Research OS metadata or the Artifact-index row rather than inserting workflow labels into journal prose. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the current draft or writing outcome in the resolved context per the writeback protocol. Keep `Status: complete|partial|blocked`, `Updated`, and scope in Research OS metadata or the Artifact-index row rather than inserting workflow labels into journal prose.
 
 Set artifact status `complete` only when the requested section is fully supported and internally aligned; use `partial` for an explicitly requested scaffold or unresolved nonfatal passage, and `blocked` when a material claim, target version, or required resolved path cannot be supported.
 
