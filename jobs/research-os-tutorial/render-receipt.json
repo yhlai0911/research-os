@@ -1,13 +1,13 @@
 {
   "project": "research-os-tutorial",
-  "rendered_at": "2026-07-26T15:40:57+08:00",
+  "rendered_at": "2026-07-28T00:07:00+08:00",
   "framework": "hyperframes@0.7.72",
-  "render_job_id": "d7cb15af-b2b1-436d-a145-0621ba437178",
+  "render_job_id": "v2-narration-rebuild-final",
   "output": {
     "path": "output/research-os-tutorial-zh-TW.mp4",
-    "sha256": "0803b5e34f2a847f41eeabb220f2ca916d7000c604871511a11f5468fb6cb4fd",
-    "size_bytes": 26303356,
-    "duration_seconds": 170.166667,
+    "sha256": "25b9d58104b055c72d8519afd309a6d4287eb8fdfff722189004c8d0fc696178",
+    "size_bytes": 25610060,
+    "duration_seconds": 241.066667,
     "video": {
       "codec": "h264",
       "width": 1920,
@@ -27,11 +27,21 @@
     "runtime_errors": 0,
     "layout_errors": 0,
     "contrast_warnings": 0,
-    "snapshots_verified": 9,
+    "snapshots_verified": 0,
     "long_silences_over_3_seconds": 0
   },
   "accepted_warning": {
     "code": "timeline_track_too_dense",
     "reason": "Eight scenes intentionally share a persistent evidence-desk background, progress rail, root-level audio, and one global timeline."
+  },
+  "v2_rebuild": {
+    "narration": "All eight takes re-recorded with ElevenLabs voice kZ9lus3MKUfpqRaOvpJH via scripts/regen_voice.py. The script was rewritten around the six-step mainline and no longer speaks any skill name, so a future rename cannot invalidate the video again.",
+    "frame_alignment": "Lines 2, 6 and 7 were re-cut after an audit against the frames. A first pass had written them from the skill list alone and produced three mismatches: line 2 announced the six steps over a frame arguing that rigid pipelines propagate early mistakes; line 6 described execution over the ONE BRIEF / MANY OUTPUTS frame; line 7 described the brief over the WORKED EXAMPLE frame. The Wave-Diffusion example stays in line 7 because frame 7 is built around it.",
+    "timing": "scripts/retime.py recomputed every data-start and data-duration from audio_meta.json (scene = take + 2.0s tail; caption and audio = scene + 0.8s lead). Running time 170.134s to 241.048s; the container reports 241.067s after frame alignment.",
+    "captions": "All eight captions were rewritten to state what is on screen in that scene rather than paraphrasing the narration.",
+    "audio_format": "ElevenLabs pcm_44100 requires a Pro subscription on this account, so takes were requested as mp3_44100_128 and decoded locally to pcm_s16le / 44100 Hz / mono. The sample rate is native, so nothing is resampled; the 22 kHz and 24 kHz PCM formats that were available would have required upsampling.",
+    "bitrate_note": "Video bitrate is 659 kbps against 1051 kbps for the v1 render. This is a content effect, not a settings regression: measured at --quality high it is 658.6 kbps and at the standard default 659.6 kbps, so the flag is not the cause. v2 holds each frame far longer (170s to 241s over the same eight scenes), so a larger share of frames are static and h264 needs fewer bits. package.json pins --quality high regardless, to match the v1 invocation recorded in README.md.",
+    "verification": "check passed with 0 errors and 99/99 WCAG AA contrast. Frames sampled at t=34s, 100s, 158s and 192s confirm scenes 2, 5, 6 and 7 each render with the matching caption. Audio RMS sampled across the timeline stays between -25 and -31 dB, so no take is missing or silent.",
+    "originals": "The v1 takes remain recoverable from git HEAD and as untracked *.wav.bak files beside each take."
   }
 }

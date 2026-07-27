@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npx --yes hyperframes@0.7.72 preview",
     "check": "npx --yes hyperframes@0.7.72 check",
-    "render": "npx --yes hyperframes@0.7.72 render",
+    "render": "npx --yes hyperframes@0.7.72 render --quality high --output output/research-os-tutorial-zh-TW.mp4",
     "publish": "npx --yes hyperframes@0.7.72 publish"
   }
 }
