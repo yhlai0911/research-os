@@ -16,14 +16,23 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parent.parent
-EXCLUDED_PARTS = {
-    ".git",
-    ".venv",
-    ".pytest_cache",
-    "__pycache__",
-    "dist",
-    ".scratch",
-}
+
+# Names that must never enter a release even if something tracks them by
+# mistake. This is a second line of defence: git ls-files already excludes
+# ignored files, but a credential leaking into a distributed archive is not
+# recoverable, so the check is cheap insurance rather than redundant.
+SECRET_PATTERNS = (
+    ".env",
+    ".env.*",
+    "*.pem",
+    "*.key",
+    "*_rsa",
+    "*_ed25519",
+    "*.p12",
+    "*.pfx",
+    "credentials.json",
+    "service-account*.json",
+)
 
 
 def sha256(data: bytes) -> str:
@@ -31,14 +40,38 @@ def sha256(data: bytes) -> str:
 
 
 def source_files() -> list[Path]:
+    """Package exactly what is under version control.
+
+    Walking the filesystem and subtracting a hardcoded exclusion list is not
+    safe: it shipped .env, *.wav.bak and renders/ into a build. `git ls-files`
+    honours .gitignore by construction, and it is the only inventory that is
+    actually consistent with the source_commit recorded in the receipt.
+    """
+    listed = git_output("ls-files", "-z").split("\0")
     result = []
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or any(part in EXCLUDED_PARTS for part in path.parts):
+    for name in listed:
+        if not name:
+            continue
+        path = ROOT / name
+        if not path.is_file():
             continue
         if path.name == ".DS_Store" or path.suffix == ".pyc":
             continue
         result.append(path)
     return sorted(result, key=lambda item: item.relative_to(ROOT).as_posix())
+
+
+def reject_secrets(files: list[Path]) -> None:
+    offenders = sorted(
+        path.relative_to(ROOT).as_posix()
+        for path in files
+        if any(path.match(pattern) for pattern in SECRET_PATTERNS)
+    )
+    if offenders:
+        raise RuntimeError(
+            "refusing to package files that look like credentials: "
+            + ", ".join(offenders)
+        )
 
 
 def source_tree_hash(files: list[Path]) -> str:
@@ -123,6 +156,7 @@ def main() -> int:
     archive = output_dir / f"{prefix}.zip"
     archive_temp = output_dir / f".{prefix}.{os.getpid()}.tmp"
     files = source_files()
+    reject_secrets(files)
     relative_paths = [path.relative_to(ROOT).as_posix() for path in files]
     manifest_lines = []
 

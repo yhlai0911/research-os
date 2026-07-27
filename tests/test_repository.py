@@ -78,6 +78,38 @@ def test_repository_validates() -> None:
     assert result.returncode == 0, result.stdout + result.stderr
 
 
+def test_release_inventory_is_version_controlled_only() -> None:
+    """A release must never carry ignored files, least of all credentials.
+
+    An earlier build walked the filesystem and subtracted a hardcoded list,
+    which packaged .env, *.wav.bak and renders/ into the archive.
+    """
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "package_release", ROOT / "scripts" / "package_release.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    names = {
+        path.relative_to(ROOT).as_posix() for path in module.source_files()
+    }
+    assert names, "release inventory is empty"
+    assert not [n for n in names if n == ".env" or n.startswith(".env.")]
+    assert not [n for n in names if n.endswith(".wav.bak")]
+    assert not [n for n in names if "/renders/" in n]
+    assert not [n for n in names if n.startswith(".venv/") or "/__pycache__/" in n]
+    assert "skills/catalog.yaml" in names
+
+    try:
+        module.reject_secrets([ROOT / ".env", ROOT / "README.md"])
+    except RuntimeError as exc:
+        assert ".env" in str(exc)
+    else:
+        raise AssertionError("reject_secrets accepted a credential file")
+
+
 def test_writeback_protocol_binding_fails_closed() -> None:
     """Prove the shared-contract rule catches a skill that drops the link.
 
