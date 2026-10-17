@@ -1,0 +1,1174 @@
+{
+  "status": "aligned-reviewed-with-asr-crosscheck",
+  "method": "local Whisper turbo + traditional normalization + monotone character alignment",
+  "master_mp3_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff",
+  "master_wav_sha256": "731e20e7b7667982b6f42722a4cfb4a26840700468349ce1f4ca7b0ed6029eb0",
+  "master_duration_samples": 11760768,
+  "sample_rate": 44100,
+  "global_sequence_similarity": 0.9766214177978884,
+  "transcript_sha256": "01ac2f241a64c85ee3eaa8bbee3632b5b5ea4f1d04f0e9a284e4ac5c3f5f6922",
+  "differences_for_review": [
+    {
+      "operation": "replace",
+      "target": "三十",
+      "asr": "30"
+    },
+    {
+      "operation": "insert",
+      "target": "",
+      "asr": "sclaude"
+    },
+    {
+      "operation": "replace",
+      "target": "支",
+      "asr": "隻"
+    },
+    {
+      "operation": "replace",
+      "target": "碴",
+      "asr": "查"
+    },
+    {
+      "operation": "replace",
+      "target": "四十二",
+      "asr": "42"
+    },
+    {
+      "operation": "replace",
+      "target": "紀",
+      "asr": "記"
+    },
+    {
+      "operation": "replace",
+      "target": "u",
+      "asr": "we"
+    },
+    {
+      "operation": "delete",
+      "target": "e",
+      "asr": ""
+    },
+    {
+      "operation": "replace",
+      "target": "錢",
+      "asr": "前"
+    },
+    {
+      "operation": "replace",
+      "target": "a",
+      "asr": "o"
+    },
+    {
+      "operation": "delete",
+      "target": "e",
+      "asr": ""
+    },
+    {
+      "operation": "replace",
+      "target": "檢視",
+      "asr": "查看"
+    },
+    {
+      "operation": "replace",
+      "target": "畫",
+      "asr": "劃"
+    },
+    {
+      "operation": "replace",
+      "target": "捨",
+      "asr": "舍"
+    },
+    {
+      "operation": "replace",
+      "target": "透",
+      "asr": "通"
+    },
+    {
+      "operation": "replace",
+      "target": "紀",
+      "asr": "記"
+    },
+    {
+      "operation": "replace",
+      "target": "畫",
+      "asr": "劃"
+    },
+    {
+      "operation": "replace",
+      "target": "四十二",
+      "asr": "42"
+    },
+    {
+      "operation": "replace",
+      "target": "透",
+      "asr": "通"
+    },
+    {
+      "operation": "replace",
+      "target": "紀",
+      "asr": "記"
+    },
+    {
+      "operation": "replace",
+      "target": "檔案",
+      "asr": "文件"
+    },
+    {
+      "operation": "replace",
+      "target": "檢視",
+      "asr": "查看"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "01",
+      "audio": "assets/voice/scene-01.wav",
+      "start_sample_in_master": 0,
+      "end_sample_in_master": 898758,
+      "duration_samples": 898758,
+      "sample_rate": 44100,
+      "duration": 20.38,
+      "sha256": "e946a00b26deaa89f732bd0857e01c80bb899495a66e179da6f03195cdc68f60",
+      "target_text_sha256": "8dfec610dab02da2b00c10aab4627f7524dacfadfd8f72b58105b7f6053b8db3",
+      "matched_character_coverage": 0.9681,
+      "captions": [
+        {
+          "text": "只有一句模糊題目，",
+          "start": 0,
+          "end": 1.62,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "AI 當然可以立刻寫出三十頁。",
+          "start": 1.63,
+          "end": 4.58,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "但流暢，",
+          "start": 4.63,
+          "end": 5.57,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不代表有證據。",
+          "start": 5.57,
+          "end": 7.0,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "Research OS 先檢查問題、",
+          "start": 7.51,
+          "end": 9.82,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "資料和推論能不能站得住，",
+          "start": 9.87,
+          "end": 12.06,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再開始寫。",
+          "start": 12.09,
+          "end": 13.1,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "這支影片會帶你安裝、",
+          "start": 13.39,
+          "end": 15.34,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "啟動研究，",
+          "start": 15.43,
+          "end": 16.21,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "並看懂什麼時候應該往前走，",
+          "start": 16.21,
+          "end": 18.56,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "什麼時候應該停下來。",
+          "start": 18.61,
+          "end": 20.22,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "audio": "assets/voice/scene-02.wav",
+      "start_sample_in_master": 898758,
+      "end_sample_in_master": 1904238,
+      "duration_samples": 1005480,
+      "sample_rate": 44100,
+      "duration": 22.8,
+      "sha256": "3ae0242d1503d19b30428923cdbe179e9583b118a5fa53978de17c278a260059",
+      "target_text_sha256": "8be7add3017d9b8f21ef206999987fb9fbb14c6945c2a11f79418b879a75d606",
+      "matched_character_coverage": 0.99,
+      "captions": [
+        {
+          "text": "核心是一套通用的研究工具，",
+          "start": 0.19,
+          "end": 2.6,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不限定金融或任何學科。",
+          "start": 2.71,
+          "end": 4.81,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "六個步驟依序是：",
+          "start": 4.81,
+          "end": 6.73,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "逼問想法、",
+          "start": 6.73,
+          "end": 8.01,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "鎖定研究契約、",
+          "start": 8.01,
+          "end": 9.41,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "預先找碴、",
+          "start": 9.41,
+          "end": 10.38,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "拆成任務、",
+          "start": 10.53,
+          "end": 11.59,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "逐一執行，",
+          "start": 11.59,
+          "end": 12.59,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "最後審查。",
+          "start": 12.59,
+          "end": 13.55,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "每一步有自己的過關條件；",
+          "start": 13.55,
+          "end": 15.99,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "證據不足就停下來。",
+          "start": 15.99,
+          "end": 17.83,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "你可以手動交棒，",
+          "start": 17.83,
+          "end": 19.33,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "也可以讓自動模式判斷目前最重要的下一步。",
+          "start": 19.33,
+          "end": 22.8,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "audio": "assets/voice/scene-09.wav",
+      "start_sample_in_master": 1904238,
+      "end_sample_in_master": 2917656,
+      "duration_samples": 1013418,
+      "sample_rate": 44100,
+      "duration": 22.98,
+      "sha256": "bfc682c19e10a47c845c1865dbaa49da728c375c90975d06445016ccec8421de",
+      "target_text_sha256": "5454086b142be4cbefe2d484f9d710af23fda681043874521462b59ab1a62503",
+      "matched_character_coverage": 0.9664,
+      "captions": [
+        {
+          "text": "先在終端機下載 main 分支，",
+          "start": 0,
+          "end": 2.61,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "進入專案，",
+          "start": 2.61,
+          "end": 3.51,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再用 uv 安裝鎖定的依賴。",
+          "start": 3.51,
+          "end": 5.89,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "接著執行 dry run 預檢。",
+          "start": 5.89,
+          "end": 8.03,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "看到衝突就先處理，",
+          "start": 8.03,
+          "end": 9.89,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不能直接覆蓋原來的檔案。",
+          "start": 9.89,
+          "end": 12.01,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "沒有衝突才正式安裝，",
+          "start": 12.01,
+          "end": 14.19,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "最後執行驗證。",
+          "start": 14.19,
+          "end": 15.51,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "確認是四十二個核心 skills，",
+          "start": 15.51,
+          "end": 18.07,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "並保留安裝紀錄中的來源 commit，",
+          "start": 18.07,
+          "end": 20.61,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "之後才知道自己用的是哪一版。",
+          "start": 20.61,
+          "end": 22.98,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "audio": "assets/voice/scene-10.wav",
+      "start_sample_in_master": 2917656,
+      "end_sample_in_master": 3982230,
+      "duration_samples": 1064574,
+      "sample_rate": 44100,
+      "duration": 24.14,
+      "sha256": "7e4e27d0fe7a6772014f23f7e87703777ef60e4e4c6e6c2210f92fb8f5c9f65a",
+      "target_text_sha256": "b707555b352de37d79be3fefe59ce6576f8f16967bc5c7bb8f72db62d72d8955",
+      "matched_character_coverage": 0.9493,
+      "captions": [
+        {
+          "text": "Codex 使用預設安裝方式；",
+          "start": 0,
+          "end": 2.57,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "Claude Code 則在預檢、",
+          "start": 2.57,
+          "end": 4.54,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "安裝和驗證這三個指令都加上畫面的 harness 選項。",
+          "start": 4.61,
+          "end": 8.47,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "安裝完成後，",
+          "start": 8.47,
+          "end": 9.83,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "切到你真正要做研究的專案。",
+          "start": 9.83,
+          "end": 11.95,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "先啟動 research setup，",
+          "start": 11.95,
+          "end": 13.97,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "建立研究工作區，",
+          "start": 13.97,
+          "end": 15.49,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再進第一步。",
+          "start": 15.49,
+          "end": 16.43,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "注意，",
+          "start": 16.43,
+          "end": 17.3,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "Codex 的技能名稱前面用錢字號，",
+          "start": 17.59,
+          "end": 20.27,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "Claude Code 用斜線。",
+          "start": 20.27,
+          "end": 21.93,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "研究狀態隨時都能查看。",
+          "start": 21.93,
+          "end": 24.14,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "audio": "assets/voice/scene-03.wav",
+      "start_sample_in_master": 3982230,
+      "end_sample_in_master": 5067972,
+      "duration_samples": 1085742,
+      "sample_rate": 44100,
+      "duration": 24.62,
+      "sha256": "a5771b4a129444015ab70a9dafb9e2efe20ffdcb20637efa8ecf80bb89cd4573",
+      "target_text_sha256": "a1d86c66008b0ab6601c6a01496d2787d53c9ea4ad8e0bdea66dc2fe92f248a6",
+      "matched_character_coverage": 0.9911,
+      "captions": [
+        {
+          "text": "現在交代任務。",
+          "start": 0.17,
+          "end": 1.83,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不要只輸入一個名詞，",
+          "start": 1.83,
+          "end": 3.65,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "要說清楚主題、",
+          "start": 3.65,
+          "end": 5.3,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "最後的成果、",
+          "start": 5.31,
+          "end": 6.38,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "受眾、",
+          "start": 6.43,
+          "end": 7.04,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "手上已有的資料，",
+          "start": 7.05,
+          "end": 8.25,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "以及時間或方法的限制。",
+          "start": 8.25,
+          "end": 10.23,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "例如：",
+          "start": 10.23,
+          "end": 11.14,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "想研究生成式 AI 是否改善大學生的學習成效，",
+          "start": 11.19,
+          "end": 15.03,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "最後形成校內研究計畫，",
+          "start": 15.03,
+          "end": 17.16,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "只能用免費資料，",
+          "start": 17.23,
+          "end": 18.86,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "六個月內完成，",
+          "start": 18.93,
+          "end": 19.91,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "而且不能虛構結果。",
+          "start": 19.91,
+          "end": 21.53,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "這些限制會成為後續決策的依據。",
+          "start": 21.53,
+          "end": 24.62,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "audio": "assets/voice/scene-04.wav",
+      "start_sample_in_master": 5067972,
+      "end_sample_in_master": 5926158,
+      "duration_samples": 858186,
+      "sample_rate": 44100,
+      "duration": 19.46,
+      "sha256": "3e6abd7f4a21aaa09ae2c5a3cd407a749e9d704150a95dc208bfd3e36f093b4b",
+      "target_text_sha256": "7644f208ec305a499701e886a5970d9f9162073b30358d47defd1701d7f9ccf9",
+      "matched_character_coverage": 0.9891,
+      "captions": [
+        {
+          "text": "第一步一次只問一個真正需要你決定的問題。",
+          "start": 0,
+          "end": 3.73,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "能查證的事實，",
+          "start": 3.73,
+          "end": 5.43,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "交給 Agent 查；",
+          "start": 5.43,
+          "end": 6.47,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "目的、",
+          "start": 6.47,
+          "end": 7.5,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "範圍、",
+          "start": 7.55,
+          "end": 8.1,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "取捨和承諾，",
+          "start": 8.15,
+          "end": 9.15,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "由研究者決定。",
+          "start": 9.15,
+          "end": 10.33,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "畫面上的分支會跟著你的選擇收斂。",
+          "start": 10.33,
+          "end": 13.33,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "它會提出建議，",
+          "start": 13.33,
+          "end": 14.73,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "也說明代價；",
+          "start": 14.73,
+          "end": 15.79,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "重要分支還沒解決，",
+          "start": 15.79,
+          "end": 17.59,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "就不假裝設計已經完成。",
+          "start": 17.59,
+          "end": 19.46,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "audio": "assets/voice/scene-05.wav",
+      "start_sample_in_master": 5926158,
+      "end_sample_in_master": 6940458,
+      "duration_samples": 1014300,
+      "sample_rate": 44100,
+      "duration": 23.0,
+      "sha256": "42b5e6dcbbcc927bc80797a7c029aab56c25880678dee5b5fde8e78a0b4fd356",
+      "target_text_sha256": "23a508413990222c94cce52216ed0f4698c93e7b891c6193214a0f5296ce262d",
+      "matched_character_coverage": 0.9813,
+      "captions": [
+        {
+          "text": "鎖定研究契約之後，",
+          "start": 0,
+          "end": 1.91,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "先不要急著做。",
+          "start": 1.91,
+          "end": 3.03,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "找最接近的文獻，",
+          "start": 3.03,
+          "end": 4.75,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "檢查差異是否成立；",
+          "start": 4.75,
+          "end": 6.47,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "確認資料真的拿得到；",
+          "start": 6.47,
+          "end": 8.35,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再事先寫清楚，",
+          "start": 8.35,
+          "end": 9.67,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "什麼結果會推翻自己的設計。",
+          "start": 9.67,
+          "end": 11.83,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "必要時先做一個小型測試。",
+          "start": 11.83,
+          "end": 14.31,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "標準必須在看結果以前決定，",
+          "start": 14.31,
+          "end": 16.87,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不能事後改答案。",
+          "start": 16.87,
+          "end": 18.07,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "通過這些關卡，",
+          "start": 18.07,
+          "end": 19.67,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再拆任務、",
+          "start": 19.67,
+          "end": 20.73,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "執行並留下可追查的紀錄。",
+          "start": 20.73,
+          "end": 23.0,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "audio": "assets/voice/scene-06.wav",
+      "start_sample_in_master": 6940458,
+      "end_sample_in_master": 7908894,
+      "duration_samples": 968436,
+      "sample_rate": 44100,
+      "duration": 21.96,
+      "sha256": "3debe8db3afef1b78a4370f5923bee179be78c49674de48aac7fe6d8d0f4ef24",
+      "target_text_sha256": "c494f36b7ab6a4e042d4d71e478aa5b2a9841c3f3660124734b4e015872399ef",
+      "matched_character_coverage": 0.9904,
+      "captions": [
+        {
+          "text": "同一份 Research Brief 是研究契約，",
+          "start": 0,
+          "end": 2.79,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "保留問題、",
+          "start": 2.79,
+          "end": 3.92,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "證據、",
+          "start": 4.01,
+          "end": 4.58,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "方法和限制。",
+          "start": 4.59,
+          "end": 5.67,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "之後再依目的轉成學術研究計畫、",
+          "start": 5.67,
+          "end": 8.72,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "補助或專案企劃、",
+          "start": 8.81,
+          "end": 10.54,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "論文藍圖。",
+          "start": 10.65,
+          "end": 11.35,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "只有真的完成實證，",
+          "start": 11.35,
+          "end": 13.17,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "才把結果寫成論文主張。",
+          "start": 13.17,
+          "end": 15.09,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "審查時，",
+          "start": 15.09,
+          "end": 16.21,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "把每個主張連回證據；",
+          "start": 16.21,
+          "end": 17.97,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "缺資料、",
+          "start": 17.97,
+          "end": 19.02,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "沒執行或仍有爭議，",
+          "start": 19.07,
+          "end": 20.67,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "都要如實標示。",
+          "start": 20.67,
+          "end": 21.96,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "audio": "assets/voice/scene-11.wav",
+      "start_sample_in_master": 7908894,
+      "end_sample_in_master": 9001692,
+      "duration_samples": 1092798,
+      "sample_rate": 44100,
+      "duration": 24.78,
+      "sha256": "3515eef882b6586c2b7bc977936e447997e73670c18e6000f6e7ee5de6e7492a",
+      "target_text_sha256": "62a9712693fb9defd620cf551e1746b310828b0017274875a150f6422d320fdc",
+      "matched_character_coverage": 0.9635,
+      "captions": [
+        {
+          "text": "如果研究涉及金融或社會科學，",
+          "start": 0,
+          "end": 2.85,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "可以另外安裝選配領域包。",
+          "start": 2.85,
+          "end": 4.99,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "它和核心在同一個 repository，",
+          "start": 4.99,
+          "end": 7.47,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "但不會把核心四十二個 skills 變成金融專用。",
+          "start": 7.47,
+          "end": 10.99,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "先確認相同工具和安裝位置的核心驗證通過，",
+          "start": 10.99,
+          "end": 14.97,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再用畫面上的 profile 選項預檢、",
+          "start": 14.97,
+          "end": 17.71,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "安裝、",
+          "start": 17.71,
+          "end": 18.29,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "驗證。",
+          "start": 18.29,
+          "end": 18.83,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "它只新增一個領域 skill，",
+          "start": 18.83,
+          "end": 20.83,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "保留獨立安裝紀錄。",
+          "start": 20.83,
+          "end": 22.43,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不需要這個領域，",
+          "start": 22.43,
+          "end": 23.77,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "就直接略過。",
+          "start": 23.77,
+          "end": 24.78,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "audio": "assets/voice/scene-07.wav",
+      "start_sample_in_master": 9001692,
+      "end_sample_in_master": 10026576,
+      "duration_samples": 1024884,
+      "sample_rate": 44100,
+      "duration": 23.24,
+      "sha256": "aa64009d11e2b7fefe18aa9583cca65b20754c18e801559e1944ce06f09e75f3",
+      "target_text_sha256": "9507a2d18bdc8d70989302bdc79856a745c7141ac1c48b8bddde3ffde063f5ac",
+      "matched_character_coverage": 1.0,
+      "captions": [
+        {
+          "text": "來看一個領域案例。",
+          "start": 0,
+          "end": 1.67,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "原始構想把波方程、",
+          "start": 1.67,
+          "end": 3.69,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "熱方程和更多物理模型都放進金融預測。",
+          "start": 3.69,
+          "end": 7.15,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "經過限制與審查，",
+          "start": 7.15,
+          "end": 8.91,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不能由資料區分的分支逐一被刪掉。",
+          "start": 8.91,
+          "end": 11.71,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "最後留下的問題是：",
+          "start": 11.71,
+          "end": 13.43,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "有限速度的阻尼傳播，",
+          "start": 13.43,
+          "end": 15.51,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "能否和普通擴散真正區分？",
+          "start": 15.51,
+          "end": 17.89,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "這是示範如何縮小問題，",
+          "start": 17.89,
+          "end": 20.09,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "不是在宣稱某個金融模型已經得到驗證。",
+          "start": 20.09,
+          "end": 23.24,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "audio": "assets/voice/scene-12.wav",
+      "start_sample_in_master": 10026576,
+      "end_sample_in_master": 10882116,
+      "duration_samples": 855540,
+      "sample_rate": 44100,
+      "duration": 19.4,
+      "sha256": "07e648b277579e49da990f5cf4b1a4080ae6161dc90a5d2f7cbab6f9ccf2ea20",
+      "target_text_sha256": "ec78c80b889089e9f1987d5af38bd680c032647956d2a76e4020a2d2fbcfaa90",
+      "matched_character_coverage": 1.0,
+      "captions": [
+        {
+          "text": "這套工作流可以用繁體中文，",
+          "start": 0,
+          "end": 2.45,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "也可以用英文。",
+          "start": 2.45,
+          "end": 3.49,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "明確指定輸出語言時，",
+          "start": 3.49,
+          "end": 5.55,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "以你的要求為準；",
+          "start": 5.55,
+          "end": 6.85,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "沒有指定，",
+          "start": 6.85,
+          "end": 7.81,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "就跟隨你使用的語言。",
+          "start": 7.81,
+          "end": 9.39,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "技能名稱、",
+          "start": 9.39,
+          "end": 10.7,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "檔案路徑和命令不翻譯。",
+          "start": 10.75,
+          "end": 12.51,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "你可以用中文討論，",
+          "start": 12.51,
+          "end": 14.13,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再要求英文 Research Brief；",
+          "start": 14.13,
+          "end": 15.91,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "研究的證據標準不會因為換語言而改變。",
+          "start": 15.91,
+          "end": 19.4,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "audio": "assets/voice/scene-08.wav",
+      "start_sample_in_master": 10882116,
+      "end_sample_in_master": 11760768,
+      "duration_samples": 878652,
+      "sample_rate": 44100,
+      "duration": 19.92408163265306,
+      "sha256": "660a2b011b7b93b970fbe703c26f8803782d9f3eaf7bc442d39500f2261fde2d",
+      "target_text_sha256": "e7ffb54e62459ff4fb3de4d36abc9c5e47a42507019c9584c0979613db042610",
+      "matched_character_coverage": 0.9626,
+      "captions": [
+        {
+          "text": "最後，",
+          "start": 0,
+          "end": 0.92,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "conditional、",
+          "start": 1.11,
+          "end": 1.78,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "blocked，",
+          "start": 1.91,
+          "end": 2.41,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "甚至停止一個題目，",
+          "start": 2.41,
+          "end": 3.81,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "都是有效答案。",
+          "start": 3.81,
+          "end": 4.95,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "它們比一份看起來完整，",
+          "start": 4.95,
+          "end": 6.91,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "卻沒有證據的文件更有價值。",
+          "start": 6.91,
+          "end": 9.15,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "先建立研究工作區，",
+          "start": 9.15,
+          "end": 11.27,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "再輸入你的主題、",
+          "start": 11.27,
+          "end": 12.62,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "目的和限制。",
+          "start": 12.69,
+          "end": 13.75,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "每完成一步，",
+          "start": 13.75,
+          "end": 14.95,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "都查看目前狀態、",
+          "start": 14.95,
+          "end": 16.45,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "留下的證據，",
+          "start": 16.45,
+          "end": 17.53,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        },
+        {
+          "text": "以及下一個還需要你決定的問題。",
+          "start": 17.53,
+          "end": 19.72,
+          "alignment": "target text mapped to local Whisper word timestamps"
+        }
+      ]
+    }
+  ]
+}

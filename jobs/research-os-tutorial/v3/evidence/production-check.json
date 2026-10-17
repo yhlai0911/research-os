@@ -1,0 +1,119 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 13
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 270.033333,
+    "samples": [
+      5.626,
+      16.877,
+      28.128,
+      39.38,
+      50.631,
+      61.883,
+      73.134,
+      84.385,
+      95.637,
+      106.888,
+      118.14,
+      129.391,
+      140.642,
+      151.894,
+      163.145,
+      174.397,
+      185.648,
+      196.899,
+      208.151,
+      219.402,
+      230.653,
+      241.905,
+      253.156,
+      264.408
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "specPath": "<isolated-checkout>/jobs/research-os-tutorial/v3/index.motion.json",
+    "samples": 300
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      5.626,
+      61.883,
+      129.391,
+      196.899,
+      264.408
+    ],
+    "checked": 75,
+    "passed": 75
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      ".hyperframes/artifacts/snapshots/97724714-b78f-48fa-827c-a420272170d8/frame-00-at-5.6s.png",
+      ".hyperframes/artifacts/snapshots/97724714-b78f-48fa-827c-a420272170d8/frame-01-at-61.9s.png",
+      ".hyperframes/artifacts/snapshots/97724714-b78f-48fa-827c-a420272170d8/frame-02-at-129.4s.png",
+      ".hyperframes/artifacts/snapshots/97724714-b78f-48fa-827c-a420272170d8/frame-03-at-196.9s.png",
+      ".hyperframes/artifacts/snapshots/97724714-b78f-48fa-827c-a420272170d8/frame-04-at-264.4s.png"
+    ],
+    "times": [
+      5.626,
+      61.883,
+      129.391,
+      196.899,
+      264.408
+    ],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "cb0153fb-dad4-453b-808d-87b1d0e9d711",
+    "revision": null,
+    "report": "<isolated-checkout>/jobs/research-os-tutorial/v3/.hyperframes/artifacts/checks/cb0153fb-dad4-453b-808d-87b1d0e9d711.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.8.167",
+    "latestVersion": "0.8.167",
+    "updateAvailable": false
+  }
+}

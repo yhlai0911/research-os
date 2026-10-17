@@ -1,0 +1,14 @@
+{
+  "original_seconds": 266.68408163265303,
+  "render_seconds": 270.033333,
+  "added_scene_hold_seconds": 3.3492513673469944,
+  "original_speed_altered": false,
+  "v4_ui_speed_control": "not exposed",
+  "silence_threshold_db": -35,
+  "silence_minimum_seconds": 0.25,
+  "silence_intervals": 82,
+  "silence_seconds": 37.747797,
+  "maximum_silence_seconds": 0.767188,
+  "asr_word_gaps_over_250ms": 7,
+  "asr_word_gap_seconds": 2.8399999999999848
+}

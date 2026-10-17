@@ -1,0 +1,19 @@
+{
+  "narration_source": "narration-v3.json",
+  "timing_source": "ffprobe of lossless scene-ID.wav clips cut by sample index from the new v4 master",
+  "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+  "scenes": [
+    {"id":"01","title":"先讓研究站得住","kicker":"EVIDENCE BEFORE PROSE","visual":"comparison","motion":["svg-path-draw","viewport-change"],"proof":"30頁流暢文字 → 問題、資料、推論的證據鏈；概念示意"},
+    {"id":"02","title":"六步，每一步都有關卡","kicker":"42 GENERAL RESEARCH SKILLS","visual":"workflow","motion":["svg-path-draw","discrete-text-sequence"],"proof":"六個入口依序通過；frontier 停在缺證據處"},
+    {"id":"09","title":"先預檢，再安裝，最後驗證","kicker":"ACTUAL ISOLATED CLI VERIFICATION","visual":"install","motion":["discrete-text-sequence","viewport-change"],"proof":"evidence/install-transcript.json；42 skills、source commit、conflict refusal"},
+    {"id":"10","title":"同一套核心，兩種呼叫方式","kicker":"CODEX / CLAUDE CODE","visual":"harness","motion":["viewport-change","discrete-text-sequence"],"proof":"Codex $；Claude /；三個指令都加 --harness claude-code；切到研究專案啟動"},
+    {"id":"03","title":"把限制一起交代清楚","kicker":"A RESEARCHABLE TASK","visual":"prompt","motion":["discrete-text-sequence","svg-path-draw"],"proof":"主題、成果、受眾、現有材料、限制；提示詞範例"},
+    {"id":"04","title":"一次，只決定一個分支","kicker":"FACTS → AGENT / CHOICES → YOU","visual":"decision","motion":["svg-path-draw","viewport-change"],"proof":"明示操作示意；不可把模擬對話當真實研究執行"},
+    {"id":"05","title":"先找得到證據，再投入成本","kicker":"LITERATURE / DATA / FALSIFIERS / PILOT","visual":"gates","motion":["svg-path-draw","discrete-text-sequence"],"proof":"預先設定反證與停止條件；不足時 blocked，通過才拆解執行"},
+    {"id":"06","title":"一份契約，對應不同成果","kicker":"ONE RESEARCH BRIEF","visual":"brief","motion":["svg-path-draw","viewport-change"],"proof":"同一 Brief 到計畫、企劃、論文藍圖；實證完成才可寫結果主張"},
+    {"id":"11","title":"選配領域包：核心之外的 1","kicker":"SAME REPOSITORY / OPTIONAL PROFILE","visual":"profile","motion":["svg-path-draw","discrete-text-sequence"],"proof":"核心42不變；profile1，harness/target相同，獨立receipt"},
+    {"id":"07","title":"刪掉無法區分的分支","kicker":"DOMAIN EXAMPLE — NOT A VALIDATED MODEL","visual":"case","motion":["svg-path-draw","viewport-change"],"proof":"有限速度的阻尼傳播 vs 普通擴散；機制示意、不顯示虛構係數或p值"},
+    {"id":"12","title":"換語言，證據標準不變","kicker":"繁體中文 / ENGLISH","visual":"language","motion":["discrete-text-sequence","svg-path-draw"],"proof":"語言明確要求優先；命令與路徑不翻譯；中文討論、英文Research Brief"},
+    {"id":"08","title":"知道何時停，也是進展","kicker":"CHECK STATUS. KEEP EVIDENCE.","visual":"status","motion":["svg-path-draw","viewport-change"],"proof":"conditional / blocked / stop 合法；顯示下一個需決定的問題，非虛構完成報告"}
+  ]
+}

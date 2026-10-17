@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+  "checkout_head": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+  "html_files": 13,
+  "visible_characters_checked": 6707,
+  "missing_glyphs": [],
+  "remote_render_assets": [],
+  "total_frames": 6810,
+  "assets": [
+    {
+      "path": "assets/fonts/ResearchSans-Black.otf",
+      "bytes": 278128,
+      "sha256": "6e1b20b4bb5f9da9199be242f36dce27a0346a2370a07b69f23a063ece229697"
+    },
+    {
+      "path": "assets/fonts/ResearchMono.ttf",
+      "bytes": 1710808,
+      "sha256": "8b8b934f600dbd1da306eb4018e7406a4510cccd011a686c16680bcaeacb6617"
+    },
+    {
+      "path": "assets/fonts/ResearchSans-Regular.otf",
+      "bytes": 258516,
+      "sha256": "ac202256bfd9be2074b3603976d73618363cda20757d71f38354cd36d9381e8f"
+    }
+  ],
+  "status": "measured-new-narration"
+}

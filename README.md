@@ -224,11 +224,14 @@ uv run pytest
 
 ### 影片教學
 
-Repository 內附一支 4 分 01 秒的繁體中文 HyperFrames 教學影片，走完整條六步主線：從模糊題目、一次一個決策、預先反證、拆解與執行，到 Research Brief 與不同成果輸出：
+**原理介紹與安裝導覽：**新版繁中教學長 3 分 47 秒，對應 `56159bb`，使用完整十二段 Eleven v4 新旁白；包含真實安裝驗證回放、Codex／Claude 呼叫、通用核心 42 skills、選配財金社科 1 skill、中英文輸出，以及六步研究流程。
 
-- [觀看 MP4](jobs/research-os-tutorial/output/research-os-tutorial-zh-TW.mp4)
-- [分鏡與重製說明](jobs/research-os-tutorial/README.md)
-- [視覺 contact sheet](jobs/research-os-tutorial/snapshots/contact-sheet.jpg)
+- [觀看新版 MP4](jobs/research-os-tutorial/v3/paced/output/research-os-tutorial-v3-paced-zh-TW.mp4)
+- [新版分鏡、重製與驗收](jobs/research-os-tutorial/v3/README.md)
+- [新版畫面總覽](jobs/research-os-tutorial/v3/paced/evidence/delivery-scenes-contact.jpg)
+- [保留的 4 分 01 秒舊版](jobs/research-os-tutorial/README.md)
+
+**實操範例：準備中，尚無可播放影片。**將從空白專案實際操作 setup、追問、Brief、財金社科檢查、修改與 status。[查看錄製計畫](jobs/research-os-tutorial/PRACTICAL_PLAN.md)。後續教學影片均在中英文 README 登錄播放連結、章節時間、對應版本及範例檔案；未完成影片只標示準備中。
 
 ## Skill 組成
 

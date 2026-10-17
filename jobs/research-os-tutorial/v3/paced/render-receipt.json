@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "file": "output/research-os-tutorial-v3-paced-zh-TW.mp4",
+  "sha256": "15a410f53ca5e19f72332383714ae68d7bd14c47eedd40300e375717b3b594d8",
+  "bytes": 15158395,
+  "duration_seconds": 227.0,
+  "video_frames": 6810,
+  "canvas": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "full_decode_exit_code": 0,
+  "full_decode_errors": "",
+  "audio_peak_dbfs": -3.1773921263891927,
+  "audio_sync": [
+    {
+      "scene": "01",
+      "source_window_start": 5.5,
+      "lag_seconds": 0.0,
+      "correlation": 0.9998752861501689,
+      "full_clip_correlation": 0.9997539300143762,
+      "voiced_seconds_checked": 17,
+      "minimum_voiced_second_correlation": 0.9992389260712967
+    },
+    {
+      "scene": "02",
+      "source_window_start": 4.5,
+      "lag_seconds": -0.0003401360544217687,
+      "correlation": 0.9994722217891727,
+      "full_clip_correlation": 0.9992332408882247,
+      "voiced_seconds_checked": 19,
+      "minimum_voiced_second_correlation": 0.9986735494042935
+    },
+    {
+      "scene": "09",
+      "source_window_start": 14.0,
+      "lag_seconds": -0.0003401360544217687,
+      "correlation": 0.9988382989307661,
+      "full_clip_correlation": 0.9992160155729195,
+      "voiced_seconds_checked": 20,
+      "minimum_voiced_second_correlation": 0.9985332220829539
+    },
+    {
+      "scene": "10",
+      "source_window_start": 8.0,
+      "lag_seconds": 0.00031746031746031746,
+      "correlation": 0.9995627355093278,
+      "full_clip_correlation": 0.9994025495592054,
+      "voiced_seconds_checked": 21,
+      "minimum_voiced_second_correlation": 0.9989245711520062
+    },
+    {
+      "scene": "03",
+      "source_window_start": 9.0,
+      "lag_seconds": 0.0,
+      "correlation": 0.9996543566155108,
+      "full_clip_correlation": 0.9997809690578907,
+      "voiced_seconds_checked": 21,
+      "minimum_voiced_second_correlation": 0.9995233000140474
+    },
+    {
+      "scene": "04",
+      "source_window_start": 9.0,
+      "lag_seconds": 0.0,
+      "correlation": 0.999894931954567,
+      "full_clip_correlation": 0.999829166115207,
+      "voiced_seconds_checked": 16,
+      "minimum_voiced_second_correlation": 0.9996156088754796
+    },
+    {
+      "scene": "05",
+      "source_window_start": 5.5,
+      "lag_seconds": 0.0003401360544217687,
+      "correlation": 0.9993241507655445,
+      "full_clip_correlation": 0.9991892055302402,
+      "voiced_seconds_checked": 20,
+      "minimum_voiced_second_correlation": 0.998325745143716
+    },
+    {
+      "scene": "06",
+      "source_window_start": 10.0,
+      "lag_seconds": -0.0003401360544217687,
+      "correlation": 0.9994186888782577,
+      "full_clip_correlation": 0.9992754018350355,
+      "voiced_seconds_checked": 19,
+      "minimum_voiced_second_correlation": 0.9976758547904665
+    },
+    {
+      "scene": "11",
+      "source_window_start": 10.0,
+      "lag_seconds": 0.0,
+      "correlation": 0.9998069788073661,
+      "full_clip_correlation": 0.9998136422408228,
+      "voiced_seconds_checked": 22,
+      "minimum_voiced_second_correlation": 0.9995849199991911
+    },
+    {
+      "scene": "07",
+      "source_window_start": 1.5,
+      "lag_seconds": 0.0,
+      "correlation": 0.999859792641246,
+      "full_clip_correlation": 0.9998404913075236,
+      "voiced_seconds_checked": 20,
+      "minimum_voiced_second_correlation": 0.9996589533377939
+    },
+    {
+      "scene": "12",
+      "source_window_start": 11.0,
+      "lag_seconds": 0.0003401360544217687,
+      "correlation": 0.9994300238285145,
+      "full_clip_correlation": 0.9993551548958847,
+      "voiced_seconds_checked": 17,
+      "minimum_voiced_second_correlation": 0.9982277057398641
+    },
+    {
+      "scene": "08",
+      "source_window_start": 8.0,
+      "lag_seconds": 0.0003401360544217687,
+      "correlation": 0.9993929757802739,
+      "full_clip_correlation": 0.9992269819710853,
+      "voiced_seconds_checked": 17,
+      "minimum_voiced_second_correlation": 0.9983271211928768
+    }
+  ],
+  "max_abs_audio_lag_seconds": 0.0003401360544217687,
+  "minimum_audio_correlation": 0.9988382989307661,
+  "subtitle_cues": 147,
+  "subtitle_overlap": false,
+  "sampled_frames": 36,
+  "limitation": "ASR and waveform correlation are objective checks, not a claim of human auditory review."
+}

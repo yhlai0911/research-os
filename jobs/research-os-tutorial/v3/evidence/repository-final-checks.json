@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "scripts/sync_catalog.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.087,
+      "stdout": "SYNC OK: 42 skills\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "python",
+        "scripts/validate_repository.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.148,
+      "stdout": "VALIDATION OK: 42 skills, 0 errors\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "seconds": 22.8,
+      "stdout": "........................................................................ [ 76%]\n......................                                                   [100%]\n94 passed in 22.61s\n",
+      "stderr": ""
+    }
+  ]
+}

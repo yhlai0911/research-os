@@ -1,0 +1,1189 @@
+{
+  "status": "aligned-reviewed-with-asr-crosscheck",
+  "method": "local Whisper turbo + traditional normalization + monotone character alignment",
+  "master_mp3_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff",
+  "master_wav_sha256": "731e20e7b7667982b6f42722a4cfb4a26840700468349ce1f4ca7b0ed6029eb0",
+  "master_duration_samples": 11760768,
+  "sample_rate": 44100,
+  "global_sequence_similarity": 0.9766214177978884,
+  "transcript_sha256": "01ac2f241a64c85ee3eaa8bbee3632b5b5ea4f1d04f0e9a284e4ac5c3f5f6922",
+  "differences_for_review": [
+    {
+      "operation": "replace",
+      "target": "三十",
+      "asr": "30"
+    },
+    {
+      "operation": "insert",
+      "target": "",
+      "asr": "sclaude"
+    },
+    {
+      "operation": "replace",
+      "target": "支",
+      "asr": "隻"
+    },
+    {
+      "operation": "replace",
+      "target": "碴",
+      "asr": "查"
+    },
+    {
+      "operation": "replace",
+      "target": "四十二",
+      "asr": "42"
+    },
+    {
+      "operation": "replace",
+      "target": "紀",
+      "asr": "記"
+    },
+    {
+      "operation": "replace",
+      "target": "u",
+      "asr": "we"
+    },
+    {
+      "operation": "delete",
+      "target": "e",
+      "asr": ""
+    },
+    {
+      "operation": "replace",
+      "target": "錢",
+      "asr": "前"
+    },
+    {
+      "operation": "replace",
+      "target": "a",
+      "asr": "o"
+    },
+    {
+      "operation": "delete",
+      "target": "e",
+      "asr": ""
+    },
+    {
+      "operation": "replace",
+      "target": "檢視",
+      "asr": "查看"
+    },
+    {
+      "operation": "replace",
+      "target": "畫",
+      "asr": "劃"
+    },
+    {
+      "operation": "replace",
+      "target": "捨",
+      "asr": "舍"
+    },
+    {
+      "operation": "replace",
+      "target": "透",
+      "asr": "通"
+    },
+    {
+      "operation": "replace",
+      "target": "紀",
+      "asr": "記"
+    },
+    {
+      "operation": "replace",
+      "target": "畫",
+      "asr": "劃"
+    },
+    {
+      "operation": "replace",
+      "target": "四十二",
+      "asr": "42"
+    },
+    {
+      "operation": "replace",
+      "target": "透",
+      "asr": "通"
+    },
+    {
+      "operation": "replace",
+      "target": "紀",
+      "asr": "記"
+    },
+    {
+      "operation": "replace",
+      "target": "檔案",
+      "asr": "文件"
+    },
+    {
+      "operation": "replace",
+      "target": "檢視",
+      "asr": "查看"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "01",
+      "audio": "paced/assets/voice/scene-01.wav",
+      "start_sample_in_master": 0,
+      "end_sample_in_master": 898758,
+      "duration_samples": 723231,
+      "sample_rate": 44100,
+      "duration": 16.399795918367346,
+      "sha256": "e3388e05367aa6785c99af9570f96a1897279ddf7957398e4030a235bf02e73e",
+      "target_text_sha256": "8dfec610dab02da2b00c10aab4627f7524dacfadfd8f72b58105b7f6053b8db3",
+      "matched_character_coverage": 0.9681,
+      "captions": [
+        {
+          "text": "只有一句模糊題目，",
+          "start": 0,
+          "end": 1.373,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "AI 當然可以立刻寫出三十頁。",
+          "start": 1.382,
+          "end": 3.787,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "但流暢，",
+          "start": 3.829,
+          "end": 4.492,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不代表有證據。",
+          "start": 4.492,
+          "end": 5.704,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "Research OS 先檢查問題、",
+          "start": 5.811,
+          "end": 7.769,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "資料和推論能不能站得住，",
+          "start": 7.812,
+          "end": 9.668,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再開始寫。",
+          "start": 9.694,
+          "end": 10.55,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "這支影片會帶你安裝、",
+          "start": 10.646,
+          "end": 12.127,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "啟動研究，",
+          "start": 12.203,
+          "end": 12.865,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "並看懂什麼時候應該往前走，",
+          "start": 12.865,
+          "end": 14.857,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "什麼時候應該停下來。",
+          "start": 14.899,
+          "end": 16.264,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "e946a00b26deaa89f732bd0857e01c80bb899495a66e179da6f03195cdc68f60"
+    },
+    {
+      "id": "02",
+      "audio": "paced/assets/voice/scene-02.wav",
+      "start_sample_in_master": 898758,
+      "end_sample_in_master": 1904238,
+      "duration_samples": 835901,
+      "sample_rate": 44100,
+      "duration": 18.954671201814058,
+      "sha256": "15af56c62ee066db415ed342fac832fe7b8ff7e6a57b4fd0d6f0cc2e8ce3f5c3",
+      "target_text_sha256": "8be7add3017d9b8f21ef206999987fb9fbb14c6945c2a11f79418b879a75d606",
+      "matched_character_coverage": 0.99,
+      "captions": [
+        {
+          "text": "核心是一套通用的研究工具，",
+          "start": 0.161,
+          "end": 2.204,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不限定金融或任何學科。",
+          "start": 2.297,
+          "end": 4.077,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "六個步驟依序是：",
+          "start": 4.077,
+          "end": 5.597,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "逼問想法、",
+          "start": 5.597,
+          "end": 6.581,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "鎖定研究契約、",
+          "start": 6.581,
+          "end": 7.768,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "預先找碴、",
+          "start": 7.768,
+          "end": 8.59,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "拆成任務、",
+          "start": 8.717,
+          "end": 9.616,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "逐一執行，",
+          "start": 9.616,
+          "end": 10.463,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "最後審查。",
+          "start": 10.463,
+          "end": 11.277,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "每一步有自己的過關條件；",
+          "start": 11.277,
+          "end": 13.182,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "證據不足就停下來。",
+          "start": 13.182,
+          "end": 14.742,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "你可以手動交棒，",
+          "start": 14.742,
+          "end": 16.013,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "也可以讓自動模式判斷目前最重要的下一步。",
+          "start": 16.013,
+          "end": 18.955,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "3ae0242d1503d19b30428923cdbe179e9583b118a5fa53978de17c278a260059"
+    },
+    {
+      "id": "09",
+      "audio": "paced/assets/voice/scene-09.wav",
+      "start_sample_in_master": 1904238,
+      "end_sample_in_master": 2917656,
+      "duration_samples": 881359,
+      "sample_rate": 44100,
+      "duration": 19.98546485260771,
+      "sha256": "0755eef4c414600944008f5c1c301d8b3d76ba713b662e62afdbddc64cf009e4",
+      "target_text_sha256": "5454086b142be4cbefe2d484f9d710af23fda681043874521462b59ab1a62503",
+      "matched_character_coverage": 0.9664,
+      "captions": [
+        {
+          "text": "先在終端機下載 main 分支，",
+          "start": 0,
+          "end": 2.27,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "進入專案，",
+          "start": 2.27,
+          "end": 3.053,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再用 uv 安裝鎖定的依賴。",
+          "start": 3.053,
+          "end": 5.122,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "接著執行 dry run 預檢。",
+          "start": 5.122,
+          "end": 6.984,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "看到衝突就先處理，",
+          "start": 6.984,
+          "end": 8.601,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不能直接覆蓋原來的檔案。",
+          "start": 8.601,
+          "end": 10.445,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "沒有衝突才正式安裝，",
+          "start": 10.445,
+          "end": 12.341,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "最後執行驗證。",
+          "start": 12.341,
+          "end": 13.489,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "確認是四十二個核心 skills，",
+          "start": 13.489,
+          "end": 15.715,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "並保留安裝紀錄中的來源 commit，",
+          "start": 15.715,
+          "end": 17.924,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "之後才知道自己用的是哪一版。",
+          "start": 17.924,
+          "end": 19.985,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "bfc682c19e10a47c845c1865dbaa49da728c375c90975d06445016ccec8421de"
+    },
+    {
+      "id": "10",
+      "audio": "paced/assets/voice/scene-10.wav",
+      "start_sample_in_master": 2917656,
+      "end_sample_in_master": 3982230,
+      "duration_samples": 925741,
+      "sample_rate": 44100,
+      "duration": 20.991859410430838,
+      "sha256": "fe65772e484a51eb1a166b56bd36aaa653194d79eb1d62a4c47091d93736b47b",
+      "target_text_sha256": "b707555b352de37d79be3fefe59ce6576f8f16967bc5c7bb8f72db62d72d8955",
+      "matched_character_coverage": 0.9493,
+      "captions": [
+        {
+          "text": "Codex 使用預設安裝方式；",
+          "start": 0,
+          "end": 2.235,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "Claude Code 則在預檢、",
+          "start": 2.235,
+          "end": 3.948,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "安裝和驗證這三個指令都加上畫面的 harness 選項。",
+          "start": 4.009,
+          "end": 7.365,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "安裝完成後，",
+          "start": 7.365,
+          "end": 8.548,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "切到你真正要做研究的專案。",
+          "start": 8.548,
+          "end": 10.392,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "先啟動 research setup，",
+          "start": 10.392,
+          "end": 12.148,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "建立研究工作區，",
+          "start": 12.148,
+          "end": 13.47,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再進第一步。",
+          "start": 13.47,
+          "end": 14.287,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "注意，",
+          "start": 14.287,
+          "end": 15.044,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "Codex 的技能名稱前面用錢字號，",
+          "start": 15.296,
+          "end": 17.627,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "Claude Code 用斜線。",
+          "start": 17.627,
+          "end": 19.07,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "研究狀態隨時都能查看。",
+          "start": 19.07,
+          "end": 20.992,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "7e4e27d0fe7a6772014f23f7e87703777ef60e4e4c6e6c2210f92fb8f5c9f65a"
+    },
+    {
+      "id": "03",
+      "audio": "paced/assets/voice/scene-03.wav",
+      "start_sample_in_master": 3982230,
+      "end_sample_in_master": 5067972,
+      "duration_samples": 905526,
+      "sample_rate": 44100,
+      "duration": 20.5334693877551,
+      "sha256": "db3280490873bda6b2230b68b3404d3551e5d71c45432409df67197c50e62a4d",
+      "target_text_sha256": "a1d86c66008b0ab6601c6a01496d2787d53c9ea4ad8e0bdea66dc2fe92f248a6",
+      "matched_character_coverage": 0.9911,
+      "captions": [
+        {
+          "text": "現在交代任務。",
+          "start": 0.144,
+          "end": 1.412,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不要只輸入一個名詞，",
+          "start": 1.412,
+          "end": 2.955,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "要說清楚主題、",
+          "start": 2.955,
+          "end": 4.354,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "最後的成果、",
+          "start": 4.362,
+          "end": 5.269,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "受眾、",
+          "start": 5.312,
+          "end": 5.829,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "手上已有的資料，",
+          "start": 5.837,
+          "end": 6.855,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "以及時間或方法的限制。",
+          "start": 6.855,
+          "end": 8.533,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "例如：",
+          "start": 8.533,
+          "end": 9.227,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "想研究生成式 AI 是否改善大學生的學習成效，",
+          "start": 9.27,
+          "end": 12.526,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "最後形成校內研究計畫，",
+          "start": 12.526,
+          "end": 14.331,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "只能用免費資料，",
+          "start": 14.391,
+          "end": 15.773,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "六個月內完成，",
+          "start": 15.832,
+          "end": 16.663,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "而且不能虛構結果。",
+          "start": 16.663,
+          "end": 18.037,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "這些限制會成為後續決策的依據。",
+          "start": 18.037,
+          "end": 20.533,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "a5771b4a129444015ab70a9dafb9e2efe20ffdcb20637efa8ecf80bb89cd4573"
+    },
+    {
+      "id": "04",
+      "audio": "paced/assets/voice/scene-04.wav",
+      "start_sample_in_master": 5067972,
+      "end_sample_in_master": 5926158,
+      "duration_samples": 711065,
+      "sample_rate": 44100,
+      "duration": 16.123922902494332,
+      "sha256": "d537d820ab9cf6de94eb73dc728b32622e1dc269995ecd2ce0ba6f06c5af8959",
+      "target_text_sha256": "7644f208ec305a499701e886a5970d9f9162073b30358d47defd1701d7f9ccf9",
+      "matched_character_coverage": 0.9891,
+      "captions": [
+        {
+          "text": "第一步一次只問一個真正需要你決定的問題。",
+          "start": 0,
+          "end": 3.161,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "能查證的事實，",
+          "start": 3.161,
+          "end": 4.458,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "交給 Agent 查；",
+          "start": 4.458,
+          "end": 5.339,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "目的、",
+          "start": 5.339,
+          "end": 6.212,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "範圍、",
+          "start": 6.254,
+          "end": 6.72,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "取捨和承諾，",
+          "start": 6.763,
+          "end": 7.61,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "由研究者決定。",
+          "start": 7.61,
+          "end": 8.61,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "畫面上的分支會跟著你的選擇收斂。",
+          "start": 8.61,
+          "end": 11.026,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "它會提出建議，",
+          "start": 11.026,
+          "end": 12.213,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "也說明代價；",
+          "start": 12.213,
+          "end": 13.111,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "重要分支還沒解決，",
+          "start": 13.111,
+          "end": 14.539,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "就不假裝設計已經完成。",
+          "start": 14.539,
+          "end": 16.124,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "3e6abd7f4a21aaa09ae2c5a3cd407a749e9d704150a95dc208bfd3e36f093b4b"
+    },
+    {
+      "id": "05",
+      "audio": "paced/assets/voice/scene-05.wav",
+      "start_sample_in_master": 5926158,
+      "end_sample_in_master": 6940458,
+      "duration_samples": 855864,
+      "sample_rate": 44100,
+      "duration": 19.40734693877551,
+      "sha256": "264a0909ef69cdd95937bf02cdebc67496affd39d7f535e9b71fc0c3b1ffdb58",
+      "target_text_sha256": "23a508413990222c94cce52216ed0f4698c93e7b891c6193214a0f5296ce262d",
+      "matched_character_coverage": 0.9813,
+      "captions": [
+        {
+          "text": "鎖定研究契約之後，",
+          "start": 0,
+          "end": 1.619,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "先不要急著做。",
+          "start": 1.619,
+          "end": 2.569,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "找最接近的文獻，",
+          "start": 2.569,
+          "end": 4.027,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "檢查差異是否成立；",
+          "start": 4.027,
+          "end": 5.485,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "確認資料真的拿得到；",
+          "start": 5.485,
+          "end": 7.079,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再事先寫清楚，",
+          "start": 7.079,
+          "end": 8.198,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "什麼結果會推翻自己的設計。",
+          "start": 8.198,
+          "end": 10.029,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "必要時先做一個小型測試。",
+          "start": 10.029,
+          "end": 12.04,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "標準必須在看結果以前決定，",
+          "start": 12.04,
+          "end": 14.21,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不能事後改答案。",
+          "start": 14.21,
+          "end": 15.228,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "通過這些關卡，",
+          "start": 15.228,
+          "end": 16.584,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再拆任務、",
+          "start": 16.584,
+          "end": 17.483,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "執行並留下可追查的紀錄。",
+          "start": 17.483,
+          "end": 19.407,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "42b5e6dcbbcc927bc80797a7c029aab56c25880678dee5b5fde8e78a0b4fd356"
+    },
+    {
+      "id": "06",
+      "audio": "paced/assets/voice/scene-06.wav",
+      "start_sample_in_master": 6940458,
+      "end_sample_in_master": 7908894,
+      "duration_samples": 817189,
+      "sample_rate": 44100,
+      "duration": 18.530362811791385,
+      "sha256": "cb31a2b855e6a5fede0dea81992fce181e287bb1a10cdb22d92a4fe8a95a2780",
+      "target_text_sha256": "c494f36b7ab6a4e042d4d71e478aa5b2a9841c3f3660124734b4e015872399ef",
+      "matched_character_coverage": 0.9904,
+      "captions": [
+        {
+          "text": "同一份 Research Brief 是研究契約，",
+          "start": 0,
+          "end": 2.366,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "保留問題、",
+          "start": 2.366,
+          "end": 3.324,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "證據、",
+          "start": 3.401,
+          "end": 3.884,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "方法和限制。",
+          "start": 3.892,
+          "end": 4.808,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "之後再依目的轉成學術研究計畫、",
+          "start": 4.808,
+          "end": 7.302,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "補助或專案企劃、",
+          "start": 7.379,
+          "end": 8.846,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "論文藍圖。",
+          "start": 8.939,
+          "end": 9.533,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "只有真的完成實證，",
+          "start": 9.533,
+          "end": 11.076,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "才把結果寫成論文主張。",
+          "start": 11.076,
+          "end": 12.704,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "審查時，",
+          "start": 12.704,
+          "end": 13.654,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "把每個主張連回證據；",
+          "start": 13.654,
+          "end": 15.147,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "缺資料、",
+          "start": 15.147,
+          "end": 16.037,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "沒執行或仍有爭議，",
+          "start": 16.08,
+          "end": 17.436,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "都要如實標示。",
+          "start": 17.436,
+          "end": 18.53,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "3debe8db3afef1b78a4370f5923bee179be78c49674de48aac7fe6d8d0f4ef24"
+    },
+    {
+      "id": "11",
+      "audio": "paced/assets/voice/scene-11.wav",
+      "start_sample_in_master": 7908894,
+      "end_sample_in_master": 9001692,
+      "duration_samples": 950877,
+      "sample_rate": 44100,
+      "duration": 21.561836734693877,
+      "sha256": "b4aaab86c3918cd02a6e8a7419a0c62c43c48a632b5be207613ca5fc73d26bcf",
+      "target_text_sha256": "62a9712693fb9defd620cf551e1746b310828b0017274875a150f6422d320fdc",
+      "matched_character_coverage": 0.9635,
+      "captions": [
+        {
+          "text": "如果研究涉及金融或社會科學，",
+          "start": 0,
+          "end": 2.48,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "可以另外安裝選配領域包。",
+          "start": 2.48,
+          "end": 4.342,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "它和核心在同一個 repository，",
+          "start": 4.342,
+          "end": 6.5,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "但不會把核心四十二個 skills 變成金融專用。",
+          "start": 6.5,
+          "end": 9.563,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "先確認相同工具和安裝位置的核心驗證通過，",
+          "start": 9.563,
+          "end": 13.026,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再用畫面上的 profile 選項預檢、",
+          "start": 13.026,
+          "end": 15.41,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "安裝、",
+          "start": 15.41,
+          "end": 15.915,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "驗證。",
+          "start": 15.915,
+          "end": 16.385,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "它只新增一個領域 skill，",
+          "start": 16.385,
+          "end": 18.125,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "保留獨立安裝紀錄。",
+          "start": 18.125,
+          "end": 19.517,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不需要這個領域，",
+          "start": 19.517,
+          "end": 20.683,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "就直接略過。",
+          "start": 20.683,
+          "end": 21.562,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "3515eef882b6586c2b7bc977936e447997e73670c18e6000f6e7ee5de6e7492a"
+    },
+    {
+      "id": "07",
+      "audio": "paced/assets/voice/scene-07.wav",
+      "start_sample_in_master": 9001692,
+      "end_sample_in_master": 10026576,
+      "duration_samples": 865027,
+      "sample_rate": 44100,
+      "duration": 19.61512471655329,
+      "sha256": "288dfe2488185ec708e0617cb72964aa9b00fda53a43848f0e6dc07517065d89",
+      "target_text_sha256": "9507a2d18bdc8d70989302bdc79856a745c7141ac1c48b8bddde3ffde063f5ac",
+      "matched_character_coverage": 1.0,
+      "captions": [
+        {
+          "text": "來看一個領域案例。",
+          "start": 0,
+          "end": 1.416,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "原始構想把波方程、",
+          "start": 1.416,
+          "end": 3.042,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "熱方程和更多物理模型都放進金融預測。",
+          "start": 3.042,
+          "end": 5.975,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "經過限制與審查，",
+          "start": 5.975,
+          "end": 7.467,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不能由資料區分的分支逐一被刪掉。",
+          "start": 7.467,
+          "end": 9.841,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "最後留下的問題是：",
+          "start": 9.841,
+          "end": 11.299,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "有限速度的阻尼傳播，",
+          "start": 11.299,
+          "end": 13.062,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "能否和普通擴散真正區分？",
+          "start": 13.062,
+          "end": 15.08,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "這是示範如何縮小問題，",
+          "start": 15.08,
+          "end": 16.945,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "不是在宣稱某個金融模型已經得到驗證。",
+          "start": 16.945,
+          "end": 19.615,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "aa64009d11e2b7fefe18aa9583cca65b20754c18e801559e1944ce06f09e75f3"
+    },
+    {
+      "id": "12",
+      "audio": "paced/assets/voice/scene-12.wav",
+      "start_sample_in_master": 10026576,
+      "end_sample_in_master": 10882116,
+      "duration_samples": 721466,
+      "sample_rate": 44100,
+      "duration": 16.359773242630386,
+      "sha256": "591f87dd8e13753e054b6fa1868885affb88969e987c91d513714d2cc9d99945",
+      "target_text_sha256": "ec78c80b889089e9f1987d5af38bd680c032647956d2a76e4020a2d2fbcfaa90",
+      "matched_character_coverage": 1.0,
+      "captions": [
+        {
+          "text": "這套工作流可以用繁體中文，",
+          "start": 0,
+          "end": 2.078,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "也可以用英文。",
+          "start": 2.078,
+          "end": 2.96,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "明確指定輸出語言時，",
+          "start": 2.96,
+          "end": 4.708,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "以你的要求為準；",
+          "start": 4.708,
+          "end": 5.81,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "沒有指定，",
+          "start": 5.81,
+          "end": 6.625,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "就跟隨你使用的語言。",
+          "start": 6.625,
+          "end": 7.965,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "技能名稱、",
+          "start": 7.965,
+          "end": 9.076,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "檔案路徑和命令不翻譯。",
+          "start": 9.119,
+          "end": 10.612,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "你可以用中文討論，",
+          "start": 10.612,
+          "end": 11.986,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再要求英文 Research Brief；",
+          "start": 11.986,
+          "end": 13.496,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "研究的證據標準不會因為換語言而改變。",
+          "start": 13.496,
+          "end": 16.36,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "07e648b277579e49da990f5cf4b1a4080ae6161dc90a5d2f7cbab6f9ccf2ea20"
+    },
+    {
+      "id": "08",
+      "audio": "paced/assets/voice/scene-08.wav",
+      "start_sample_in_master": 10882116,
+      "end_sample_in_master": 11760768,
+      "duration_samples": 740186,
+      "sample_rate": 44100,
+      "duration": 16.784263038548755,
+      "sha256": "d4af33ee3ae8627bc79d65529496ae99a8bd019a3dc56d32ee8e2480f5540aeb",
+      "target_text_sha256": "e7ffb54e62459ff4fb3de4d36abc9c5e47a42507019c9584c0979613db042610",
+      "matched_character_coverage": 0.9626,
+      "captions": [
+        {
+          "text": "最後，",
+          "start": 0,
+          "end": 0.78,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "conditional、",
+          "start": 0.941,
+          "end": 1.509,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "blocked，",
+          "start": 1.619,
+          "end": 2.043,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "甚至停止一個題目，",
+          "start": 2.043,
+          "end": 3.23,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "都是有效答案。",
+          "start": 3.23,
+          "end": 4.197,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "它們比一份看起來完整，",
+          "start": 4.197,
+          "end": 5.859,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "卻沒有證據的文件更有價值。",
+          "start": 5.859,
+          "end": 7.758,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "先建立研究工作區，",
+          "start": 7.758,
+          "end": 9.447,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "再輸入你的主題、",
+          "start": 9.447,
+          "end": 10.592,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "目的和限制。",
+          "start": 10.651,
+          "end": 11.55,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "每完成一步，",
+          "start": 11.55,
+          "end": 12.567,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "都查看目前狀態、",
+          "start": 12.567,
+          "end": 13.839,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "留下的證據，",
+          "start": 13.839,
+          "end": 14.754,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        },
+        {
+          "text": "以及下一個還需要你決定的問題。",
+          "start": 14.754,
+          "end": 16.611,
+          "alignment": "reviewed source word times mapped through exact quiet cuts and measured atempo length"
+        }
+      ],
+      "source_pcm_sha256": "660a2b011b7b93b970fbe703c26f8803782d9f3eaf7bc442d39500f2261fde2d"
+    }
+  ],
+  "tempo_derivative": true,
+  "source_alignment_sha256": "5fbece714e8242174dd4c5435e9261768efff24928f91920563f5af1eee4d527",
+  "timing_note": "Source ASR reviewed; subtitle times transformed by exact sample cuts and measured pitch-preserving tempo output. No new TTS."
+}

@@ -1,0 +1,13 @@
+{
+  "model_name": "Eleven v4",
+  "model_id": "eleven_v4",
+  "grade": "non-Turbo",
+  "voice_source": "author-provided private narration; original recording not published",
+  "stability": 0.5,
+  "similarity": 0.75,
+  "source_file": "assets/voice/full-narration-original.mp3",
+  "sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff",
+  "original_duration_seconds": 266.684063,
+  "local_pacing": "pitch-preserving 1.18x; installation scenes 1.15x with original pauses",
+  "reproduction": "uses the saved narration only; no TTS calls or credentials required"
+}

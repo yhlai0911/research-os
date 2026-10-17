@@ -1,0 +1,238 @@
+{
+  "model": "same existing Eleven v4 recording; no new generation",
+  "pitch_preserving_filter": "FFmpeg atempo",
+  "extra_credits": 0,
+  "original_seconds": 266.68408163265303,
+  "strict_quiet_threshold_db": -42,
+  "minimum_quiet_seconds": 0.45,
+  "retained_quiet_seconds_before_tempo": 0.36,
+  "new_voice_seconds": 225.24789115646257,
+  "removed_quiet_seconds": 2.869546485260771,
+  "scenes": [
+    {
+      "scene": "01",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 20.38,
+      "removed_quiet_seconds": 1.0352607709750568,
+      "output_seconds": 16.399795918367346,
+      "measured_effective_atempo": 1.1795719486581742,
+      "removed_sample_ranges": [
+        [
+          76238,
+          81224
+        ],
+        [
+          206482,
+          213474
+        ],
+        [
+          314092,
+          331015
+        ],
+        [
+          582696,
+          599450
+        ]
+      ],
+      "output_sha256": "e3388e05367aa6785c99af9570f96a1897279ddf7957398e4030a235bf02e73e"
+    },
+    {
+      "scene": "02",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 22.8,
+      "removed_quiet_seconds": 0.43795918367346937,
+      "output_seconds": 18.954671201814058,
+      "measured_effective_atempo": 1.179764110821736,
+      "removed_sample_ranges": [
+        [
+          227280,
+          232881
+        ],
+        [
+          309508,
+          314747
+        ],
+        [
+          611241,
+          619715
+        ]
+      ],
+      "output_sha256": "15af56c62ee066db415ed342fac832fe7b8ff7e6a57b4fd0d6f0cc2e8ce3f5c3"
+    },
+    {
+      "scene": "09",
+      "atempo": 1.15,
+      "pitch_preserved": true,
+      "protected_installation_pauses": true,
+      "original_seconds": 22.98,
+      "removed_quiet_seconds": 0.0,
+      "output_seconds": 19.98546485260771,
+      "measured_effective_atempo": 1.1498356515335975,
+      "removed_sample_ranges": [],
+      "output_sha256": "0755eef4c414600944008f5c1c301d8b3d76ba713b662e62afdbddc64cf009e4"
+    },
+    {
+      "scene": "10",
+      "atempo": 1.15,
+      "pitch_preserved": true,
+      "protected_installation_pauses": true,
+      "original_seconds": 24.14,
+      "removed_quiet_seconds": 0.0,
+      "output_seconds": 20.991859410430838,
+      "measured_effective_atempo": 1.1499695919268997,
+      "removed_sample_ranges": [],
+      "output_sha256": "fe65772e484a51eb1a166b56bd36aaa653194d79eb1d62a4c47091d93736b47b"
+    },
+    {
+      "scene": "03",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 24.62,
+      "removed_quiet_seconds": 0.40174603174603174,
+      "output_seconds": 20.5334693877551,
+      "measured_effective_atempo": 1.1794526054469998,
+      "removed_sample_ranges": [
+        [
+          19205,
+          26489
+        ],
+        [
+          462440,
+          466476
+        ],
+        [
+          960588,
+          966985
+        ]
+      ],
+      "output_sha256": "db3280490873bda6b2230b68b3404d3551e5d71c45432409df67197c50e62a4d"
+    },
+    {
+      "scene": "04",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 19.46,
+      "removed_quiet_seconds": 0.43482993197278913,
+      "output_seconds": 16.123922902494332,
+      "measured_effective_atempo": 1.1799343238663131,
+      "removed_sample_ranges": [
+        [
+          177613,
+          185127
+        ],
+        [
+          466856,
+          473433
+        ],
+        [
+          706181,
+          711266
+        ]
+      ],
+      "output_sha256": "d537d820ab9cf6de94eb73dc728b32622e1dc269995ecd2ce0ba6f06c5af8959"
+    },
+    {
+      "scene": "05",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 23.0,
+      "removed_quiet_seconds": 0.10804988662131519,
+      "output_seconds": 19.40734693877551,
+      "measured_effective_atempo": 1.1795507230120674,
+      "removed_sample_ranges": [
+        [
+          533511,
+          538276
+        ]
+      ],
+      "output_sha256": "264a0909ef69cdd95937bf02cdebc67496affd39d7f535e9b71fc0c3b1ffdb58"
+    },
+    {
+      "scene": "06",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 21.96,
+      "removed_quiet_seconds": 0.1089342403628118,
+      "output_seconds": 18.530362811791385,
+      "measured_effective_atempo": 1.1792033421888939,
+      "removed_sample_ranges": [
+        [
+          261781,
+          266585
+        ]
+      ],
+      "output_sha256": "cb31a2b855e6a5fede0dea81992fce181e287bb1a10cdb22d92a4fe8a95a2780"
+    },
+    {
+      "scene": "11",
+      "atempo": 1.15,
+      "pitch_preserved": true,
+      "protected_installation_pauses": true,
+      "original_seconds": 24.78,
+      "removed_quiet_seconds": 0.0,
+      "output_seconds": 21.561836734693877,
+      "measured_effective_atempo": 1.1492527424682688,
+      "removed_sample_ranges": [],
+      "output_sha256": "b4aaab86c3918cd02a6e8a7419a0c62c43c48a632b5be207613ca5fc73d26bcf"
+    },
+    {
+      "scene": "07",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 23.24,
+      "removed_quiet_seconds": 0.1018140589569161,
+      "output_seconds": 19.61512471655329,
+      "measured_effective_atempo": 1.1796094225960576,
+      "removed_sample_ranges": [
+        [
+          85261,
+          89751
+        ]
+      ],
+      "output_sha256": "288dfe2488185ec708e0617cb72964aa9b00fda53a43848f0e6dc07517065d89"
+    },
+    {
+      "scene": "12",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 19.4,
+      "removed_quiet_seconds": 0.11337868480725624,
+      "output_seconds": 16.359773242630386,
+      "measured_effective_atempo": 1.178905173632576,
+      "removed_sample_ranges": [
+        [
+          714343,
+          719343
+        ]
+      ],
+      "output_sha256": "591f87dd8e13753e054b6fa1868885affb88969e987c91d513714d2cc9d99945"
+    },
+    {
+      "scene": "08",
+      "atempo": 1.18,
+      "pitch_preserved": true,
+      "protected_installation_pauses": false,
+      "original_seconds": 19.92408163265306,
+      "removed_quiet_seconds": 0.1275736961451247,
+      "output_seconds": 16.784263038548755,
+      "measured_effective_atempo": 1.1794684038876715,
+      "removed_sample_ranges": [
+        [
+          416095,
+          421721
+        ]
+      ],
+      "output_sha256": "d4af33ee3ae8627bc79d65529496ae99a8bd019a3dc56d32ee8e2480f5540aeb"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"></head><body><template><style>#s01-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}</style><div id="s01-root" data-composition-id="s01" data-width="1920" data-height="1080" data-duration="20.666667"><div class="canvas"></div><div class="toprule"></div><header class="scene-header"><p class="kicker">EVIDENCE BEFORE PROSE</p><h1>先讓研究站得住</h1></header><div class="scene-body"><div class="camera" id="s01-stage"><div class="cols"><div class="stack"><h2 data-pop>流暢的三十頁</h2><div class="paper" data-pop><div class="document-lines"><i style="width:94%"></i><i style="width:80%"></i><i style="width:66%"></i><i style="width:94%"></i><i style="width:80%"></i><i style="width:66%"></i><i style="width:94%"></i><i style="width:80%"></i><i style="width:66%"></i><i style="width:94%"></i><i style="width:80%"></i><i style="width:66%"></i></div><p style="margin-top:22px">未知 → 仍然未知</p></div><p class="muted" data-pop>字數增加，無法替代查證。</p></div><div class="stack"><h2 class="amber" data-pop>可回查的研究</h2><svg viewBox="0 0 850 660" aria-label="研究流程示意"><g class="node-group "><rect class="node" x="80" y="25" width="650" height="120" rx="18"/><text x="405.0" y="77" text-anchor="middle">問題</text><text class="sublabel" x="405.0" y="123" text-anchor="middle">要判斷什麼？</text></g><path class="trace" d="M405 145 V205"/><g class="node-group "><rect class="node" x="80" y="205" width="650" height="120" rx="18"/><text x="405.0" y="257" text-anchor="middle">資料與證據</text><text class="sublabel" x="405.0" y="303" text-anchor="middle">真的拿得到、能支持嗎？</text></g><path class="trace" d="M405 325 V385"/><g class="node-group "><rect class="node" x="80" y="385" width="650" height="120" rx="18"/><text x="405.0" y="437" text-anchor="middle">推論與限制</text><text class="sublabel" x="405.0" y="483" text-anchor="middle">什麼結果會推翻它？</text></g></svg></div></div></div></div><div class="footer"><span>RESEARCH OS / 01 OF 12</span><span>教學操作與概念示意 · 錄製來源 56159bb</span></div><div class="progress"><div id="s01-progress" class="progress-fill"></div></div></div><script>
+(()=>{const id="s01",d=20.666666666666668,scope=document.getElementById(id+'-stage');
+const tl=gsap.timeline({paused:true});
+// Adapted from the existing Claude Max collaboration in evidence/claude-code-followup.json.
+// Review changes: preserve contrast, avoid borderWidth/layout animation, explicit return states.
+const RO_AMBER = "#FFCE57";
+const RO_MUTED = "#596479";
+
+function evidenceFocus(tl, element, start, hold, scale, targetOffsetX, targetOffsetY) {
+  const tx = -targetOffsetX * scale;
+  const ty = -targetOffsetY * scale;
+  tl.fromTo(element,
+    {x: 0, y: 0, scale: 1, transformOrigin: "50% 50%"},
+    {x: tx, y: ty, scale, duration: .9, ease: "power2.inOut", immediateRender: false}, start);
+  tl.fromTo(element, {x: tx, y: ty, scale},
+    {x: 0, y: 0, scale: 1, duration: .8, ease: "power2.inOut", immediateRender: false},
+    start + .9 + hold);
+  return tl;
+}
+
+function flowFrontier(tl, nodes, start, span) {
+  const list = Array.from(nodes).slice(0, 6);
+  const step = span / Math.max(list.length, 1);
+  list.forEach((node, i) => {
+    const rect = node.querySelector("rect");
+    if (rect) tl.fromTo(rect, {stroke: RO_MUTED},
+      {stroke: RO_AMBER, duration: Math.min(.5, step*.8), ease: "power1.out"}, start+i*step);
+  });
+  return tl;
+}
+
+function evidenceCompare(tl, beforeElement, afterElement, start, duration) {
+  const d = Math.max(.4, duration);
+  // .4 opacity in the raw proposal made the text too faint; retain .8 for readability.
+  tl.fromTo(beforeElement, {opacity: 1},
+    {opacity: .8, duration: d, ease: "power1.inOut", immediateRender: false}, start);
+  tl.fromTo(afterElement, {opacity: .8},
+    {opacity: 1, duration: d, ease: "power1.inOut", immediateRender: false}, start+d*.25);
+  return tl;
+}
+
+const phases=scope.querySelectorAll('.phase');
+phases.forEach(p=>{let a=Number(p.dataset.enter)*d,b=Number(p.dataset.leave)*d;
+tl.fromTo(p,{opacity:0},{opacity:1,duration:.12,ease:'none'},a);
+if(b<d)tl.fromTo(p,{opacity:1},{opacity:0,duration:.12,ease:'none',immediateRender:false},b-.12);
+const lines=p.querySelectorAll('.terminal-line');lines.forEach((el,i)=>tl.fromTo(el,{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},a+.25+i*Math.min(.8,(b-a-1)/Math.max(lines.length,1))));});
+const pops=scope.querySelectorAll('[data-pop]');pops.forEach((el,i)=>tl.fromTo(el,{opacity:0,y:22},{opacity:1,y:0,duration:.5,ease:i%2?'power3.out':'power2.out'},.25+i*Math.min(.38,d*.65/Math.max(pops.length,1))));
+scope.querySelectorAll('.trace').forEach((p,i)=>{let len=p.getTotalLength();p.style.strokeDasharray=String(len);tl.fromTo(p,{strokeDashoffset:len},{strokeDashoffset:0,duration:Math.min(1.3,d*.08),ease:'power2.out'},.5+i*Math.min(1.2,d*.45/Math.max(scope.querySelectorAll('.trace').length,1)));});
+scope.querySelectorAll('.node-group').forEach((el,i)=>tl.fromTo(el,{opacity:0},{opacity:1,duration:.5,ease:'power1.out'},.3+i*Math.min(.65,d*.35/Math.max(scope.querySelectorAll('.node-group').length,1))));
+scope.querySelectorAll('.discard').forEach((el,i)=>tl.fromTo(el,{opacity:1,x:0},{opacity:.24,x:-35,duration:1,ease:'power2.inOut',immediateRender:false},d*(.48+i*.13)));
+tl.fromTo('#'+id+'-progress',{scaleX:0},{scaleX:1,duration:d,ease:'none'},0);
+evidenceCompare(tl,scope.querySelector('.paper'),scope.querySelector('svg'),d*.48,1.0);
+window.__timelines[id]=tl;})();
+</script></template></body></html>

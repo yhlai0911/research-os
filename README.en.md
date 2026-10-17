@@ -139,6 +139,12 @@ The workflow resolves one consequential decision at a time. When the idea is res
 - A paper or proposal may describe planned work honestly. It must not turn an unexecuted analysis into results or turn fluent prose into evidence.
 - Catalog checks, unit tests, installation verification, and evaluation scenario files do not by themselves establish fresh-agent behavioral efficacy. Bilingual and profile behavior needs separately recorded evaluations; the project does not claim that efficacy has been demonstrated.
 
+## Video tutorial
+
+**Concept overview and installation guide:** the [3m47s Traditional Chinese tutorial](jobs/research-os-tutorial/v3/paced/output/research-os-tutorial-v3-paced-zh-TW.mp4), based on `56159bb`, uses twelve newly recorded Eleven v4 narration sections with pitch-preserving pacing and synchronized subtitles. It covers verified installation replays, Codex/Claude invocation, the 42-skill general core, the optional finance/social-science skill, language selection, and the six-step workflow. See [chapters, examples, reproduction, and QA](jobs/research-os-tutorial/v3/README.md) and the [frame overview](jobs/research-os-tutorial/v3/paced/evidence/delivery-scenes-contact.jpg). The previous eight-section tutorial remains in its original folder.
+
+**Hands-on walkthrough: in preparation; no playable video yet.** The [recording plan](jobs/research-os-tutorial/PRACTICAL_PLAN.md) covers an actual blank project, setup, question/answer exchange, Brief, domain review, revision, and status. Future tutorial videos will be listed in both READMEs with playback links, chapter times, applicable versions, and example files. Unfinished videos remain marked as planned.
+
 ## Architecture and maintenance
 
 The core contains **16 orchestrators, 25 primitives, and one meta skill**. [`skills/catalog.yaml`](skills/catalog.yaml) is the source of truth; it generates the [skill catalog](docs/SKILL_CATALOG.md) and Codex metadata. Claude Code adapters are generated at installation. Other harnesses are not claimed to enforce equivalent invocation policy without an adapter and verification.

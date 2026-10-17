@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"></head><body><template><style>#s07-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}</style><div id="s07-root" data-composition-id="s07" data-width="1920" data-height="1080" data-duration="19.766667"><div class="canvas"></div><div class="toprule"></div><header class="scene-header"><p class="kicker">DOMAIN EXAMPLE — NOT A VALIDATED MODEL</p><h1>刪掉無法區分的分支</h1></header><div class="scene-body"><div class="camera" id="s07-stage"><svg viewBox="0 0 1760 660" aria-label="研究流程示意"><text x="15" y="45" class="sublabel">原始構想：物理模型全部放進金融預測</text><g class="node-group "><rect class="node" x="20" y="100" width="350" height="130" rx="18"/><text x="195.0" y="152" text-anchor="middle">波方程</text></g><g class="node-group "><rect class="node" x="20" y="290" width="350" height="130" rx="18"/><text x="195.0" y="342" text-anchor="middle">熱方程</text></g><g class="node-group discard"><rect class="node" x="20" y="480" width="350" height="130" rx="18"/><text x="195.0" y="532" text-anchor="middle">更多物理模型</text></g><path class="trace" d="M370 165 H500 V335 H660"/><path class="trace" d="M370 355 H660"/><path class="trace" d="M370 545 H500 V375 H660"/><g class="node-group "><rect class="node" x="660" y="230" width="1060" height="170" rx="18"/><text x="1190.0" y="282" text-anchor="middle">有限速度的阻尼傳播，能否和普通擴散區分？</text><text class="sublabel" x="1190.0" y="328" text-anchor="middle">先問資料能否辨識，而非宣稱模型已經驗證</text></g><path class="trace" d="M770 160 L825 160 L860 80 L895 160 L1050 160"/><text x="1190" y="135" class="sublabel">有限傳播：機制示意</text><path class="trace" d="M770 540 C850 540 850 460 925 460 S1000 540 1080 540"/><text x="1190" y="515" class="sublabel">普通擴散：機制示意</text></svg></div></div><div class="footer"><span>RESEARCH OS / 10 OF 12</span><span>教學操作與概念示意 · 錄製來源 56159bb</span></div><div class="progress"><div id="s07-progress" class="progress-fill"></div></div></div><script>
+(()=>{const id="s07",d=19.766666666666666,scope=document.getElementById(id+'-stage');
+const tl=gsap.timeline({paused:true});
+// Adapted from the existing Claude Max collaboration in evidence/claude-code-followup.json.
+// Review changes: preserve contrast, avoid borderWidth/layout animation, explicit return states.
+const RO_AMBER = "#FFCE57";
+const RO_MUTED = "#596479";
+
+function evidenceFocus(tl, element, start, hold, scale, targetOffsetX, targetOffsetY) {
+  const tx = -targetOffsetX * scale;
+  const ty = -targetOffsetY * scale;
+  tl.fromTo(element,
+    {x: 0, y: 0, scale: 1, transformOrigin: "50% 50%"},
+    {x: tx, y: ty, scale, duration: .9, ease: "power2.inOut", immediateRender: false}, start);
+  tl.fromTo(element, {x: tx, y: ty, scale},
+    {x: 0, y: 0, scale: 1, duration: .8, ease: "power2.inOut", immediateRender: false},
+    start + .9 + hold);
+  return tl;
+}
+
+function flowFrontier(tl, nodes, start, span) {
+  const list = Array.from(nodes).slice(0, 6);
+  const step = span / Math.max(list.length, 1);
+  list.forEach((node, i) => {
+    const rect = node.querySelector("rect");
+    if (rect) tl.fromTo(rect, {stroke: RO_MUTED},
+      {stroke: RO_AMBER, duration: Math.min(.5, step*.8), ease: "power1.out"}, start+i*step);
+  });
+  return tl;
+}
+
+function evidenceCompare(tl, beforeElement, afterElement, start, duration) {
+  const d = Math.max(.4, duration);
+  // .4 opacity in the raw proposal made the text too faint; retain .8 for readability.
+  tl.fromTo(beforeElement, {opacity: 1},
+    {opacity: .8, duration: d, ease: "power1.inOut", immediateRender: false}, start);
+  tl.fromTo(afterElement, {opacity: .8},
+    {opacity: 1, duration: d, ease: "power1.inOut", immediateRender: false}, start+d*.25);
+  return tl;
+}
+
+const phases=scope.querySelectorAll('.phase');
+phases.forEach(p=>{let a=Number(p.dataset.enter)*d,b=Number(p.dataset.leave)*d;
+tl.fromTo(p,{opacity:0},{opacity:1,duration:.12,ease:'none'},a);
+if(b<d)tl.fromTo(p,{opacity:1},{opacity:0,duration:.12,ease:'none',immediateRender:false},b-.12);
+const lines=p.querySelectorAll('.terminal-line');lines.forEach((el,i)=>tl.fromTo(el,{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},a+.25+i*Math.min(.8,(b-a-1)/Math.max(lines.length,1))));});
+const pops=scope.querySelectorAll('[data-pop]');pops.forEach((el,i)=>tl.fromTo(el,{opacity:0,y:22},{opacity:1,y:0,duration:.5,ease:i%2?'power3.out':'power2.out'},.25+i*Math.min(.38,d*.65/Math.max(pops.length,1))));
+scope.querySelectorAll('.trace').forEach((p,i)=>{let len=p.getTotalLength();p.style.strokeDasharray=String(len);tl.fromTo(p,{strokeDashoffset:len},{strokeDashoffset:0,duration:Math.min(1.3,d*.08),ease:'power2.out'},.5+i*Math.min(1.2,d*.45/Math.max(scope.querySelectorAll('.trace').length,1)));});
+scope.querySelectorAll('.node-group').forEach((el,i)=>tl.fromTo(el,{opacity:0},{opacity:1,duration:.5,ease:'power1.out'},.3+i*Math.min(.65,d*.35/Math.max(scope.querySelectorAll('.node-group').length,1))));
+scope.querySelectorAll('.discard').forEach((el,i)=>tl.fromTo(el,{opacity:1,x:0},{opacity:.24,x:-35,duration:1,ease:'power2.inOut',immediateRender:false},d*(.48+i*.13)));
+tl.fromTo('#'+id+'-progress',{scaleX:0},{scaleX:1,duration:d,ease:'none'},0);
+
+window.__timelines[id]=tl;})();
+</script></template></body></html>

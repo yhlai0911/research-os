@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"></head><body><template><style>#s05-root{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}</style><div id="s05-root" data-composition-id="s05" data-width="1920" data-height="1080" data-duration="23.266667"><div class="canvas"></div><div class="toprule"></div><header class="scene-header"><p class="kicker">LITERATURE / DATA / FALSIFIERS / PILOT</p><h1>先找得到證據，再投入成本</h1></header><div class="scene-body"><div class="camera" id="s05-stage"><svg viewBox="0 0 1760 660" aria-label="研究流程示意"><g class="node-group gate-0"><rect class="node" x="10" y="100" width="400" height="180" rx="18"/><text x="210.0" y="152" text-anchor="middle">最接近的文獻</text><text class="sublabel" x="210.0" y="198" text-anchor="middle">差異真的成立？</text></g><path class="trace" d="M410 190 H450"/><g class="node-group gate-1"><rect class="node" x="450" y="100" width="400" height="180" rx="18"/><text x="650.0" y="152" text-anchor="middle">資料可得性</text><text class="sublabel" x="650.0" y="198" text-anchor="middle">取用、授權、涵蓋？</text></g><path class="trace" d="M850 190 H890"/><g class="node-group gate-2"><rect class="node" x="890" y="100" width="400" height="180" rx="18"/><text x="1090.0" y="152" text-anchor="middle">預先反證</text><text class="sublabel" x="1090.0" y="198" text-anchor="middle">哪些結果推翻設計？</text></g><path class="trace" d="M1290 190 H1330"/><g class="node-group gate-3"><rect class="node" x="1330" y="100" width="400" height="180" rx="18"/><text x="1530.0" y="152" text-anchor="middle">小型測試</text><text class="sublabel" x="1530.0" y="198" text-anchor="middle">最低成本確認可行？</text></g><g class="node-group "><rect class="node" x="410" y="405" width="940" height="155" rx="18"/><text x="880.0" y="457" text-anchor="middle">通過 → tasks → run → receipt</text><text class="sublabel" x="880.0" y="503" text-anchor="middle">缺資料或條件不足 → blocked，停止並說明原因</text></g></svg></div></div><div class="footer"><span>RESEARCH OS / 07 OF 12</span><span>教學操作與概念示意 · 錄製來源 56159bb</span></div><div class="progress"><div id="s05-progress" class="progress-fill"></div></div></div><script>
+(()=>{const id="s05",d=23.266666666666666,scope=document.getElementById(id+'-stage');
+const tl=gsap.timeline({paused:true});
+// Adapted from the existing Claude Max collaboration in evidence/claude-code-followup.json.
+// Review changes: preserve contrast, avoid borderWidth/layout animation, explicit return states.
+const RO_AMBER = "#FFCE57";
+const RO_MUTED = "#596479";
+
+function evidenceFocus(tl, element, start, hold, scale, targetOffsetX, targetOffsetY) {
+  const tx = -targetOffsetX * scale;
+  const ty = -targetOffsetY * scale;
+  tl.fromTo(element,
+    {x: 0, y: 0, scale: 1, transformOrigin: "50% 50%"},
+    {x: tx, y: ty, scale, duration: .9, ease: "power2.inOut", immediateRender: false}, start);
+  tl.fromTo(element, {x: tx, y: ty, scale},
+    {x: 0, y: 0, scale: 1, duration: .8, ease: "power2.inOut", immediateRender: false},
+    start + .9 + hold);
+  return tl;
+}
+
+function flowFrontier(tl, nodes, start, span) {
+  const list = Array.from(nodes).slice(0, 6);
+  const step = span / Math.max(list.length, 1);
+  list.forEach((node, i) => {
+    const rect = node.querySelector("rect");
+    if (rect) tl.fromTo(rect, {stroke: RO_MUTED},
+      {stroke: RO_AMBER, duration: Math.min(.5, step*.8), ease: "power1.out"}, start+i*step);
+  });
+  return tl;
+}
+
+function evidenceCompare(tl, beforeElement, afterElement, start, duration) {
+  const d = Math.max(.4, duration);
+  // .4 opacity in the raw proposal made the text too faint; retain .8 for readability.
+  tl.fromTo(beforeElement, {opacity: 1},
+    {opacity: .8, duration: d, ease: "power1.inOut", immediateRender: false}, start);
+  tl.fromTo(afterElement, {opacity: .8},
+    {opacity: 1, duration: d, ease: "power1.inOut", immediateRender: false}, start+d*.25);
+  return tl;
+}
+
+const phases=scope.querySelectorAll('.phase');
+phases.forEach(p=>{let a=Number(p.dataset.enter)*d,b=Number(p.dataset.leave)*d;
+tl.fromTo(p,{opacity:0},{opacity:1,duration:.12,ease:'none'},a);
+if(b<d)tl.fromTo(p,{opacity:1},{opacity:0,duration:.12,ease:'none',immediateRender:false},b-.12);
+const lines=p.querySelectorAll('.terminal-line');lines.forEach((el,i)=>tl.fromTo(el,{opacity:0,y:12},{opacity:1,y:0,duration:.35,ease:'power2.out'},a+.25+i*Math.min(.8,(b-a-1)/Math.max(lines.length,1))));});
+const pops=scope.querySelectorAll('[data-pop]');pops.forEach((el,i)=>tl.fromTo(el,{opacity:0,y:22},{opacity:1,y:0,duration:.5,ease:i%2?'power3.out':'power2.out'},.25+i*Math.min(.38,d*.65/Math.max(pops.length,1))));
+scope.querySelectorAll('.trace').forEach((p,i)=>{let len=p.getTotalLength();p.style.strokeDasharray=String(len);tl.fromTo(p,{strokeDashoffset:len},{strokeDashoffset:0,duration:Math.min(1.3,d*.08),ease:'power2.out'},.5+i*Math.min(1.2,d*.45/Math.max(scope.querySelectorAll('.trace').length,1)));});
+scope.querySelectorAll('.node-group').forEach((el,i)=>tl.fromTo(el,{opacity:0},{opacity:1,duration:.5,ease:'power1.out'},.3+i*Math.min(.65,d*.35/Math.max(scope.querySelectorAll('.node-group').length,1))));
+scope.querySelectorAll('.discard').forEach((el,i)=>tl.fromTo(el,{opacity:1,x:0},{opacity:.24,x:-35,duration:1,ease:'power2.inOut',immediateRender:false},d*(.48+i*.13)));
+tl.fromTo('#'+id+'-progress',{scaleX:0},{scaleX:1,duration:d,ease:'none'},0);
+flowFrontier(tl,scope.querySelectorAll('.node-group'),d*.25,d*.55);
+window.__timelines[id]=tl;})();
+</script></template></body></html>

@@ -1,0 +1,262 @@
+{
+  "status": "measured-new-narration",
+  "duration": 227.0,
+  "total_frames": 6810,
+  "fps": 30,
+  "tail_frames": 4,
+  "tempo_variant": true,
+  "scenes": [
+    {
+      "id": "01",
+      "title": "先讓研究站得住",
+      "kicker": "EVIDENCE BEFORE PROSE",
+      "visual": "comparison",
+      "motion": [
+        "svg-path-draw",
+        "viewport-change"
+      ],
+      "proof": "30頁流暢文字 → 問題、資料、推論的證據鏈；概念示意",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 0.0,
+      "duration": 16.533333,
+      "start_frame": 0,
+      "frame_count": 496,
+      "voice_duration": 16.399795918367346,
+      "text": "只有一句模糊題目，AI 當然可以立刻寫出三十頁。但流暢，不代表有證據。Research OS 先檢查問題、資料和推論能不能站得住，再開始寫。這支影片會帶你安裝、啟動研究，並看懂什麼時候應該往前走，什麼時候應該停下來。",
+      "audio": "assets/voice/scene-01.wav",
+      "audio_sha256": "e3388e05367aa6785c99af9570f96a1897279ddf7957398e4030a235bf02e73e",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "02",
+      "title": "六步，每一步都有關卡",
+      "kicker": "42 GENERAL RESEARCH SKILLS",
+      "visual": "workflow",
+      "motion": [
+        "svg-path-draw",
+        "discrete-text-sequence"
+      ],
+      "proof": "六個入口依序通過；frontier 停在缺證據處",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 16.533333,
+      "duration": 19.1,
+      "start_frame": 496,
+      "frame_count": 573,
+      "voice_duration": 18.954671201814058,
+      "text": "核心是一套通用的研究工具，不限定金融或任何學科。六個步驟依序是：逼問想法、鎖定研究契約、預先找碴、拆成任務、逐一執行，最後審查。每一步有自己的過關條件；證據不足就停下來。你可以手動交棒，也可以讓自動模式判斷目前最重要的下一步。",
+      "audio": "assets/voice/scene-02.wav",
+      "audio_sha256": "15af56c62ee066db415ed342fac832fe7b8ff7e6a57b4fd0d6f0cc2e8ce3f5c3",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "09",
+      "title": "先預檢，再安裝，最後驗證",
+      "kicker": "ACTUAL ISOLATED CLI VERIFICATION",
+      "visual": "install",
+      "motion": [
+        "discrete-text-sequence",
+        "viewport-change"
+      ],
+      "proof": "evidence/install-transcript.json；42 skills、source commit、conflict refusal",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 35.633333,
+      "duration": 20.133333,
+      "start_frame": 1069,
+      "frame_count": 604,
+      "voice_duration": 19.98546485260771,
+      "text": "先在終端機下載 main 分支，進入專案，再用 uv 安裝鎖定的依賴。接著執行 dry run 預檢。看到衝突就先處理，不能直接覆蓋原來的檔案。沒有衝突才正式安裝，最後執行驗證。確認是四十二個核心 skills，並保留安裝紀錄中的來源 commit，之後才知道自己用的是哪一版。",
+      "audio": "assets/voice/scene-09.wav",
+      "audio_sha256": "0755eef4c414600944008f5c1c301d8b3d76ba713b662e62afdbddc64cf009e4",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "10",
+      "title": "同一套核心，兩種呼叫方式",
+      "kicker": "CODEX / CLAUDE CODE",
+      "visual": "harness",
+      "motion": [
+        "viewport-change",
+        "discrete-text-sequence"
+      ],
+      "proof": "Codex $；Claude /；三個指令都加 --harness claude-code；切到研究專案啟動",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 55.766667,
+      "duration": 21.133333,
+      "start_frame": 1673,
+      "frame_count": 634,
+      "voice_duration": 20.991859410430838,
+      "text": "Codex 使用預設安裝方式；Claude Code 則在預檢、安裝和驗證這三個指令都加上畫面的 harness 選項。安裝完成後，切到你真正要做研究的專案。先啟動 research setup，建立研究工作區，再進第一步。注意，Codex 的技能名稱前面用錢字號，Claude Code 用斜線。研究狀態隨時都能查看。",
+      "audio": "assets/voice/scene-10.wav",
+      "audio_sha256": "fe65772e484a51eb1a166b56bd36aaa653194d79eb1d62a4c47091d93736b47b",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "03",
+      "title": "把限制一起交代清楚",
+      "kicker": "A RESEARCHABLE TASK",
+      "visual": "prompt",
+      "motion": [
+        "discrete-text-sequence",
+        "svg-path-draw"
+      ],
+      "proof": "主題、成果、受眾、現有材料、限制；提示詞範例",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 76.9,
+      "duration": 20.7,
+      "start_frame": 2307,
+      "frame_count": 621,
+      "voice_duration": 20.5334693877551,
+      "text": "現在交代任務。不要只輸入一個名詞，要說清楚主題、最後的成果、受眾、手上已有的資料，以及時間或方法的限制。例如：想研究生成式 AI 是否改善大學生的學習成效，最後形成校內研究計畫，只能用免費資料，六個月內完成，而且不能虛構結果。這些限制會成為後續決策的依據。",
+      "audio": "assets/voice/scene-03.wav",
+      "audio_sha256": "db3280490873bda6b2230b68b3404d3551e5d71c45432409df67197c50e62a4d",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "04",
+      "title": "一次，只決定一個分支",
+      "kicker": "FACTS → AGENT / CHOICES → YOU",
+      "visual": "decision",
+      "motion": [
+        "svg-path-draw",
+        "viewport-change"
+      ],
+      "proof": "明示操作示意；不可把模擬對話當真實研究執行",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 97.6,
+      "duration": 16.266667,
+      "start_frame": 2928,
+      "frame_count": 488,
+      "voice_duration": 16.123922902494332,
+      "text": "第一步一次只問一個真正需要你決定的問題。能查證的事實，交給 Agent 查；目的、範圍、取捨和承諾，由研究者決定。畫面上的分支會跟著你的選擇收斂。它會提出建議，也說明代價；重要分支還沒解決，就不假裝設計已經完成。",
+      "audio": "assets/voice/scene-04.wav",
+      "audio_sha256": "d537d820ab9cf6de94eb73dc728b32622e1dc269995ecd2ce0ba6f06c5af8959",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "05",
+      "title": "先找得到證據，再投入成本",
+      "kicker": "LITERATURE / DATA / FALSIFIERS / PILOT",
+      "visual": "gates",
+      "motion": [
+        "svg-path-draw",
+        "discrete-text-sequence"
+      ],
+      "proof": "預先設定反證與停止條件；不足時 blocked，通過才拆解執行",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 113.866667,
+      "duration": 19.566667,
+      "start_frame": 3416,
+      "frame_count": 587,
+      "voice_duration": 19.40734693877551,
+      "text": "鎖定研究契約之後，先不要急著做。找最接近的文獻，檢查差異是否成立；確認資料真的拿得到；再事先寫清楚，什麼結果會推翻自己的設計。必要時先做一個小型測試。標準必須在看結果以前決定，不能事後改答案。通過這些關卡，再拆任務、執行並留下可追查的紀錄。",
+      "audio": "assets/voice/scene-05.wav",
+      "audio_sha256": "264a0909ef69cdd95937bf02cdebc67496affd39d7f535e9b71fc0c3b1ffdb58",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "06",
+      "title": "一份契約，對應不同成果",
+      "kicker": "ONE RESEARCH BRIEF",
+      "visual": "brief",
+      "motion": [
+        "svg-path-draw",
+        "viewport-change"
+      ],
+      "proof": "同一 Brief 到計畫、企劃、論文藍圖；實證完成才可寫結果主張",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 133.433333,
+      "duration": 18.666667,
+      "start_frame": 4003,
+      "frame_count": 560,
+      "voice_duration": 18.530362811791385,
+      "text": "同一份 Research Brief 是研究契約，保留問題、證據、方法和限制。之後再依目的轉成學術研究計畫、補助或專案企劃、論文藍圖。只有真的完成實證，才把結果寫成論文主張。審查時，把每個主張連回證據；缺資料、沒執行或仍有爭議，都要如實標示。",
+      "audio": "assets/voice/scene-06.wav",
+      "audio_sha256": "cb31a2b855e6a5fede0dea81992fce181e287bb1a10cdb22d92a4fe8a95a2780",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "11",
+      "title": "選配領域包：核心之外的 1",
+      "kicker": "SAME REPOSITORY / OPTIONAL PROFILE",
+      "visual": "profile",
+      "motion": [
+        "svg-path-draw",
+        "discrete-text-sequence"
+      ],
+      "proof": "核心42不變；profile1，harness/target相同，獨立receipt",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 152.1,
+      "duration": 21.7,
+      "start_frame": 4563,
+      "frame_count": 651,
+      "voice_duration": 21.561836734693877,
+      "text": "如果研究涉及金融或社會科學，可以另外安裝選配領域包。它和核心在同一個 repository，但不會把核心四十二個 skills 變成金融專用。先確認相同工具和安裝位置的核心驗證通過，再用畫面上的 profile 選項預檢、安裝、驗證。它只新增一個領域 skill，保留獨立安裝紀錄。不需要這個領域，就直接略過。",
+      "audio": "assets/voice/scene-11.wav",
+      "audio_sha256": "b4aaab86c3918cd02a6e8a7419a0c62c43c48a632b5be207613ca5fc73d26bcf",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "07",
+      "title": "刪掉無法區分的分支",
+      "kicker": "DOMAIN EXAMPLE — NOT A VALIDATED MODEL",
+      "visual": "case",
+      "motion": [
+        "svg-path-draw",
+        "viewport-change"
+      ],
+      "proof": "有限速度的阻尼傳播 vs 普通擴散；機制示意、不顯示虛構係數或p值",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 173.8,
+      "duration": 19.766667,
+      "start_frame": 5214,
+      "frame_count": 593,
+      "voice_duration": 19.61512471655329,
+      "text": "來看一個領域案例。原始構想把波方程、熱方程和更多物理模型都放進金融預測。經過限制與審查，不能由資料區分的分支逐一被刪掉。最後留下的問題是：有限速度的阻尼傳播，能否和普通擴散真正區分？這是示範如何縮小問題，不是在宣稱某個金融模型已經得到驗證。",
+      "audio": "assets/voice/scene-07.wav",
+      "audio_sha256": "288dfe2488185ec708e0617cb72964aa9b00fda53a43848f0e6dc07517065d89",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "12",
+      "title": "換語言，證據標準不變",
+      "kicker": "繁體中文 / ENGLISH",
+      "visual": "language",
+      "motion": [
+        "discrete-text-sequence",
+        "svg-path-draw"
+      ],
+      "proof": "語言明確要求優先；命令與路徑不翻譯；中文討論、英文Research Brief",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 193.566667,
+      "duration": 16.5,
+      "start_frame": 5807,
+      "frame_count": 495,
+      "voice_duration": 16.359773242630386,
+      "text": "這套工作流可以用繁體中文，也可以用英文。明確指定輸出語言時，以你的要求為準；沒有指定，就跟隨你使用的語言。技能名稱、檔案路徑和命令不翻譯。你可以用中文討論，再要求英文 Research Brief；研究的證據標準不會因為換語言而改變。",
+      "audio": "assets/voice/scene-12.wav",
+      "audio_sha256": "591f87dd8e13753e054b6fa1868885affb88969e987c91d513714d2cc9d99945",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    },
+    {
+      "id": "08",
+      "title": "知道何時停，也是進展",
+      "kicker": "CHECK STATUS. KEEP EVIDENCE.",
+      "visual": "status",
+      "motion": [
+        "svg-path-draw",
+        "viewport-change"
+      ],
+      "proof": "conditional / blocked / stop 合法；顯示下一個需決定的問題，非虛構完成報告",
+      "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+      "start": 210.066667,
+      "duration": 16.933333,
+      "start_frame": 6302,
+      "frame_count": 508,
+      "voice_duration": 16.784263038548755,
+      "text": "最後，conditional、blocked，甚至停止一個題目，都是有效答案。它們比一份看起來完整，卻沒有證據的文件更有價值。先建立研究工作區，再輸入你的主題、目的和限制。每完成一步，都查看目前狀態、留下的證據，以及下一個還需要你決定的問題。",
+      "audio": "assets/voice/scene-08.wav",
+      "audio_sha256": "d4af33ee3ae8627bc79d65529496ae99a8bd019a3dc56d32ee8e2480f5540aeb",
+      "raw_audio_sha256": "d26ed35cbdddd36df4b21d59409ded2b411e47a08e9066dad86b4b46440d20ff"
+    }
+  ]
+}

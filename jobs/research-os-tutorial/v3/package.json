@@ -1,0 +1,15 @@
+{
+  "name": "research-os-tutorial-v3",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {
+    "build": "uv run python scripts/build.py",
+    "build:paced": "uv run --with numpy python scripts/pace_audio.py && uv run python scripts/build.py --paced",
+    "check": "hyperframes check",
+    "dev": "hyperframes preview",
+    "render": "hyperframes render --quality delivery --fps 30 --output output/research-os-tutorial-v3-zh-TW.mp4",
+    "render:paced": "hyperframes render paced --quality delivery --fps 30 --output paced/output/research-os-tutorial-v3-paced-zh-TW.mp4"
+  },
+  "devDependencies": {"hyperframes": "0.8.167", "gsap": "3.14.2"}
+}

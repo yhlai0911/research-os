@@ -1,0 +1,11 @@
+node_modules
+.hyperframes/
+__pycache__/
+*.log
+*.wav
+assets/voice/
+visual-draft/
+/output/
+paced/output/*
+!paced/output/research-os-tutorial-v3-paced-zh-TW.mp4
+paced/assets/

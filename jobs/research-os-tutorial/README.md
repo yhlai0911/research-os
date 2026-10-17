@@ -1,5 +1,7 @@
 # Research OS HyperFrames 教學影片
 
+**新版 v3：**[播放 3 分 47 秒節奏版](v3/paced/output/research-os-tutorial-v3-paced-zh-TW.mp4) · [製作與驗收說明](v3/README.md)。v3 使用完整十二段 Eleven v4 新旁白與獨立畫面工程，包含實際安裝驗證、Codex／Claude、選配領域包與語言選擇。下列資料描述保留的 4 分 01 秒舊版。
+
 這個資料夾是一個可重製的 HyperFrames 專案，成品為：
 
 - [`output/research-os-tutorial-zh-TW.mp4`](output/research-os-tutorial-zh-TW.mp4)
