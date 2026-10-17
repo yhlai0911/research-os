@@ -1,6 +1,0 @@
-interface:
-  display_name: "Ask Research"
-  short_description: "Route a research task to the right workflow"
-  default_prompt: "Use $ask-research to help me choose the right Research OS workflow."
-policy:
-  allow_implicit_invocation: false

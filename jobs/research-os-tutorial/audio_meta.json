@@ -14,49 +14,49 @@
     {
       "id": "scene-01",
       "path": "assets/voice/scene-01.wav",
-      "duration_s": 14.489,
+      "duration_s": 16.44,
       "words": []
     },
     {
       "id": "scene-02",
       "path": "assets/voice/scene-02.wav",
-      "duration_s": 17.508,
+      "duration_s": 29.582,
       "words": []
     },
     {
       "id": "scene-03",
       "path": "assets/voice/scene-03.wav",
-      "duration_s": 18.112,
+      "duration_s": 23.963,
       "words": []
     },
     {
       "id": "scene-04",
       "path": "assets/voice/scene-04.wav",
-      "duration_s": 17.879,
+      "duration_s": 25.496,
       "words": []
     },
     {
       "id": "scene-05",
       "path": "assets/voice/scene-05.wav",
-      "duration_s": 22.059,
+      "duration_s": 34.226,
       "words": []
     },
     {
       "id": "scene-06",
       "path": "assets/voice/scene-06.wav",
-      "duration_s": 18.251,
+      "duration_s": 34.737,
       "words": []
     },
     {
       "id": "scene-07",
       "path": "assets/voice/scene-07.wav",
-      "duration_s": 24.752,
+      "duration_s": 30.186,
       "words": []
     },
     {
       "id": "scene-08",
       "path": "assets/voice/scene-08.wav",
-      "duration_s": 21.084,
+      "duration_s": 30.418,
       "words": []
     }
   ],

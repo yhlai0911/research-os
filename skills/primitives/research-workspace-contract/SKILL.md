@@ -9,6 +9,8 @@ Treat the workspace as a durable **contract**, not a folder convention. Establis
 
 Read [workspace-contract.md](references/workspace-contract.md) when adapting an existing project, resolving a nonstandard path, or deciding which artifact owns a piece of state.
 
+This skill owns [writeback-protocol.md](references/writeback-protocol.md), the single definition of the resolution procedure, the Artifact index contract, and the three index statuses that every other skill follows. Changing that file changes the contract for the whole suite.
+
 ## Confirm the mutation boundary
 
 Proceed only when the user explicitly invoked setup or an explicitly authorized research workflow called this skill. That authority covers additive local contract files inside the scoped project; it does not cover overwriting, migration, deletion, publication, or other external writes.
@@ -48,11 +50,7 @@ Preserve every existing file byte-for-byte. A file or directory collision stops 
 
 Write only conversation facts and inspected project facts into the resolved context. Keep unknowns explicit. Create one Research Decision Record per choice only when all four admission tests pass: the choice is costly to reverse, surprising or unsafe without its rationale, a genuine trade-off among viable alternatives, and necessary to keep downstream artifacts unambiguous. Put routine routing, formatting, and progress state in the owning artifact or run record, not `DECISIONS`. Put externally checkable propositions in the resolved claims registry with a declared evidence status.
 
-Maintain exactly one `## Artifact index` in the resolved context:
-
-`| Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes |`
-
-Register seeded artifacts and the setup outcome there. Preserve superseded rows. Never duplicate claim evidence or decision substance into the index.
+Maintain exactly one `## Artifact index` in the resolved context, in the shape the writeback protocol defines. Register seeded artifacts and the setup outcome there, preserve superseded rows, and never duplicate claim evidence or decision substance into the index.
 
 **Complete when:** known scope is durable, unresolved decisions remain visible, and every seeded artifact has one current pointer.
 

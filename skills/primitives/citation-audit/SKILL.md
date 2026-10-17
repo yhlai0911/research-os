@@ -9,7 +9,7 @@ Test **entailment** at claim level. A real citation passes only when the cited s
 
 ## Pin the audit target
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, papers, proposals, and reviews paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Select **full-target** or **comparison** mode. Full-target pins one immutable manuscript, review, proposal, table, or claim set. Comparison pins an immutable base, target, and the deterministic packet produced by `research-workspace-contract/scripts/build_comparison_packet.py`.
 4. In comparison mode, stop `no-op` when packet status is `no-op`; otherwise inventory every changed material claim and enough unchanged surrounding text to interpret it. Use the packet's changed-section, claim-ID, and table inventory; do not silently widen or narrow the delta.
@@ -34,9 +34,9 @@ Invoke `$evidence-research` when a missing or weak claim needs a replacement sou
 
 ## Write back
 
-Reuse the current registered audit for the same target and mode, or create `<target-id>-citation-audit.md` under the resolved reviews directory (baseline `.research/reviews/`). Begin it with `Status: complete|partial|blocked`, `Updated`, mode, pinned target identity, base and packet identities when present, and scope. Include one row per in-scope material claim with its location, citation, source locator, audit status, explanation, and required repair. Update matching entries in the resolved claims registry without erasing prior provenance. Add new claim entries only when the target contains material claims not yet registered.
+Reuse the current registered audit for the same target and mode, or create `<target-id>-citation-audit.md` under the resolved reviews directory. Begin it with `Status: complete|partial|blocked`, `Updated`, mode, pinned target identity, base and packet identities when present, and scope. Include one row per in-scope material claim with its location, citation, source locator, audit status, explanation, and required repair. Update matching entries in the resolved claims registry without erasing prior provenance. Add new claim entries only when the target contains material claims not yet registered.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Set artifact status `complete` when the pinned target is fully inventoried and every row has an evidence-backed audit status, including explicit negative findings. Use `partial` when a non-load-bearing source gap leaves coverage provisional, and `blocked` when the target or a load-bearing source cannot be inspected well enough to finish the audit.
 

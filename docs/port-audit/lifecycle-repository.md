@@ -82,8 +82,8 @@ Research OS 已修好最大的 manual mirror 問題：`skills/catalog.yaml` 管�
 | Upstream skill | Invocation | Leading concept | 處置 | Exact Research OS target | Retain mechanics | Reject mechanics |
 |---|---|---|---|---|---|---|
 | `design-an-interface` | model | design it twice / contrast | Adapt | `design-research-three-ways` | 固定共同 constraints、隔離產生 alternatives、真差異、先比較再 hybrid | 把 module/interface 評分直接套到研究；沒有 status gate 的選單 |
-| `qa` | model | durable behavioral issue / thin issue | Replace | `idea-triage`、`research-diagnosis`、`to-workpackages` | 輕量澄清、先驗證 claim、以行為描述、dependency-aware slices | 自動 `gh issue create`、GitHub-only、無授權與 readback |
-| `request-refactor-plan` | model | tiny working steps | Adapt | `develop-research` 組合 `research-grilling`、`synthesize-research-brief`、`to-workpackages`、`execute-workpackage` | 查明 facts、定 scope、保留 testing/falsification 決策、小而可獨立驗證的 slices | 一個 god skill 同時訪談、設計、規劃與發布 |
+| `qa` | model | durable behavioral issue / thin issue | Replace | `research-triage`、`research-diagnosis`、`research-4-tasks` | 輕量澄清、先驗證 claim、以行為描述、dependency-aware slices | 自動 `gh issue create`、GitHub-only、無授權與 readback |
+| `request-refactor-plan` | model | tiny working steps | Adapt | `research-auto` 組合 `research-grilling`、`synthesize-research-brief`、`research-4-tasks`、`research-5-run` | 查明 facts、定 scope、保留 testing/falsification 決策、小而可獨立驗證的 slices | 一個 god skill 同時訪談、設計、規劃與發布 |
 | `ubiquitous-language` | user | canonical language | Adapt | `research-domain-modeling` | canonical terms、aliases to avoid、typed relations、ambiguity、持續 refinement | 一次性 conversation export、root overwrite、無證據仍強迫定義 |
 | `git-guardrails-claude-code` | model | pre-execution denylist | Exclude | none；authority 留在 `AGENTS.md` 與 operation-aware tooling | scope confirmation、可執行 negative test，只當 defense in depth | 把 regex hook 當 security/authority boundary；Claude-only global mutation |
 | `migrate-to-shoehorn` | model | partial test fixture | Exclude | none | 狹窄 migration 應有明確 search、transform、verify | TypeScript/package 特化流程、文字盲改、隱含 dependency install |
@@ -133,9 +133,9 @@ Research OS 已修好最大的 manual mirror 問題：`skills/catalog.yaml` 管�
 
 **Research OS target。** 不移植 issue-filing workflow，只分別保留：
 
-- `idea-triage`：驗證 load-bearing premises，提出一個 verdict，讓使用者決定；
+- `research-triage`：驗證 load-bearing premises，提出一個 verdict，讓使用者決定；
 - `research-diagnosis`：先重現、辨識真正 failure，再談 repair；
-- `to-workpackages`：把 approved work 切成可獨立驗證且有 blocking edges 的 slices。
+- `research-4-tasks`：把 approved work 切成可獨立驗證且有 blocking edges 的 slices。
 
 Remote issue 仍必須由使用者明確要求並做 readback；本地 `.research/` 寫入則受已授權 workspace contract 限制。
 
@@ -160,16 +160,16 @@ Remote issue 仍必須由使用者明確要求並做 readback；本地 `.researc
 
 **Completion / failure。** 完成被等同為 external issue created。唯一明顯 branch 是可 skip steps、tests 不足時回問。缺少 accepted-plan gate、no-change、tracker adapter、external-write authority、publish failure 與 readback。Discovery、decision、planning、publishing 無法獨立 resume 或驗證。
 
-**Research OS target。** `develop-research` 是 end-to-end orchestrator，但正確 mechanics 分層在：
+**Research OS target。** `research-auto` 是 end-to-end orchestrator，但正確 mechanics 分層在：
 
 - `research-grilling`：解 human decisions；
 - `synthesize-research-brief`：把 verified state collapse 成唯一 research contract；
-- `to-workpackages`：建立 dependency-aware tracer studies；
-- `execute-workpackage`：claim 並執行一個 bounded slice，留下 receipt。
+- `research-4-tasks`：建立 dependency-aware tracer studies；
+- `research-5-run`：claim 並執行一個 bounded slice，留下 receipt。
 
 Research analogue 不是 tiny commits，而是每個 workpackage 都產出 independently verifiable artifact 並降低 uncertainty。
 
-**Current gap。** Research OS prompt graph 很完整，但 catalog 還沒宣告 `develop-research -> synthesize-research-brief -> to-workpackages -> execute-workpackage` 等 dependencies；目前只存在 prose，repository validator 不會驗證。
+**Current gap。** Research OS prompt graph 很完整，但 catalog 還沒宣告 `research-auto -> synthesize-research-brief -> research-4-tasks -> research-5-run` 等 dependencies；目前只存在 prose，repository validator 不會驗證。
 
 ### 4. `ubiquitous-language`
 
@@ -555,6 +555,6 @@ Research OS release gaps：
 
 本稽核已逐一交代 10 個 skills 的存在原因與演變、invocation、leading concept、ordered mechanics、completion/failure、exact Research OS target、retain/reject mechanics 與 current gaps；也涵蓋 10 個 Codex metadata、3 個 bucket READMEs、唯一 direct script、root lifecycle rules、兩個 plugin manifests、兩個 install/discovery scripts、Changesets、package manifests、release workflow、version history，以及 Research OS catalog/install/release implementation。
 
-稽核當下的 Research OS readback 已納入新完成的 `execute-workpackage`：`SYNC OK: 38 skills`、`VALIDATION OK: 38 skills, 0 errors`、`8 passed`。這組數字只保存該稽核快照；後續修補與最終 release gates 以 [`../PORT_REMEDIATION.md`](../PORT_REMEDIATION.md) 及 release receipt 為準。
+稽核當下的 Research OS readback 已納入新完成的 `research-5-run`：`SYNC OK: 38 skills`、`VALIDATION OK: 38 skills, 0 errors`、`8 passed`。這組數字只保存該稽核快照；後續修補與最終 release gates 以 [`../PORT_REMEDIATION.md`](../PORT_REMEDIATION.md) 及 release receipt 為準。
 
 本輪沒有修改任何 upstream skill 或 Research OS source。唯一新增檔案就是本文件。

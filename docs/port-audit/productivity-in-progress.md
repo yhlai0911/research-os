@@ -29,13 +29,13 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 
 | 上游 skill | Invocation | Leading concept | 分類 | Research OS 落點 |
 |---|---|---|---|---|
-| `grill-me` | user-only | thin wrapper | direct-port | `grill-research-idea` → `research-grilling` |
+| `grill-me` | user-only | thin wrapper | direct-port | `research-1-grill` → `research-grilling` |
 | `grilling` | model-invoked | relentless decision tree | direct-port | `research-grilling` |
-| `handoff` | user-only | compression by reference | adapt | `research-handoff` |
+| `handoff` | user-only | compression by reference | adapt | `research-save` |
 | `teach` | user-only | mission / zone of proximal development | exclude | 只借用 durable learning-state 原則 |
 | `writing-great-skills` | user-only | predictability | adapt | `writing-research-skills` + catalog validator |
-| `batch-grill-me` | user-only | frontier rounds | adapt | `research-wayfinder` 的 opt-in branch，不另立核心 skill |
-| `claude-handoff` | user-only | launch a fresh background context | exclude | portable `research-handoff`；dispatch 另設明確授權與 ack |
+| `batch-grill-me` | user-only | frontier rounds | adapt | `research-map` 的 opt-in branch，不另立核心 skill |
+| `claude-handoff` | user-only | launch a fresh background context | exclude | portable `research-save`；dispatch 另設明確授權與 ack |
 | `loop-me` | user-only | loop / workflow | adapt | workpackage 與 research-operations contract |
 | `setup-ts-deep-modules` | user-only | deep module / pass-fail-pass | exclude | 只移植 negative proof pattern |
 | `to-questionnaire` | user-only | grill the send, target the gap | adapt | future recipient-aware deliverable branch |
@@ -50,19 +50,19 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 
 | Upstream | 建議 target skill | Retain mechanics | Reject mechanics |
 |---|---|---|---|
-| `grill-me` | `grill-research-idea` → `research-grilling` | user-only thin entry、規則只由共用 primitive 擁有 | 在 wrapper 複製 interviewing rules；未確認就執行 |
+| `grill-me` | `research-1-grill` → `research-grilling` | user-only thin entry、規則只由共用 primitive 擁有 | 在 wrapper 複製 interviewing rules；未確認就執行 |
 | `grilling` | `research-grilling` | dependency-first、一題一決策、每題附 recommendation、agent 查 facts、人做 decisions、確認後才結束 | 把可查 facts 問使用者；一次塞入相依問題；以 model prior 代替決策 |
-| `handoff` | `research-handoff` | reference-first compression、focus tailoring、suggested skills、redaction | 無 readback 的 temp summary；handoff 檔本身冒充 upstream completion |
+| `handoff` | `research-save` | reference-first compression、focus tailoring、suggested skills、redaction | 無 readback 的 temp summary；handoff 檔本身冒充 upstream completion |
 | `teach` | 無新增 target；狀態原則落在 `research-workspace-contract` / `research-domain-modeling` | mission、observable success、只有有證據的狀態才升級、supersession、高信任 resources | HTML lesson platform、ZPD/community subsystem、coverage 等同 learning |
 | `writing-great-skills` | `writing-research-skills` | predictability、invocation boundary、leading concept、information hierarchy、completion criterion、pruning、real context boundary | 上游 harness-specific frontmatter 語意；手工 mirror inventories；只靠 prose 宣稱 forward-tested |
-| `batch-grill-me` | `develop-research` + `research-wayfinder` 的 opt-in branch | dependency-proven frontier rounds、partial frontier progress、parallel fact lookup | 預設批次所有問題；把相依問題放同輪；不落地 in-flight prerequisite |
-| `claude-handoff` | `research-handoff` + future portable dispatch adapter | fresh context、descriptive task name、minimal reference-first envelope | `claude --bg` 綁定、fire-and-forget、無 task ID/ack/result receipt |
-| `loop-me` | `to-workpackages` 的 recurring-operations branch；規模成長後再考慮 `research-operations` | loop discovery、event-first trigger、conditional checkpoint、push right、decision brief、implementer-ready spec | 對所有研究強加 schedule/AI/checkpoint；把 spec 當 execution receipt |
+| `batch-grill-me` | `research-auto` + `research-map` 的 opt-in branch | dependency-proven frontier rounds、partial frontier progress、parallel fact lookup | 預設批次所有問題；把相依問題放同輪；不落地 in-flight prerequisite |
+| `claude-handoff` | `research-save` + future portable dispatch adapter | fresh context、descriptive task name、minimal reference-first envelope | `claude --bg` 綁定、fire-and-forget、無 task ID/ack/result receipt |
+| `loop-me` | `research-4-tasks` 的 recurring-operations branch；規模成長後再考慮 `research-operations` | loop discovery、event-first trigger、conditional checkpoint、push right、decision brief、implementer-ready spec | 對所有研究強加 schedule/AI/checkpoint；把 spec 當 execution receipt |
 | `setup-ts-deep-modules` | `research-workspace-contract` scripts/tests + repository validator | environment detection、preserve/merge、pass-fail-pass negative proof、agent context pointer | TypeScript/dependency-cruiser domain、package install、prompt/config rule count 漂移 |
 | `to-questionnaire` | `render-research-deliverable` 的 recipient-aware profile | grill the send、recipient/need-back gap、priority order、single-idea questions、coverage gate | 自動寄送；把回答直接標 verified；current-directory 任意 source of truth |
 | `wizard` | `research-workspace-contract` 的 contract/runner pattern；future authorized human-step runner | stable runtime / variable stages、source-to-destination trace、hidden secret input、static verification | 直接 port Bash/GitHub helpers；無逐項授權的 remote write；exit code 當 remote readback |
 | `writing-beats` | `research-writing` 的 optional narrative mode | grounded concepts、2–3 reachable choices、一次一 beat、write 前重讀、natural ending | 用 beat 取代 academic argument/evidence spine；pile 清空才結束 |
-| `writing-fragments` | `develop-research` intake + `research-writing` explore mode | explore/exploit boundary、從首則 prompt capture、append-only quarry、保留 user edits、leading-word mining | raw fragment 直接變 claim/decision；強迫 outline；靜默覆寫 |
+| `writing-fragments` | `research-auto` intake + `research-writing` explore mode | explore/exploit boundary、從首則 prompt capture、append-only quarry、保留 user edits、leading-word mining | raw fragment 直接變 claim/decision；強迫 outline；靜默覆寫 |
 | `writing-shape` | `research-writing` 的 interactive block mode | immutable input pile、candidate openings、逐 block acceptance、grounding、format argument、write 前重讀 | 缺料時憑空補；未同意就 batch drafting；以流暢 prose 修補 research validity |
 
 ---
@@ -78,8 +78,8 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：完全繼承；wrapper 不加入例外。
 - **State / writeback**：無。
 - **Composition**：user-only entry point 單向呼叫 model-reachable primitive。這是「人選長流程、模型執行共用 discipline」的最小範例。
-- **Research OS mapping**：`grill-research-idea` 是 user-only 入口，`research-grilling` 是 model primitive，方向正確；`ask-research` 則負責建議入口而不暗中啟動。
-- **目前缺少的行為**：現行 `grill-research-idea` 同時承擔 workspace resolution、九類研究分支、stress test、RDR 與 Artifact index，已不是 thin wrapper。這有合理的研究 writeback 需求，但也讓「先談一個尚未初始化、尚不值得建 workspace 的模糊想法」沒有低摩擦入口。若 `develop-research` 要承擔此入口，必須明確允許先 conversational intake、再於第一次 durable write 前建立 contract。
+- **Research OS mapping**：`research-1-grill` 是 user-only 入口，`research-grilling` 是 model primitive，方向正確；`research-help` 則負責建議入口而不暗中啟動。
+- **目前缺少的行為**：現行 `research-1-grill` 同時承擔 workspace resolution、九類研究分支、stress test、RDR 與 Artifact index，已不是 thin wrapper。這有合理的研究 writeback 需求，但也讓「先談一個尚未初始化、尚不值得建 workspace 的模糊想法」沒有低摩擦入口。若 `research-auto` 要承擔此入口，必須明確允許先 conversational intake、再於第一次 durable write 前建立 contract。
 - **Port verdict**：**direct-port** 其 composition pattern，不新增通用 `grill-me`。保留一個短 user entry point，研究規則留在 `research-grilling`；durable orchestration 另由上層 workflow 負責。
 
 ### 2. `grilling`
@@ -119,7 +119,7 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：敏感資訊必須移除；既有 artifact 不可重複。未定義寫檔失敗、link 失效或 handoff 未被接收的狀態。
 - **State / writeback**：一份 workspace 外的暫存 handoff 文件。
 - **Composition**：只推薦 skills，不代替接手者啟動。
-- **Research OS mapping**：`research-handoff` 已大幅強化為 canonical `HANDOFFS` artifact，包含 recipient context、next objective、verified state、artifact/version/hash、blockers、next authorized action、readback、Artifact index 與 `complete|partial|blocked`。handoff template 也有 `Received by` 與 receipt 欄位。
+- **Research OS mapping**：`research-save` 已大幅強化為 canonical `HANDOFFS` artifact，包含 recipient context、next objective、verified state、artifact/version/hash、blockers、next authorized action、readback、Artifact index 與 `complete|partial|blocked`。handoff template 也有 `Received by` 與 receipt 欄位。
 - **目前缺少的行為**：
   - workspace contract 壞掉或尚未建立時，現行 skill 只能 blocked，沒有安全的 emergency handoff fallback；
   - skill 要求先定義「何時 consumed」，但沒有把 consumed/accepted/expired 狀態、recipient ack 與 active pointer 納入必過 gate；
@@ -198,12 +198,12 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：discoverable fact 必須 dispatch subagent；正在查的 fact 是 unsettled prerequisite，只擋 downstream 問題，不擋其他獨立 frontier；確認前不得執行方案。
 - **State / writeback**：只有 conversation tree；無 durable map。
 - **Composition**：與 subagents 平行找 facts，但人類 decisions 保留在主對話。
-- **Research OS mapping**：`research-wayfinder` 有 durable fog/frontier/blocking edges、允許平行 factual investigations；`to-workpackages` 也會算 unblocked frontier；預設 `research-grilling` 仍是一題一題。
+- **Research OS mapping**：`research-map` 有 durable fog/frontier/blocking edges、允許平行 factual investigations；`research-4-tasks` 也會算 unblocked frontier；預設 `research-grilling` 仍是一題一題。
 - **目前缺少的行為**：
   - 沒有 opt-in「獨立問題可同輪批次」模式，對大量互不依賴的 audience/format/resource decisions 會過慢；
   - 沒有把 in-flight evidence task 當成有 ID、有依賴邊、有狀態的 frontier node；
   - 沒有 round response 的 partial-answer 處理規則：應只重問未答或被答案改寫的節點。
-- **Port verdict**：**adapt** 成 `research-grilling` / `develop-research` 的明確 branch。預設仍一題；只有 dependency graph 證明獨立且使用者接受批次時才啟用，不另建 core skill。
+- **Port verdict**：**adapt** 成 `research-grilling` / `research-auto` 的明確 branch。預設仍一題；只有 dependency graph 證明獨立且使用者接受批次時才啟用，不另建 core skill。
 
 ### 7. `claude-handoff`
 
@@ -218,7 +218,7 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：只規定 redaction 與不重抄 artifacts；未處理 CLI 不存在、launch 失敗、cwd 錯誤、prompt 截斷或 child 未消費 handoff。
 - **State / writeback**：沒有 handoff file；summary 只成為新 agent prompt，外部 job list 是唯一狀態。
 - **Composition**：把 context compression 與 vendor-specific process launch 綁成一步。
-- **Research OS mapping**：`research-handoff` 刻意分離 manifest 與 dispatch，保存 canonical artifact、version/hash、next authorized action 與 readback。架構也要求 workpackage/review axis 在獨立 context 中工作。
+- **Research OS mapping**：`research-save` 刻意分離 manifest 與 dispatch，保存 canonical artifact、version/hash、next authorized action 與 readback。架構也要求 workpackage/review axis 在獨立 context 中工作。
 - **目前缺少的行為**：Research OS 仍沒有一個 portable、明確授權、會回報 task/thread ID、acknowledged manifest version、完成狀態與結果 artifact 的 dispatch protocol。單純「產生 handoff」不會真的清 context。
 - **Port verdict**：**exclude** 此 Claude-specific skill。若未來補 dispatch，應是 `prepare → explicit dispatch authority → child ack → bounded wait → result receipt`，支援 Codex task/subagent，而不是 port `claude --bg`。
 
@@ -237,7 +237,7 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：NOTES 薄先補世界模型；任何未決問題都不能稱 done；無 evidence 要求、retry/idempotency、side-effect authorization 或 execution receipt。
 - **State / writeback**：`workflows/*.md` 是 source of truth；`NOTES.md` 保存 raw world model 與 canonical terminology。只寫 spec，不實作。
 - **Composition**：明確重用 `/grilling` discipline。
-- **Research OS mapping**：`research-wayfinder` 管 multi-session dependencies；`to-workpackages` 產生可驗證 tracer；workpackage template 有 inputs、procedure、acceptance、falsifier、receipt；handoff 有 brief-like next action。
+- **Research OS mapping**：`research-map` 管 multi-session dependencies；`research-4-tasks` 產生可驗證 tracer；workpackage template 有 inputs、procedure、acceptance、falsifier、receipt；handoff 有 brief-like next action。
 - **目前缺少的行為**：
   - Research OS 的 workpackage 是一次性 uncertainty-reduction slice，不是 recurring workflow；沒有 first-class trigger、schedule/event preference、idempotency key、retry、dedupe、checkpoint、push-right 或 operator brief；
   - 沒有「先發現研究團隊反覆 loops，再決定哪些值得自動化」的 discovery mode；
@@ -285,7 +285,7 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：不逼使用者回答本來就不知道的 subject；缺 send context 就先不寫。文件鼓勵 partial answers 與 `I don't know`，避免空白被誤認為無問題。
 - **State / writeback**：單一 Markdown questionnaire；上游不寄送、不追蹤回覆、不 ingest 答案。
 - **Composition**：無。
-- **Research OS mapping**：`evidence-research` 處理可查的 external facts；`research-handoff` 的 recipient 是接手 agent；proposal/workpackage 會列 external dependencies。但沒有針對 collaborator、domain expert、data owner 或 IRB contact 的 async knowledge-acquisition artifact。
+- **Research OS mapping**：`evidence-research` 處理可查的 external facts；`research-save` 的 recipient 是接手 agent；proposal/workpackage 會列 external dependencies。但沒有針對 collaborator、domain expert、data owner 或 IRB contact 的 async knowledge-acquisition artifact。
 - **目前缺少的行為**：
   - unresolved fact 若只能由特定人回答，目前常停在 `blocked`，沒有 recipient-aware output route；
   - 沒有 questionnaire ID、來源 claim/decision、requested-by、deadline/effort、敏感資訊最小化、response provenance、ingest 與 supersession gate；
@@ -337,7 +337,7 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 - **Failure / stop**：想用 ungrounded concept 時，只能先加 grounding beat 或經使用者決定升為 prerequisite；使用者改舊 beat 時必須重算後續；可針對特定 beat rewrite，不動其他內容。
 - **State / writeback**：article file 逐 beat append；grounded set 只在 conversation 中維持，沒有 durable ledger。
 - **Composition**：無。
-- **Research OS mapping**：`research-writing` 有 evidence-led cumulative argument、paragraph job、section function、claim mapping；`to-paper-draft` 有 argument spine、evidence gate、review/readback。
+- **Research OS mapping**：`research-writing` 有 evidence-led cumulative argument、paragraph job、section function、claim mapping；`to-paper` 有 argument spine、evidence gate、review/readback。
 - **目前缺少的行為**：
   - 現行 writing flow 會在確認 argument spine 後直接「draft sections」，沒有候選 opening/next move、使用者選路、一次一 beat 的協作節奏；
   - 沒有 audience prerequisite / grounded-concept tracking；
@@ -405,9 +405,9 @@ Research OS 端則核對 `skills/catalog.yaml`、架構與品質文件、所有�
 
 ### P0 — 建立真正 adaptive 的對話主流程
 
-目前 `ask-research` 是 router，各 orchestrator 多半是固定 Stage 1 → Stage N；`research-grilling` 則固定一題一題。兩者都正確，但中間缺一個能依使用者當下成熟度調整深度的 control loop。
+目前 `research-help` 是 router，各 orchestrator 多半是固定 Stage 1 → Stage N；`research-grilling` 則固定一題一題。兩者都正確，但中間缺一個能依使用者當下成熟度調整深度的 control loop。
 
-建議 `develop-research` 以 **adaptive loop** 明訂：
+建議 `research-auto` 以 **adaptive loop** 明訂：
 
 1. 接受 topic、方向、問題、來源、半成品或既有 artifact，不要求使用者先知道該叫哪個 skill；
 2. 先吸收使用者已給的所有 facts、preferences 與 decisions，避免模板式重問；
@@ -534,7 +534,7 @@ trigger → inputs/provenance → durable state → idempotency/dedupe
 
 ## 最終 port 順序
 
-1. 完成 `develop-research` adaptive loop，並用 forward tests 證明不重問、不過度訪談、會隨 evidence/decision 重算。
+1. 完成 `research-auto` adaptive loop，並用 forward tests 證明不重問、不過度訪談、會隨 evidence/decision 重算。
 2. 以 `research-workspace-contract` 收斂 duplicated mechanics，同時保留 domain gates。
 3. 封好 `render-research-deliverable` 的 destination/profile/readback contract，補 recipient-aware questionnaire branch。
 4. 讓 handoff/subagent dispatch 具備真正 context boundary、ack 與 result receipt。

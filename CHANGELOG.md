@@ -2,7 +2,27 @@
 
 All notable changes to Research OS are recorded here.
 
+## 2.0.0
+
+Breaking: every user-invoked orchestrator was renamed. See [`docs/MIGRATION-v2.md`](docs/MIGRATION-v2.md) for the full mapping and upgrade steps. Workspace format is unchanged and existing `.research/` projects need no migration.
+
+- Renamed all 16 orchestrators to a numbered mainline (`research-1-grill` through `research-6-review`) plus plain-language off-mainline names, so the pipeline order is visible in the skill list itself.
+- Added `research-3-falsify`, an explicit entry point for falsification. Previously reachable only from inside the end-to-end orchestrator, it now runs before task decomposition so no cost is committed to an unfalsifiable claim.
+- Added `research-6-review` as the user-invoked wrapper over the `research-review` primitive. The numbered name is required because installed skill directories are flat and `research-review` is already taken.
+- Added `research-status`, a read-only report of mainline position, current artifacts, unresolved claims, and the next action. The Artifact index was previously readable only by the agent.
+- Made every mainline skill hand off explicitly: on reaching its completion gate it names the next step and stops, instead of converging silently.
+- Collapsed the workspace resolution procedure, the Artifact index contract, and the three index statuses into one owned reference, `research-workspace-contract/references/writeback-protocol.md`.
+- Changed `validate_repository.py` to require a link to that protocol rather than the literal index header. The old string check was what copied the same bookkeeping into 33 files and would have kept doing so for every new skill.
+- Rebuilt the tutorial video for v2: all eight narration takes re-recorded, the script rewritten around the six-step mainline, captions rewritten, and the timeline recomputed from the new take lengths (2m50s to 4m01s).
+- Removed every spoken skill name from the narration. The v1 script said the former name aloud in line 3, which made the video wrong the instant the skill was renamed; naming only the step keeps it stable across future renames.
+- Added `scripts/regen_voice.py` and `scripts/retime.py` so narration and timing stay reproducible. The first refuses to regenerate a single take when the voice ID changed, which would leave one take in a different voice; the second derives every `data-start` and `data-duration` from `audio_meta.json` rather than hand-editing.
+
 ## Unreleased
+
+- Added English README/quickstart and a shared English/Traditional Chinese output-language convention; corrected v2 invocation and migration counts.
+- Kept the generic 42-skill core unchanged in scope and added an opt-in, separately catalogued finance/social-science profile in the same repository. Its installer verifies the compatible core and keeps a separate receipt.
+- Hardened release packaging against tracked ignored artifacts, credential-like paths, unsafe archive paths, and symlink traversal; added regression coverage for profile installation, documentation links, and release safety.
+- These are tooling and instruction changes, not evidence of improved empirical research outcomes.
 
 - Clarified that Research OS is a 39-skill Codex suite rather than one root skill, and added a copyable Codex installation workflow.
 - Made the installer default to `$CODEX_HOME/skills` or `~/.codex/skills` and added final installed-tree hash readback.

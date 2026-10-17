@@ -18,7 +18,7 @@ The final implementation response to audit findings is tracked in [`PORT_REMEDIA
 | `codebase-design` | Shared vocabulary plus branch-specific disclosed references | Use model primitives as vocabulary authorities; disclose specialized branches |
 | `diagnosing-bugs` | No hypothesis work before a tight red-capable feedback loop | Research diagnosis starts from an observable bottleneck and discriminating probe |
 | `domain-modeling` | Inline glossary maintenance; difficult decisions become ADRs | Use `CONTEXT.md` and Research Decision Records as separate authorities |
-| `grill-with-docs` | Thin human wrapper composes grilling with durable domain writeback | `grill-research-idea` composes decision interviewing with `.research/` state |
+| `grill-with-docs` | Thin human wrapper composes grilling with durable domain writeback | `research-1-grill` composes decision interviewing with `.research/` state |
 | `implement` | Spec/ticket drives TDD and independent review before commit | Workpackages drive tracer execution and review; commit remains separately authorized |
 | `improve-codebase-architecture` | Survey candidates before selecting and designing one | Separate research-system diagnosis from design execution |
 | `prototype` | Throwaway artifact answers one question; result survives, prototype does not become product | Pilot studies reduce one uncertainty and end in a go/no-go decision |

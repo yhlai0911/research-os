@@ -9,7 +9,7 @@ Choose an **audience**, not a prestige label. Match what the project changes, ho
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, papers, reviews, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active paper, brief, contribution design, methodology, reviews, and submission decisions at their resolved paths.
 4. State the contribution delta, method, evidence strength, field conversation, and intended reader in one paragraph. Stop when the contribution, target manuscript version, or a required resolved path is unresolved; request workspace repair instead of inventing a parallel path.
@@ -32,9 +32,9 @@ Invoke `$research-review` for validity risk and `$research-writing` only after t
 
 Rank the outlets by substantive fit and readiness, not prestige alone. Give one primary recommendation, one credible alternative, and one fallback, each with disqualifiers.
 
-Reuse the current registered fit review for the same paper, or create `<paper-id>-journal-fit.md` under the resolved reviews directory (baseline `.research/reviews/`). Begin it with `Status: complete|partial|blocked`, `Updated`, pinned paper identity, and scope. Include the dated evidence matrix, inference labels, required changes, and ranked recommendation. Record a target-journal choice under the resolved decisions directory only after the user confirms it. Do not rewrite the paper or config during fit analysis.
+Reuse the current registered fit review for the same paper, or create `<paper-id>-journal-fit.md` under the resolved reviews directory. Begin it with `Status: complete|partial|blocked`, `Updated`, pinned paper identity, and scope. Include the dated evidence matrix, inference labels, required changes, and ranked recommendation. Record a target-journal choice under the resolved decisions directory only after the user confirms it. Do not rewrite the paper or config during fit analysis.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Set artifact status `complete` only when the shortlist and ranking have current primary-source support; use `partial` when nonfatal volatile facts or outlet comparisons remain unresolved, and `blocked` when the paper, contribution, official requirements, or required resolved path cannot be verified.
 

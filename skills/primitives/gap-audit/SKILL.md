@@ -9,9 +9,8 @@ Test the claimed **difference** against the closest prior work. Require both nov
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, claims, maps, and reviews paths, then read the relevant resolved artifacts.
-- Use an existing registered audit; otherwise create `gap-audit-<topic-slug>.md` under the resolved reviews directory (baseline `.research/reviews/`) and register it in the resolved context.
-- Register it through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
+- Resolve `.research/config.yaml` and its canonical context, claims, maps, and reviews paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the relevant resolved artifacts.
+- Use an existing registered audit; otherwise create `gap-audit-<topic-slug>.md` under the resolved reviews directory and register it in the resolved context.
 - Verify missing or stale literature claims through `$evidence-research` or `$literature-landscape` before judging the gap.
 - Stop with `blocked: research_workspace_not_initialized` when the contract is absent.
 

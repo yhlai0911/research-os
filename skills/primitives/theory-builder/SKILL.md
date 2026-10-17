@@ -9,9 +9,8 @@ Build the **mechanism** before choosing equations or methods. Explain who does w
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context and maps paths, then read the relevant domain model, literature map, gap audit, decisions, and evidence claims.
-- Use an existing registered theory map; otherwise create `theory-<topic-slug>.md` under the resolved maps directory (baseline `.research/maps/`) and register it in the resolved context.
-- Register it through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
+- Resolve `.research/config.yaml` and its canonical context and maps paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the relevant domain model, literature map, gap audit, decisions, and evidence claims.
+- Use an existing registered theory map; otherwise create `theory-<topic-slug>.md` under the resolved maps directory and register it in the resolved context.
 - Reference construct, decision, and evidence IDs. Route undefined terms to `$research-domain-modeling`.
 - Stop with `blocked: research_workspace_not_initialized` when the contract is absent.
 

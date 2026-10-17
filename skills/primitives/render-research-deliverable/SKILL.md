@@ -11,15 +11,12 @@ Read [output-contracts.md](references/output-contracts.md) after the destination
 
 ## Resolve the source contract
 
-1. Read only `.research/config.yaml` first.
-2. Resolve context, claims, decisions, briefs, plans, workpackages, pilots, reviews, papers, proposals, and templates from its canonical entries.
-3. Read the current Research Brief and its linked claims, decisions, design artifacts, pilots, and reviews. Pin their IDs or versions.
-4. Resolve the intended audience, use or decision, required format or institutional template, language, and export preference. Preserve supplied values and ask only for a load-bearing missing decision.
-5. Stop with `blocked: research_brief_missing` when there is no canonical brief. Stop with `blocked: destination_ambiguous` when the requested artifact type, audience, or decision use remains consequentially unclear.
-6. If the requested destination is a Research Brief, stop with `blocked: canonical_writer_mismatch` and return to `$synthesize-research-brief`. This renderer never writes or repairs the canonical brief.
-7. Select **new artifact** or **revision** mode. For a revision, pin the current rendered base and intended target source versions, then use `research-workspace-contract/scripts/build_comparison_packet.py` after rendering to produce the exact changed-section, claim-ID, and table packet consumed by citation and research review. An identical base and target is a read-back `no-op`.
-
-Treat the baseline `.research/...` paths as documentation only. Never write through them when the configuration resolves an adapter.
+1. Resolve `.research/config.yaml` and its canonical context, claims, decisions, briefs, plans, workpackages, pilots, reviews, papers, proposals, and templates per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md).
+2. Read the current Research Brief and its linked claims, decisions, design artifacts, pilots, and reviews. Pin their IDs or versions.
+3. Resolve the intended audience, use or decision, required format or institutional template, language, and export preference. Preserve supplied values and ask only for a load-bearing missing decision.
+4. Stop with `blocked: research_brief_missing` when there is no canonical brief. Stop with `blocked: destination_ambiguous` when the requested artifact type, audience, or decision use remains consequentially unclear.
+5. If the requested destination is a Research Brief, stop with `blocked: canonical_writer_mismatch` and return to `$synthesize-research-brief`. This renderer never writes or repairs the canonical brief.
+6. Select **new artifact** or **revision** mode. For a revision, pin the current rendered base and intended target source versions, then use `research-workspace-contract/scripts/build_comparison_packet.py` after rendering to produce the exact changed-section, claim-ID, and table packet consumed by citation and research review. An identical base and target is a read-back `no-op`.
 
 ## Pass the truth gate
 
@@ -68,9 +65,7 @@ If the requested renderer is unavailable, keep the canonical artifact and report
 
 Begin the artifact with its ID, artifact-specific status, version, updated date, destination profile, source brief, and claim/decision pointers. Preserve an existing current artifact when updating the same deliverable; supersede rather than silently fork when its identity changes.
 
-Register it in the one resolved-context `## Artifact index`:
-
-`| Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes |`
+Register it in the resolved context per the writeback protocol.
 
 Re-read the saved canonical artifact, every cited local pointer, the claims registry, the index row, and every requested derived export. Report:
 

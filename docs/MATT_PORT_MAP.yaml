@@ -15,7 +15,7 @@ policy:
 entries:
   - upstream_path: "skills/engineering/ask-matt/SKILL.md"
     disposition: ported
-    research_os_skills: [ask-research, develop-research]
+    research_os_skills: [research-help, research-auto]
     retained_mechanics: ["one memorable router", "main-flow versus on-ramp distinction", "recommend one route and stop"]
     rejected_mechanics: ["coding-specific command inventory"]
 
@@ -45,13 +45,13 @@ entries:
 
   - upstream_path: "skills/engineering/grill-with-docs/SKILL.md"
     disposition: ported
-    research_os_skills: [grill-research-idea, develop-research]
+    research_os_skills: [research-1-grill, research-auto]
     retained_mechanics: ["thin explicit wrapper", "one-question interview", "durable writeback after each accepted decision"]
     rejected_mechanics: ["automatic codebase-context assumptions"]
 
   - upstream_path: "skills/engineering/implement/SKILL.md"
     disposition: adapted
-    research_os_skills: [develop-research, to-workpackages, execute-workpackage, render-research-deliverable]
+    research_os_skills: [research-auto, research-4-tasks, research-5-run, render-research-deliverable]
     retained_mechanics: ["execute from an accepted contract", "atomically claim one vertical tracer slice", "independent review and sealed receipt before declaring completion"]
     rejected_mechanics: ["implicit commit or pull-request authority"]
 
@@ -81,61 +81,61 @@ entries:
 
   - upstream_path: "skills/engineering/setup-matt-pocock-skills/SKILL.md"
     disposition: ported
-    research_os_skills: [setup-research-os, research-workspace-contract]
+    research_os_skills: [research-setup, research-workspace-contract]
     retained_mechanics: ["inspect before mutation", "adapter configuration", "explicit confirmation and readback"]
     rejected_mechanics: ["destructive or global symlink installation"]
 
   - upstream_path: "skills/engineering/tdd/SKILL.md"
     disposition: adapted
-    research_os_skills: [falsification-first, pilot-study, methodology-designer, execute-workpackage]
+    research_os_skills: [falsification-first, pilot-study, methodology-designer, research-5-run]
     retained_mechanics: ["predeclare failure before implementation", "small red-capable slice", "rerun after repair"]
     rejected_mechanics: ["forcing red-green tests onto open-ended discovery"]
 
   - upstream_path: "skills/engineering/to-spec/SKILL.md"
     disposition: ported
-    research_os_skills: [to-research-brief, synthesize-research-brief]
+    research_os_skills: [research-2-brief, synthesize-research-brief]
     retained_mechanics: ["synthesize existing context rather than restart", "one canonical contract", "visible unresolved decisions"]
     rejected_mechanics: ["software-only specification sections"]
 
   - upstream_path: "skills/engineering/to-tickets/SKILL.md"
     disposition: ported
-    research_os_skills: [to-workpackages]
+    research_os_skills: [research-4-tasks]
     retained_mechanics: ["tracer bullets", "explicit blocking edges", "independently verifiable slices"]
     rejected_mechanics: ["horizontal layer tickets that cannot test an inference"]
 
   - upstream_path: "skills/engineering/triage/SKILL.md"
     disposition: ported
-    research_os_skills: [idea-triage]
+    research_os_skills: [research-triage]
     retained_mechanics: ["one current state", "verify before transition", "exact next action"]
     rejected_mechanics: ["GitHub label mutation"]
 
   - upstream_path: "skills/engineering/wayfinder/SKILL.md"
     disposition: ported
-    research_os_skills: [research-wayfinder, research-handoff]
+    research_os_skills: [research-map, research-save]
     retained_mechanics: ["destination and fog", "one frontier decision", "cross-session context pointer"]
     rejected_mechanics: ["hard-coded context-window thresholds"]
 
   - upstream_path: "skills/productivity/grill-me/SKILL.md"
     disposition: ported
-    research_os_skills: [grill-research-idea]
+    research_os_skills: [research-1-grill]
     retained_mechanics: ["very thin human-invoked wrapper", "delegate rules to the implicit primitive"]
     rejected_mechanics: ["generic planning scope without research semantics"]
 
   - upstream_path: "skills/productivity/grilling/SKILL.md"
     disposition: ported
-    research_os_skills: [research-grilling, develop-research]
+    research_os_skills: [research-grilling, research-auto]
     retained_mechanics: ["facts by agent and decisions by human", "one dependent question per turn", "recommendation plus trade-off"]
     rejected_mechanics: ["asking discoverable facts for conversational convenience"]
 
   - upstream_path: "skills/productivity/handoff/SKILL.md"
     disposition: ported
-    research_os_skills: [research-handoff]
+    research_os_skills: [research-save]
     retained_mechanics: ["compact artifact pointers", "next action and blockers", "continuity without transcript dumping"]
     rejected_mechanics: ["handoff without write/read receipt"]
 
   - upstream_path: "skills/productivity/teach/SKILL.md"
     disposition: adapted
-    research_os_skills: [research-workspace-contract, research-handoff]
+    research_os_skills: [research-workspace-contract, research-save]
     retained_mechanics: ["durable mission and resources", "learning or decision history", "supersession"]
     rejected_mechanics: ["pedagogical lesson renderer in the research core"]
 
@@ -147,19 +147,19 @@ entries:
 
   - upstream_path: "skills/in-progress/batch-grill-me/SKILL.md"
     disposition: adapted
-    research_os_skills: [research-grilling, develop-research]
+    research_os_skills: [research-grilling, research-auto]
     retained_mechanics: ["batch only mutually independent frontier questions", "recompute dependencies after answers"]
     rejected_mechanics: ["batching dependent research choices"]
 
   - upstream_path: "skills/in-progress/claude-handoff/SKILL.md"
     disposition: adapted
-    research_os_skills: [research-handoff]
+    research_os_skills: [research-save]
     retained_mechanics: ["compact execution-ready handoff", "explicit destination"]
     rejected_mechanics: ["Claude-specific dispatch", "unacknowledged background launch"]
 
   - upstream_path: "skills/in-progress/loop-me/SKILL.md"
     disposition: adapted
-    research_os_skills: [research-diagnosis, to-workpackages]
+    research_os_skills: [research-diagnosis, research-4-tasks]
     retained_mechanics: ["trigger-input-state-retry-receipt model", "discover recurring work before automating"]
     rejected_mechanics: ["automation implementation without separate authority"]
 
@@ -171,13 +171,13 @@ entries:
 
   - upstream_path: "skills/in-progress/to-questionnaire/SKILL.md"
     disposition: adapted
-    research_os_skills: [research-grilling, research-handoff]
+    research_os_skills: [research-grilling, research-save]
     retained_mechanics: ["convert only genuine knowledge gaps into recipient-specific questions", "name why the answer matters"]
     rejected_mechanics: ["questionnaire generation as a mandatory core phase"]
 
   - upstream_path: "skills/in-progress/wizard/SKILL.md"
     disposition: adapted
-    research_os_skills: [develop-research, research-workspace-contract]
+    research_os_skills: [research-auto, research-workspace-contract]
     retained_mechanics: ["stable runtime contract with variable stages", "resume from durable state", "branch-specific procedure"]
     rejected_mechanics: ["fixed stage machine for every research topic", "unreceipted external execution"]
 
@@ -207,13 +207,13 @@ entries:
 
   - upstream_path: "skills/deprecated/qa/SKILL.md"
     disposition: adapted
-    research_os_skills: [research-review, idea-triage]
+    research_os_skills: [research-review, research-triage]
     retained_mechanics: ["verify a report before state transition", "classify and route"]
     rejected_mechanics: ["implicit issue creation", "external label changes"]
 
   - upstream_path: "skills/deprecated/request-refactor-plan/SKILL.md"
     disposition: adapted
-    research_os_skills: [develop-research, synthesize-research-brief, to-workpackages]
+    research_os_skills: [research-auto, synthesize-research-brief, research-4-tasks]
     retained_mechanics: ["decompose a god workflow into interview, contract, and execution units"]
     rejected_mechanics: ["single monolithic research-plan prompt"]
 

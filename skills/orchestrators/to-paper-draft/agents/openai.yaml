@@ -1,6 +1,0 @@
-interface:
-  display_name: "To Paper Draft"
-  short_description: "Draft a paper from verified research artifacts"
-  default_prompt: "Use $to-paper-draft to draft an academic paper from the verified project artifacts."
-policy:
-  allow_implicit_invocation: false

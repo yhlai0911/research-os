@@ -11,7 +11,7 @@ Read [conflict-types.md](references/conflict-types.md) only after both sides are
 
 ## Pin both sides
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, decisions, briefs, plans, workpackages, pilots, reviews, papers, proposals, and handoffs paths from that file. Never probe baseline paths before resolution.
 3. Pin both conflicting artifacts by ID, path, version, SHA-256 or equivalent immutable identity. Record their current Artifact-index rows, predecessor and successor links, producing decisions, and every downstream artifact that consumes either side.
 4. Read both artifacts in full, then follow their claim, evidence, decision, and execution pointers to primary sources. Do not infer intent from prose style or modification time.
@@ -51,7 +51,7 @@ Invoke `$citation-audit` for load-bearing fact conflicts. For a human-choice con
 
 Create `<conflict-id>-reconciliation.md` under the resolved reviews directory. Begin with `Status: complete|partial|blocked`, `Updated`, both pinned identities and hashes, their common ancestor when known, and the exact conflict scope. Include the packet, evidence and decision ownership, preserved content, incompatible choice, superseding artifact, invalidation set, and gate results.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Preserve both parents as superseded rows and create one current row.
+Register the outcome in the resolved context per the writeback protocol. Preserve both parents as superseded rows and create one current row.
 
 Re-read both originals, the reconciliation report, the superseding artifact, affected claims and decisions, every rerun downstream gate, and the Artifact index. Report:
 

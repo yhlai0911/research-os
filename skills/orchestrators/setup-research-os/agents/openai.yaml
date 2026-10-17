@@ -1,6 +1,0 @@
-interface:
-  display_name: "Setup Research OS"
-  short_description: "Initialize a durable research workspace contract"
-  default_prompt: "Use $setup-research-os to initialize this project as a Research OS workspace."
-policy:
-  allow_implicit_invocation: false

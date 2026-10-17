@@ -2,10 +2,39 @@
 
 以下範例刻意包含目的、受眾、限制與目前狀態。請替換方括號內容，不需要保留所有欄位。
 
-## 從模糊題目開始
+## 走主線（第一次使用建議這條）
+
+主線六步，每步跑完會告訴你下一步是什麼然後停下來。第一步：
 
 ```text
-/develop-research
+/research-1-grill
+
+我想研究「[主題或現象]」，最後要形成一份[研究計畫／企劃案／論文藍圖]。
+受眾是[誰]，用途是[投稿／申請經費／校內審查／決策]。
+目前只有方向，沒有完整文獻、資料與方法。
+限制：[免費資料、研究期程、地區、排除的方法等]。
+```
+
+它收斂後會說明這個想法已經可研究，並指向下一步。接著依序：
+
+```text
+/research-2-brief      把已經談定的內容鎖成一份研究契約
+/research-3-falsify    先講清楚什麼結果會推翻這個設計
+/research-4-tasks      拆成可獨立驗證的研究任務
+/research-5-run        認領並跑第一個任務
+/research-6-review     用期刊審稿人的角度攻擊自己
+```
+
+任何時候想確認位置：
+
+```text
+/research-status
+```
+
+## 從模糊題目開始（自動駕駛）
+
+```text
+/research-auto
 
 我對「[主題或現象]」有興趣，希望最後形成一份[研究計畫／企劃案／proposal／論文藍圖]。
 受眾是[誰]，用途是[投稿／申請經費／校內審查／決策]。
@@ -18,7 +47,7 @@
 ## 檢查題目值不值得做
 
 ```text
-/idea-triage
+/research-triage
 
 題目：[題目]
 我認為的貢獻：[目前想法]
@@ -30,7 +59,7 @@
 ## 逐題釐清研究構想
 
 ```text
-/grill-research-idea
+/research-1-grill
 
 我的初步想法是：[想法]
 最後要形成：[成果]
@@ -41,7 +70,7 @@
 ## 修復已有研究計畫
 
 ```text
-/develop-research
+/research-auto
 
 這是我現有的研究計畫：[貼上內容或提供檔案]
 不要從頭重做，也不要改掉已接受的選擇。
@@ -52,7 +81,7 @@
 ## 從方程式或外部理論發展研究
 
 ```text
-/develop-research
+/research-auto
 
 我想把[方程式／理論／其他領域概念]用於[研究領域]。
 請先確認每個符號、單位、機制與經濟意義，
@@ -64,7 +93,7 @@
 ## 資料先行
 
 ```text
-/develop-research
+/research-auto
 
 我手上有這份資料：[資料說明或路徑]
 請先檢查欄位語義、頻率、涵蓋期間、授權、缺失與時間對齊，
@@ -75,7 +104,7 @@
 ## 形成學術研究計畫
 
 ```text
-/to-research-plan
+/to-plan
 
 把 current Research Brief 轉成一份可送審的學術研究計畫。
 受眾：[審查單位]
@@ -99,7 +128,7 @@
 ## 形成論文
 
 ```text
-/to-paper-draft
+/to-paper
 
 以 current Research Brief、claim ledger、實證結果與 review 為依據，
 產出[期刊／領域]風格的論文。
@@ -110,7 +139,7 @@
 ## 跨 session 交接
 
 ```text
-/research-handoff
+/research-save
 
 請為下一個 session 建立可驗證交接：
 列出 current artifacts、已接受決策、blocked claims、未完成 gates、

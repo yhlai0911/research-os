@@ -11,7 +11,7 @@ Claude Code 原生支援兩種合理的散布方式，但它們是不同契約�
 1. **純 skills 安裝**：把每個 `<skill-name>/` 目錄放進個人或專案的 skills 目錄。這種方式不需要 `.claude-plugin/plugin.json`。
 2. **Plugin Marketplace 安裝**：repository 提供 `.claude-plugin/marketplace.json`，使用者先加入 marketplace，再安裝其中的 plugin。Plugin 可在根目錄的 `skills/` 放多個 skills；`.claude-plugin/plugin.json` 對預設目錄布局不是必填，但若需要明確 metadata、穩定 plugin 名稱或自訂元件路徑，應提供它。
 
-因此，若 `research-os` 要讓 Claude Code 使用者「從 GitHub repository 直接安裝整套 skills」，官方、低歧義的使用者體驗是 **把整套 39 skills 包成一個 marketplace plugin**。若不新增 marketplace contract，README 必須明說這是「複製 39 個 skill 目錄」的純 skills 安裝，不能叫使用者對 repository 根網址直接執行 plugin install。
+因此，若 `research-os` 要讓 Claude Code 使用者「從 GitHub repository 直接安裝整套 skills」，官方、低歧義的使用者體驗是 **把整套 42 skills 包成一個 marketplace plugin**。若不新增 marketplace contract，README 必須明說這是「複製 42 個 skill 目錄」的純 skills 安裝，不能叫使用者對 repository 根網址直接執行 plugin install。
 
 ## 1. 純 skills 的安裝 scope 與路徑
 

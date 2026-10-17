@@ -1,6 +1,0 @@
-interface:
-  display_name: "To Research Plan"
-  short_description: "Build an executable academic research plan"
-  default_prompt: "Use $to-research-plan to turn this verified Research Brief into an executable academic research plan."
-policy:
-  allow_implicit_invocation: false

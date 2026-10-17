@@ -23,7 +23,16 @@ SKILL_REFERENCE = re.compile(r"\$([a-z0-9-]+)")
 ARTIFACT_INDEX_COLUMNS = (
     "Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes"
 )
-WORKSPACE_CONTRACT_EXEMPT = {"setup-research-os", "writing-research-skills"}
+WORKSPACE_CONTRACT_EXEMPT = {"research-setup", "writing-research-skills"}
+WRITEBACK_PROTOCOL_PATH = (
+    ROOT
+    / "skills"
+    / "primitives"
+    / "research-workspace-contract"
+    / "references"
+    / "writeback-protocol.md"
+)
+WRITEBACK_PROTOCOL_LINK = "references/writeback-protocol.md"
 REQUIRED_CANONICAL_KEYS = {
     "context",
     "decisions",
@@ -105,7 +114,14 @@ def validate_links(path: Path, text: str, errors: list[str]) -> None:
 def validate_workspace_contract(
     skill_name: str, path: Path, text: str, errors: list[str]
 ) -> None:
-    """Prevent adapter-path drift and unregistered research artifacts."""
+    """Prevent adapter-path drift and unregistered research artifacts.
+
+    The resolution procedure and Artifact index contract live in one place
+    (see WRITEBACK_PROTOCOL_PATH). A workspace skill proves it is bound to that
+    contract by linking to it, not by restating it: requiring the literal table
+    header in every SKILL.md is what previously copied the same bookkeeping
+    boilerplate into more than thirty files.
+    """
     first_workspace_path = text.find(".research/")
     if first_workspace_path < 0 or skill_name in WORKSPACE_CONTRACT_EXEMPT:
         return
@@ -117,11 +133,11 @@ def validate_workspace_contract(
             path,
             "must mention .research/config.yaml before every other .research path",
         )
-    if "Artifact index" not in text or ARTIFACT_INDEX_COLUMNS not in text:
+    if WRITEBACK_PROTOCOL_LINK not in text:
         error(
             errors,
             path,
-            "workspace skill must register outcomes in the canonical Artifact index",
+            "workspace skill must link to references/writeback-protocol.md",
         )
 
 
@@ -392,6 +408,30 @@ def main() -> int:
     project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
     if project["project"]["version"] != catalog["version"]:
         errors.append("version mismatch between pyproject.toml and skills/catalog.yaml")
+
+    if not WRITEBACK_PROTOCOL_PATH.is_file():
+        error(errors, WRITEBACK_PROTOCOL_PATH, "missing shared writeback protocol")
+    else:
+        protocol_text = WRITEBACK_PROTOCOL_PATH.read_text(encoding="utf-8")
+        if "Artifact index" not in protocol_text:
+            error(
+                errors,
+                WRITEBACK_PROTOCOL_PATH,
+                "shared protocol must define the canonical Artifact index",
+            )
+        if ARTIFACT_INDEX_COLUMNS not in protocol_text:
+            error(
+                errors,
+                WRITEBACK_PROTOCOL_PATH,
+                "Artifact index columns differ from contract",
+            )
+        for status in ("`complete`", "`partial`", "`blocked`"):
+            if status not in protocol_text:
+                error(
+                    errors,
+                    WRITEBACK_PROTOCOL_PATH,
+                    f"shared protocol must define index status {status}",
+                )
 
     context_template = (
         ROOT

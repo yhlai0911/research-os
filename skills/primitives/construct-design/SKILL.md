@@ -9,10 +9,9 @@ Treat **measurement** as a model linking an abstract construct to observations, 
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, maps, and decisions paths, then read the relevant domain, theory, literature, data, decision, and evidence artifacts.
-- Use an existing registered construct map; otherwise create `constructs-<topic-slug>.md` under the resolved maps directory (baseline `.research/maps/`) and register it in the resolved context.
+- Resolve `.research/config.yaml` and its canonical context, maps, and decisions paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the relevant domain, theory, literature, data, decision, and evidence artifacts.
+- Use an existing registered construct map; otherwise create `constructs-<topic-slug>.md` under the resolved maps directory and register it in the resolved context.
 - Preserve canonical construct IDs from the domain model. Record consequential measurement choices under the resolved decisions directory.
-- Register the map through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
 - Stop with `blocked: research_workspace_not_initialized` when the contract is absent.
 
 ## Design each measurement model

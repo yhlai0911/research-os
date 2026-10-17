@@ -9,7 +9,7 @@ Ask what would make a skeptical reviewer **reject** the work. Keep the six revie
 
 ## Pin the review target
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, maps, papers, proposals, reviews, pilots, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Select one review mode:
    - **full-target** for a first review of one immutable paper, proposal, brief, model, or result set; or
@@ -45,9 +45,9 @@ Invoke `$citation-audit`, `$identification-design`, `$data-feasibility`, or `$et
 
 Present all six reports separately. Do not average scores or discard minority findings. Derive the overall verdict from the worst load-bearing axis, then distinguish fatal defects from repairable work.
 
-Reuse the current registered review for the same target and mode, or create `<target-id>-research-review.md` under the resolved reviews directory (baseline `.research/reviews/`). Begin it with `Status: complete|partial|blocked`, `Updated`, review mode, pinned target identity, base identity and comparison-packet identity when applicable, and scope. Update affected claims in the resolved claims registry to reflect newly verified contradictions or blockers without erasing provenance or prior status history. Do not rewrite the reviewed target.
+Reuse the current registered review for the same target and mode, or create `<target-id>-research-review.md` under the resolved reviews directory. Begin it with `Status: complete|partial|blocked`, `Updated`, review mode, pinned target identity, base identity and comparison-packet identity when applicable, and scope. Update affected claims in the resolved claims registry to reflect newly verified contradictions or blockers without erasing provenance or prior status history. Do not rewrite the reviewed target.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Set artifact status `complete` for a fully executed `pass`, `minor-revision`, `major-revision`, or `reject` review; these verdicts describe the target, not task completeness. Use `partial` when a non-load-bearing check remains open and `blocked` when a missing target, source, or load-bearing axis prevents a defensible overall verdict.
 

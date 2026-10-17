@@ -11,7 +11,7 @@ Read [feedback-loop-receipt.md](references/feedback-loop-receipt.md) when the sy
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, workpackages, pilots, reviews, papers, proposals, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, workpackage, pilot, review, paper or proposal, decisions, and execution evidence connected to the reported failure.
 4. State expected behavior, observed behavior, and the decision currently blocked. Pin the failing artifact versions and environment. Stop when a required resolved path is missing; request workspace repair instead of inventing a parallel path.
@@ -52,9 +52,9 @@ Apply a repair only when the user requested one and the cause is supported. Befo
 
 After repair, capture the same regression observation green, re-run the minimized loop, and then re-run the original full scenario. Search for the unique diagnosis tag, remove every temporary instrument, and save the zero-match cleanup evidence. A repair is not verified by the new output alone.
 
-Reuse the current registered diagnosis for the same symptom, or create `<diagnosis-id>-diagnosis.md` under the resolved reviews directory (baseline `.research/reviews/`). Begin it with `Status: complete|partial|blocked`, `Updated`, pinned failing artifact identity, and scope. Include the symptom, pinned inputs, loop, hypotheses, probes, root-cause evidence, repair or blocker, and verification. Update affected entries in the resolved claims registry; record any hard-to-reverse repair under the resolved decisions directory.
+Reuse the current registered diagnosis for the same symptom, or create `<diagnosis-id>-diagnosis.md` under the resolved reviews directory. Begin it with `Status: complete|partial|blocked`, `Updated`, pinned failing artifact identity, and scope. Include the symptom, pinned inputs, loop, hypotheses, probes, root-cause evidence, repair or blocker, and verification. Update affected entries in the resolved claims registry; record any hard-to-reverse repair under the resolved decisions directory.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Set artifact status `complete` when the supported root cause and requested repair outcome are fully verified, or when a diagnosis-only request reaches a supported root cause without claiming a repair. Use `partial` while nonfatal alternatives or full-scenario verification remain open, and `blocked` when no discriminating observation, pinned input, or required resolved path is available.
 

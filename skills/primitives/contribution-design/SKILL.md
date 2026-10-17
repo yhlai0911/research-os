@@ -9,9 +9,8 @@ Express each contribution as a **delta**: the closest literature establishes a b
 
 ## Protect the workspace contract
 
-- Read `.research/config.yaml` first. Resolve its canonical context, claims, and briefs paths, then read the relevant gap audit, landscape, design, theory, and claim entries.
-- Use an existing registered brief; otherwise create `contribution-design-<topic-slug>.md` under the resolved briefs directory (baseline `.research/briefs/`) and register it in the resolved context.
-- Register it through one `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`; preserve superseded rows.
+- Resolve `.research/config.yaml` and its canonical context, claims, and briefs paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the relevant gap audit, landscape, design, theory, and claim entries.
+- Use an existing registered brief; otherwise create `contribution-design-<topic-slug>.md` under the resolved briefs directory and register it in the resolved context.
 - Reference evidence, map, review, and decision IDs instead of duplicating their contents.
 - Stop with `blocked: research_workspace_not_initialized` when the workspace contract is absent.
 

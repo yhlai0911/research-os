@@ -9,7 +9,7 @@ Treat **obtainability** as an empirical claim. Verify that the required observat
 
 ## Load the research contract
 
-1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
+1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, reviews, proposals, workpackages, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, identification design, proposal, workpackages, and prior data decisions at their resolved paths.
 4. Extract the required population, units, variables, identifiers, geography, frequency, horizon, release timing, and merge keys. Stop when the target estimand or a required resolved path is missing; request workspace repair instead of inventing a parallel path.
@@ -34,9 +34,9 @@ Delegate source verification to `$evidence-research`, construct validity to `$co
 
 Assign one verdict: `feasible`, `feasible-with-repair`, `pilot-required`, `infeasible`, or `blocked`.
 
-Reuse the current registered review for the same topic, or create `<artifact-id>-data-feasibility.md` under the resolved reviews directory (baseline `.research/reviews/`). Begin it with `Status: complete|partial|blocked`, `Updated`, and scope, then include the requirement matrix, primary-source evidence, observed tests, risks, and feasibility verdict. Update every affected data premise in the resolved claims registry with its support status and report pointer. Record durable access, licensing, or dataset choices under the resolved decisions directory.
+Reuse the current registered review for the same topic, or create `<artifact-id>-data-feasibility.md` under the resolved reviews directory. Begin it with `Status: complete|partial|blocked`, `Updated`, and scope, then include the requirement matrix, primary-source evidence, observed tests, risks, and feasibility verdict. Update every affected data premise in the resolved claims registry with its support status and report pointer. Record durable access, licensing, or dataset choices under the resolved decisions directory.
 
-Register the outcome in the single `## Artifact index` table in the resolved context with columns `Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes`. Update the current row for the same kind and topic when its artifact ID is unchanged. When replacing an artifact, preserve the prior row as `superseded`, add the new current row, and name the prior ID in `Supersedes`.
+Register the outcome and read it back per the writeback protocol.
 
 Map verdicts to artifact status mechanically: `feasible` is `complete`; `feasible-with-repair` and `pilot-required` are `partial`; `infeasible` is `complete` as a diagnostic outcome but blocks a dependent design; and `blocked` is `blocked`.
 

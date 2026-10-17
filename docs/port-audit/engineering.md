@@ -37,29 +37,29 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 | # | Upstream skill | Upstream boundary | Leading concept | Classification | Exact Research OS target(s) |
 |---|---|---|---|---|---|
-| 1 | `ask-matt` | user-only | flow / router | Direct-port | `skills/orchestrators/ask-research/SKILL.md`, plus every route it names |
+| 1 | `ask-matt` | user-only | flow / router | Direct-port | `skills/orchestrators/research-help/SKILL.md`, plus every route it names |
 | 2 | `code-review` | model-invoked | two independent review axes | Adapt | `skills/primitives/research-review/SKILL.md`, `skills/primitives/citation-audit/SKILL.md` |
 | 3 | `codebase-design` | model-invoked | deep module | Exclude | partial mechanisms in `skills/primitives/design-research-three-ways/SKILL.md`, `skills/primitives/research-domain-modeling/SKILL.md`, and `skills/primitives/methodology-designer/SKILL.md` |
 | 4 | `diagnosing-bugs` | model-invoked | tight red-capable feedback loop | Direct-port | `skills/primitives/research-diagnosis/SKILL.md` |
 | 5 | `domain-modeling` | model-invoked | active canonical language | Adapt | `skills/primitives/research-domain-modeling/SKILL.md`, `skills/primitives/research-grilling/SKILL.md`, `skills/primitives/research-workspace-contract/SKILL.md` |
-| 6 | `grill-with-docs` | user-only | composed interview with inline writeback | Direct-port | `skills/orchestrators/grill-research-idea/SKILL.md`, invoking `research-grilling` and `research-domain-modeling` |
-| 7 | `implement` | user-only | execute a ticket through test and review gates | Adapt | `skills/orchestrators/execute-workpackage/SKILL.md`, `skills/orchestrators/develop-research/SKILL.md`, `skills/orchestrators/to-workpackages/SKILL.md`, `skills/primitives/research-review/SKILL.md` |
+| 6 | `grill-with-docs` | user-only | composed interview with inline writeback | Direct-port | `skills/orchestrators/research-1-grill/SKILL.md`, invoking `research-grilling` and `research-domain-modeling` |
+| 7 | `implement` | user-only | execute a ticket through test and review gates | Adapt | `skills/orchestrators/research-5-run/SKILL.md`, `skills/orchestrators/research-auto/SKILL.md`, `skills/orchestrators/research-4-tasks/SKILL.md`, `skills/primitives/research-review/SKILL.md` |
 | 8 | `improve-codebase-architecture` | user-only | survey deepening opportunities before design | Exclude | partial mechanisms in `research-diagnosis`, `design-research-three-ways`, `research-grilling`, and `render-research-deliverable` |
 | 9 | `prototype` | model-invoked | throwaway artifact answers one question | Adapt | `skills/primitives/pilot-study/SKILL.md`, with alternative generation in `design-research-three-ways` |
 | 10 | `research` | model-invoked | background primary-source investigation | Direct-port | `skills/primitives/evidence-research/SKILL.md`; broader synthesis in `literature-landscape` |
-| 11 | `resolving-merge-conflicts` | model-invoked | reconcile intent from primary sources | Exclude | retained research mechanism in `skills/primitives/artifact-reconciliation/SKILL.md`, with stop-and-route edges from `research-handoff`, `research-domain-modeling`, `research-grilling`, and `synthesize-research-brief` |
-| 12 | `setup-matt-pocock-skills` | user-only | explore, confirm, then configure | Adapt | `skills/orchestrators/setup-research-os/SKILL.md` → `skills/primitives/research-workspace-contract/SKILL.md` |
-| 13 | `tdd` | model-invoked | red → green vertical slice | Exclude | selected mechanics in `execute-workpackage`, `pilot-study`, `falsification-first`, and `to-workpackages` |
-| 14 | `to-spec` | user-only | synthesize settled context into a contract | Adapt | `skills/orchestrators/to-research-brief/SKILL.md` → `skills/primitives/synthesize-research-brief/SKILL.md`; execution-plan rendering in `to-research-plan` |
-| 15 | `to-tickets` | user-only | tracer bullets with blocking edges | Direct-port | `skills/orchestrators/to-workpackages/SKILL.md` |
-| 16 | `triage` | user-only | verified state transition | Adapt | `skills/orchestrators/idea-triage/SKILL.md` |
-| 17 | `wayfinder` | user-only | destination, fog, and frontier | Direct-port | `skills/orchestrators/research-wayfinder/SKILL.md` |
+| 11 | `resolving-merge-conflicts` | model-invoked | reconcile intent from primary sources | Exclude | retained research mechanism in `skills/primitives/artifact-reconciliation/SKILL.md`, with stop-and-route edges from `research-save`, `research-domain-modeling`, `research-grilling`, and `synthesize-research-brief` |
+| 12 | `setup-matt-pocock-skills` | user-only | explore, confirm, then configure | Adapt | `skills/orchestrators/research-setup/SKILL.md` → `skills/primitives/research-workspace-contract/SKILL.md` |
+| 13 | `tdd` | model-invoked | red → green vertical slice | Exclude | selected mechanics in `research-5-run`, `pilot-study`, `falsification-first`, and `research-4-tasks` |
+| 14 | `to-spec` | user-only | synthesize settled context into a contract | Adapt | `skills/orchestrators/research-2-brief/SKILL.md` → `skills/primitives/synthesize-research-brief/SKILL.md`; execution-plan rendering in `to-plan` |
+| 15 | `to-tickets` | user-only | tracer bullets with blocking edges | Direct-port | `skills/orchestrators/research-4-tasks/SKILL.md` |
+| 16 | `triage` | user-only | verified state transition | Adapt | `skills/orchestrators/research-triage/SKILL.md` |
+| 17 | `wayfinder` | user-only | destination, fog, and frontier | Direct-port | `skills/orchestrators/research-map/SKILL.md` |
 
 ## Per-skill behavioral equivalence
 
 ### 1. `ask-matt` — Direct-port
 
-**Invocation boundary.** Upstream is explicitly user-only in both frontmatter and Codex metadata. It is a remembered entry point, not an implicit dispatcher. `ask-research` preserves that boundary through catalog invocation `user` and the generated `allow_implicit_invocation: false` policy. It may name another user workflow but must yield rather than invoke it.
+**Invocation boundary.** Upstream is explicitly user-only in both frontmatter and Codex metadata. It is a remembered entry point, not an implicit dispatcher. `research-help` preserves that boundary through catalog invocation `user` and the generated `allow_implicit_invocation: false` policy. It may name another user workflow but must yield rather than invoke it.
 
 **Leading concept.** Upstream organizes the catalog as a **flow**: one main idea-to-ship path, three on-ramps, a code-health loop, vocabulary underneath, cross-session bridges, and standalone tools. The router’s work is state recognition, not task execution. Research OS names this concept **route**, which is behaviorally equivalent but more state-aware.
 
@@ -83,17 +83,17 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 - No codebase → use the stateless grilling variant, not repository writeback.
 - Router never performs the selected workflow.
 
-**Durable state/writeback.** The upstream router writes nothing. It depends on downstream issue, context, ADR, handoff, and code artifacts. Research OS strengthens this: `ask-research` resolves canonical paths, writes the accepted route to `DECISIONS`, registers it in the single `CONTEXT` Artifact index, and requires readback before reporting complete.
+**Durable state/writeback.** The upstream router writes nothing. It depends on downstream issue, context, ADR, handoff, and code artifacts. Research OS strengthens this: `research-help` resolves canonical paths, writes the accepted route to `DECISIONS`, registers it in the single `CONTEXT` Artifact index, and requires readback before reporting complete.
 
 **Composition edges.** Upstream reaches nearly the entire engineering graph: setup, grilling, domain modeling, prototype, handoff, spec, tickets, implementation, TDD, review, triage, diagnosis, architecture review, wayfinder, research, and teaching. Research OS routes to setup, grilling, idea triage, wayfinder, brief synthesis, research planning, workpackage decomposition, one-package execution, adaptive research development, deliverable rendering, handoff, and model primitives.
 
 **Research OS equivalence and missing behavior.**
 
 - Preserved: one user-only router; recommend one route; do not silently invoke a user workflow; distinguish session-sized ideation, multi-session fog, durable synthesis, decomposition, and handoff.
-- Strengthened: route decisions are evidence-backed, canonical, registered, and read back; `blocked`, `needs-decision`, and `no-op` are explicit. The current route table now distinguishes a verified brief needing a plan, an approved brief needing workpackages, and one eligible package needing `execute-workpackage`; the former end-to-end routing break is closed.
+- Strengthened: route decisions are evidence-backed, canonical, registered, and read back; `blocked`, `needs-decision`, and `no-op` are explicit. The current route table now distinguishes a verified brief needing a plan, an approved brief needing workpackages, and one eligible package needing `research-5-run`; the former end-to-end routing break is closed.
 - Missing: the router and executor bound work to one package, but neither explicitly requires a fresh context per package. Upstream makes that context-isolation rule part of the multi-session flow.
 - Missing: the Smart Zone rule is present only as a repository-level context principle, not as an executable router branch with an observable threshold or handoff trigger.
-- Closed during remediation: routine routing now stays in `CONTEXT` and its Artifact-index row. `ask-research` creates an RDR only when route selection itself passes the four admission tests owned by `research-grilling`, so reversible workflow state no longer inflates substantive decision history.
+- Closed during remediation: routine routing now stays in `CONTEXT` and its Artifact-index row. `research-help` creates an RDR only when route selection itself passes the four admission tests owned by `research-grilling`, so reversible workflow state no longer inflates substantive decision history.
 
 ### 2. `code-review` — Adapt
 
@@ -250,13 +250,13 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 - Preserved: active collision detection, canonical definitions and avoided aliases, code/artifact cross-reference, typed relationships, separate decision records, supersession, and explicit contested/blocked states.
 - Strengthened: stable IDs, construct/measure separation, provenance, direction/level/time on relations, claim links, canonical path resolution, readback, and downstream blocking on unresolved semantic collisions.
-- Closed during remediation: `research-grilling` now requires all four RDR admission tests—costly reversal, surprising/unsafe without rationale, a genuine alternative trade-off, and downstream ambiguity if rationale is lost. `research-domain-modeling` references that exact gate; `ask-research` keeps routine routes in `CONTEXT`; and `research-workspace-contract` applies all four tests while seeding state. Routine terminology, routing, formatting, and progress no longer enter `DECISIONS`.
+- Closed during remediation: `research-grilling` now requires all four RDR admission tests—costly reversal, surprising/unsafe without rationale, a genuine alternative trade-off, and downstream ambiguity if rationale is lost. `research-domain-modeling` references that exact gate; `research-help` keeps routine routes in `CONTEXT`; and `research-workspace-contract` applies all four tests while seeding state. Routine terminology, routing, formatting, and progress no longer enter `DECISIONS`.
 - Missing: upstream requires immediate inline writeback at the moment a term crystallizes. Research OS requires re-read-before-write and durable output, but the build procedure can still batch an entire model before persisting intermediate accepted terms.
 - Intentional change: a separate domain-map artifact replaces a glossary-only `CONTEXT.md`. This is appropriate because research relations, construct status, provenance, and measurement collisions are too rich for the context index.
 
 ### 6. `grill-with-docs` — Direct-port
 
-**Invocation boundary.** Upstream is user-only. Its seven-line prompt is deliberately a thin wrapper: run the reusable grilling primitive while also running domain modeling. Research OS `grill-research-idea` is likewise user-only and composes model-invoked interviewing and domain modeling without invoking another user workflow.
+**Invocation boundary.** Upstream is user-only. Its seven-line prompt is deliberately a thin wrapper: run the reusable grilling primitive while also running domain modeling. Research OS `research-1-grill` is likewise user-only and composes model-invoked interviewing and domain modeling without invoking another user workflow.
 
 **Leading concept.** Upstream delegates its leading behavior to the **decision interview plus durable domain writeback**. Research OS makes the **decision tree** explicit and adds researchability as the terminal criterion.
 
@@ -276,14 +276,14 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 - Preserved: explicit user entry, one human decision at a time, agent-owned fact finding, inline durable state, and no automatic transition to a downstream user workflow.
 - Strengthened: a fixed research decision order, researchability stress test, falsifier/kill criteria, canonical paths, artifact registration, readback, and `repair`/`needs-map`/`kill-candidate` branches.
-- Structural divergence: upstream’s wrapper remains intentionally tiny so primitive rules have one authority. Research OS currently carries substantial orchestration logic in `grill-research-idea` in addition to the two primitives. The extra domain sequence is useful, but overlapping “one question,” decision persistence, and completion rules create a drift surface that should be regression-tested.
+- Structural divergence: upstream’s wrapper remains intentionally tiny so primitive rules have one authority. Research OS currently carries substantial orchestration logic in `research-1-grill` in addition to the two primitives. The extra domain sequence is useful, but overlapping “one question,” decision persistence, and completion rules create a drift surface that should be regression-tested.
 - Missing: when the unresolved graph exceeds one session, the orchestrator recommends wayfinder, but it does not require a handoff manifest before yielding. The durable decision records reduce risk, yet live frontier context can still be lost.
 
 ### 7. `implement` — Adapt
 
-**Invocation boundary.** Upstream is user-only because it is a mutation workflow: the user supplies a spec or ticket, and the skill edits, tests, reviews, and commits. Research OS now has two user-only boundaries: `develop-research` is the broader topic-to-deliverable loop, while `execute-workpackage` is the direct one-contract execution boundary and accepts exactly one eligible package.
+**Invocation boundary.** Upstream is user-only because it is a mutation workflow: the user supplies a spec or ticket, and the skill edits, tests, reviews, and commits. Research OS now has two user-only boundaries: `research-auto` is the broader topic-to-deliverable loop, while `research-5-run` is the direct one-contract execution boundary and accepts exactly one eligible package.
 
-**Leading concept.** Upstream has no named noun, but its control object is one **piece of work** governed by a spec/ticket. `execute-workpackage` uses **claim**: one immutable package envelope is selected, atomically owned, executed, tested, reviewed when load-bearing, sealed, and used to recompute the frontier. This is the research-domain equivalent of the upstream control object. `develop-research` remains the broader adaptive loop for work that has not yet reached package form.
+**Leading concept.** Upstream has no named noun, but its control object is one **piece of work** governed by a spec/ticket. `research-5-run` uses **claim**: one immutable package envelope is selected, atomically owned, executed, tested, reviewed when load-bearing, sealed, and used to recompute the frontier. This is the research-domain equivalent of the upstream control object. `research-auto` remains the broader adaptive loop for work that has not yet reached package form.
 
 **Ordered upstream mechanics.**
 
@@ -304,19 +304,19 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 **Research OS target behavior.**
 
-- `develop-research` establishes a mission, resolves one uncertainty frontier at a time, invokes the narrowest primitive, attacks and repairs the design, synthesizes a canonical Research Brief, and renders the requested downstream artifact.
-- `to-workpackages` creates the dependency graph and per-package acceptance/failure contract.
-- `execute-workpackage` selects one eligible package, pins its file and input versions, claims it through the shared atomic compare-and-set helper, stays inside its read/write envelope, records operations and costs, runs package-local plus project-level gates, conditionally invokes independent review, seals a receipt, and recomputes the frontier.
+- `research-auto` establishes a mission, resolves one uncertainty frontier at a time, invokes the narrowest primitive, attacks and repairs the design, synthesizes a canonical Research Brief, and renders the requested downstream artifact.
+- `research-4-tasks` creates the dependency graph and per-package acceptance/failure contract.
+- `research-5-run` selects one eligible package, pins its file and input versions, claims it through the shared atomic compare-and-set helper, stays inside its read/write envelope, records operations and costs, runs package-local plus project-level gates, conditionally invokes independent review, seals a receipt, and recomputes the frontier.
 - `pilot-study` remains the specialized empirical-pilot primitive that an executing package may use.
 - `research-review` provides the independent post-work attack.
 
 **Equivalence and missing behavior.**
 
 - Preserved: explicit user entry; contract-driven work; narrow cycles; factual work before user questions; verification and review before completion; durable writeback; no external side effect without authority.
-- Strengthened: `develop-research` adapts the route before decomposition, while `execute-workpackage` enforces exactly-one-package ownership, immutable inputs, explicit allowed writes, package and project checks, separate execution/domain verdicts, external-authority stops, sealed receipts, and readback. `ask-research` now routes an eligible package to that executor.
+- Strengthened: `research-auto` adapts the route before decomposition, while `research-5-run` enforces exactly-one-package ownership, immutable inputs, explicit allowed writes, package and project checks, separate execution/domain verdicts, external-authority stops, sealed receipts, and readback. `research-help` now routes an eligible package to that executor.
 - Correctly excluded: automatic Git commit. A research workflow invocation is not commit authorization, and commit is not the universal durable unit of academic work.
 - Closed during this audit: the former load-bearing absence of a package executor. The ordered prompt now covers blocker readback, atomic claim, bounded execution, operation/input/output/cost provenance, local acceptance and falsifier, project integration/reproducibility, load-bearing review, receipt sealing, `complete|partial|blocked`, and a verified already-sealed `no-op`.
-- Closed during the final claim-lifecycle revision: `to-workpackages` now owns the explicit `proposed → ready` gate and makes every ready version immutable; claim IDs include package version and source-hash prefix; all package/index/claim/readback writes occur before seal; the helper rechecks the source hash and validates JSON receipt fields, identity, and result; safe owner release archives a receipt.
+- Closed during the final claim-lifecycle revision: `research-4-tasks` now owns the explicit `proposed → ready` gate and makes every ready version immutable; claim IDs include package version and source-hash prefix; all package/index/claim/readback writes occur before seal; the helper rechecks the source hash and validates JSON receipt fields, identity, and result; safe owner release archives a receipt.
 - Remaining: the upstream “fresh context for each ticket” boundary is not explicit. The executor limits one invocation to one package, but does not tell a caller to start that invocation in a fresh context.
 - Remaining: the upstream red/green inner loop is only conditionally approximated. Computational work should establish an independent observable failure “when practical,” but the prompt does not require one minimal green change or a user-confirmed observation seam.
 - Closed during the terminal-CAS revision: `seal` and `release` now publish one shared terminal JSON through an atomic no-replace hard-link compare-and-set. Exactly one terminal state wins; either command can re-enter after a partial finalize and complete its matching public receipt plus history archival. The claim ID’s attempt component makes a separately authorized retry a new identity.
@@ -364,7 +364,7 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 - Deliberate exclusion: an HTML/Tailwind/Mermaid architecture report and deep-module candidate scan do not belong in the academic core.
 - Optional research-operations gap: no skill proactively surveys the **research system itself** for repeated friction—stale claim chains, duplicated artifacts, shallow workpackages, recurrent manual joins, or areas with high repair churn—before selecting one improvement. `research-diagnosis` triggers on a known failure, not opportunistic health maintenance.
-- Retained-mechanism gap: no current Research OS flow enforces “survey several candidates first, select one, then design it” as a phase boundary. `develop-research` chooses the narrowest active primitive, which is adaptive but not a proactive candidate survey.
+- Retained-mechanism gap: no current Research OS flow enforces “survey several candidates first, select one, then design it” as a phase boundary. `research-auto` chooses the narrowest active primitive, which is adaptive but not a proactive candidate survey.
 
 ### 9. `prototype` — Adapt
 
@@ -428,7 +428,7 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 - Preserved: primary-source ownership, direct inspection, durable cited output, and downstream reuse.
 - Strengthened: atomic scopes, exact locators, disconfirming search, independent corroboration for high-stakes claims, version checks, controlled statuses, schema preservation, and fail-closed completion.
-- Missing: `evidence-research` does not itself require background delegation. `research-wayfinder` permits parallel factual work, but standalone evidence tasks can still block the foreground session.
+- Missing: `evidence-research` does not itself require background delegation. `research-map` permits parallel factual work, but standalone evidence tasks can still block the foreground session.
 - Intentional change: the target does not require one free-form Markdown memo. The ledger is a better authority for claims, while literature maps and briefs own synthesis.
 - Possible usability gap: when a source investigation produces important non-claim operational detail, the prompt offers no explicit companion memo rule; forcing all context into structured claim entries risks either bloated YAML or loss of reading notes.
 
@@ -464,7 +464,7 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 - it classifies fact, human-choice, schema, execution, and concurrent-edit conflicts before resolving;
 - it preserves compatible content and both provenances, sends facts to evidence authority and choices to one named human owner, and creates one superseding artifact rather than editing parents into agreement;
 - it invalidates and reruns affected downstream gates, supersedes both parent rows, and reads back exactly one current pointer; and
-- `research-handoff`, `synthesize-research-brief`, `research-domain-modeling`, and `research-grilling` stop and route conflicts to this primitive rather than choosing a winner.
+- `research-save`, `synthesize-research-brief`, `research-domain-modeling`, and `research-grilling` stop and route conflicts to this primitive rather than choosing a winner.
 
 **Equivalence and retained boundary.**
 
@@ -473,7 +473,7 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 ### 12. `setup-matt-pocock-skills` — Adapt
 
-**Invocation boundary.** Upstream is user-only and intended to run once before the engineering suite. Research OS `setup-research-os` remains user-only and is now a thin wrapper over the model-invoked `research-workspace-contract` primitive. The primitive requires either explicit setup invocation or explicit local-setup authority from a calling workflow.
+**Invocation boundary.** Upstream is user-only and intended to run once before the engineering suite. Research OS `research-setup` remains user-only and is now a thin wrapper over the model-invoked `research-workspace-contract` primitive. The primitive requires either explicit setup invocation or explicit local-setup authority from a calling workflow.
 
 **Leading concept.** Upstream is **explore, present, confirm, then configure**. Research OS leads with a durable **workspace contract** whose paths, authority, and receipts are canonical.
 
@@ -548,21 +548,21 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 **Research OS target and exclusion rationale.** Universal TDD is intentionally excluded because open-ended research cannot always be specified before observation. Research OS retains selected mechanics in:
 
-- `to-workpackages`: vertical tracer studies and explicit acceptance/failure criteria;
+- `research-4-tasks`: vertical tracer studies and explicit acceptance/failure criteria;
 - `pilot-study`: one reproducible source-to-verdict path with frozen inputs and predeclared thresholds;
 - `falsification-first`: independent failure oracles and action rules set before outcomes;
-- `execute-workpackage`: one claimed vertical slice, an independent observable failure before repair when practical, then package-local and project-level checks;
-- `develop-research`: one bottleneck/frontier cycle at a time before or outside package execution.
+- `research-5-run`: one claimed vertical slice, an independent observable failure before repair when practical, then package-local and project-level checks;
+- `research-auto`: one bottleneck/frontier cycle at a time before or outside package execution.
 
 **Missing behavior.**
 
 - Deliberate exclusion: do not force exploratory literature, theory generation, construct discovery, or qualitative interpretation into code-style red-green tests.
-- Partially closed for computational workpackages: `execute-workpackage` requires an independent observable failure before repair when practical and always requires package-local plus project integration/reproducibility checks. It still does not require a visible minimal red → minimal green sequence, so an implementation-heavy package may jump from failure observation to a broad repair.
+- Partially closed for computational workpackages: `research-5-run` requires an independent observable failure before repair when practical and always requires package-local plus project integration/reproducibility checks. It still does not require a visible minimal red → minimal green sequence, so an implementation-heavy package may jump from failure observation to a broad repair.
 - Real gap: “pre-agreed seam” becomes “predeclared observable/falsifier” only loosely. Workpackages record checks and thresholds, but the user does not explicitly approve the observation seam before implementation begins.
 
 ### 14. `to-spec` — Adapt
 
-**Invocation boundary.** Upstream is user-only. It takes the current conversation and codebase understanding and synthesizes them; it explicitly does not restart interviewing. Research OS `to-research-brief` is user-only and now delegates the reusable synthesis mechanics to model-invoked `synthesize-research-brief`. `to-research-plan` separately renders an executable academic plan from the verified brief.
+**Invocation boundary.** Upstream is user-only. It takes the current conversation and codebase understanding and synthesizes them; it explicitly does not restart interviewing. Research OS `research-2-brief` is user-only and now delegates the reusable synthesis mechanics to model-invoked `synthesize-research-brief`. `to-plan` separately renders an executable academic plan from the verified brief.
 
 **Leading concept.** Upstream turns settled context into a **spec/PRD**. Research OS calls this **collapse**: one audience-neutral Research Brief is the canonical design contract, while a plan is a downstream destination-specific rendering.
 
@@ -591,15 +591,15 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 - Preserved: synthesize existing state, do not reopen settled choices, source every section, keep one canonical contract, record scope/non-goals/testing or evaluation decisions, and emit a readiness state.
 - Strengthened: verified claim and decision source table, contradiction/supersession detection, claim-strength ceiling, planned-versus-observed separation, causal identification gate, falsifiers, ethics, readiness mapping, canonical paths, and readback.
-- Improved architecture: `to-research-brief` is now a thin user wrapper; `synthesize-research-brief` is the reusable primitive. `to-research-plan` correctly separates an audience-neutral research contract from an institutional/executable rendering.
+- Improved architecture: `research-2-brief` is now a thin user wrapper; `synthesize-research-brief` is the reusable primitive. `to-plan` correctly separates an audience-neutral research contract from an institutional/executable rendering.
 - Closed writer authority: `synthesize-research-brief` is the only canonical brief writer. `render-research-deliverable` treats its Research Brief profile as validation-only and stops `blocked: canonical_writer_mismatch` instead of creating or repairing a brief.
 - Missing: there is no direct analogue of an explicit pre-draft **test-seam approval**. The brief contains observables, methods, diagnostics, and falsifiers, but the user confirmation gate does not require approval of the highest reliable observation seam.
-- Closed during remediation: `to-research-plan` now requires a current sufficiently ready canonical brief, stops with the exact missing prerequisite, recommends `develop-research` or `to-research-brief`, and explicitly forbids silent setup or synthesis under the plan wrapper.
+- Closed during remediation: `to-plan` now requires a current sufficiently ready canonical brief, stops with the exact missing prerequisite, recommends `research-auto` or `research-2-brief`, and explicitly forbids silent setup or synthesis under the plan wrapper.
 - Intentional change: no issue-tracker publication or `ready-for-agent` label. Research OS writes locally and requires separate authorization for external mutation.
 
 ### 15. `to-tickets` — Direct-port
 
-**Invocation boundary.** Upstream is user-only because it publishes issues or writes a local issue set. Research OS `to-workpackages` is user-only and writes the canonical execution graph locally.
+**Invocation boundary.** Upstream is user-only because it publishes issues or writes a local issue set. Research OS `research-4-tasks` is user-only and writes the canonical execution graph locally.
 
 **Leading concept.** Upstream uses **tracer-bullet vertical slices with blocking edges**. Research OS directly translates this to a **tracer study** that crosses question → evidence/data → construct → method → result → falsifier → verdict.
 
@@ -632,12 +632,12 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 - Preserved: full-source intake, vertical slices, first tracer, context-sized units, real blocking edges, expand–migrate–contract exception, user graph approval, one artifact per package, and computable frontier.
 - Strengthened: exact obligation coverage, stable IDs, claim/evidence inputs, failure thresholds, reproducibility, decision ownership, a per-package context envelope of immutable inputs and allowed reads/writes, cycle/orphan/duplication rejection, canonical lineage, and readback.
 - Missing: upstream’s quiz explicitly asks whether tickets should merge or split. Research OS presents package granularity and asks approval, but does not require the three explicit questions; a terse approval could skip a deliberate merge/split check.
-- Closed composition edge: decomposition still ends correctly without starting work, while the separately user-invoked `execute-workpackage` now consumes and seals exactly one eligible frontier package.
+- Closed composition edge: decomposition still ends correctly without starting work, while the separately user-invoked `research-5-run` now consumes and seals exactly one eligible frontier package.
 - Closed readiness handoff: Stage 5 now defines `proposed → ready → claimed externally → sealed receipt`, makes readiness conditional on complete blockers, immutable inputs, context envelope, checks, falsifier, and expected receipt, and requires superseding versions rather than edits. Claim/outcome state remains outside the immutable package, so the executor can compute eligibility from ready versions and exact-version sealed blocker receipts.
 
 ### 16. `triage` — Adapt
 
-**Invocation boundary.** Upstream is user-only because it can label, comment on, and close external issues/PRs. It acts only on raw incoming requests, never tickets created by `to-tickets`. Research OS `idea-triage` is user-only and applies evidence-backed verdicts to research ideas.
+**Invocation boundary.** Upstream is user-only because it can label, comment on, and close external issues/PRs. It acts only on raw incoming requests, never tickets created by `to-tickets`. Research OS `research-triage` is user-only and applies evidence-backed verdicts to research ideas.
 
 **Leading concept.** Upstream uses a strict **state machine**: exactly one category (`bug|enhancement`) and one state (`needs-triage|needs-info|ready-for-agent|ready-for-human|wontfix`). Research OS uses exactly one **verdict** (`kill|repair|pilot|advance`) with the human retaining final authority.
 
@@ -667,7 +667,7 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 **Durable state/writeback.** Tracker roles, AI-labeled comments, agent briefs, needs-info history, issue closure, and `.out-of-scope/<concept>.md` form the state machine and institutional memory.
 
-**Research OS target behavior.** `idea-triage` supports one-item, discover, and resume modes; derives a concept signature and aliases; compares them with existing verdicts before allocating an ID; pins a `checked_at` evidence frontier; inventories load-bearing claims; verifies premises; recommends one verdict and a reason code; records the human decision and consequences; registers artifacts; and supports blocked/conflict/no-op.
+**Research OS target behavior.** `research-triage` supports one-item, discover, and resume modes; derives a concept signature and aliases; compares them with existing verdicts before allocating an ID; pins a `checked_at` evidence frontier; inventories load-bearing claims; verifies premises; recommends one verdict and a reason code; records the human decision and consequences; registers artifacts; and supports blocked/conflict/no-op.
 
 **Equivalence and missing behavior.**
 
@@ -678,7 +678,7 @@ The `agents/openai.yaml` file for every upstream skill was also checked so the a
 
 ### 17. `wayfinder` — Direct-port
 
-**Invocation boundary.** Upstream is user-only and reserved for work too foggy for one session. It has two explicit invocation modes: chart a new map from a loose idea, or work one decision on an existing map. Research OS `research-wayfinder` is also user-only for genuinely multi-session uncertainty.
+**Invocation boundary.** Upstream is user-only and reserved for work too foggy for one session. It has two explicit invocation modes: chart a new map from a loose idea, or work one decision on an existing map. Research OS `research-map` is also user-only for genuinely multi-session uncertainty.
 
 **Leading concept.** Both use **destination → fog → frontier**. A map plans decisions, not deliverables; the frontier contains precise, open, unblocked, unclaimed decisions; fog contains in-scope unknowns not yet precise enough to ticket.
 
@@ -726,23 +726,23 @@ This table is the implementation-facing port decision. “Retain” names behavi
 
 | Upstream | Recommended Research OS target skill name(s) | Retain mechanics | Reject mechanics |
 |---|---|---|---|
-| `ask-matt` | `ask-research` | one remembered user router; state-based route; never secretly run another user workflow; context/handoff boundary | hard-coded engineering main flow, fixed token count, routes to code-only tools |
+| `ask-matt` | `research-help` | one remembered user router; state-based route; never secretly run another user workflow; context/handoff boundary | hard-coded engineering main flow, fixed token count, routes to code-only tools |
 | `code-review` | `research-review`, `citation-audit` | immutable target; isolated axes; exact evidence; no averaging/masking; explicit unavailable axis | Fowler smell catalog, code/spec-only axes, chat-only report |
 | `codebase-design` | `design-research-three-ways`, `research-domain-modeling`, `methodology-designer` | shared constraints; independent alternatives; controlled vocabulary; opinionated comparison; delete dominated indirection | deep-module nouns as research ontology, adapter-count rule outside software, line-oriented interface design |
 | `diagnosing-bugs` | `research-diagnosis` | exact-symptom loop before hypotheses; minimization; 3–5 falsifiable hypotheses; one-variable probes; regression/full-scenario verification; cleanup | mandatory code fix when diagnosis-only was requested, unapproved instrumentation, architecture refactor before cause |
 | `domain-modeling` | `research-domain-modeling`, `research-grilling` | immediate collision challenge; canonical terms; edge-case scenarios; artifact cross-check; stringent decision-record admission | implementation details in context, one glossary for genuinely distinct contexts, routine choices as RDRs |
-| `grill-with-docs` | `grill-research-idea` | thin explicit wrapper; one decision per exchange; facts by agent; domain/decision writeback inline | stateless chat for repository research, automatic downstream execution |
-| `implement` | `execute-workpackage`; `develop-research` before decomposition; `research-review` for load-bearing outputs | one scoped contract; atomic ownership; focused package checks; final integration gate; independent review; durable sealed receipt | implicit commit, ticket scope expansion, external writes without separate authority |
+| `grill-with-docs` | `research-1-grill` | thin explicit wrapper; one decision per exchange; facts by agent; domain/decision writeback inline | stateless chat for repository research, automatic downstream execution |
+| `implement` | `research-5-run`; `research-auto` before decomposition; `research-review` for load-bearing outputs | one scoped contract; atomic ownership; focused package checks; final integration gate; independent review; durable sealed receipt | implicit commit, ticket scope expansion, external writes without separate authority |
 | `improve-codebase-architecture` | no core skill; optional future `improve-research-operations` | proactive hotspot survey; multiple candidates before design; selection boundary; durable reasons against repeat suggestions | HTML/Tailwind/Mermaid mandate, deep-module semantics, automatic refactor |
 | `prototype` | `pilot-study`; optionally `design-research-three-ways` | one decision-changing uncertainty; smallest faithful end-to-end path; one command; visible state/result; capture answer and source artifact | shipping prototype scaffolding, toy data that cannot expose the seam, unapproved real mutations |
 | `research` | `evidence-research`; `literature-landscape` for synthesis | background/parallel primary-source reading; claim ownership; cited durable output; source convention | secondary source as proof, uncited chat-only findings, one memo as claim authority |
 | `resolving-merge-conflicts` | `artifact-reconciliation` | trace both intents/provenances; classify fact/choice/schema/execution conflicts; preserve compatible content; disclose incompatible choice; supersede; rerun invalidated gates; finish with one current authority | “never abort” for external/unsafe research mutations, Git staging/commit as universal completion |
-| `setup-matt-pocock-skills` | `setup-research-os` → `research-workspace-contract` | inspect; preview; explicit boundary; additive writes; adapters; conflict preservation; exact receipt/readback | issue-tracker/label assumptions, creating alternate instruction files, destructive migration |
-| `tdd` | conditional branch in `execute-workpackage`; `pilot-study`, `falsification-first` | independent oracle; predeclared observation seam; one vertical slice; red before repair for code; public behavior; final integration check | universal TDD for exploratory research, internal mocks, horizontal bulk tests, automatic refactor |
-| `to-spec` | `to-research-brief` → `synthesize-research-brief`; `to-research-plan` for a plan | synthesize current state; source table; no reopened choices; readiness; explicit scope and verification decisions | exhaustive user-story format, issue publication, fileless prose without claim pointers |
-| `to-tickets` | `to-workpackages` | tracer slices; real blockers; graph approval; expand–migrate–contract; one artifact per package; computable frontier | horizontal discipline silos, stale file paths/code snippets, automatic parent mutation |
-| `triage` | `idea-triage` | evidence before verdict; exactly one current outcome; human final authority; resume/dedup memory; reason-specific negative outcomes | external tracker mutations, AI comment boilerplate, software bug/enhancement categories |
-| `wayfinder` | `research-wayfinder` | destination; fog versus precise node; map as index; explicit blockers; claim-before-work; chart/work split; one HITL decision; recomputation | issue-tracker-native dependency requirement, bare IDs in human prose, direct build from map |
+| `setup-matt-pocock-skills` | `research-setup` → `research-workspace-contract` | inspect; preview; explicit boundary; additive writes; adapters; conflict preservation; exact receipt/readback | issue-tracker/label assumptions, creating alternate instruction files, destructive migration |
+| `tdd` | conditional branch in `research-5-run`; `pilot-study`, `falsification-first` | independent oracle; predeclared observation seam; one vertical slice; red before repair for code; public behavior; final integration check | universal TDD for exploratory research, internal mocks, horizontal bulk tests, automatic refactor |
+| `to-spec` | `research-2-brief` → `synthesize-research-brief`; `to-plan` for a plan | synthesize current state; source table; no reopened choices; readiness; explicit scope and verification decisions | exhaustive user-story format, issue publication, fileless prose without claim pointers |
+| `to-tickets` | `research-4-tasks` | tracer slices; real blockers; graph approval; expand–migrate–contract; one artifact per package; computable frontier | horizontal discipline silos, stale file paths/code snippets, automatic parent mutation |
+| `triage` | `research-triage` | evidence before verdict; exactly one current outcome; human final authority; resume/dedup memory; reason-specific negative outcomes | external tracker mutations, AI comment boilerplate, software bug/enhancement categories |
+| `wayfinder` | `research-map` | destination; fog versus precise node; map as index; explicit blockers; claim-before-work; chart/work split; one HITL decision; recomputation | issue-tracker-native dependency requirement, bare IDs in human prose, direct build from map |
 
 ## Prioritized prompt gaps
 
@@ -762,7 +762,7 @@ This snapshot has **0 open P0, 0 open P1, and 5 open P2 findings**.
 #### ENG-P0-01 — Closed: the workpackage graph now has a first-class executor
 
 - **Upstream behavior recovered:** `ask-matt` routes spec → tickets → one fresh `implement` per ticket; `to-tickets` makes the frontier computable; `implement` consumes one contract, runs focused and final checks, reviews, and seals durable work.
-- **Current Research OS path:** `ask-research` routes “one eligible workpackage” to user-only `execute-workpackage`; `to-workpackages` owns the approved `proposed → ready` transition and stops after writing immutable package versions. The executor verifies exact-version blocker receipts, pins and claims one package, executes only allowed procedure/writes, captures provenance and cost, runs local plus project gates, invokes load-bearing review, updates and reads back every dependent state, then seals a JSON receipt and computes the frontier without mutating the package.
+- **Current Research OS path:** `research-help` routes “one eligible workpackage” to user-only `research-5-run`; `research-4-tasks` owns the approved `proposed → ready` transition and stops after writing immutable package versions. The executor verifies exact-version blocker receipts, pins and claims one package, executes only allowed procedure/writes, captures provenance and cost, runs local plus project gates, invokes load-bearing review, updates and reads back every dependent state, then seals a JSON receipt and computes the frontier without mutating the package.
 - **Concurrency mechanism:** the shared `research-workspace-contract/scripts/atomic_claim.py` uses version/hash/attempt claim IDs, atomic claim creation plus one shared terminal compare-and-set, competing-owner rejection, claim-time and seal-time source-hash checks, terminal-version conflict, receipt schema/identity/result checks, idempotent exact-attempt terminal readback, and owner-release archival. Centralizing it under the workspace-contract primitive avoids two claim authorities.
 - **Current proof:** the claim tests prove one successful owner, one competing `already-claimed`, successful validated seal, exact-version `already-sealed`, changed-version conflict, changed-source seal refusal, owner-release archival, and one terminal winner under concurrent seal/release. Prompt gates separately preserve `complete|partial|blocked` execution status, `continue|repair|kill|blocked` domain verdict, authority stops, and pre-seal readback.
 - **Verdict:** the former P0 absence is closed. The executor is an **Adapt** of `implement`, not a direct copy: it replaces automatic commit with bounded research mutations, dual verdicts, provenance, and explicit external authority.
@@ -777,7 +777,7 @@ This snapshot has **0 open P0, 0 open P1, and 5 open P2 findings**.
 #### ENG-P0-03 — Closed: wayfinder now separates charting from claimed node work
 
 - **Upstream behavior recovered:** chart and work are explicit invocation modes; charting names the destination, creates child decisions before wiring blockers, optionally dispatches isolated factual work, and stops. Work mode claims one frontier decision before investigation or a human question.
-- **Current Research OS path:** `research-wayfinder` requires mode selection before work and forbids chart plus resolution in one invocation. Chart mode implements create-then-wire and terminates as `chart-complete`. Work mode pins the decision-record SHA-256, claims `<map-id>-<decision-id>-<sha256-prefix>-a<attempt>` through the shared atomic helper, gates continuation on a read-back `claimed`, handles `already-claimed` and exact-attempt terminal readback, refuses elapsed-time-only claim theft, resolves at most one HITL node, reads back the complete recomputed state, and only then seals.
+- **Current Research OS path:** `research-map` requires mode selection before work and forbids chart plus resolution in one invocation. Chart mode implements create-then-wire and terminates as `chart-complete`. Work mode pins the decision-record SHA-256, claims `<map-id>-<decision-id>-<sha256-prefix>-a<attempt>` through the shared atomic helper, gates continuation on a read-back `claimed`, handles `already-claimed` and exact-attempt terminal readback, refuses elapsed-time-only claim theft, resolves at most one HITL node, reads back the complete recomputed state, and only then seals.
 - **Concurrency evidence:** `atomic_claim.py` checks the pinned source hash, atomically creates one claim directory and exclusive claim record, discloses the current owner to competitors, permits only the owner to seal/release, rechecks immutable source and receipt identity/result/schema, detects terminal-version conflict, chooses one terminal outcome by no-replace CAS, and re-enters finalize to produce the matching receipt/history. Tests prove one-owner claim contention, idempotent exact-version sealed rerun, changed-version conflict, changed-source seal refusal, owner release archival, and exactly one public outcome under concurrent seal/release.
 - **Verdict:** the P0 risks of double-working one frontier node and silently falling through from charting into resolution are closed at the prompt and shared-helper layers.
 
@@ -795,7 +795,7 @@ This snapshot has **0 open P0, 0 open P1, and 5 open P2 findings**.
 
 #### ENG-P1-07 — Closed: plan-wrapper prerequisite authority is explicit
 
-- **Current mechanism:** `to-research-plan` requires a current sufficiently ready canonical brief. Missing workspace or brief stops with the exact prerequisite and only recommends `develop-research` or `to-research-brief`; the wrapper explicitly forbids silent initialization or synthesis. Renderer independently blocks on `research_brief_missing`.
+- **Current mechanism:** `to-plan` requires a current sufficiently ready canonical brief. Missing workspace or brief stops with the exact prerequisite and only recommends `research-auto` or `research-2-brief`; the wrapper explicitly forbids silent initialization or synthesis. Renderer independently blocks on `research_brief_missing`.
 - **Current proof:** `test_brief_writer_and_plan_authority_are_unambiguous` checks the wrapper's no-initialize/no-synthesis boundary and the renderer's independent missing-brief stop.
 
 #### ENG-P1-01 — Closed: diagnosis now proves a red-capable feedback loop before reasoning
@@ -816,12 +816,12 @@ This snapshot has **0 open P0, 0 open P1, and 5 open P2 findings**.
 
 #### ENG-P1-04 — Closed: every RDR path now applies the four-part admission gate
 
-- **Current mechanism:** `research-grilling` and `research-domain-modeling` apply costly reversal, surprising/unsafe without rationale, genuine trade-off, and downstream ambiguity. `ask-research` keeps routine routing in `CONTEXT`; `research-workspace-contract` now applies the same four tests when seeding state and keeps routine routing, formatting, and progress in the owning artifact or run record.
+- **Current mechanism:** `research-grilling` and `research-domain-modeling` apply costly reversal, surprising/unsafe without rationale, genuine trade-off, and downstream ambiguity. `research-help` keeps routine routing in `CONTEXT`; `research-workspace-contract` now applies the same four tests when seeding state and keeps routine routing, formatting, and progress in the owning artifact or run record.
 - **Current proof:** prompt regression checks the four workspace-contract predicates. Final readback finds no remaining setup path that admits an RDR merely because a choice is generically “consequential.”
 
 #### ENG-P1-05 — Closed: triage has concept-level queues and resumable memory
 
-- **Current mechanism:** `idea-triage` supports one-item, discover, and resume modes; derives concept signatures and aliases before allocating IDs; stores `checked_at` plus the load-bearing evidence frontier; recomputes only changed cases; and returns queue buckets without silently triaging them. Reason codes distinguish already established, out of scope, invalid, superseded, changed evidence, and insufficient evidence from the strategic verdict.
+- **Current mechanism:** `research-triage` supports one-item, discover, and resume modes; derives concept signatures and aliases before allocating IDs; stores `checked_at` plus the load-bearing evidence frontier; recomputes only changed cases; and returns queue buckets without silently triaging them. Reason codes distinguish already established, out of scope, invalid, superseded, changed evidence, and insufficient evidence from the strategic verdict.
 - **Current proof:** prompt regression checks discovery/resume, signature, frontier, and reason markers. An unchanged same-concept frontier is a verified `no-op` without a manufactured timestamp update.
 
 #### ENG-P1-08 — Closed: pilots distinguish empirical and interaction uncertainty
@@ -842,8 +842,8 @@ All nine P1 findings are in the closed ledger above. Remaining P2 items are deli
 #### ENG-P2-01 — OPEN: background evidence delegation remains a v1 harness-dependent limitation
 
 - **Upstream behavior:** reading legwork is a background agent so the caller continues.
-- **Affected targets:** `evidence-research`, `research-wayfinder`, `develop-research`.
-- **Current state:** `research-wayfinder` may dispatch isolated factual nodes and `design-research-three-ways` uses isolated agents when available, but standalone `evidence-research` and `develop-research` do not require background execution. Correctness is preserved through scoped durable claim chains; foreground latency is not.
+- **Affected targets:** `evidence-research`, `research-map`, `research-auto`.
+- **Current state:** `research-map` may dispatch isolated factual nodes and `design-research-three-ways` uses isolated agents when available, but standalone `evidence-research` and `research-auto` do not require background execution. Correctness is preserved through scoped durable claim chains; foreground latency is not.
 - **v1 deliberate limitation:** scheduling/background semantics remain harness-dependent. A future version should spawn independent evidence tasks with stable claim scopes and non-overlapping write targets when work exceeds a quick lookup, while retaining synchronous mode for tiny or dependency-critical checks.
 
 #### ENG-P2-02 — OPEN: alternative-design presentation retains a v1 absorption limitation
@@ -856,8 +856,8 @@ All nine P1 findings are in the closed ledger above. Remaining P2 items are deli
 #### ENG-P2-03 — OPEN: wrapper equivalence lacks a complete v1 behavioral regression matrix
 
 - **Upstream behavior:** very thin wrappers keep the primitive as the single rule authority.
-- **Affected targets:** `grill-research-idea`/`research-grilling`, `ask-research`/`develop-research`, `to-research-brief`/`synthesize-research-brief`, `to-research-plan`/`render-research-deliverable`.
-- **Current state:** `to-research-brief` and `to-research-plan` are thin argument/stop wrappers; the catalog composition graph is mechanically checked against every `$skill` reference; four fresh-agent receipts cover adaptive, existing-design, blocked-claims, and no-results behavior. `grill-research-idea` still carries substantial domain orchestration, and no saved matrix runs the same success/near-miss/blocked case through each direct primitive and wrapper pair.
+- **Affected targets:** `research-1-grill`/`research-grilling`, `research-help`/`research-auto`, `research-2-brief`/`synthesize-research-brief`, `to-plan`/`render-research-deliverable`.
+- **Current state:** `research-2-brief` and `to-plan` are thin argument/stop wrappers; the catalog composition graph is mechanically checked against every `$skill` reference; four fresh-agent receipts cover adaptive, existing-design, blocked-claims, and no-results behavior. `research-1-grill` still carries substantial domain orchestration, and no saved matrix runs the same success/near-miss/blocked case through each direct primitive and wrapper pair.
 - **v1 deliberate limitation:** structural dependency drift is closed, but exhaustive wrapper behavioral equivalence is deferred. Add paired fresh-agent cases before claiming identical status/writeback semantics across every wrapper boundary.
 
 #### ENG-P2-04 — OPEN: proactive research-operations automation is deliberately outside v1
@@ -870,7 +870,7 @@ All nine P1 findings are in the closed ledger above. Remaining P2 items are deli
 #### ENG-P2-05 — OPEN: package graph confirmation keeps a v1 prompt-fidelity shortcut
 
 - **Upstream behavior:** asks separately about granularity, blocker truth, and merge/split options.
-- **Affected target:** `to-workpackages`.
+- **Affected target:** `research-4-tasks`.
 - **Current state:** Stage 4 presents the frontier, granularity, critical path, parallelism, and highest-risk dependency; rejects cycles, orphans, duplicates, and activity-only packages; and obtains graph approval. It still does not separately ask the three upstream granularity, blocker-truth, and merge/split questions.
 - **v1 deliberate limitation:** the stronger structural gates are accepted for v1, while the explicit three-question quiz remains a fidelity improvement.
 

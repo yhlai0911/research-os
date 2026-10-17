@@ -1,0 +1,6 @@
+interface:
+  display_name: "Step 6 - Review"
+  short_description: "Attack the design as a skeptical journal panel"
+  default_prompt: "Use $research-6-review to review this work as a skeptical journal panel."
+policy:
+  allow_implicit_invocation: false

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Research Handoff"
-  short_description: "Create a verifiable cross-session research handoff"
-  default_prompt: "Use $research-handoff to prepare a verifiable handoff for the next research session."
-policy:
-  allow_implicit_invocation: false
