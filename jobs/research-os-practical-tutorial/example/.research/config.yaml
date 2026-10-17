@@ -1,0 +1,20 @@
+schema_version: 1
+research_os_version: "1.0.0"
+canonical:
+  context: ".research/CONTEXT.md"
+  decisions: ".research/decisions"
+  claims: ".research/evidence/claims.yaml"
+  maps: ".research/maps"
+  briefs: ".research/briefs"
+  plans: ".research/plans"
+  workpackages: ".research/workpackages"
+  papers: ".research/papers"
+  proposals: ".research/proposals"
+  handoffs: ".research/handoffs"
+  reviews: ".research/reviews"
+  pilots: ".research/pilots"
+  templates: ".research/templates"
+policies:
+  external_writes: "explicit-authorization"
+  unsupported_claims: "fail-closed"
+  completion_requires_readback: true

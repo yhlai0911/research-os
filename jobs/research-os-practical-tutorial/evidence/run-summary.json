@@ -1,0 +1,153 @@
+[
+  {
+    "stage": "01-setup",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [
+        ".research/CONTEXT.md",
+        ".research/config.yaml",
+        ".research/evidence/claims.yaml",
+        ".research/templates/decision-record.md",
+        ".research/templates/handoff.md",
+        ".research/templates/map.md",
+        ".research/templates/proposal.md",
+        ".research/templates/research-brief.md",
+        ".research/templates/research-plan.md",
+        ".research/templates/review.md",
+        ".research/templates/workpackage.md"
+      ],
+      "changed": [],
+      "removed": []
+    }
+  },
+  {
+    "stage": "02-grill",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [],
+      "changed": [
+        ".research/CONTEXT.md",
+        ".research/evidence/claims.yaml"
+      ],
+      "removed": []
+    }
+  },
+  {
+    "stage": "03-answer",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [
+        ".research/decisions/RDR-0001-0050-range-volume-scope.md"
+      ],
+      "changed": [
+        ".research/CONTEXT.md",
+        ".research/evidence/claims.yaml"
+      ],
+      "removed": []
+    }
+  },
+  {
+    "stage": "04-brief",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [
+        ".research/briefs/BRIEF-0001.md"
+      ],
+      "changed": [
+        ".research/CONTEXT.md",
+        ".research/decisions/RDR-0001-0050-range-volume-scope.md"
+      ],
+      "removed": []
+    }
+  },
+  {
+    "stage": "06-domain-audit",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [
+        ".research/reviews/REVIEW-0001-finance-validity.md"
+      ],
+      "changed": [
+        ".research/CONTEXT.md"
+      ],
+      "removed": []
+    }
+  },
+  {
+    "stage": "07-revise",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [
+        ".research/evidence/raw/MANIFEST.md",
+        ".research/evidence/raw/twse_stock_day_0050_202401.json",
+        ".research/evidence/raw/twse_stock_day_0050_202402.json",
+        ".research/evidence/raw/twse_stock_day_0050_202403.json"
+      ],
+      "changed": [
+        ".research/CONTEXT.md",
+        ".research/briefs/BRIEF-0001.md",
+        ".research/decisions/RDR-0001-0050-range-volume-scope.md",
+        ".research/evidence/claims.yaml"
+      ],
+      "removed": []
+    }
+  },
+  {
+    "stage": "08-status",
+    "exit_code": 0,
+    "declared_model": "claude-opus-5-5",
+    "actual_models": [
+      "claude-opus-5-5"
+    ],
+    "effort": "low",
+    "speed": "standard",
+    "is_error": false,
+    "changes": {
+      "created": [],
+      "changed": [],
+      "removed": []
+    }
+  }
+]

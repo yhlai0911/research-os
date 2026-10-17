@@ -1,0 +1,317 @@
+[
+  {
+    "image": "frame-001.png",
+    "frame": 0,
+    "seconds": 0.0
+  },
+  {
+    "image": "frame-002.png",
+    "frame": 180,
+    "seconds": 6.0
+  },
+  {
+    "image": "frame-003.png",
+    "frame": 359,
+    "seconds": 11.966666666666667
+  },
+  {
+    "image": "frame-004.png",
+    "frame": 360,
+    "seconds": 12.0
+  },
+  {
+    "image": "frame-005.png",
+    "frame": 555,
+    "seconds": 18.5
+  },
+  {
+    "image": "frame-006.png",
+    "frame": 749,
+    "seconds": 24.966666666666665
+  },
+  {
+    "image": "frame-007.png",
+    "frame": 750,
+    "seconds": 25.0
+  },
+  {
+    "image": "frame-008.png",
+    "frame": 930,
+    "seconds": 31.0
+  },
+  {
+    "image": "frame-009.png",
+    "frame": 1109,
+    "seconds": 36.96666666666667
+  },
+  {
+    "image": "frame-010.png",
+    "frame": 1110,
+    "seconds": 37.0
+  },
+  {
+    "image": "frame-011.png",
+    "frame": 1305,
+    "seconds": 43.5
+  },
+  {
+    "image": "frame-012.png",
+    "frame": 1499,
+    "seconds": 49.96666666666667
+  },
+  {
+    "image": "frame-013.png",
+    "frame": 1500,
+    "seconds": 50.0
+  },
+  {
+    "image": "frame-014.png",
+    "frame": 1665,
+    "seconds": 55.5
+  },
+  {
+    "image": "frame-015.png",
+    "frame": 1829,
+    "seconds": 60.96666666666667
+  },
+  {
+    "image": "frame-016.png",
+    "frame": 1830,
+    "seconds": 61.0
+  },
+  {
+    "image": "frame-017.png",
+    "frame": 2115,
+    "seconds": 70.5
+  },
+  {
+    "image": "frame-018.png",
+    "frame": 2399,
+    "seconds": 79.96666666666667
+  },
+  {
+    "image": "frame-019.png",
+    "frame": 2400,
+    "seconds": 80.0
+  },
+  {
+    "image": "frame-020.png",
+    "frame": 2610,
+    "seconds": 87.0
+  },
+  {
+    "image": "frame-021.png",
+    "frame": 2819,
+    "seconds": 93.96666666666667
+  },
+  {
+    "image": "frame-022.png",
+    "frame": 2820,
+    "seconds": 94.0
+  },
+  {
+    "image": "frame-023.png",
+    "frame": 3015,
+    "seconds": 100.5
+  },
+  {
+    "image": "frame-024.png",
+    "frame": 3209,
+    "seconds": 106.96666666666667
+  },
+  {
+    "image": "frame-025.png",
+    "frame": 3210,
+    "seconds": 107.0
+  },
+  {
+    "image": "frame-026.png",
+    "frame": 3375,
+    "seconds": 112.5
+  },
+  {
+    "image": "frame-027.png",
+    "frame": 3539,
+    "seconds": 117.96666666666667
+  },
+  {
+    "image": "frame-028.png",
+    "frame": 3540,
+    "seconds": 118.0
+  },
+  {
+    "image": "frame-029.png",
+    "frame": 3765,
+    "seconds": 125.5
+  },
+  {
+    "image": "frame-030.png",
+    "frame": 3989,
+    "seconds": 132.96666666666667
+  },
+  {
+    "image": "frame-031.png",
+    "frame": 3990,
+    "seconds": 133.0
+  },
+  {
+    "image": "frame-032.png",
+    "frame": 4200,
+    "seconds": 140.0
+  },
+  {
+    "image": "frame-033.png",
+    "frame": 4409,
+    "seconds": 146.96666666666667
+  },
+  {
+    "image": "frame-034.png",
+    "frame": 4410,
+    "seconds": 147.0
+  },
+  {
+    "image": "frame-035.png",
+    "frame": 4560,
+    "seconds": 152.0
+  },
+  {
+    "image": "frame-036.png",
+    "frame": 4709,
+    "seconds": 156.96666666666667
+  },
+  {
+    "image": "frame-037.png",
+    "frame": 4710,
+    "seconds": 157.0
+  },
+  {
+    "image": "frame-038.png",
+    "frame": 4860,
+    "seconds": 162.0
+  },
+  {
+    "image": "frame-039.png",
+    "frame": 5009,
+    "seconds": 166.96666666666667
+  },
+  {
+    "image": "frame-040.png",
+    "frame": 5010,
+    "seconds": 167.0
+  },
+  {
+    "image": "frame-041.png",
+    "frame": 5175,
+    "seconds": 172.5
+  },
+  {
+    "image": "frame-042.png",
+    "frame": 5339,
+    "seconds": 177.96666666666667
+  },
+  {
+    "image": "frame-043.png",
+    "frame": 5340,
+    "seconds": 178.0
+  },
+  {
+    "image": "frame-044.png",
+    "frame": 5670,
+    "seconds": 189.0
+  },
+  {
+    "image": "frame-045.png",
+    "frame": 5999,
+    "seconds": 199.96666666666667
+  },
+  {
+    "image": "frame-046.png",
+    "frame": 6000,
+    "seconds": 200.0
+  },
+  {
+    "image": "frame-047.png",
+    "frame": 6195,
+    "seconds": 206.5
+  },
+  {
+    "image": "frame-048.png",
+    "frame": 6389,
+    "seconds": 212.96666666666667
+  },
+  {
+    "image": "frame-049.png",
+    "frame": 6390,
+    "seconds": 213.0
+  },
+  {
+    "image": "frame-050.png",
+    "frame": 6705,
+    "seconds": 223.5
+  },
+  {
+    "image": "frame-051.png",
+    "frame": 7019,
+    "seconds": 233.96666666666667
+  },
+  {
+    "image": "frame-052.png",
+    "frame": 7020,
+    "seconds": 234.0
+  },
+  {
+    "image": "frame-053.png",
+    "frame": 7230,
+    "seconds": 241.0
+  },
+  {
+    "image": "frame-054.png",
+    "frame": 7439,
+    "seconds": 247.96666666666667
+  },
+  {
+    "image": "frame-055.png",
+    "frame": 7440,
+    "seconds": 248.0
+  },
+  {
+    "image": "frame-056.png",
+    "frame": 7575,
+    "seconds": 252.5
+  },
+  {
+    "image": "frame-057.png",
+    "frame": 7709,
+    "seconds": 256.96666666666664
+  },
+  {
+    "image": "frame-058.png",
+    "frame": 7710,
+    "seconds": 257.0
+  },
+  {
+    "image": "frame-059.png",
+    "frame": 7965,
+    "seconds": 265.5
+  },
+  {
+    "image": "frame-060.png",
+    "frame": 8219,
+    "seconds": 273.96666666666664
+  },
+  {
+    "image": "frame-061.png",
+    "frame": 8220,
+    "seconds": 274.0
+  },
+  {
+    "image": "frame-062.png",
+    "frame": 8370,
+    "seconds": 279.0
+  },
+  {
+    "image": "frame-063.png",
+    "frame": 8519,
+    "seconds": 283.96666666666664
+  }
+]

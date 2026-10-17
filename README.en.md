@@ -143,7 +143,9 @@ The workflow resolves one consequential decision at a time. When the idea is res
 
 **Concept overview and installation guide:** the [3m47s Traditional Chinese tutorial](jobs/research-os-tutorial/v3/paced/output/research-os-tutorial-v3-paced-zh-TW.mp4), based on `56159bb`, uses twelve newly recorded Eleven v4 narration sections with pitch-preserving pacing and synchronized subtitles. It covers verified installation replays, Codex/Claude invocation, the 42-skill general core, the optional finance/social-science skill, language selection, and the six-step workflow. See [chapters, examples, reproduction, and QA](jobs/research-os-tutorial/v3/README.md) and the [frame overview](jobs/research-os-tutorial/v3/paced/evidence/delivery-scenes-contact.jpg). The previous eight-section tutorial remains in its original folder.
 
-**Hands-on walkthrough: in preparation; no playable video yet.** The [recording plan](jobs/research-os-tutorial/PRACTICAL_PLAN.md) covers an actual blank project, setup, question/answer exchange, Brief, domain review, revision, and status. Future tutorial videos will be listed in both READMEs with playback links, chapter times, applicable versions, and example files. Unfinished videos remain marked as planned.
+**Real hands-on walkthrough:** [watch the 4m44s bilingual captioned edition](jobs/research-os-practical-tutorial/output/research-os-practical-0050-captioned-zh-en.mp4), with no audio track, based on `56159bb`. It shows an isolated blank project, setup, a real question/answer exchange, conditional Brief, optional domain audit, revision, and read-only status. See [chapter times, recording method, and actual example files](jobs/research-os-practical-tutorial/README.md). The film replays real CLI captures and file snapshots with marked edits. Only research design and data-format checks were performed; no statistical results were computed. Additional narration awaits approval.
+
+Future tutorial videos will be listed in both READMEs with playback links, chapter times, applicable versions, and example files. Unfinished videos remain marked as planned.
 
 ## Architecture and maintenance
 

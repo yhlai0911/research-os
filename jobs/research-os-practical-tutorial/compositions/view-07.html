@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"></head><body><template><section id="view-07" class="view" data-composition-id="view-07" data-width="1920" data-height="1080" data-duration="13"><div class="title">08  選擇真正寫入 RDR-0001</div><div class="badge">真實 CLI／檔案紀錄節錄<br>等待已剪輯・路徑已去識別</div><div class="source">03-answer / .research/decisions/RDR-0001-0050-range-volume-scope.md · L1–L18 · SHA256 89f018b49c1b</div><div class="file"><pre># RDR-0001: 0050 日內幅度代理與成交股數的描述性設計範圍
+
+- Status: proposed
+- Date: 2026-10-17
+- Supersedes: none
+- Grill state: 尚未判定（未達 `researchable`；OD-2 與證據任務仍未完成）
+- 決策來源：示範研究者在教學角色下的選擇，不代表使用者本人的研究承諾
+
+## Context
+
+課堂研究設計示範，受眾是財金大學生，成果是 Research Brief，只能用免費公開資料。資料可取得性見 C-001、C-002。
+
+## Decision
+
+- 研究句：「描述 0050 在 2024 年第一季，日內幅度與同日成交股數的單調關聯。」
+- 分析單位：交易日（候選 N=56，見 C-001）。
+- 構念：日內幅度代理 =（最高價−最低價）/收盤價。不稱為完整波動率，不估 GARCH，也不加日報酬對照。
+- 成交量：同日成交股數；log 只用於視覺化。</pre></div><div class="caption">選擇與理由留在決策檔，不只停在對話。<div class="en">The choice and its rationale are stored in the actual decision record.</div></div><div id="view-07-reading" style="position:absolute;left:70px;right:70px;bottom:34px;height:2px;background:#596479;transform-origin:left"></div></section><script>(async()=>{await Promise.all([document.fonts.load('24px ResearchMono'),document.fonts.load('24px ResearchSans')]);await document.fonts.ready;const players=[],drivers=[];
+const position={t:0};function seekActual(){for(const d of drivers){let f=Math.min(1,Math.max(0,position.t/13));d.player.seek(d.a+(d.b-d.a)*f);if(d.focus){let k=Math.min(1,Math.max(0,(f-.18)/.12));gsap.set(d.node,{scale:1+.18*k,x:0,y:-210*k,transformOrigin:'top left'});}}}
+const tl=gsap.timeline({paused:true});tl.fromTo('#view-07-reading',{scaleX:0},{scaleX:1,duration:13,ease:'none'},0);window.__timelines['view-07']=tl;})();</script></template></body></html>

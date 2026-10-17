@@ -1,6 +1,6 @@
-# 實操範例影片：準備中
+# 實操範例影片：中英字幕版已完成
 
-目前只有錄製計畫，尚無可播放的實操影片。原理介紹保留於 [v3](v3/README.md)。
+[播放 4:44 實操影片](../research-os-practical-tutorial/output/research-os-practical-0050-captioned-zh-en.mp4) · [章節與實際範例](../research-os-practical-tutorial/README.md)。本版無音軌，未新增 TTS。原理介紹保留於 [v3](v3/README.md)。以下保留錄製規格與原計畫，實際交付以新片 README 和 timeline.json 為準。
 
 ## 預定案例
 
@@ -21,4 +21,4 @@
 
 新增配音另列全文字數、voice／model 與預估 credits，取得批准後才生成；錄製與字幕準備不受配音等待阻塞。
 
-完成後，本文件與中英文 README 一起加入播放連結、章節時間、對應版本及實際範例檔案。未完成之前保持「準備中」。
+字幕版已完成以上真實操作與讀回，並在中英文 README 登錄。新增完整配音草稿為 1,665 字元，預估 Eleven v4 非 Turbo 約 1,665 credits；目前未批准，生成呼叫與用量皆為零。

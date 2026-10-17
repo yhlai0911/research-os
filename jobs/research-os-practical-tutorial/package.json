@@ -1,0 +1,14 @@
+{
+  "name": "research-os-practical-tutorial",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "check": "hyperframes check --samples 42",
+    "render": "hyperframes render --quality delivery --fps 30 --output output/research-os-practical-0050-captioned-zh-en.mp4"
+  },
+  "devDependencies": {
+    "hyperframes": "0.8.167"
+  }
+}

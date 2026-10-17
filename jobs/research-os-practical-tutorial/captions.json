@@ -1,0 +1,149 @@
+[
+  {
+    "start": 0,
+    "end": 12,
+    "zh": "這是本次真實 CLI 紀錄的字幕版；尚未配音。",
+    "en": "Captioned recording of the real run. No narration has been generated.",
+    "view": "view-00"
+  },
+  {
+    "start": 12,
+    "end": 25,
+    "zh": "先預檢再建立；setup 不會自動進入第一步。",
+    "en": "Preflight, create, and verify. Setup does not start the research workflow.",
+    "view": "view-01"
+  },
+  {
+    "start": 25,
+    "end": 37,
+    "zh": "建立了 11 個檔案；路徑由 config 解析。",
+    "en": "Setup created 11 files. Canonical paths are resolved from config.",
+    "view": "view-02"
+  },
+  {
+    "start": 37,
+    "end": 50,
+    "zh": "題目先保留「波動」的模糊處，讓流程真的追問。",
+    "en": "The initial idea leaves volatility ambiguous so the skill must clarify it.",
+    "view": "view-03"
+  },
+  {
+    "start": 50,
+    "end": 61,
+    "zh": "TWSE 三個月份共 56 個交易日；資料取得不等於實證完成。",
+    "en": "The three TWSE months contain 56 trading days. Data access is not analysis.",
+    "view": "view-04"
+  },
+  {
+    "start": 61,
+    "end": 80,
+    "zh": "先決定構念；模型的建議仍要檢查，稍後收緊測量界限。",
+    "en": "Define the construct first. We will tighten the proxy’s limits later.",
+    "view": "view-05"
+  },
+  {
+    "start": 80,
+    "end": 94,
+    "zh": "選日內幅度代理，限制在描述性關聯；不做因果。",
+    "en": "The demo researcher chooses an intraday-range proxy and a descriptive claim.",
+    "view": "view-06"
+  },
+  {
+    "start": 94,
+    "end": 107,
+    "zh": "選擇與理由留在決策檔，不只停在對話。",
+    "en": "The choice and its rationale are stored in the actual decision record.",
+    "view": "view-07"
+  },
+  {
+    "start": 107,
+    "end": 118,
+    "zh": "第一步仍 partial；明確要求產生 conditional 設計草稿。",
+    "en": "Step 1 remains partial. The researcher explicitly requests a conditional draft.",
+    "view": "view-08"
+  },
+  {
+    "start": 118,
+    "end": 133,
+    "zh": "這是真實檔案；沒有把未完成的工作寫成 ready。",
+    "en": "This is the actual Brief file. Unfinished work is not marked ready.",
+    "view": "view-09"
+  },
+  {
+    "start": 133,
+    "end": 147,
+    "zh": "方法尚未執行；只能描述共同變動，不能做因果推論。",
+    "en": "The methods are unexecuted. Co-movement does not establish causation.",
+    "view": "view-10"
+  },
+  {
+    "start": 147,
+    "end": 157,
+    "zh": "選配和核心使用同一個 harness 與安裝位置。",
+    "en": "The optional profile uses the same harness and target as the core.",
+    "view": "view-11"
+  },
+  {
+    "start": 157,
+    "end": 167,
+    "zh": "核心仍是 42；finance-social-science 另新增 1。",
+    "en": "The core stays at 42 skills; the optional profile adds one.",
+    "view": "view-12"
+  },
+  {
+    "start": 167,
+    "end": 178,
+    "zh": "檢查描述性設計的效度，不硬加因果模型。",
+    "en": "Audit the descriptive design without imposing a causal model.",
+    "view": "view-13"
+  },
+  {
+    "start": 178,
+    "end": 200,
+    "zh": "判定 repair：公司行動、價量口徑與原始快照都還有缺口。",
+    "en": "Verdict: repair. Corporate actions, scope alignment, and snapshots need work.",
+    "view": "view-14"
+  },
+  {
+    "start": 200,
+    "end": 213,
+    "zh": "不報 p 值、不事後刪特殊日；仍不計算實證結果。",
+    "en": "No p-values or post-hoc deletion of special days; no empirical results are computed.",
+    "view": "view-15"
+  },
+  {
+    "start": 213,
+    "end": 234,
+    "zh": "補單位、口徑、推論邊界；v0.2 仍是 conditional，尚未重審。",
+    "en": "Units, scope, and inference limits are revised. Version 0.2 remains conditional.",
+    "view": "view-16"
+  },
+  {
+    "start": 234,
+    "end": 248,
+    "zh": "只完成資料取得與格式核對；原始資料的再發布授權仍未核對。",
+    "en": "Only acquisition and format checks are complete. Redistribution rights remain unverified.",
+    "view": "view-17"
+  },
+  {
+    "start": 248,
+    "end": 257,
+    "zh": "只回讀索引、claims 與必要狀態，不自動推進。",
+    "en": "Read the index and claims; do not advance the workflow.",
+    "view": "view-18"
+  },
+  {
+    "start": 257,
+    "end": 274,
+    "zh": "有審查檔，不代表已到第六步；取得資料不代表完成研究。",
+    "en": "A review file does not mean Step 6 is complete; data acquisition is not study completion.",
+    "view": "view-19"
+  },
+  {
+    "start": 274,
+    "end": 284,
+    "zh": "本片是研究設計實操；沒有因果、預測或投資結論。",
+    "en": "This is a research-design walkthrough, with no causal, predictive, or investment conclusions.",
+    "view": "view-20"
+  }
+]

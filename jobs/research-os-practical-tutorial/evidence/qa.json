@@ -1,0 +1,58 @@
+{
+  "movie": "research-os-practical-0050-captioned-zh-en.mp4",
+  "sha256": "6db409616101582222941560caf7dbff3e79525b947efcd7145dca20e3f70ebb",
+  "size_bytes": 13242064,
+  "duration_seconds": 284,
+  "video": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 8520
+  },
+  "audio_streams": 0,
+  "audio_reason": "Captioned edition; no new TTS authorized.",
+  "full_decode_exit_code": 0,
+  "caption_cues": 21,
+  "captions_contiguous": true,
+  "source_calls": [
+    "01-setup",
+    "02-grill",
+    "03-answer",
+    "04-brief",
+    "06-domain-audit",
+    "07-revise",
+    "08-status"
+  ],
+  "actual_model": "claude-opus-5-5",
+  "effort": "low",
+  "speed": "standard",
+  "status_file_changes": {
+    "created": [],
+    "changed": [],
+    "removed": []
+  },
+  "audit_preserved_target_brief": true,
+  "extracted_delivery_frames": 63,
+  "estimated_statistics_computed": false,
+  "screen_capture": false,
+  "new_tts_calls": 0,
+  "new_tts_credits": 0,
+  "hyperframes": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  }
+}

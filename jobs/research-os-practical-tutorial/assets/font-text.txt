@@ -1,0 +1,1118 @@
+
+@font-face{font-family:ResearchSans;src:url('assets/ResearchSans.otf')}@font-face{font-family:ResearchMono;src:url('assets/ResearchMono.ttf')}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0B1020;color:#F2F4E9;font-family:ResearchSans,sans-serif}.view{position:absolute;inset:0;background:#0B1020}.title{position:absolute;left:70px;top:28px;right:520px;font-size:40px;line-height:1.3;font-weight:700}.badge{position:absolute;right:70px;top:31px;font-size:22px;line-height:1.4;color:#FFCE57;text-align:right}.source{position:absolute;left:70px;right:70px;top:93px;font:21px/1.3 ResearchMono,ResearchSans,monospace;color:#AEB8C9;white-space:nowrap;overflow:hidden}.viewport{position:absolute;left:70px;top:135px;width:1780px;height:755px;overflow:hidden;background:#111}.terminal{position:absolute;left:0;top:0;width:1780px;height:755px;transform-origin:top left}.file{position:absolute;left:70px;top:135px;width:1780px;height:755px;padding:22px 30px;background:#151C30;border:1px solid #596479;overflow:hidden}.file pre{font:27px/1.4 ResearchMono,ResearchSans,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.file .plain{font-family:ResearchSans,sans-serif}.file table{width:100%;border-collapse:collapse;font-size:23px;line-height:1.45;table-layout:fixed}.file th,.file td{text-align:left;vertical-align:top;padding:14px 12px;border:1px solid #596479;overflow-wrap:anywhere}.file th{color:#FFCE57;font-size:22px}.caption{position:absolute;left:95px;right:95px;top:930px;text-align:center;font-size:30px;line-height:1.45}.caption .en{font-size:24px;line-height:1.4;color:#B8C3D5;margin-top:5px}.progress{position:absolute;left:70px;right:70px;bottom:17px;height:4px;background:#FFCE57;transform-origin:left}.ap-overlay-start{display:none!important}.added{color:#B8D49C}.removed{color:#F3A69B}.diff{font-size:24px!important}.status{font-size:28px!important;line-height:1.5!important}.note{color:#FFCE57;font-size:25px;margin-bottom:18px}
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+/research-setup
+
+這是已授權的教學實操案例，請只在目前隔離研究專案內真正執行這個 skill。使用本專案已安裝的 Research OS skil
+ls；不要略過 skill 改用你自己的通用流程。請用繁體中文輸出。
+
+這一步只建立一次性的研究工作區，執行真正預檢、建立與 check/readback，列出實際新增檔案和下一個需決定的研究
+問題。此時尚未有研究資料、結果或文獻，不要虛構。完成 setup 後停下，不自行進到下一個 user-invoked skill。
+
+工作邊界：不得讀取金鑰、認證或私有使用者檔案，不修改專案外檔案，不發訊息、不上傳、不發布、不購買、不推送
+；不呼叫其他 agent。可以在本專案內讀寫與用已安裝 initializer。保留任何既有檔案；有衝突就停下。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=36
+
+CLAUDE / 實際回覆
+這是**一次性 setup，不屬於主線步驟**：此步建立 `.research/`，主線之後從 `research-1-grill` 開始。
+
+TOOL Bash / 工具參數節錄
+{"command": "git status --short && git log --oneline -3; ls -la", "description": "Check git state and lis
+t project"}
+TOOL RESULT / 實際工具輸出節錄
+?? .claude/
+fatal: your current branch 'demo' does not have any commits yet
+total 0
+drwxr-xr-x@ 4 apple  staff  128 Oct 17 16:15 .
+drwxr-xr-x@ 9 apple  staff  288 Oct 17 16:08 ..
+drwxr-xr-x@ 3 apple  staff   96 Oct 17 16:09 .claude
+drwxr-xr-x@ 9 apple  staff  288 Oct 17 16:15 .git
+
+TOOL Skill / 工具參數節錄
+{"skill": "research-workspace-contract", "args": "Establish or repair the additive local Research OS cont
+ract, seed only verified current context, and stop after a successful readback receipt."}
+TOOL RESULT / 實際工具輸出節錄
+Launching skill: research-workspace-contract
+
+TOOL Bash / 工具參數節錄
+{"command": "S=.claude/skills/research-workspace-contract; ls $S/references $S/scripts; cat $S/references
+/writeback-protocol.md; uv run --no-project python $S/scripts/init_research_workspace.py --root . --dry-r
+un", "description": "Read protocol and run dry-run preflight"}
+TOOL RESULT / 實際工具輸出節錄
+.claude/skills/research-workspace-contract/references:
+workspace-contract.md
+writeback-protocol.md
+
+.claude/skills/research-workspace-contract/scripts:
+atomic_claim.py
+build_comparison_packet.py
+init_research_workspace.py
+# Writeback protocol
+
+Load this reference whenever a skill reads or writes the durable research workspace. It is the single sou
+rce of the resolution procedure, the Artifact index contract, and the three index statuses. Skills state 
+only what is specific to their own artifact; they never restate the rules below.
+
+For the canonical path inventory and authority rules, see [workspace-contract.md](workspace-contract.md).
+
+## Reso [truncated]
+
+CLAUDE / 實際回覆
+Preflight 無衝突，套用並驗證。
+
+TOOL Bash / 工具參數節錄
+{"command": "S=.claude/skills/research-workspace-contract/scripts/init_research_workspace.py; uv run --no
+-project python $S --root . 2>/dev/null | python3 -c \"import json,sys;d=json.load(sys.stdin);print({k:le
+n(v) for k,v in d.items() if isinstance(v,list)})\"; cat .research/config.yaml .research/CONTEXT.md .rese
+arch/evidence/claims.yaml", "description": "Apply initializer and read back core files"}
+TOOL RESULT / 實際工具輸出節錄
+{'conflicts': 0, 'created': 23, 'missing': 0, 'unchanged': 0}
+schema_version: 1
+research_os_version: "1.0.0"
+canonical:
+  context: ".research/CONTEXT.md"
+  decisions: ".research/decisions"
+  claims: ".research/evidence/claims.yaml"
+  maps: ".research/maps"
+  briefs: ".research/briefs"
+  plans: ".research/plans"
+  workpackages: ".research/workpackages"
+  papers: ".research/papers"
+  proposals: ".research/proposals"
+  handoffs: ".research/handoffs"
+  reviews: ".research/reviews"
+  pilots: ".research/pilots"
+  templates: ".research/templates"
+policies:
+  external_writes: "explicit-authorization"
+  unsupported_claims: "fail-closed"
+  completion_r [truncated]
+
+CLAUDE / 實際回覆
+只寫入對話中已確認的事實：setup 結果列和工作邊界。研究內容一律保持 Unresolved。
+
+TOOL Bash / 工具參數節錄
+{"command": "python3 - <<'E'\np='.research/CONTEXT.md';s=open(p).read()\ns=s.replace(\"|---|---|---|---|-
+--|---|\\n\",\"|---|---|---|---|---|---|\\n| setup | research-workspace-contract | .research/config.yaml 
+| complete | 2026-10-17 | — |\\n\",1)\ns=s.replace(\"## Constraints and exclusions\\n\\nUnresolved.\",\"#
+# Constraints and exclusions\\n\\n- 已授權的教學實操案例；僅在本隔離專案內操作（2026-10-17 使用者指示）。
+\\n- 尚無研究資料、結果或文獻；不得虛構。\\n- 不讀金鑰／認證／私有檔案，不修改專案外檔案，不對外發送、上
+傳、發布、購買或推送。\",1)\ns=s.replace(\"## Open decisions\\n\\n- Unresolved.\",\"## Open decisions\\n\
+\n- 研究問題尚未決定（下一步交由 `research-1-grill`）。\",1)\nopen(p,'w').write(s)\nE\nuv run --no-projec
+t python .claude/skills/research-workspace-contract/scripts/init_research_workspace.py --root . --check 2
+>/dev/null | python3 -c \"import json,sys;d=json.load(sys.stdin);print(d['mode'],{k:len(v) for k,v in d.items() if isinstance(v,list)})\"; grep -nA3 \"
+^| setup\\|Co [truncated]
+TOOL RESULT / 實際工具輸出節錄
+check {'conflicts': 0, 'created': 0, 'missing': 0, 'unchanged': 23}
+13:| setup | research-workspace-contract | .research/config.yaml | complete | 2026-10-17 | — |
+14-
+15-## Research question
+16-
+--
+48:## Constraints and exclusions
+49-
+50-- 已授權的教學實操案例；僅在本隔離專案內操作（2026-10-17 使用者指示）。
+51-- 尚無研究資料、結果或文獻；不得虛構。
+--
+59:## Open decisions
+60-
+61-- 研究問題尚未決定（下一步交由 `research-1-grill`）。
+62-
+decision-record.md
+handoff.md
+map.md
+proposal.md
+research-brief.md
+research-plan.md
+review.md
+workpackage.md
+      11
+TOOL RESULT / 實際工具輸出節錄
+(Bash completed with no output)
+
+CLAUDE / 實際回覆
+## Research Setup 結果：**complete**
+
+研究工作區已建好，最後的 `--check` 驗證也通過：23 項路徑全部 `unchanged`，沒有衝突，也沒有缺漏。
+
+**流程**
+1. 預檢（`--dry-run`）：23 項都列為 `created`，沒有衝突。專案內原本只有 `.claude/`，沒有更動。
+2. 執行初始化：實際新增 23 項，沒有覆寫任何既有檔案。
+3. 驗證（`--check`）：重新讀回 `config.yaml`、`CONTEXT.md`、`claims.yaml` 和 templates，內容正確。
+
+**實際新增的檔案（11 個）和目錄（12 個，都在 `.research/` 下）**
+- 檔案：
+  - `config.yaml`
+  - `CONTEXT.md`
+  - `evidence/claims.yaml`
+  - `templates/` 下的 8 個範本：decision-record、research-brief、research-plan、workpackage、handoff、rev
+iew、map、proposal
+- 目錄：decisions、evidence、maps、briefs、plans、workpackages、papers、proposals、handoffs、reviews、pil
+ots、templates
+
+**寫進 `CONTEXT.md` 的內容（只有已確認的事實）**
+- 已登記索引的一列：`| setup | research-workspace-contract | .research/config.yaml | complete | 2026-10-1
+7 | — |`
+- 「限制與排除」一節：寫入你這次給的工作邊界，包括不得虛構，以及目前還沒有研究資料、結果或文獻。
+- 其他研究欄位一律保留為 `Unresolved`。
+- 沒有建立決策紀錄，因為目前沒有任何選擇需要正式記錄。
+- `claims.yaml` 是空的，因為還沒有任何需要查證的主張。
+
+**還沒做的事**
+- `.research/` 還沒 commit。git 目前在 `demo` 分支，這個分支還沒有任何 commit。
+
+**下一個需要決定的研究問題**：研究問題本身還沒定，包括要研究什麼現象、分析單位和範圍。這部分交給主線第一
+步 `research-1-grill`。我按指示停在這裡，沒有往下進行。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [
+    ".research/CONTEXT.md",
+    ".research/config.yaml",
+    ".research/evidence/claims.yaml",
+    ".research/templates/decision-record.md",
+    ".research/templates/handoff.md",
+    ".research/templates/map.md",
+    ".research/templates/proposal.md",
+    ".research/templates/research-brief.md",
+    ".research/templates/research-plan.md",
+    ".research/templates/review.md",
+    ".research/templates/workpackage.md"
+  ],
+  "changed": [],
+  "removed": []
+}
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+/research-1-grill
+
+這是主線第一步的真實實操。我的初步想法：研究台灣 0050 ETF「波動」跟成交量的關聯，候選期間為 2024 年第一季
+。受眾是財金大學生，最後成果是一份課堂研究設計 Research Brief；只能用免費公開資料。本片只示範研究設計，現
+在不跑統計、不寫實證結果，也不把關聯寫成因果或投資建議。
+
+候選官方來源：https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240101&stockNo=0050 
+。可查的資料事實由你核對；不要把我提供的網址本身當成內容已驗證。
+
+請真正依此 skill 一次只問一個最需要我做選擇的問題，給建議及代價，寫回已確認範圍後停下，等待我的示範答覆。
+不要一次列十個問題，不要自行進入 Brief 或其他 user-invoked skill。回覆以 450 個繁中文字內為原則；不得以省字為由假稱完成查核。
+
+本次不使用語音、通知或其他 agent，不讀金鑰、不修改專案外檔案、不發布、不推送。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=36
+
+TOOL Bash / 工具參數節錄
+{"command": "cat .research/config.yaml | grep -E \"context|decisions|claims\"; ls .research/decisions; fo
+r d in 20240101 20240201 20240301; do curl -s -m 20 \"https://www.twse.com.tw/exchangeReport/STOCK_DAY?re
+sponse=json&date=$d&stockNo=0050\" | python3 -c \"import json,sys;j=json.load(sys.stdin);print(j.get('sta
+t'),j.get('title'),j.get('fields'),len(j.get('data',[])),j['data'][0] if j.get('data') else '',j['data'][
+-1][0] if j.get('data') else '')\"; done", "description": "Resolve config and verify TWSE 0050 Q1 data"}
+TOOL RESULT / 實際工具輸出節錄
+  context: ".research/CONTEXT.md"
+  decisions: ".research/decisions"
+  claims: ".research/evidence/claims.yaml"
+  unsupported_claims: "fail-closed"
+OK 113年01月 0050 元大台灣50       各日成交資訊 ['日期', '成交股數', '成交金額', '開盤價', '最高價', '最
+低價', '收盤價', '漲跌價差', '成交筆數', '註記'] 22 ['113/01/02', '6,283,610', '848,793,104', '135.60', '
+135.95', '134.65', '134.90', '-0.55', '10,013', ''] 113/01/31
+OK 113年02月 0050 元大台灣50       各日成交資訊 ['日期', '成交股數', '成交金額', '開盤價', '最高價', '最
+低價', '收盤價', '漲跌價差', '成交筆數', '註記'] 13 ['113/02/01', '8,812,920', '1,180,328,029', '134.35',
+ '134.50', '133.60', '134.35', ' 0.00', '9,600', ''] 113/02/29
+OK 113年03月 0050 元大台灣50       各日成交資訊 ['日期', '成交股 [truncated]
+
+CLAUDE / 實際回覆
+資料已查證（2026-10-17）：Q1 共 56 個交易日（1 月 22、2 月 13、3 月 21），欄位含 OHLC、股數、金額、筆數。
+寫回 CLAIMS 和 CONTEXT。
+
+TOOL Bash / 工具參數節錄
+{"command": "python3 - <<'E'\nc='.research/evidence/claims.yaml';s=open(c).read().replace(\"claims: []\",
+\"\"\"claims:\n  - id: \"C-001\"\n    statement: \"TWSE STOCK_DAY JSON（stockNo=0050）於 2024-01/02/03 回
+傳 stat=OK，欄位為日期、成交股數、成交金額、開盤價、最高價、最低價、收盤價、漲跌價差、成交筆數、註記；交
+易日數 22/13/21，合計 56。價格為未調整原始值（例 113/01/02 收盤 134.90）。\"\n    status: \"verified\"\n 
+   source: \"https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=YYYYMM01&stockNo=0050\"\
+n    checked: \"2026-10-17\"\n    method: \"直接 GET 三個月份 JSON 並解析\"\n    note: \"只核對了資料的可
+取得性與欄位；沒有計算任何統計量。\"\n\"\"\");open(c,'w').write(s)\np='.research/CONTEXT.md';s=open(p).re
+ad()\ns=s.replace(\"## Mission\\n\\nUnresolved.\",\"## Mission\\n\\n為財金大學生做一份課堂研究設計 Resear
+ch Brief：描述 0050 ETF 的「波動」與成交量之間的關聯（不涉因果，也不是投資建議）。\",1)\ns=s.replace(\"## Unit of analysis and sc
+ope\\n\\nUnresolved.\",\"## Unit of analysis and scope\\n\\n候選：0050、日資料、2024Q1（56 個交易日， [tr
+uncated]
+TOOL RESULT / 實際工具輸出節錄
+.research/CONTEXT.md:13:| grill | 0050 波動與成交量 | C-001 | partial | 2026-10-17 | — |
+.research/CONTEXT.md:22:候選：0050、日資料、2024Q1（56 個交易日，見 C-001）。尚未最終確認。
+.research/CONTEXT.md:39:TWSE STOCK_DAY（免費、官方），見 C-001。
+.research/CONTEXT.md:63:- 【目前待決】「波動」的構念定義（OD-1）。
+.research/evidence/claims.yaml:9:  - id: "C-001"
+
+CLAUDE / 實際回覆
+**主線第 1 步（共 6 步）**，下一步是 `research-2-brief`。
+
+**資料查核（2026-10-17，實際抓取）**
+你給的網址我實際抓了 2024 年 1 至 3 月的資料，三個月都回傳 `stat=OK`。交易日依序是 22、13、21 天，共 56 
+天。每天有開、高、低、收、成交股數、成交金額、成交筆數。價格是沒有調整過的原始值。我只確認了資料抓得到、
+欄位有哪些，沒有算任何統計量。這項記為 `C-001`（verified）。
+
+**已寫回**
+- `CONTEXT`：研究目的、候選範圍、資料來源、限制，以及待決事項 OD-1。
+- 索引新增一列 `grill … partial`，因為訪談還沒結束。
+- 還沒建立決策紀錄，要等主要問題都定案後才寫。
+
+---
+
+**問題 OD-1：這份研究裡的「波動」要怎麼定義？**
+
+**建議：用日內高低價幅度 (最高−最低)/收盤 當主指標，|日報酬| 當對照。**
+- 理由：這兩個都能直接從免費的 OHLC 算出來，學生看得懂。
+- 用一天內的高低價，比只看收盤價多包含了盤中的資訊。
+
+**代價**
+- 不是學術上常見的條件波動模型（如 GARCH）。56 個觀測值也不夠估那種模型。
+- 高低價幅度會受跳空和流動性影響，可能和成交量有機械性的連動，最後需要在研究設計裡說明。
+
+**替代方案**
+- 只用 |日報酬|：最簡單，但沒用到盤中資訊。
+- 用 5 日滾動標準差：會損失前 4 天的資料，還會產生自我相關。
+
+請選一個，或告訴我你自己的定義。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [],
+  "changed": [
+    ".research/CONTEXT.md",
+    ".research/evidence/claims.yaml"
+  ],
+  "removed": []
+}
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+示範研究者答覆（這是教學角色的選擇，不冒稱使用者本人的研究承諾）：
+
+我選日內高低價幅度 `(最高價-最低價)/收盤價` 作主指標，名稱明確叫「日內幅度代理」，不稱為完整波動率，不估 
+GARCH，這次也不另外加日報酬對照。
+
+我確認研究句：「描述 0050 在 2024 年第一季，日內幅度與同日成交股數的單調關聯。」分析單位是交易日；候選方
+法是散佈圖與 Spearman 等級相關，成交股數可取 log 作視覺化。本次只寫設計，不計算數值、不產生任何實證結果。
+不能做因果、領先預測、投資建議，也不宣稱新穎貢獻或外推到其他 ETF／期間。
+
+事前資料品質門檻暫訂：有效交易日少於 40，或必要欄位缺失超過 5%，先停止並說明。這是本教學事前選擇，不是經驗證的統計標準。公司行動、特殊交易日、資料範圍、量的單位與近似文獻仍要核對；待辦不能改寫成已完
+成。
+
+請依真正 research-1-grill 流程寫回這次決定並回讀。如果仍有必要決策，一次只問一個；可以誠實停在 partial／c
+onditional，不為了拍片假稱所有關卡都過了。回覆精簡，不進入其他 user-invoked skill，不使用語音或通知。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=36
+
+TOOL Bash / 工具參數節錄
+{"command": "for d in 20240101 20240201 20240301; do curl -s -m 20 \"https://www.twse.com.tw/exchangeRepo
+rt/STOCK_DAY?response=json&date=$d&stockNo=0050\" | python3 -c \"\nimport json,sys;j=json.load(sys.stdin)
+\nfor r in j['data']:\n  if r[9].strip() or any(x.strip() in ('','--') for x in r[1:7]): print(r)\nprint(
+j.get('notes'))\"; done; ls .research/templates; cat .research/templates/decision-record.md", "descriptio
+n": "Check notes and missing fields, read DR template"}
+TOOL RESULT / 實際工具輸出節錄
+['符號說明:+/-/X表示漲/跌/不比價', '註記欄位有**者，表示該股票恢復買賣日價格因辦理變更面額因素與其最近一
+成交日價格有一定比例之轉換關係，或表示該ETF恢復買賣日價格因辦理分割或反分割作業因素與其最近一成交日價格有
+一定比例之轉換關係。', '當日統計資訊含一般、零股、盤後定價、鉅額交易，不含拍賣、標購。', 'ETF證券代號第六
+碼為K、M、S、C者，表示該ETF以外幣交易。', '權證證券代號可重複使用，權證顯示之名稱係目前存續權證之簡稱。']
+['符號說明:+/-/X表示漲/跌/不比價', '註記欄位有**者，表示該股票恢復買賣日價格因辦理變更面額因素與其最近一
+成交日價格有一定比例之轉換關係，或表示該ETF恢復買賣日價格因辦理分割或反分割作業因素與其最近一成交日價格有
+一定比例之轉換關係。', '當日統計資訊含一般、零股、盤後定價、鉅額交易，不含拍賣、標購。', 'ETF證券代號第六碼為K、M、S、C者，表示該ETF以外幣交易。', '權證
+證券代號可重複使用，權證顯示之名稱係目前存續權證之簡稱。']
+['符號說明:+/-/X表示漲/跌/不比價', '註記欄位有**者，表示該股票恢復買賣日價格因辦理變更面額因素與其最近一
+成交日價格有一定比例之轉換關係，或表示該ETF恢復買賣日價格因辦理分割或反分割作業因素與其最近一成交日價格有
+一定比例之轉換關係。', '當日統計資訊含一般、零股、盤後定價、鉅額交易，不含拍賣、標購。', 'ETF證券代號第六
+碼為K、M、S、C者，表示該 [truncated]
+
+TOOL Bash / 工具參數節錄
+{"command": "cat > .research/decisions/RDR-0001-0050-range-volume-scope.md <<'E'\n# RDR-0001: 0050 日內幅
+度代理與成交股數的描述性設計範圍\n\n- Status: proposed\n- Date: 2026-10-17\n- Supersedes: none\n- Grill s
+tate: 尚未判定（未達 `researchable`；OD-2 與證據任務仍未完成）\n- 決策來源：示範研究者在教學角色下的選擇
+，不代表使用者本人的研究承諾\n\n## Context\n\n課堂研究設計示範，受眾是財金大學生，成果是 Research Brief，
+只能用免費公開資料。資料可取得性見 C-001、C-002。\n\n## Decision\n\n- 研究句：「描述 0050 在 2024 年第一
+季，日內幅度與同日成交股數的單調關聯。」\n- 分析單位：交易日（候選 N=56，見 C-001）。\n- 構念：日內幅度代
+理 =（最高價−最低價）/收盤價。不稱為完整波動率，不估 GARCH，也不加日報酬對照。\n- 成交量：同日成交股數；l
+og 只用於視覺化。\n- 候選方法：散佈圖與 Spearman 等級相關。本次只寫設計，不計算數值。\n- 非目標：因果、領先預測、投資建議、新穎貢獻宣稱
+、外推到其他 ETF 或期間。\n\n## Falsifiers / kill thresholds（教學用的事前選擇，不是經驗證的統計標準）\n\
+n- 有效交易日 < 40，或任一必要欄位缺失 > 5%：停止並說明。\n- 描述性結論的失敗條件：待 OD-2 等決定後再補。
+\n\n## Alternatives\n\n- 只用 |日報酬|：沒用到盤中資訊。\n- 5 日滾動標準差：損失前 4 天的資料，且會產生自
+我相關。\n- GARCH：樣本太少，超出課堂範圍。\n\n## Consequences\n\n設計可以完全用 TWSE 的 OHLC 資料重現。
+但只能做同日描述，不能談方向或時 [truncated]
+TOOL RESULT / 實際工具輸出節錄
+13:| grill | 0050 波動與成交量 | RDR-0001; C-001, C-002, C-003 | partial | 2026-10-17 | — |
+18:描述 0050 在 2024 年第一季，日內幅度與同日成交股數的單調關聯（RDR-0001）。
+28:| 日內幅度代理 | 單日價格區間相對收盤價 | (最高−最低)/收盤 | decided（RDR-0001） |
+29:| 成交量 | 同日成交股數 | 成交股數（log 僅用於視覺化） | 統計範圍待決（OD-2） |
+65:- OD-1 已決（RDR-0001）。
+66:- 【目前待決】OD-2：成交股數是否接受含零股、盤後定價、鉅額交易的統計範圍（C-002）。
+9:  - id: "C-001"
+11:    status: "verified"
+17:  - id: "C-002"
+19:    status: "verified"
+24:  - id: "C-003"
+26:    status: "unverified"
+# RDR-0001: 0050 日內幅度代理與成交股數的描述性設計範圍
+
+- Status: proposed
+- Date: 2026-10-17
+- Supersedes: none
+- Grill state: 尚未判定（未達 `researchable`；OD-2 與證據任務仍未完成）
+
+CLAUDE / 實際回覆
+你的決定已寫回並回讀確認。這一步目前停在 **partial**，還沒達到 `researchable`，所以先不進下一步 `research
+-2-brief`。
+
+**寫入內容**
+- **決策紀錄 `RDR-0001`**：記下研究句、日內幅度代理的定義、非目標，以及事前資料品質門檻（有效日少於 40，
+或欄位缺失超過 5%）。紀錄中註明這是示範角色的選擇，門檻也不是經驗證的統計標準。
+- **`CONTEXT`**：更新研究問題、分析單位、構念表、估計目標，並登記索引列 `RDR-0001; C-001~003 | partial`。
+- **`CLAIMS`**：
+  - `C-002`（verified）：Q1 共 56 列，註記欄全空，必要欄位沒有缺值。
+  - `C-003`（unverified）：Q1 的除息日或其他公司行動還沒核對。
+
+**還沒完成的核對（沒有當成已完成）**
+- 除息日（ET-1）
+- 近似文獻（ET-2）
+- 特殊交易日，例如封關、開紅盤、颱風假（ET-3）
+
+---
+
+**問題 OD-2：成交股數要用哪個統計範圍？**
+
+查核時發現一個重要事實：TWSE 官方說明指出，這個端點的成交股數**包含一般、零股、盤後定價和鉅額交易**（C-00
+2）。鉅額交易是一次性的大筆成交，可能讓個別日子的量突然放大，但當天的價格區間不一定跟著變。
+
+**建議：接受這個合併範圍，並把它明文寫進構念定義，作為已知限制。**
+- 代價：「量」不只是一般盤的交易量，解讀時會比較混雜。
+- 不過 Spearman 只看排序，比較不受極端值影響，可以部分緩解。
+
+**替代方案**：另外找只含一般交易的免費資料來源。這樣需要再做一次可取得性查核，我目前沒有核對過這種來源存
+不存在。
+
+請選擇。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [
+    ".research/decisions/RDR-0001-0050-range-volume-scope.md"
+  ],
+  "changed": [
+    ".research/CONTEXT.md",
+    ".research/evidence/claims.yaml"
+  ],
+  "removed": []
+}
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+/research-2-brief
+
+示範研究者答覆上一題 OD-2：我接受 TWSE 這個端點的合併成交股數範圍，明文寫出包含一般、零股、盤後定價、鉅額
+交易，不能稱為「僅一般盤量」。這是來源口徑選擇，不假裝已取得其他資料。
+
+現在由我明確啟動主線第二步。請真正使用 synthesize-research-brief，依現有檔案產生一份 canonical Research B
+rief 並回讀，不靠聊天內容冒稱已有檔案。先把上面的口徑選擇寫入現有研究狀態。
+
+第一步還是 partial，文獻、公司行動及特殊交易日尚有未核對項目。因此 Brief 必須誠實是 conditional／blocked 
+的研究設計草稿，不能因為教學需要就宣稱 researchable、ready 或已完成實證。仍以日內幅度代理與同日成交股數的
+描述性單調關聯為題，未執行任何統計分析。
+
+請寫清楚研究句、資料來源與口徑、測量、候選方法、識別限制、事前停止門檻、未決證據任務與不能主張的事情。禁
+止因果／預測／投資結論，禁止捏造文獻。完成寫入與readback receipt後停下，不自行推進其他 user-invoked skill
+。最終回覆儘量400字內；不使用語音、通知或其他agent。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=36
+
+TOOL Skill / 工具參數節錄
+{"skill": "synthesize-research-brief", "args": "Produce or update the one canonical, audience-neutral Res
+earch Brief from current verified research state."}
+TOOL RESULT / 實際工具輸出節錄
+Launching skill: synthesize-research-brief
+
+TOOL Bash / 工具參數節錄
+{"command": "cat .research/templates/research-brief.md; ls .research/briefs .research/maps .research/pilo
+ts .research/reviews", "description": "Read brief template and check existing artifacts"}
+TOOL RESULT / 實際工具輸出節錄
+# Research Brief: Working title
+
+- ID: BRIEF-NNNN
+- Status: partial
+- Version: 0.1
+- Updated: YYYY-MM-DD
+- Decision records: none
+- Claim IDs: none
+
+## Research question
+
+## Why the answer matters
+
+## Closest literature and contribution delta
+
+## Mechanism and rival explanations
+
+## Constructs, estimand, and hypotheses
+
+## Data and identification
+
+## Methods and baselines
+
+## Falsifiers and kill criteria
+
+## Ethics and reproducibility
+
+## Scope and exclusions
+
+## Open decisions
+
+## Acceptance
+
+- Owner:
+- Accepted at:
+- Readback:
+.research/briefs:
+
+.research/maps:
+
+.research/pilots:
+
+.research/reviews:
+
+TOOL Bash / 工具參數節錄
+{"command": "python3 - <<'E'\nr=[f for f in __import__('glob').glob('.research/decisions/RDR-0001*')][0];
+s=open(r).read()\ns=s.replace(\"- 成交量：同日成交股數；log 只用於視覺化。\",\"- 成交量：同日成交股數，lo
+g 只用於視覺化。口徑採 TWSE STOCK_DAY 的合併統計，包含一般、零股、盤後定價、鉅額交易（C-002），不得稱為「
+僅一般盤量」。這是來源口徑選擇；本研究沒有取得其他資料（OD-2 已決，2026-10-17）。\")\ns=s.replace(\"- OD-
+2：成交股數的統計範圍（見 C-002），尚待決定。\\n\",\"\")\nopen(r,'w').write(s)\np='.research/CONTEXT.md';
+s=open(p).read()\ns=s.replace(\"| 成交股數（log 僅用於視覺化） | 統計範圍待決（OD-2） |\",\"| 成交股數（
+合併口徑：一般＋零股＋盤後定價＋鉅額；log 僅用於視覺化） | decided（RDR-0001, OD-2） |\")\ns=s.replace(\"
+- 【目前待決】OD-2：成交股數是否接受含零股、盤後定價、鉅額交易的統計範圍（C-002）。\",\"- OD-2 已決：接受合併口徑（RDR-0001）。\")\ns=s.replace(\"| grill | 0050 
+波動與成交量 |\",\"| brief | 0050 日內幅度與成交股數 | BRIEF-0001 | partial | 2026-10-17 | — |\\n| grill 
+| 0050 波動與成交量 |\",1)\nopen(p,'w').write(s)\nE\ncat > .research/briefs/BRIEF-0001.md <<'E'\n# Resear
+ch Brief: 0050 日內幅度代理與同日成交股數的描述性單調關聯\n\ [truncated]
+TOOL RESULT / 實際工具輸出節錄
+13:| brief | 0050 日內幅度與成交股數 | BRIEF-0001 | partial | 2026-10-17 | — |
+30:| 成交量 | 同日成交股數 | 成交股數（合併口徑：一般＋零股＋盤後定價＋鉅額；log 僅用於視覺化） | decided
+（RDR-0001, OD-2） |
+67:- OD-2 已決：接受合併口徑（RDR-0001）。
+6:- Grill state: 尚未判定（未達 `researchable`；OD-2 與證據任務仍未完成）
+18:- 成交量：同日成交股數，log 只用於視覺化。口徑採 TWSE STOCK_DAY 的合併統計，包含一般、零股、盤後定價、
+鉅額交易（C-002），不得稱為「僅一般盤量」。這是來源口徑選擇；本研究沒有取得其他資料（OD-2 已決，2026-10-1
+7）。
+25:- 描述性結論的失敗條件：待 OD-2 等決定後再補。
+3:- ID: BRIEF-0001
+4:- Status: conditional（研究設計草稿；尚未執行任何統計分析）
+8:- Claim IDs: C-001 (verified), C-002 (verified), C-003 (unverified)
+12
+
+CLAUDE / 實際回覆
+Fix stale OD-2 wording in RDR.
+
+TOOL Bash / 工具參數節錄
+{"command": "f=$(ls .research/decisions/RDR-0001*); sed -i '' -e 's/OD-2 與證據任務仍未完成/ET-1~3 與失敗
+條件仍未完成/' -e 's/待 OD-2 等決定後再補。/尚未定義（見 BRIEF-0001）。/' \"$f\"; grep -n \"Grill state\\
+|失敗條件\" \"$f\"", "description": "Update stale OD-2 references in RDR"}
+TOOL RESULT / 實際工具輸出節錄
+6:- Grill state: 尚未判定（未達 `researchable`；ET-1~3 與失敗條件仍未完成）
+25:- 描述性結論的失敗條件：尚未定義（見 BRIEF-0001）。
+
+CLAUDE / 實際回覆
+Brief 已寫好並回讀確認，狀態是 **conditional**（研究設計草稿）。這是**主線第 2 步（共 6 步）**，上一步是 
+`research-1-grill`。統計分析一項都還沒跑。
+
+**先寫入的口徑選擇（OD-2）**
+- 成交股數採 TWSE 合併口徑，包含一般、零股、盤後定價、鉅額交易，不能稱為「僅一般盤量」。
+- 已寫入 `RDR-0001` 和 `CONTEXT` 的構念表。
+
+**Brief 路徑**：`.research/briefs/BRIEF-0001.md`
+
+**Brief 內容**
+- 研究句：描述 0050 在 2024 年第一季，日內幅度與同日成交股數的單調關聯。
+- 資料來源：TWSE STOCK_DAY 三個月份，價格是未調整原始值（C-001、C-002）。
+- 測量：日內幅度代理 =（最高−最低）/收盤；成交股數用合併口徑。
+- 候選方法：散佈圖和 Spearman 等級相關，都標明「未執行」。
+- 識別限制：沒有識別策略，只能描述同日的共同變動。
+- 事前停止門檻：有效日少於 40，或欄位缺失超過 5%。
+- 不能主張：因果、預測、投資建議、新穎性、外推、「完整波動率」。
+- 文獻：一篇都沒引用。
+
+**回讀確認**：Brief 有 12 個段落；ID、狀態和 claim 的連結都與 `RDR-0001` 對得上；索引列是 `brief | BRIEF-
+0001 | partial`。`RDR-0001` 裡過期的 OD-2 字樣也已修正。
+
+**為什麼是 conditional**
+- ET-1 除息日（C-003）還沒核對。
+- ET-3 特殊交易日還沒核對。
+- ET-2 文獻還沒查證，完成前不能引用任何文獻。
+- 描述性結論本身的失敗條件還沒定義。
+
+**下一步**：Brief 不是 ready，所以先不建議進 `research-3-falsify`。要先通過的關卡是 **ET-1**：核對 2024Q1
+ 期間 0050 有沒有除息或其他公司行動日。這是目前最小、而且必須在執行前完成的證據任務。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [
+    ".research/briefs/BRIEF-0001.md"
+  ],
+  "changed": [
+    ".research/CONTEXT.md",
+    ".research/decisions/RDR-0001-0050-range-volume-scope.md"
+  ],
+  "removed": []
+}
+
+ACTUAL COMMAND / 實際執行
+uv run --project <skill-source> python <skill-source>/scripts/install_skills.py --harness claude-code --t
+arget .claude/skills --profile finance-social-science --dry-run
+{
+  "catalog_version": "0.1.0",
+  "conflicts": [],
+  "created": [],
+  "harness": "claude-code",
+  "managed_by": "research-os",
+  "mode": "copy",
+  "planned": [
+    "./.claude/skills/research-finance-social-science"
+  ],
+  "profile": "finance-social-science",
+  "receipt_schema": 2,
+  "skills": {
+    "research-finance-social-science": "12af4dd6fa19d2b78233b8b20f4d1e4ad3fcfe73f5d70fb87be62a111d8f347f"
+  },
+  "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+  "source_dirty": true,
+  "source_skills": {
+    "research-finance-social-science": "64ba049a979a6c50e4aca84cb0c75fcc2acf66ae61dc8de9775ce63662d051e7"
+  },
+  "target": "./.claude/skills",
+  "unchanged": []
+}
+
+
+
+ACTUAL COMMAND / 實際執行
+uv run --project <skill-source> python <skill-source>/scripts/install_skills.py --harness claude-code --target .claude/skills --profile finance-social-science
+{
+  "catalog_version": "0.1.0",
+  "conflicts": [],
+  "created": [
+    "./.claude/skills/research-finance-social-science"
+  ],
+  "harness": "claude-code",
+  "managed_by": "research-os",
+  "marker": "./.claude/skills/.research-os-finance-social-science-install.json",
+  "mode": "copy",
+  "planned": [
+    "./.claude/skills/research-finance-social-science"
+  ],
+  "profile": "finance-social-science",
+  "receipt_schema": 2,
+  "skills": {
+    "research-finance-social-science": "12af4dd6fa19d2b78233b8b20f4d1e4ad3fcfe73f5d70fb87be62a111d8f347f"
+  },
+  "source_commit": "56159bb46194f513d4e4499f228abf3ad6455cb1",
+  "source_dirty": true,
+  "source_skills": {
+    "research-finance-social-science": "64ba049a979a6c50e4aca84cb0c75fcc2acf66ae61dc8de9775ce63662d051e7"
+  },
+  "target": "<user-home>/Documents/Codex/2026-10-17/task/research-os-practical-demo/.claude/skills",
+  "unchanged": []
+}
+
+
+
+ACTUAL COMMAND / 實際執行
+uv run --project <skill-source> python <skill-source>/scripts/verify_install.py --harness claude-code --t
+arget .claude/skills --profile finance-social-science
+INSTALL OK: 1 skills for claude-code at ./.claude/skills (profile: finance-social-science)
+
+
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+/research-finance-social-science
+
+選配包已在同一個 .claude/skills 目錄真正完成預檢、安裝與驗證（核心42＋選配1），請真正依此領域 skill，讀取
+現有 config、canonical Brief、claims 與對應 validity-checks，做一次可回讀的財金領域檢查。
+
+這是描述性教學研究設計，不要求因果識別，也不能把它包裝成實證結果。請優先檢查：日內幅度代理的命名與可觀測
+內容、OHLC與合併成交股數口徑、單位、公司行動與特殊日、資料快照及重現、56日樣本的推論邊界。註記欄全空不能
+直接推出「沒有公司行動」；未知必須留作未知。
+
+請把實際審查寫到既定 reviews 路徑並登記索引，包含 source/artifact IDs、優先風險/現有證據/修復/停止條件表
+、未決決策、advance/repair/blocked判斷及下一個核心入口。不另建第二份canonical Brief、不自行修改Brief、不跑相關係數、不捏造文獻，不自行呼叫
+另一個user-only skill。可以因證據不足停在repair或blocked，不能為拍片假稱通過。
+
+此回合只審查現有材料，不進行新的外部資料收集。回覆儘量400字內，實際審查檔可完整。不用語音、通知或其他agen
+t，不發布或推送。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=37
+
+TOOL Bash / 工具參數節錄
+{"command": "S=.claude/skills; cat .research/config.yaml | head -20; ls $S/research-workspace-contract/re
+ferences; ls $S/research-finance-social-science/references; cat $S/research-finance-social-science/refere
+nces/validity-checks.md; ls .research/reviews; cat .research/templates/review.md", "description": "Read c
+onfig, core protocol path, validity checks, review template"}
+TOOL RESULT / 實際工具輸出節錄
+schema_version: 1
+research_os_version: "1.0.0"
+canonical:
+  context: ".research/CONTEXT.md"
+  decisions: ".research/decisions"
+  claims: ".research/evidence/claims.yaml"
+  maps: ".research/maps"
+  briefs: ".research/briefs"
+  plans: ".research/plans"
+  workpackages: ".research/workpackages"
+  papers: ".research/papers"
+  proposals: ".research/proposals"
+  handoffs: ".research/handoffs"
+  reviews: ".research/reviews"
+  pilots: ".research/pilots"
+  templates: ".research/templates"
+policies:
+  external_writes: "explicit-authorization"
+  unsupported_claims: "fail-closed"
+  completion_requires_readback: true
+workspace-contract.md
+writeback-protoco [truncated]
+
+TOOL Bash / 工具參數節錄
+{"command": "H=$(shasum -a 256 .research/briefs/BRIEF-0001.md | cut -c1-16); cat > .research/reviews/REVI
+EW-0001-finance-validity.md <<E\n# Research Review: 財金領域效度檢查（0050 日內幅度 × 成交股數）\n\n- ID:
+ REVIEW-0001\n- Status: partial\n- Updated: 2026-10-17\n- Target artifact and version: BRIEF-0001 v0.1（s
+ha256 前 16 碼 $H）\n- Sources: RDR-0001, C-001, C-002, C-003, .research/CONTEXT.md, .research/config.yam
+l\n- Reviewer lenses: research-finance-social-science › validity-checks.md「Finance and market data」「Qu
+antitative social science（只用描述性 vs 因果的區分）」「Reproducibility」\n- 限制：本回合只審查現有材料
+，沒有新的外部資料收集，沒有跑任何統計。\n\n## Material reviewed\n\n- **範圍**：問題是 0050 在 2024Q1 日
+內幅度代理與同日成交股數的單調關聯。\n- **主張類型**：描述性關聯，不是預測，也不是因果。\n- **分析單位**
+：交易日。\n- **母體**：0050 單一證券。\n- **期間**：2024-01 到 2024-03，候選 N=56。\n- **目標**：描述 Spearman 等級相關（
+尚未執行）。\n- **已確認的輸入**：C-001、C-002、RDR-0001 的決定。\n- **未知**：C-003、ET-2、ET-3，以及下
+文 F2、F3。\n\n## Contri [truncated]
+TOOL RESULT / 實際工具輸出節錄
+now ceead8c84bd9fc49 vs ceead8c84bd9fc49
+13:| review | 財金效度檢查 BRIEF-0001 | REVIEW-0001 | complete | 2026-10-17 | — |
+3:- ID: REVIEW-0001
+6:- Target artifact and version: BRIEF-0001 v0.1（sha256 前 16 碼 ceead8c84bd9fc49）
+66:**repair**。
+75:| Priority | Finding | Evidence | Required repair | Stop condition | Recheck |
+77:| P1 | F1 公司行動未知；註記欄空白≠無除息 | C-002 notes、C-003 unverified | 查官方除息與公司行動公告（
+ET-1），標出受影響日期 | 查不到可信的官方來源：維持 blocked，不得執行 | C-003 改為 verified 或 contested 
+|
+78:| P1 | F2 OHLC 與合併量的口徑可能錯配 | C-002（只說明量的口徑） | 查 TWSE 對 STOCK_DAY 價格欄的定義；
+若無法確認，在 Brief 寫成明示的限制 | 確認口徑不同而且無法說明：回 research-2-brief 修改構念 | 新增 claim
+ 並驗證 |
+79:| P1 | F5 沒有資料快照與雜湊 | C-00 [truncated]
+
+CLAUDE / 實際回覆
+Index 和審查檔的狀態不一致，修正為一致。
+
+TOOL Bash / 工具參數節錄
+{"command": "f=.research/reviews/REVIEW-0001-finance-validity.md; sed -i '' -e 's/^- Status: partial$/- S
+tatus: complete（審查本身完成；domain verdict 見 Verdict）/' -e 's/^- Final status: partial（domain verdi
+ct: repair）/- Final status: complete（domain verdict: repair）/' -e 's/^- Reviewed version unchanged: 見
+下方 sha 比對/- Reviewed version unchanged: yes（審查前後 sha256 前 16 碼均為 ceead8c84bd9fc49）/' $f; gr
+ep -n \"Status\\|Final status\\|unchanged\" $f; grep -n \"^| review\" .research/CONTEXT.md", "description
+": "Align review status with index and read back"}
+TOOL RESULT / 實際工具輸出節錄
+4:- Status: complete（審查本身完成；domain verdict 見 Verdict）
+97:- Reviewed version unchanged: yes（審查前後 sha256 前 16 碼均為 ceead8c84bd9fc49）
+99:- Final status: complete（domain verdict: repair）
+13:| review | 財金效度檢查 BRIEF-0001 | REVIEW-0001 | complete | 2026-10-17 | — |
+
+CLAUDE / 實際回覆
+財金領域檢查判定為 **repair**：設計方向和用語邊界都沒問題，但有三項補救必須在執行統計前完成。審查檔已寫好
+並回讀確認。
+
+**審查檔**：`.research/reviews/REVIEW-0001-finance-validity.md`
+- 索引列是 `review | REVIEW-0001 | complete`。這裡的 complete 只代表審查本身已完成回讀，不代表設計通過。
+- 依據 BRIEF-0001 v0.1、RDR-0001、C-001～C-003，以及 validity-checks 的財金市場資料、描述性與因果的區分、
+可重現性三部分。
+- 審查前後 Brief 的 sha256 一致，確認我沒有修改 Brief。
+
+**優先風險**
+- **P1 公司行動不明（F1）**：官方說明裡，註記欄只標示面額變更或分割，所以「註記全空」不能推出「沒有除息」
+。C-003 維持未查證。
+- **P1 價量口徑可能不一致（F2）**：官方只說明成交量包含零股、盤後、鉅額；開高低收的成交價是否也包含這些，
+沒有查證。
+- **P1 沒有資料快照（F5）**：原始 JSON 沒有保存，也沒有 sha256，日後重抓不保證得到相同資料。
+- **P2 特殊交易日沒核對（F3）**：2 月只有 13 個交易日，封關、開紅盤等日子還沒查。
+- **P2 推論邊界（F6）**：只有 56 天，兩個序列可能有自我相關，報告 p 值的前提可能不成立。
+- **P3 單位與轉換規則（F4）**：字串轉數字的規則還沒寫明。
+
+每項都附了現有證據、修復方式和停止條件，表格在審查檔裡。本回合沒有收集新資料，也沒有跑相關係數，文獻一篇
+都沒加。
+
+**未決決策**
+- **OD-3**：要不要報告 p 值。我建議只報告 ρ 和散佈圖，當作這段樣本的描述，不做顯著性主張。
+- **OD-4**：特殊日怎麼處理。我建議全部保留並加標記，不刪除。
+
+**下一步**：先用證據工具完成三項 P1 的補救，之後的核心入口是 `research-3-falsify`，在那裡一起處理 OD-3 和
+ OD-4。我沒有自動往下執行。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [
+    ".research/reviews/REVIEW-0001-finance-validity.md"
+  ],
+  "changed": [
+    ".research/CONTEXT.md"
+  ],
+  "removed": []
+}
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+示範研究者明確授權依 REVIEW-0001 修改同一份 canonical Brief，從 v0.1 改為 v0.2。這是修改回合，不自行啟動
+其他 user-only skill。
+
+我對 OD-3、OD-4 的事前選擇：將來只報 Spearman ρ 與散佈圖作這56日樣本的描述，不報 p 值或信賴區間，不做顯著
+性或母體推論；本回合仍不計算任何數值。特殊交易日全部保留並在核對後標記，不得看完相關結果再挑日子刪除，敏
+感性分析只能事前規劃且標明未執行。
+
+這次請真正修復 F5：把已核對過的三個 TWSE 官方月份端點的原始 JSON 保存到本專案 evidence/raw/，保存 source 
+URL、實際 UTC 擷取時間、sha256 與列數。只做資料取得與格式驗證，不算相關或畫圖。重現或再發布的授權若未核對
+要標示未核對，不擅自發布資料。
+
+把 F2 價格與成交量的口徑可能錯配寫成明示限制，不假稱已查清；F1 公司行動與特殊日的核對仍然未完成。單位規則
+明訂成交股數去逗號轉整數「股」，不可寫成張；價格維持原始欄位。日內幅度不涵蓋隔夜跳空，不可宣稱它等同完整
+波動率。
+
+請在現有決策紀錄記下我的示範選擇，更新 Context 和 claims，只將這次真正核對的快照事項升級為 verified。Brie
+f 維持 conditional，審查原件保留其 v0.1 target 和 repair，不把未重審的 v0.2 謊稱通過。回讀並列出實際修改
+差異與仍缺的證據；最終回覆盡量400字內，不使用語音、通知或其他agent。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=37
+
+TOOL Bash / 工具參數節錄
+{"command": "mkdir -p .research/evidence/raw && cd .research/evidence/raw && for m in 202401 202402 20240
+3; do u=\"https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=${m}01&stockNo=0050\"; t=$(
+date -u +%Y-%m-%dT%H:%M:%SZ); curl -s -m 30 -o \"twse_stock_day_0050_${m}.json\" \"$u\"; echo \"$m|$u|$t\
+"; done > /tmp/fetchlog.txt; cat /tmp/fetchlog.txt; ls -la", "description": "Download three raw TWSE JSON
+ snapshots"}
+TOOL RESULT / 實際工具輸出節錄
+202401|https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240101&stockNo=0050|2026-10-
+17T08:26:21Z
+202402|https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240201&stockNo=0050|2026-10-
+17T08:26:21Z
+202403|https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240301&stockNo=0050|2026-10-
+17T08:26:21Z
+total 24
+drwxr-xr-x@ 5 apple  staff   160 Oct 17 16:26 .
+drwxr-xr-x@ 4 apple  staff   128 Oct 17 16:26 ..
+-rw-r--r--@ 1 apple  staff  3005 Oct 17 16:26 twse_stock_day_0050_202401.json
+-rw-r--r--@ 1 apple  staff  2145 Oct 17 16:26 twse_stock_day_0050_202402.json
+-rw-r--r--@ 1 apple  staff  2926 O [truncated]
+
+TOOL Bash / 工具參數節錄
+{"command": "cd . && python3 -I - <<'E'\nimport json,hashlib\nlog=[l.strip().split('|') for l in open('/t
+mp/fetchlog.txt')]\nF=['日期','成交股數','成交金額','開盤價','最高價','最低價','收盤價','漲跌價差','成交
+筆數','註記']\nout=[\"# Raw snapshot manifest（TWSE STOCK_DAY, 0050, 2024Q1）\",\"\",\"| File | Source UR
+L | Retrieved (UTC) | sha256 | Rows | stat | fields match | shares parse to int | OHLC parse |\",\"|---|-
+--|---|---|---|---|---|---|---|\"]\ntot=0\nfor m,u,t in log:\n  f=f'.research/evidence/raw/twse_stock_day
+_0050_{m}.json';b=open(f,'rb').read();j=json.loads(b)\n  d=j['data'];tot+=len(d)\n  sh=all(r[1].replace('
+,','').isdigit() for r in d)\n  def ok(x):\n    try: float(x.replace(',',''));return True\n    except: re
+turn False\n  px=all(ok(r[k]) for r in d for k in (3,4,5,6))\n  out.append(f\"| {f.split('/')[-1]} | {u} 
+| {t} | {hashlib.sha256(b [truncated]
+TOOL RESULT / 實際工具輸出節錄
+202401 22 OK True True True 113/01/02 134.90
+202402 13 OK True True True 113/02/01 
+202403 21 OK True True True 113/03/01 
+# Raw snapshot manifest（TWSE STOCK_DAY, 0050, 2024Q1）
+
+| File | Source URL | Retrieved (UTC) | sha256 | Rows | stat | fields match | shares parse to int | OHLC 
+parse |
+|---|---|---|---|---|---|---|---|---|
+| twse_stock_day_0050_202401.json | https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=2
+0240101&stockNo=0050 | 2026-10-17T08:26:21Z | 81b3c4b88bba504ad47c61d269002ef34057e7e87c07819bc817d9c6685
+1338e | 22 | OK | True | True | True |
+| twse_stock_day_0050_202402.json | https://www.twse.com.tw/exchangeRepo [truncated]
+
+CLAUDE / 實際回覆
+Now the state updates with diff capture.
+
+TOOL Bash / 工具參數節錄
+{"command": "python3 -I - <<'E'\nimport difflib,glob\nB='.research/briefs/BRIEF-0001.md';R=glob.glob('.re
+search/decisions/RDR-0001*')[0];C='.research/CONTEXT.md';K='.research/evidence/claims.yaml'\nold={p:open(
+p).read() for p in (B,R,C,K)}\ndef sub(s,a,b):\n  assert a in s,a[:40];return s.replace(a,b,1)\n# RDR\nr=
+old[R]\nr=sub(r,\"## Falsifiers\",\"## 2026-10-17 增補（示範研究者依 REVIEW-0001 所做的事前選擇）\\n\\n- 
+OD-3：將來只報 Spearman ρ 與散佈圖，作為這 56 日樣本的描述；不報 p 值或信賴區間，不做顯著性或母體推論。\\
+n- OD-4：特殊交易日全部保留，核對後加標記；不得在看完相關結果後挑日子刪除。敏感性分析只能事前規劃，並標明
+尚未執行。\\n- 單位：成交股數去掉逗號後轉成整數，單位是「股」（不是張）；價格維持原始欄位。\\n- 日內幅度
+代理不涵蓋隔夜跳空，不等同完整波動率。\\n\\n## Falsifiers\")\n# claims\nk=old[K]+'''  - id: \"C-004\"\n    statement: \"三份原始 JSON 快照已存於 .research/evidence/raw/（202401/02/03），列
+數 22/13/21（合計 56），stat=OK，欄位與 C-001 相同，成交股數去逗號後皆可轉成整數，OHLC 皆可轉成數值；sha2
+56 與 UTC 擷取時間見 MANIFEST.md。\"\n    status: \"verified\"\n    source: \".research/evidence/raw [tru
+ncated]
+TOOL RESULT / 實際工具輸出節錄
+== .research/briefs/BRIEF-0001.md: +21 -11
+== .research/decisions/RDR-0001-0050-range-volume-scope.md: +7 -0
+== .research/CONTEXT.md: +6 -3
+== .research/evidence/claims.yaml: +17 -0
+5:- Version: 0.2
+9:- Change log: v0.2 依 REVIEW-0001（審查對象是 v0.1）修改，處理 F2、F4、F5、F6、F3 規則；v0.2 尚未重審。
+13:| review | 財金效度檢查 BRIEF-0001 | REVIEW-0001 | complete | 2026-10-17 | — |
+14:| evidence | 2024Q1 原始快照 | C-004 | complete | 2026-10-17 | — |
+15:| brief | 0050 日內幅度與成交股數 | BRIEF-0001 (v0.2) | partial | 2026-10-17 | BRIEF-0001 v0.1 |
+9:  - id: "C-001"	11:    status: "verified"
+17:  - id: "C-002"	19:    status: "verified"
+24:  - id: "C-003"	26:    status: "unverified"
+2 [truncated]
+
+TOOL Bash / 工具參數節錄
+{"command": "cd ./.research/evidence/raw && for f in *.json; do h=$(shasum -a 256 $f|cut -d' ' -f1); grep
+ -q $h MANIFEST.md && echo \"$f hash OK\"; done", "description": "Verify snapshot hashes against manifest
+"}
+TOOL RESULT / 實際工具輸出節錄
+twse_stock_day_0050_202401.json hash OK
+twse_stock_day_0050_202402.json hash OK
+twse_stock_day_0050_202403.json hash OK
+
+CLAUDE / 實際回覆
+Brief 已從 v0.1 改到 v0.2，狀態仍是 **conditional**。F5 資料快照已實際補上，其他修改也都回讀確認過。
+
+**F5 快照**
+- 三份官方原始 JSON 存在 `.research/evidence/raw/`，旁邊的 `MANIFEST.md` 記了來源網址、UTC 擷取時間（2026
+-10-17T08:26:21Z）、sha256 和列數。
+- 列數是 22、13、21，共 56；三份都回傳 stat=OK，欄位一致，成交股數和開高低收都能轉成數字。
+- 回讀時重算 sha256，三份都和 MANIFEST 一致。
+- 只做了格式驗證，沒有算相關，也沒有畫圖。
+
+**實際修改差異**
+- **Brief**（+21／−11 行）：
+  - 版本改為 0.2，加了修改紀錄，註明 v0.2 還沒重審。
+  - 加上隔夜跳空的限制。
+  - 單位明訂為整數「股」，不是張；價格維持原始欄位。
+  - F2 改寫成明示限制（C-005）。
+  - 加上快照和「授權未核對」的說明。
+  - 寫入 OD-3（只報 ρ 和散佈圖，不報 p 值）和 OD-4（特殊日全保留並標記）。
+- **RDR-0001**（+7 行）：記下你的示範選擇 OD-3、OD-4、單位規則和隔夜跳空限制。
+- **claims**：只有 C-004（快照）列為 verified；C-005、C-006、C-007 新增為 unverified。
+- **CONTEXT**（+6／−3 行）：
+  - 新增 evidence 列，brief 列改為 v0.2，Supersedes 記為 v0.1。
+  - 補上待決事項，並在審查顧慮註明 REVIEW-0001 的判定是針對 v0.1。
+- **REVIEW-0001**：沒動，審查對象仍是 v0.1，判定仍是 repair。
+
+**還缺的證據**
+- C-003：除息和公司行動
+- C-007：特殊交易日
+- C-005：開高低收和成交量的口徑是否一致
+- C-006：重現和再發布的授權
+- 描述性結論的失敗條件
+
+另外，擷取時我在 `/tmp` 暫存了一個記錄檔，用完已刪除。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [
+    ".research/evidence/raw/MANIFEST.md",
+    ".research/evidence/raw/twse_stock_day_0050_202401.json",
+    ".research/evidence/raw/twse_stock_day_0050_202402.json",
+    ".research/evidence/raw/twse_stock_day_0050_202403.json"
+  ],
+  "changed": [
+    ".research/CONTEXT.md",
+    ".research/briefs/BRIEF-0001.md",
+    ".research/decisions/RDR-0001-0050-range-volume-scope.md",
+    ".research/evidence/claims.yaml"
+  ],
+  "removed": []
+}
+TRUE CLI RECORDING / 真實 CLI 紀錄；不是模擬輸出
+MODEL claude-opus-5-5 / Opus / effort low / standard speed (no fast option)
+
+USER INPUT / 實際輸入
+/research-status
+
+現在請真正執行這個唯讀 skill，只依 config 解析後的 Artifact index、claims registry 與必要 workpackage ind
+ex 回答：目前在哪、實際有什麼、還缺什麼，以及一個下一步建議。
+
+請誠實指出 Brief v0.2 仍是 conditional／partial，原領域審查的 target 是 v0.1、verdict repair，尚未對 v0.2
+ 重審。沒有跑統計，不能把資料取得當作研究完成；不能因為有一份 review 就跳稱已走到主線第六步。
+
+這一步不寫入、不修復任何檔案、不問決策問題、不自動推進下一個skill、不使用語音或通知。回覆以350個繁中文字
+內為原則，必要時可略超過以保留正確狀態。
+
+
+CLI INITIALIZED / model=claude-opus-5-5; skills=37
+
+TOOL Bash / 工具參數節錄
+{"command": "grep -E \"^\\s+(context|claims|workpackages):\" .research/config.yaml; sed -n '/## Artifact 
+index/,/^## Research question/p' .research/CONTEXT.md | grep \"^|\"; grep -E \"^\\s+status:\" .research/e
+vidence/claims.yaml | sort | uniq -c; ls -A .research/workpackages", "description": "Read index, claim co
+unts, workpackages (read-only)"}
+TOOL RESULT / 實際工具輸出節錄
+  context: ".research/CONTEXT.md"
+  claims: ".research/evidence/claims.yaml"
+  workpackages: ".research/workpackages"
+| Kind | Topic | Current artifact or claim IDs | Status | Updated | Supersedes |
+|---|---|---|---|---|---|
+| review | 財金效度檢查 BRIEF-0001 | REVIEW-0001 | complete | 2026-10-17 | — |
+| evidence | 2024Q1 原始快照 | C-004 | complete | 2026-10-17 | — |
+| brief | 0050 日內幅度與成交股數 | BRIEF-0001 (v0.2) | partial | 2026-10-17 | BRIEF-0001 v0.1 |
+| grill | 0050 波動與成交量 | RDR-0001; C-001, C-002, C-003 | partial | 2026-10-17 | — |
+| setup | research-workspace-contract | .research/config.yaml | complete | 2026-10-17 | — |
+   4     status: "unverifi [truncated]
+
+CLAUDE / 實際回覆
+## 目前位置
+
+主線第 2 步 `research-2-brief`，狀態 **partial**：Brief v0.2 仍是 conditional。主線第 1 步 grill 也還是 p
+artial，第 3 到第 6 步都還沒有產出。
+
+## 實際有什麼（依 Artifact index）
+
+| 種類 | ID | 狀態 | 更新日 |
+|---|---|---|---|
+| setup | `.research/config.yaml` | complete | 2026-10-17 |
+| grill | RDR-0001；C-001～C-003 | partial | 2026-10-17 |
+| brief | BRIEF-0001 v0.2（取代 v0.1） | partial | 2026-10-17 |
+| evidence | C-004 原始快照 | complete | 2026-10-17 |
+| review | REVIEW-0001 | complete | 2026-10-17 |
+
+- **REVIEW-0001**：
+  - 這是選配的財金領域審查，不是主線第 6 步 `research-6-review`。
+  - 審查對象是 Brief v0.1，判定是 repair。index 上的 complete 只代表審查本身已回讀。
+- **C-004**：只代表資料已經取得，不代表研究完成。統計分析一項都還沒跑。
+
+## 還缺什麼
+
+- **claims**：3 筆 verified，4 筆 unverified：
+  - C-003：除息與公司行動
+  - C-005：價格和成交量的口徑是否一致
+  - C-006：重現與再發布授權
+  - C-007：特殊交易日
+- **狀態不一致**：Brief 已經是 v0.2，但唯一的審查仍指向 v0.1。v0.2 還沒重審。
+- **主線缺口**：沒有證偽計畫（第 3 步），workpackages 目錄是空的（第 4 步），也沒有任何執行收據（第 5 步
+）。描述性結論的失敗條件還沒定義。
+
+## 下一步建議
+
+用 `evidence-research` 核對 **C-003（2024Q1 除息與公司行動）**。這是 Brief 和審查都列為「執行前必須完成」
+的第一個關卡，也是目前卡住進度的關鍵。
+
+ACTUAL FILE CHANGES / 真實檔案變動
+{
+  "created": [],
+  "changed": [],
+  "removed": []
+}
+01  空白研究專案：明確呼叫 setup這是本次真實 CLI 紀錄的字幕版；尚未配音。Captioned recording of the real run. No narration has been generated.01-setup.cast · source 0.30–4.50s · 停格／等待剪輯供閱讀02  真正預檢、建立、check先預檢再建立；setup 不會自動進入第一步。Preflight, create, and verify. Setup does not start the research workflow.01-setup.cast · source 8.80–16.20s · 停格／等待剪輯供閱讀schema_version: 1
+research_os_version: "1.0.0"
+canonical:
+  context: ".research/CONTEXT.md"
+  decisions: ".research/decisions"
+  claims: ".research/evidence/claims.yaml"
+  maps: ".research/maps"
+  briefs: ".research/briefs"
+  plans: ".research/plans"
+  workpackages: ".research/workpackages"
+  papers: ".research/papers"
+  proposals: ".research/proposals"
+  handoffs: ".research/handoffs"
+  reviews: ".research/reviews"
+  pilots: ".research/pilots"
+  templates: ".research/templates"
+policies:
+  external_writes: "explicit-authorization"
+  unsupported_claims: "fail-closed"
+  completion_requires_readback: true03  實際新增的 config.yaml建立了 11 個檔案；路徑由 config 解析。Setup created 11 files. Canonical paths are resolved from config.01-setup / .research/config.yaml · L1–L20 · SHA256 e4922bbf7e2d04  把題目、受眾與限制交給第一步題目先保留「波動」的模糊處，讓流程真的追問。The initial idea leaves volatility ambiguous so the skill must clarify it.02-grill-live.cast · source 0.30–1.00s · 停格／等待剪輯供閱讀05  真正核對官方資料TWSE 三個月份共 56 個交易日；資料取得不等於實證完成。The three TWSE months contain 56 trading days. Data access is not analysis.02-grill-live.cast · source 13.60–13.90s · 停格／等待剪輯供閱讀06  真實追問：你說的波動是什麼？先決定構念；模型的建議仍要檢查，稍後收緊測量界限。Define the construct first. We will tighten the proxy’s limits later.02-grill-live.cast · source 31.80–31.80s · 停格／等待剪輯供閱讀07  示範研究者給出真正答覆選日內幅度代理，限制在描述性關聯；不做因果。The demo researcher chooses an intraday-range proxy and a descriptive claim.03-answer.cast · source 0.30–1.00s · 停格／等待剪輯供閱讀# RDR-0001: 0050 日內幅度代理與成交股數的描述性設計範圍
+
+- Status: proposed
+- Date: 2026-10-17
+- Supersedes: none
+- Grill state: 尚未判定（未達 `researchable`；OD-2 與證據任務仍未完成）
+- 決策來源：示範研究者在教學角色下的選擇，不代表使用者本人的研究承諾
+
+## Context
+
+課堂研究設計示範，受眾是財金大學生，成果是 Research Brief，只能用免費公開資料。資料可取得性見 C-001、C-002。
+
+## Decision
+
+- 研究句：「描述 0050 在 2024 年第一季，日內幅度與同日成交股數的單調關聯。」
+- 分析單位：交易日（候選 N=56，見 C-001）。
+- 構念：日內幅度代理 =（最高價−最低價）/收盤價。不稱為完整波動率，不估 GARCH，也不加日報酬對照。
+- 成交量：同日成交股數；log 只用於視覺化。08  選擇真正寫入 RDR-0001選擇與理由留在決策檔，不只停在對話。The choice and its rationale are stored in the actual decision record.03-answer / .research/decisions/RDR-0001-0050-range-volume-scope.md · L1–L18 · SHA256 89f018b49c1b09  由研究者明確啟動第二步第一步仍 partial；明確要求產生 conditional 設計草稿。Step 1 remains partial. The researcher explicitly requests a conditional draft.04-brief.cast · source 0.30–1.00s · 停格／等待剪輯供閱讀# Research Brief: 0050 日內幅度代理與同日成交股數的描述性單調關聯
+
+- ID: BRIEF-0001
+- Status: conditional（研究設計草稿；尚未執行任何統計分析）
+- Version: 0.1
+- Updated: 2026-10-17
+- Decision records: RDR-0001（proposed；grill 為 partial，尚未達 researchable）
+- Claim IDs: C-001 (verified), C-002 (verified), C-003 (unverified)
+- Inputs: .research/CONTEXT.md, RDR-0001, .research/evidence/claims.yaml。無 map、pilot、review 產物。
+
+## Research question
+
+描述 0050 在 2024 年第一季，日內幅度與同日成交股數的單調關聯。〔accepted decision: RDR-0001〕
+
+## Why the answer matters
+
+這是課堂研究設計示範，用來說明如何把「波動與量」從口語概念轉成可重現、範圍有限的描述性設計。範例本身不支援任何決策或投資推論。〔accepted decision〕
+10  打開真正產生的 Brief v0.1這是真實檔案；沒有把未完成的工作寫成 ready。This is the actual Brief file. Unfinished work is not marked ready.04-brief / .research/briefs/BRIEF-0001.md · L1–L18 · SHA256 ceead8c84bd9## Data and identification
+
+- **來源**：TWSE STOCK_DAY JSON，`stockNo=0050`，`date=20240101/20240201/20240301`。三個月都回傳 stat=OK，價格為未調整原始值。〔C-001〕
+- **資料品質**：56 列的註記欄全空，必要欄位無缺值。〔C-002〕
+- **公司行動與特殊交易日**：**未核對**（C-003 unverified、ET-3）。
+- **識別**：沒有識別策略，所以不能做因果解讀。只能描述同日共同變動，不能說明方向、時序或因果。〔RDR-0001〕
+
+## Methods and baselines
+
+- 候選方法：散佈圖（成交股數可取 log，只用於視覺化）與 Spearman 等級相關。
+- 不設基準模型，不做推論檢定的延伸。
+- **以上全部尚未執行**，也沒有任何數值結果。〔accepted decision〕11  把識別與資料限制寫清楚方法尚未執行；只能描述共同變動，不能做因果推論。The methods are unexecuted. Co-movement does not establish causation.04-brief / .research/briefs/BRIEF-0001.md · L39–L50 · SHA256 ceead8c84bd912  在同一 target 真正預檢選配包選配和核心使用同一個 harness 與安裝位置。The optional profile uses the same harness and target as the core.05-profile-install.cast · source 0.08–0.08s · 停格／等待剪輯供閱讀13  選配安裝與驗證確實成功核心仍是 42；finance-social-science 另新增 1。The core stays at 42 skills; the optional profile adds one.05-profile-install.cast · source 0.98–0.99s · 停格／等待剪輯供閱讀14  真正呼叫領域檢查 skill檢查描述性設計的效度，不硬加因果模型。Audit the descriptive design without imposing a causal model.06-domain-audit.cast · source 0.30–1.00s · 停格／等待剪輯供閱讀| Priority | Finding | Evidence | Required repair | Stop condition | Recheck |
+|---|---|---|---|---|---|
+| P1 | F1 公司行動未知；註記欄空白≠無除息 | C-002 notes、C-003 unverified | 查官方除息與公司行動公告（ET-1），標出受影響日期 | 查不到可信的官方來源：維持 blocked，不得執行 | C-003 改為 verified 或 contested |
+| P1 | F2 OHLC 與合併量的口徑可能錯配 | C-002（只說明量的口徑） | 查 TWSE 對 STOCK_DAY 價格欄的定義；若無法確認，在 Brief 寫成明示的限制 | 確認口徑不同而且無法說明：回 research-2-brief 修改構念 | 新增 claim 並驗證 |
+| P1 | F5 沒有資料快照與雜湊 | C-001 只記錄端點與日期 | 保存三份原始 JSON 與 sha256、擷取時間 | 快照與日後重抓不一致：停止並記錄差異 | 雜湊回讀 |15  審查原文：三個優先修復項目判定 repair：公司行動、價量口徑與原始快照都還有缺口。Verdict: repair. Corporate actions, scope alignment, and snapshots need work..research/reviews/REVIEW-0001-finance-validity.md · L75–79 原文 · SHA256 79743c4b6f6416  研究者明確決定修正方向不報 p 值、不事後刪特殊日；仍不計算實證結果。No p-values or post-hoc deletion of special days; no empirical results are computed.07-revise.cast · source 0.30–1.00s · 停格／等待剪輯供閱讀 
+-- **日內幅度代理** =（最高價−最低價）/收盤價。不是完整波動率，不估 GARCH，也不加日報酬對照。〔RDR-0001〕
+-- **成交股數**：TWSE 合併口徑，包含一般、零股、盤後定價、鉅額交易，不得稱為「僅一般盤量」。〔RDR-0001, OD-2; C-002〕
++- **日內幅度代理** =（最高價−最低價）/收盤價。不是完整波動率，也不涵蓋隔夜跳空（前收到今開）；不估 GARCH，也不加日報酬對照。〔RDR-0001〕
++- **成交股數**：TWSE 合併口徑，包含一般、零股、盤後定價、鉅額交易，不得稱為「僅一般盤量」。單位：去掉逗號後轉成整數「股」（不是張）；價格維持原始欄位。〔RDR-0001, OD-2; C-002; C-004〕
++- **明示限制（F2）**：開高低收是否與合併量口徑相同，**未查證**（C-005）。價量口徑可能不一致，在查清前，任何解讀都必須附上這項限制。
+ - 單位與樣本：交易日；0050；2024Q1，候選 N=56。〔C-001〕
+@@ -42,3 +44,5 @@
+
+ - **資料品質**：56 列的註記欄全空，必要欄位無缺值。〔C-002〕17  真正檔案差異：Brief v0.1 → v0.2補單位、口徑、推論邊界；v0.2 仍是 conditional，尚未重審。Units, scope, and inference limits are revised. Version 0.2 remains conditional.真實 unified diff 節錄 · ceead8c84bd9 → 4090c119fe95# Raw snapshot manifest（TWSE STOCK_DAY, 0050, 2024Q1）
+
+| File | Source URL | Retrieved (UTC) | sha256 | Rows | stat | fields match | shares parse to int | OHLC parse |
+|---|---|---|---|---|---|---|---|---|
+| twse_stock_day_0050_202401.json | https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240101&stockNo=0050 | 2026-10-17T08:26:21Z | 81b3c4b88bba504ad47c61d269002ef34057e7e87c07819bc817d9c66851338e | 22 | OK | True | True | True |
+| twse_stock_day_0050_202402.json | https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240201&stockNo=0050 | 2026-10-17T08:26:21Z | 34b02e64c7be981289cb6b1cf2093efddd8cc86b936095204e6d92671669faa0 | 13 | OK | True | True | True |
+| twse_stock_day_0050_202403.json | https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20240301&stockNo=0050 | 2026-10-17T08:26:21Z | 9b2cc370942bbea5ee14789e73a341901d5b06753522b55b85ea977de4ac7626 | 21 | OK | True | True | True |
+
+Total rows: 56
+
+- 驗證範圍：只做格式驗證（stat、欄位、列數、字串能否轉成數字），沒有計算任何統計量，也沒有畫圖。
+- 重現與再發布授權：**未核對**（TWSE 使用條款沒有查證）。本快照只供本專案內部重現，不得發布或再散布。
+- 擷取方式：curl GET，沒有帶任何認證。
+18  原始資料已實際保存與核對雜湊只完成資料取得與格式核對；原始資料的再發布授權仍未核對。Only acquisition and format checks are complete. Redistribution rights remain unverified..research/evidence/raw/MANIFEST.md · SHA256 2fed2939929c19  真正呼叫唯讀 status只回讀索引、claims 與必要狀態，不自動推進。Read the index and claims; do not advance the workflow.08-status.cast · source 0.30–1.00s · 停格／等待剪輯供閱讀## 目前位置
+
+主線第 2 步 `research-2-brief`，狀態 **partial**：Brief v0.2 仍是 conditional。主線第 1 步 grill 也還是 partial，第 3 到第 6 步都還沒有產出。
+
+## 實際有什麼（依 Artifact index）
+
+| 種類 | ID | 狀態 | 更新日 |
+|---|---|---|---|
+| setup | `.research/config.yaml` | complete | 2026-10-17 |
+| grill | RDR-0001；C-001～C-003 | partial | 2026-10-17 |
+| brief | BRIEF-0001 v0.2（取代 v0.1） | partial | 2026-10-17 |
+| evidence | C-004 原始快照 | complete | 2026-10-17 |
+| review | REVIEW-0001 | complete | 2026-10-17 |20  實際狀態：目前仍有關卡有審查檔，不代表已到第六步；取得資料不代表完成研究。A review file does not mean Step 6 is complete; data acquisition is not study completion.08-status.assistant.txt · 真正模型回覆節錄 · SHA256 5059bfbb8cea{
+  "created": [],
+  "changed": [],
+  "removed": []
+}21  回讀完成：零檔案變動本片是研究設計實操；沒有因果、預測或投資結論。This is a research-design walkthrough, with no causal, predictive, or investment conclusions.08-status.receipt.json#/changes · SHA256 8e87b8686c8a

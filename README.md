@@ -231,7 +231,9 @@ uv run pytest
 - [新版畫面總覽](jobs/research-os-tutorial/v3/paced/evidence/delivery-scenes-contact.jpg)
 - [保留的 4 分 01 秒舊版](jobs/research-os-tutorial/README.md)
 
-**實操範例：準備中，尚無可播放影片。**將從空白專案實際操作 setup、追問、Brief、財金社科檢查、修改與 status。[查看錄製計畫](jobs/research-os-tutorial/PRACTICAL_PLAN.md)。後續教學影片均在中英文 README 登錄播放連結、章節時間、對應版本及範例檔案；未完成影片只標示準備中。
+**真實實操範例：**[觀看 4 分 44 秒中英字幕版](jobs/research-os-practical-tutorial/output/research-os-practical-0050-captioned-zh-en.mp4)（無音軌，對應 `56159bb`）。從隔離空白專案實際操作 setup、追問與答覆、conditional Brief、財金社科選配審查、修改與唯讀 status。[章節時間、紀錄方式與範例檔案](jobs/research-os-practical-tutorial/README.md)。這是實際 CLI 紀錄與檔案快照的剪輯回放；僅完成研究設計及資料格式核對，未計算統計結果。新增配音尚待批准。
+
+後續教學影片均在中英文 README 登錄播放連結、章節時間、對應版本及範例檔案；未完成影片只標示準備中。
 
 ## Skill 組成
 

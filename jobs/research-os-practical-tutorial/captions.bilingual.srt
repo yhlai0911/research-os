@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:12,000
+這是本次真實 CLI 紀錄的字幕版；尚未配音。
+Captioned recording of the real run. No narration has been generated.
+
+2
+00:00:12,000 --> 00:00:25,000
+先預檢再建立；setup 不會自動進入第一步。
+Preflight, create, and verify. Setup does not start the research workflow.
+
+3
+00:00:25,000 --> 00:00:37,000
+建立了 11 個檔案；路徑由 config 解析。
+Setup created 11 files. Canonical paths are resolved from config.
+
+4
+00:00:37,000 --> 00:00:50,000
+題目先保留「波動」的模糊處，讓流程真的追問。
+The initial idea leaves volatility ambiguous so the skill must clarify it.
+
+5
+00:00:50,000 --> 00:01:01,000
+TWSE 三個月份共 56 個交易日；資料取得不等於實證完成。
+The three TWSE months contain 56 trading days. Data access is not analysis.
+
+6
+00:01:01,000 --> 00:01:20,000
+先決定構念；模型的建議仍要檢查，稍後收緊測量界限。
+Define the construct first. We will tighten the proxy’s limits later.
+
+7
+00:01:20,000 --> 00:01:34,000
+選日內幅度代理，限制在描述性關聯；不做因果。
+The demo researcher chooses an intraday-range proxy and a descriptive claim.
+
+8
+00:01:34,000 --> 00:01:47,000
+選擇與理由留在決策檔，不只停在對話。
+The choice and its rationale are stored in the actual decision record.
+
+9
+00:01:47,000 --> 00:01:58,000
+第一步仍 partial；明確要求產生 conditional 設計草稿。
+Step 1 remains partial. The researcher explicitly requests a conditional draft.
+
+10
+00:01:58,000 --> 00:02:13,000
+這是真實檔案；沒有把未完成的工作寫成 ready。
+This is the actual Brief file. Unfinished work is not marked ready.
+
+11
+00:02:13,000 --> 00:02:27,000
+方法尚未執行；只能描述共同變動，不能做因果推論。
+The methods are unexecuted. Co-movement does not establish causation.
+
+12
+00:02:27,000 --> 00:02:37,000
+選配和核心使用同一個 harness 與安裝位置。
+The optional profile uses the same harness and target as the core.
+
+13
+00:02:37,000 --> 00:02:47,000
+核心仍是 42；finance-social-science 另新增 1。
+The core stays at 42 skills; the optional profile adds one.
+
+14
+00:02:47,000 --> 00:02:58,000
+檢查描述性設計的效度，不硬加因果模型。
+Audit the descriptive design without imposing a causal model.
+
+15
+00:02:58,000 --> 00:03:20,000
+判定 repair：公司行動、價量口徑與原始快照都還有缺口。
+Verdict: repair. Corporate actions, scope alignment, and snapshots need work.
+
+16
+00:03:20,000 --> 00:03:33,000
+不報 p 值、不事後刪特殊日；仍不計算實證結果。
+No p-values or post-hoc deletion of special days; no empirical results are computed.
+
+17
+00:03:33,000 --> 00:03:54,000
+補單位、口徑、推論邊界；v0.2 仍是 conditional，尚未重審。
+Units, scope, and inference limits are revised. Version 0.2 remains conditional.
+
+18
+00:03:54,000 --> 00:04:08,000
+只完成資料取得與格式核對；原始資料的再發布授權仍未核對。
+Only acquisition and format checks are complete. Redistribution rights remain unverified.
+
+19
+00:04:08,000 --> 00:04:17,000
+只回讀索引、claims 與必要狀態，不自動推進。
+Read the index and claims; do not advance the workflow.
+
+20
+00:04:17,000 --> 00:04:34,000
+有審查檔，不代表已到第六步；取得資料不代表完成研究。
+A review file does not mean Step 6 is complete; data acquisition is not study completion.
+
+21
+00:04:34,000 --> 00:04:44,000
+本片是研究設計實操；沒有因果、預測或投資結論。
+This is a research-design walkthrough, with no causal, predictive, or investment conclusions.

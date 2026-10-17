@@ -1,0 +1,151 @@
+{
+  "recordings": "actual PTY captures; no synthetic terminal output",
+  "screen_capture": false,
+  "captioned_only": true,
+  "sources": [
+    {
+      "kind": "actual-pty-recording",
+      "path": "01-setup.cast",
+      "original_sha256": "14418492631d4bd4a9f650c580af842058da7b31797b83184f316f2ce5966a16",
+      "public_excerpt": "recordings/01-setup.cast",
+      "public_excerpt_sha256": "692011f922110b9ee6a50a528b2775f790f806833b2ce09ff2c1b5c75f79a1e3",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "02-grill-live.cast",
+      "original_sha256": "43ad42c4f683539ac8c1319476f53f7ffed60fa003f5d5d4b9be7cff95549f0a",
+      "public_excerpt": "recordings/02-grill-live.cast",
+      "public_excerpt_sha256": "9c9149dc5460e9cc02b1cde9567d057ecc40689b8d60242aa58b191a845735b9",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "03-answer.cast",
+      "original_sha256": "13b28aa453c279cac32ebebd78cecaaa0db5f25e9cd8b55abf2ce7222c467b87",
+      "public_excerpt": "recordings/03-answer.cast",
+      "public_excerpt_sha256": "15fe127581642de760102e01a1c321f11a2e2857e8b14b5d5eb95f8221e79b69",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "04-brief.cast",
+      "original_sha256": "001477fbb59ea514668aaebcf411f11161e8efc9b6ab5bfdd444dce4d3908b20",
+      "public_excerpt": "recordings/04-brief.cast",
+      "public_excerpt_sha256": "b67266331df4eb0f929ad06e3c767f08478f0aeb47a7b198839f44efedacc0de",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "05-profile-install.cast",
+      "original_sha256": "b5819183b33a0670a82cb6d69907297a01da4c3c4a25e6bc14ffe00f6e9ef1e8",
+      "public_excerpt": "recordings/05-profile-install.cast",
+      "public_excerpt_sha256": "d19c9600771ecce5b6728ca355477ab7bcf11cb6f0031d30ad700f60a4209f6c",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "06-domain-audit.cast",
+      "original_sha256": "5153e5c9381ce82f29f84452071734f39a2db00668e56b25d69585ee3795926e",
+      "public_excerpt": "recordings/06-domain-audit.cast",
+      "public_excerpt_sha256": "05c28069386634cace25a5eec4e1d9d4b192a9afbf6d4b1af80caf388ec7890a",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "07-revise.cast",
+      "original_sha256": "660d093682f10c19a51246ac290c0298464b699f6c7cd517abe8ad51b0c08723",
+      "public_excerpt": "recordings/07-revise.cast",
+      "public_excerpt_sha256": "d567cc27e6d4ffbaa52600f6519e7b07f9a5065e393d54db9f3c7d672d37533c",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "kind": "actual-pty-recording",
+      "path": "08-status.cast",
+      "original_sha256": "2ce8815c6fd4ff400cc6dee437830a9ae4d6606f9c1a5b63c9230dbfec80a92d",
+      "public_excerpt": "recordings/08-status.cast",
+      "public_excerpt_sha256": "5bdf3adabc1e45758dd6603cd609faa83983631d8ea36408c59c2e67f44545d3",
+      "edits": "home paths redacted; line wrapping adjusted; usage counters and unrelated completion speech omitted; video source times select actual recorded events"
+    },
+    {
+      "view": "view-02",
+      "kind": "actual-file-snapshot",
+      "stage": "01-setup",
+      "path": ".research/config.yaml",
+      "sha256": "e4922bbf7e2dd28180db1dabf912fa2803fdf0777aa88203804a4af27741c3d3",
+      "first_line": 1,
+      "last_line": 20
+    },
+    {
+      "view": "view-07",
+      "kind": "actual-file-snapshot",
+      "stage": "03-answer",
+      "path": ".research/decisions/RDR-0001-0050-range-volume-scope.md",
+      "sha256": "89f018b49c1b57fa256d2c6d586b4ebe01dee722370cb3fb289c9400de653a9e",
+      "first_line": 1,
+      "last_line": 18
+    },
+    {
+      "view": "view-09",
+      "kind": "actual-file-snapshot",
+      "stage": "04-brief",
+      "path": ".research/briefs/BRIEF-0001.md",
+      "sha256": "ceead8c84bd9fc49a120a9cff6d69019e30a08a27ce28f1bfdf9981204c5748b",
+      "first_line": 1,
+      "last_line": 18
+    },
+    {
+      "view": "view-10",
+      "kind": "actual-file-snapshot",
+      "stage": "04-brief",
+      "path": ".research/briefs/BRIEF-0001.md",
+      "sha256": "ceead8c84bd9fc49a120a9cff6d69019e30a08a27ce28f1bfdf9981204c5748b",
+      "first_line": 39,
+      "last_line": 50
+    },
+    {
+      "view": "view-14",
+      "kind": "actual-file-snapshot",
+      "path": ".research/reviews/REVIEW-0001-finance-validity.md",
+      "stage": "06-domain-audit",
+      "sha256": "79743c4b6f64ac680004971160d57e6230dc6269c4e4e002e26ecdbacbd2f09e",
+      "lines": [
+        75,
+        79
+      ]
+    },
+    {
+      "view": "view-16",
+      "kind": "actual-diff",
+      "before_sha256": "ceead8c84bd9fc49a120a9cff6d69019e30a08a27ce28f1bfdf9981204c5748b",
+      "after_sha256": "4090c119fe95eae9cebfaafdd1934d5754fbcdc1309e0bee290c8607da14bcad",
+      "path": ".research/briefs/BRIEF-0001.md"
+    },
+    {
+      "view": "view-17",
+      "kind": "actual-file-column-projection",
+      "path": ".research/evidence/raw/MANIFEST.md",
+      "sha256": "2fed2939929c698cff85b0a001f9ba27d01f7bd54d506268069f43dea043ff38",
+      "columns": [
+        "File",
+        "Retrieved (UTC)",
+        "sha256",
+        "Rows"
+      ]
+    },
+    {
+      "view": "view-19",
+      "kind": "actual-assistant-output",
+      "path": "events/08-status.assistant.txt",
+      "sha256": "5059bfbb8cea1516c6e2bd8d611cf0913c3641f612ec06403d71cf91d11a47c9",
+      "excerpt": "first 13 lines of final status response"
+    },
+    {
+      "view": "view-20",
+      "kind": "actual-recorded-json-field",
+      "path": "events/08-status.receipt.json",
+      "sha256": "8e87b8686c8a17cdcead853a0e502f6070b5a2a8e1329752548604110d21e109",
+      "json_pointer": "/changes"
+    }
+  ]
+}
