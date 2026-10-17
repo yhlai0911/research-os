@@ -6,7 +6,7 @@ Research OS is a composable set of Agent Skills for turning a topic, equation, d
 
 Its design draws on [Matt Pocock's skills](https://github.com/mattpocock/skills), including narrow primitives, explicit completion criteria, progressive disclosure, and feedback loops. Research OS adds claim–evidence tracking, counterfactuals, falsification, data feasibility, ethics, reproducibility, and durable handoffs. These are design intentions, not a claim that the system has demonstrated better research outcomes.
 
-**Branch status:** this bilingual and optional-profile change builds on the v2 six-step workflow in [PR #1](https://github.com/yhlai0911/research-os/pull/1). It lives on `feat/bilingual-domain-profiles`; this does not mean PR #1 has merged into the default branch. The commands below select this branch explicitly. Check the installation receipt's source commit to identify the version you actually installed.
+**Version and installation:** this guide covers the v2 six-step workflow, bilingual operation, and optional domain profile. Installation commands use `main`; check the installation receipt's source commit to identify the version you actually installed. Existing v1.1 users should read the [migration guide](docs/MIGRATION-v2.md) first.
 
 **One repository, distinct core and optional extension:** the default suite remains **42 generic core skills**. The independent [finance-social-science profile](profiles/finance-social-science/README.md) ([繁體中文](profiles/finance-social-science/README.zh-TW.md)) lives in this same repository. It is not a separate repository and is not installed by default. Explicit opt-in keeps domain-specific assumptions out of the generic workflow.
 
@@ -55,7 +55,7 @@ Requirements: Git, [uv](https://docs.astral.sh/uv/), Python 3.11 or newer, and t
 Research OS is a suite, not one skill at the repository root. Use its catalog-driven installer rather than passing the root URL to a single-skill GitHub installer. Neither supported installation requires `.claude-plugin/plugin.json`.
 
 ```bash
-git clone --branch feat/bilingual-domain-profiles https://github.com/yhlai0911/research-os.git
+git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
 uv sync --locked
 ```
@@ -137,7 +137,7 @@ The workflow resolves one consequential decision at a time. When the idea is res
 - A scoped local workflow does not authorize publication, submission, messages, issue creation, remote pushes, uploads, purchases, paid data access, or other external changes. Those require explicit authorization.
 - Missing or inaccessible evidence stays `unverified`, `partial`, `contested`, or `blocked` as applicable. An unsuccessful search is not proof that a contribution is the first of its kind.
 - A paper or proposal may describe planned work honestly. It must not turn an unexecuted analysis into results or turn fluent prose into evidence.
-- Catalog checks, unit tests, installation verification, and evaluation scenario files do not by themselves establish fresh-agent behavioral efficacy. Bilingual and profile behavior needs separately recorded evaluations; this branch does not claim that efficacy has been demonstrated.
+- Catalog checks, unit tests, installation verification, and evaluation scenario files do not by themselves establish fresh-agent behavioral efficacy. Bilingual and profile behavior needs separately recorded evaluations; the project does not claim that efficacy has been demonstrated.
 
 ## Architecture and maintenance
 

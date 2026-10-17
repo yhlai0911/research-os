@@ -89,6 +89,14 @@ def test_profile_metadata_and_document_links_match_catalog() -> None:
     assert not errors, "\n".join(errors)
 
 
+def test_public_install_guides_target_main() -> None:
+    for relative in ("README.md", "README.en.md", "docs/QUICKSTART.en.md"):
+        text = (ROOT / relative).read_text()
+        assert "git clone --branch main https://github.com/yhlai0911/research-os.git" in text
+        assert "feat/bilingual-domain-profiles" not in text
+        assert "refactor/explicit-pipeline" not in text
+
+
 @pytest.mark.parametrize("script", ["install_skills.py", "verify_install.py"])
 def test_profile_rejects_incompatible_core_catalog_before_writes(
     tmp_path: Path, script: str

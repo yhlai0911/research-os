@@ -6,7 +6,7 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
 
 本專案研究了 [Matt Pocock Skills](https://github.com/mattpocock/skills) 的 skill 架構與提示詞設計，但沒有逐句移植。Research OS 採用其主要設計原則：router 與 primitive 分工、leading concept、可檢查的 completion criterion、progressive disclosure、single source of truth、feedback loop；並補上學術研究需要的 claim-evidence ledger、counterfactual、falsification、資料可得性、倫理、重現性與交接 receipt。
 
-**分支狀態：**這份雙語文件與選用 profile 的變更，以 [PR #1](https://github.com/yhlai0911/research-os/pull/1) 的 v2 六步主線為基礎，位於 `feat/bilingual-domain-profiles` 分支；這不表示 PR #1 已合併到預設分支。以下安裝範例明確選擇這個分支；安裝後請以 receipt 的 source commit 確認實際版本。
+**版本與安裝：**本文件說明 v2 六步主線、雙語操作與選用領域擴充。以下指令使用 `main`；安裝後請以 receipt 的 source commit 確認實際版本。既有 v1.1 使用者請先閱讀 [升級指南](docs/MIGRATION-v2.md)。
 
 **同一個 repository，核心與選用擴充分開。**預設仍安裝 42 個通用核心 skills，適用於不同學科。金融與社會科學的額外檢查放在本 repo 內獨立、需明確選用的 [finance-social-science profile（繁體中文）](profiles/finance-social-science/README.zh-TW.md)／[English](profiles/finance-social-science/README.md)。它不是另一個 repo，不會預設安裝或自動套用到其他研究。
 
@@ -58,7 +58,7 @@ Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repositor
 
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
-請 checkout feat/bilingual-domain-profiles 分支，這是基於 PR #1 v2 的變更。
+請使用 main 分支，並在安裝後回報實際 source commit。
 這是 42 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
@@ -74,7 +74,7 @@ Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repositor
 ### 在終端機手動安裝
 
 ```bash
-git clone --branch feat/bilingual-domain-profiles https://github.com/yhlai0911/research-os.git
+git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
 uv sync --locked
 uv run python scripts/install_skills.py --dry-run
@@ -98,7 +98,7 @@ Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`�
 
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
-請 checkout feat/bilingual-domain-profiles 分支，這是基於 PR #1 v2 的變更。
+請使用 main 分支，並在安裝後回報實際 source commit。
 這是 42 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
@@ -113,7 +113,7 @@ Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`�
 ### 在終端機安裝為個人 skills
 
 ```bash
-git clone --branch feat/bilingual-domain-profiles https://github.com/yhlai0911/research-os.git
+git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
 uv sync --locked
 uv run python scripts/install_skills.py --harness claude-code --dry-run

@@ -10,10 +10,10 @@ Workflow examples below use Claude Code's `/skill-name` notation. In Codex, use 
 
 You need Git, [uv](https://docs.astral.sh/uv/), Python 3.11 or newer, and Codex or Claude Code.
 
-This change builds on the v2 six-step baseline in [PR #1](https://github.com/yhlai0911/research-os/pull/1). It does not assert that PR #1 has merged. Use the review branch below rather than assuming a default-branch clone contains these changes:
+Install the v2 six-step workflow from `main`. The installation receipt records the exact source commit so you can identify and reproduce your installed revision:
 
 ```bash
-git clone --branch feat/bilingual-domain-profiles https://github.com/yhlai0911/research-os.git
+git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
 git branch --show-current
 git rev-parse HEAD
