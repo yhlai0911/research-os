@@ -39,6 +39,10 @@ Require each axis to report:
 - the smallest evidence or change that would resolve it; and
 - what was checked when no issue was found.
 
+Assign stable finding IDs. For each required repair, also name the decision or execution owner, affected artifact and dependencies, observable acceptance test, and recommended return workflow. Keep findings `open`, `resolved`, `accepted-limitation`, or `blocked` in the review. A review-only request ends with actionable feedback and does not authorize silently changing the target. A requested revision is complete only after the actual changed artifact and the failed gate are checked; a proposed edit or response letter alone cannot resolve a finding.
+
+Justify repair dependencies from the target's actual claim and acceptance condition. Removing an unsupported causal statement can proceed before producing new results, provided the revision makes no unexecuted result claim. A broken magnitude-based unit validator is a diagnostic finding, not by itself proof that documented units are inconsistent or a reason to block every other repair. Preserve its failed receipt and route the defective check separately; never manufacture a research stop gate from its exit code.
+
 Invoke `$citation-audit`, `$identification-design`, `$data-feasibility`, or `$ethics-reproducibility` only when an axis needs their deeper procedure.
 
 ## Aggregate without masking

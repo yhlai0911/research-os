@@ -12,7 +12,7 @@ Treat **obtainability** as an empirical claim. Verify that the required observat
 1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve the canonical context, claims, briefs, reviews, proposals, workpackages, and decisions paths from that file. Treat paths such as `.research/CONTEXT.md` and `.research/evidence/claims.yaml` only as baseline defaults; never probe them before resolution.
 3. Read the resolved context and claims registry, followed by the active brief, identification design, proposal, workpackages, and prior data decisions at their resolved paths.
-4. Extract the required population, units, variables, identifiers, geography, frequency, horizon, release timing, and merge keys. Stop when the target estimand or a required resolved path is missing; request workspace repair instead of inventing a parallel path.
+4. Choose **source preflight** when the user has data but no settled question, or **design fitness** when a target question/estimand exists. In source preflight, inspect actual columns, units, coverage, access and limitations without selecting a question for the user; record target-specific fitness as pending. In design fitness, extract the required population, units, variables, identifiers, geography, frequency, horizon, release timing, and merge keys. A missing research choice is a research frontier, not a broken workspace. Stop when a required resolved path is missing; request workspace repair instead of inventing a parallel path.
 
 Preserve the resolved claims registry's `schema_version`, declared `statuses`, existing claim IDs, status history, and unrelated entries. Use only statuses already declared by that registry; keep data-feasibility verdicts in the review rather than adding them as claim statuses.
 
@@ -26,6 +26,7 @@ Preserve the resolved claims registry's `schema_version`, declared `statuses`, e
 6. Audit joins for identifier stability, one-to-many expansion, survivorship, entity changes, duplicates, and unmatched rates.
 7. Measure missingness and sample loss when data are available. Otherwise specify the exact pilot needed to measure them.
 8. Test fitness against the estimand and construct. A field with the right name but the wrong meaning does not pass.
+   In source preflight, state which descriptive or inferential uses are supported, excluded, or still unassessed instead of inventing an estimand.
 9. Record licensing, privacy, retention, redistribution, and replication-package constraints.
 
 Delegate source verification to `$evidence-research`, construct validity to `$construct-design`, and a minimum acquisition test to `$pilot-study` when full access is premature.
@@ -38,7 +39,15 @@ Reuse the current registered review for the same topic, or create `<artifact-id>
 
 Register the outcome and read it back per the writeback protocol.
 
+Keep factual feasibility findings in the report and claims registry. A provider's refusal, unavailable dataset, existing user restriction, or routine stop does not by itself create a new research decision. Create a decision record only for a substantive user-confirmed access, licensing, or dataset choice that passes the research-grilling admission tests; then use the configured decision-record template and naming rule (otherwise the next RDR-NNNN). Do not invent DDR/DATA-decision schemas or mark a source fact as an accepted human choice. When no such choice is made, leave decisions unchanged and name the unresolved choice in the report.
+
 Map verdicts to artifact status mechanically: `feasible` is `complete`; `feasible-with-repair` and `pilot-required` are `partial`; `infeasible` is `complete` as a diagnostic outcome but blocks a dependent design; and `blocked` is `blocked`.
+
+## Resolve unit and validation disagreements
+
+Pin the exact field, provider version/locator, units and transformation formula. Compare documented semantics to observed samples and any independent reference on matching dates, aggregation and scale. A magnitude range, median cutoff, variable name, or familiar-looking sample is a diagnostic heuristic, not unit proof. Test the conversion algebra and alignment; do not tune a threshold or overwrite raw data merely to make a validator pass. When documentation and a heuristic disagree, diagnose the check and preserve the failed receipt. When primary evidence itself conflicts, retain the ambiguity and block only the dependent inference. Bound attempts to distinct evidence routes; after repeated checks add no information, record the unresolved alternatives and the exact source needed instead of looping.
+
+For source preflight, a fully observed source inventory may be `complete` while design fitness remains explicitly pending; it does not license a `feasible` design verdict. Record source observations, undecided target, and the next research choice separately. Infeasibility can complete a diagnosis while blocking its dependent design.
 
 ## Stop conditions
 
@@ -51,6 +60,8 @@ Map verdicts to artifact status mechanically: `feasible` is `complete`; `feasibl
 ## Completion criteria
 
 Finish only when:
+
+Apply target-specific requirements below only in design-fitness mode. In source preflight, complete the observed source inventory and explicitly leave target fitness undecided; do not request workspace repair merely because that research decision is still open.
 
 - every required variable and window maps to a verified source or explicit blocker;
 - access, semantics, timing, coverage, joins, missingness, licensing, and replication constraints are each classified;

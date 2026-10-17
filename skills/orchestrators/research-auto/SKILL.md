@@ -61,6 +61,10 @@ For each major or fatal finding:
 3. ask the user only when repair changes the question, scope, contribution, commitment, or risk;
 4. supersede affected artifacts and rerun the failed gate.
 
+For an explicitly requested revision, pin and preserve the pre-revision target, execute the authorized edits or analysis, and save a finding-by-finding response linking each change to its exact location and evidence. Reuse the accepted mission, title, question and constraints. Reopen a decision only if the repair materially changes it. Record untouched, unresolved and declined findings honestly. A response letter, work plan, or completed review file does not prove that the target changed. Re-review the changed target (comparison mode) and propagate invalidated readiness through its dependent brief, claims and outputs before declaring the repair complete. For a narrow repair, stop after the requested revised target and receipt; do not rebuild unrelated deliverables.
+
+Recheck the gates actually affected by a narrow revision. An unrelated validator failure cannot become a new dependency without a load-bearing link to the requested change and the declared acceptance condition. When a unit checker conflicts with documented scale, distinguish an invalid heuristic from evidence of invalid data; investigate the narrow semantics or leave that independent diagnostic open. Do not require new results merely to remove an unsupported causal sentence, and do not label the resulting partial manuscript as completed research.
+
 Kill or reframe a design that remains non-distinct, infeasible, unsupported, unethical, or unfalsifiable. Do not accumulate rhetorical patches around a failed core.
 
 **Complete when:** every blocking reviewer finding is repaired, accepted as a scope limit, or recorded as a blocker; no rejection reason is hidden by writing quality.

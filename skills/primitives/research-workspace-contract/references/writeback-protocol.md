@@ -18,6 +18,16 @@ Follow the user's explicit output-language preference; otherwise match their cur
 
 A skill that lacks explicit local-setup authority must not initialize a missing workspace. Recommend the setup entry point and stop.
 
+## Carry the researcher's intent across steps
+
+Read the current request together with the resolved mission and accepted decisions. Preserve the research purpose, degree or non-degree destination, audience, supplied title/question, available data or draft, language, constraints, exclusions, and unresolved frontier. Ask only for a missing consequential choice; do not ask again for an answer already supplied. Treat a course, recording, demonstration, or operator's production brief as separate context unless the researcher explicitly makes it the research objective. Templates are never evidence of the user's intent.
+
+For a thesis, dissertation, or requested titled output, distinguish a **provisional working title** from the research question and from an artifact's stable ID. Once the phenomenon, question and intended inference are bounded enough, propose a revisable title using only supported scope; preserve a supplied title unless a named inconsistency requires revision. Mark it `proposed` until accepted, record why it may change, and carry it by reference through the brief, plan, draft and handoff. With only a broad direction, record `working title: unresolved` and resolve the next research choice first. Never invent a population, period, method, causal effect, or novelty to make a title sound precise. Non-degree work does not acquire thesis, journal, finance, chapter-count, or defense requirements from this rule.
+
+Persist this mission and title state in the owning context or artifact. Routine title wording is reversible and does not by itself qualify for a Research Decision Record.
+
+Match gates to the stated research aim: descriptive, interpretive, theoretical, predictive, causal, or design research. Mark inapplicable requirements with a reason. Do not demand a causal estimand, statistical significance, or a journal-novelty claim for every study; require the observable or logical evidence and contribution standard appropriate to its purpose. A null result, replication, or bounded descriptive answer can be a valid research outcome.
+
 ## Preserve what you did not author
 
 Preserve the resolved claim registry's `schema_version`, declared `statuses`, existing claim IDs, status history, and unrelated entries. Use only statuses that registry already declares. Keep skill-specific verdicts out of the claim-status field and out of the index statuses; they belong in the canonical artifact.
@@ -45,5 +55,11 @@ These three are the only index statuses. Domain verdicts stay in the artifact.
 ## Read back before reporting
 
 Re-read the written artifact and the resolved context, then verify the row's ID, status, timestamp, and lineage agree with what was written. Report a run `complete` only after that readback passes.
+
+Check the artifact's domain verdict and current inputs as well as the index status. A completed review with `major-revision` or `reject`, a completed infeasibility diagnosis, or a completed pilot plan does not pass the dependent study's gate. Preserve failed/null results and explicitly mark invalidated downstream readiness `partial` or `blocked`. Keep the review task's completion separate from the research artifact's readiness.
+
+Interpret failed checks against their actual acceptance condition before propagating a blocker. A failed magnitude heuristic does not establish a unit/documentation inconsistency. Preserve its failure, identify the defective or inapplicable check, and distinguish that diagnostic from a failed research premise. Do not downgrade a brief, demand new approval, or block an independent edit solely because such a check exited nonzero. Keep legitimate predeclared research stop conditions unchanged; show the evidence linking any new blocker to the actual condition.
+
+End a handoff with the current artifact, what was actually checked or changed, the unresolved gate, and one concrete next action with its required input and observable completion condition. Explain unfamiliar terms briefly for a novice. A plan, recommendation, or successful file write is not evidence that research or a requested revision ran.
 
 If the config or the resolved context cannot be read, report `blocked` and state that registration did not occur.

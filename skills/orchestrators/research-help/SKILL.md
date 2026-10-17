@@ -24,6 +24,8 @@ Use **route** as the leading concept. Diagnose the research state, recommend one
 
 Identify the active research objective, the latest verified artifact, unresolved blockers, and the next uncertainty that prevents progress. Prefer artifact evidence over the conversation.
 
+First check that the current request is research work. If the user asks only for software recording, course production, formatting, or another operation without developing or assessing research, explain that no Research OS workflow is needed and stop. Preserve the research mission and respect an explicit read-only boundary; do not register a production request as a new research objective or route.
+
 Classify the request:
 
 - A topic, direction, equation, phenomenon, dataset, draft, or reviewer concern that the user wants developed end to end into a verdict, brief, plan, proposal, blueprint, or paper → `research-auto`
@@ -40,6 +42,8 @@ Classify the request:
 - Credible design needing a grant, institutional, or project case → `to-proposal`
 - Session or agent transition → `research-save`
 - Narrow factual or analytical work → the matching model-invoked primitive
+
+Match the bottleneck before a broad end-to-end category: an existing title does not mean a verified design; existing data may need source preflight before any question is selected; a draft-only review request routes to `research-6-review` or the relevant audit primitive; and an authorized revision starts from the pinned review/draft rather than new ideation. Recommend `research-auto` only when end-to-end development or repair is requested. Preserve supplied inputs and do not turn non-degree research into degree work.
 
 **Complete when:** one current bottleneck and the artifact state supporting it are explicit.
 

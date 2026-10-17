@@ -7,6 +7,12 @@
 - Decision records: none
 - Claim IDs: none
 
+## Mission and working title
+
+- Research purpose and destination:
+- Working title, acceptance state, source pointer, and reopening condition:
+- Existing inputs, constraints, exclusions, and current frontier:
+
 ## Research question
 
 ## Why the answer matters

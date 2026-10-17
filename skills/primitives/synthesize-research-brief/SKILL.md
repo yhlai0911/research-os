@@ -32,6 +32,7 @@ Detect contradictions, superseded decisions, unsupported novelty, missing data f
 
 Write one brief containing:
 
+- preserved mission, destination, and current working-title state from the resolved idea; flag any necessary title revision instead of silently introducing a different scope;
 - problem, motivation, and intended decision or inference;
 - bounded research question and contribution delta;
 - closest literature and claim-chain pointers;

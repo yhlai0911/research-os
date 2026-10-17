@@ -25,7 +25,9 @@ Resolve `.research/config.yaml` per [writeback-protocol.md](../../primitives/res
 
 Establish the phenomenon, decision problem, target audience, desired contribution, and practical constraint that motivate the study. Separate the user's desired outcome from claims about the world.
 
-**Complete when:** the user confirms one sentence describing what the study must explain, estimate, predict, design, or decide.
+Recover supplied answers and existing title, data, design, or draft before asking. Start at the first unresolved research choice, not a request for a title or a fresh topic when those inputs already exist. Apply the mission and working-title rules in the writeback protocol; a broad direction is allowed to have no title yet.
+
+**Complete when:** the user confirms one sentence describing what the study must describe, interpret, explain, estimate, predict, design, or decide.
 
 ## Stage 2 — Walk the tree
 
@@ -49,30 +51,31 @@ Use `research-grilling` for the interview discipline and `research-domain-modeli
 
 Try to break the idea with the closest prior work, data constraints, rival mechanisms, identification threats, measurement failure, and ethical constraints. Convert each surviving uncertainty into a testable question rather than optimistic prose.
 
-**Complete when:** the idea has at least one credible failure condition and no hidden assumption that would invalidate the whole design.
+**Complete when:** the idea has at least one credible failure condition and no hidden assumption that would invalidate the whole design. Use descriptive or interpretive logic when appropriate; do not invent a causal mechanism just to pass this step.
 
 ## Stage 4 — Write the resolved idea
 
-Write or update one canonical decision record in `DECISIONS`. Record:
+Write or update the resolved-idea outcome in `CONTEXT`, linking consequential decisions in `DECISIONS`. Use `$research-grilling`'s admission tests and decision-record lifecycle; do not force routine summary or title wording into a new RDR. Record:
 
 - confirmed research question and intended contribution;
+- research purpose and destination; for degree work or a requested titled output, a proposed or accepted revisable working title, or an explicit unresolved title with the missing prerequisite;
 - construct and mechanism definitions;
 - unit, population, setting, and scope;
 - required evidence and current claim-chain links;
 - proposed design direction;
 - falsifiers and kill thresholds;
 - unresolved facts and user decisions;
-- status: `researchable`, `blocked`, `repair`, or `needs-map`.
+- idea verdict: `researchable`, `blocked`, `repair`, or `needs-map`, separate from an RDR's `proposed|accepted|blocked|superseded` lifecycle.
 
 Write canonical terms to `CONTEXT` and factual claims to `CLAIMS`.
 
-**Complete when:** the user confirms the record and a fresh researcher can understand why the idea is or is not researchable.
+**Complete when:** the user confirms the resolved idea (including title state when applicable), it reads back with its source pointers, and a fresh researcher can understand why it is or is not researchable. Title acceptance cannot turn an unverified data or literature premise into a passing gate.
 
 ## Register and verify
 
 For every terminal outcome reached with a readable workspace, write or update its canonical record through the resolved output path, then register it in `CONTEXT` and read it back per the writeback protocol. A claim-only outcome uses its claim IDs.
 
-Keep this skill's `researchable`, `blocked`, `repair`, `needs-map`, and `kill-candidate` states in the decision record. They never replace the three index statuses.
+Keep this skill's `researchable`, `blocked`, `repair`, `needs-map`, and `kill-candidate` verdicts in the resolved-idea outcome, distinct from decision lifecycles and the three index statuses.
 
 ## Stop branches
 
