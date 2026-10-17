@@ -21,6 +21,30 @@ ROOT = Path(__file__).resolve().parent.parent
 CATALOG = yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text())
 MARKER_NAME = ".research-os-install.json"
 HARNESSES = ("codex", "claude-code")
+PROFILES = ("core", "finance-social-science")
+
+
+def profile_settings(profile: str) -> tuple[dict[str, object], Path, str]:
+    """Keep optional inventories and receipts separate from the core install."""
+    if profile == "core":
+        return CATALOG, ROOT / "skills", MARKER_NAME
+    if profile not in PROFILES:
+        raise ValueError(f"unsupported profile: {profile}")
+    profile_root = ROOT / "profiles" / profile
+    try:
+        catalog = yaml.safe_load(
+            (profile_root / "catalog.yaml").read_text(encoding="utf-8")
+        )
+    except (OSError, yaml.YAMLError) as exc:
+        raise ValueError(f"cannot read profile {profile!r} catalog: {exc}") from exc
+    if not isinstance(catalog, dict):
+        raise ValueError(f"profile {profile!r} catalog must be a mapping")
+    if catalog.get("requires_core") != CATALOG["version"]:
+        raise ValueError(
+            f"profile {profile!r} requires core {catalog.get('requires_core')!r}; "
+            f"this checkout provides {CATALOG['version']!r}"
+        )
+    return catalog, profile_root / "skills", f".research-os-{profile}-install.json"
 
 
 def default_skills_dir(harness: str) -> Path:
@@ -107,7 +131,7 @@ def git_value(*args: str, fallback: str) -> str:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Install all catalogued Research OS skills into an agent harness."
+        description="Install a catalogued Research OS profile into an agent harness."
     )
     parser.add_argument(
         "--target",
@@ -118,6 +142,7 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument("--harness", choices=HARNESSES, default="codex")
+    parser.add_argument("--profile", choices=PROFILES, default="core")
     parser.add_argument("--mode", choices=("copy", "symlink"), default="copy")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
@@ -131,8 +156,10 @@ def read_managed_marker(marker: Path) -> dict[str, object] | None:
         payload = json.loads(marker.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return None
-    if payload.get("managed_by") != "research-os" or not isinstance(
-        payload.get("skills"), dict
+    if (
+        not isinstance(payload, dict)
+        or payload.get("managed_by") != "research-os"
+        or not isinstance(payload.get("skills"), dict)
     ):
         return None
     return payload
@@ -141,12 +168,17 @@ def read_managed_marker(marker: Path) -> dict[str, object] | None:
 def main() -> int:
     args = parse_args()
     target = (args.target or default_skills_dir(args.harness)).expanduser().resolve()
-    marker = target / MARKER_NAME
+    try:
+        catalog, skills_root, marker_name = profile_settings(args.profile)
+    except ValueError as exc:
+        print(json.dumps({"profile": args.profile, "failure": str(exc), "created": []}))
+        return 2
+    marker = target / marker_name
     receipt: dict[str, object] = {
         "managed_by": "research-os",
         "receipt_schema": 2,
         "harness": args.harness,
-        "catalog_version": CATALOG["version"],
+        "catalog_version": catalog["version"],
         "source_commit": git_value("rev-parse", "HEAD", fallback="uncommitted"),
         "source_dirty": bool(git_value("status", "--porcelain", fallback="unknown")),
         "target": str(target),
@@ -158,9 +190,24 @@ def main() -> int:
         "skills": {},
         "source_skills": {},
     }
+    if args.profile != "core":
+        # Import lazily because the verifier also uses the shared hash/adapter helpers.
+        from verify_install import verify_install
+
+        receipt["profile"] = args.profile
+        prerequisite_errors = verify_install(target, args.harness)
+        if prerequisite_errors:
+            receipt["failure"] = (
+                f"profile {args.profile!r} requires a verified core installation "
+                f"for {args.harness!r} at {target}"
+            )
+            receipt["prerequisite_errors"] = prerequisite_errors
+            print(json.dumps(receipt, ensure_ascii=False, indent=2, sort_keys=True))
+            return 2
+
     pending: list[tuple[Path, Path, str, str]] = []
-    for skill in CATALOG["skills"]:
-        source = ROOT / "skills" / skill["bucket"] / skill["name"]
+    for skill in catalog["skills"]:
+        source = skills_root / skill["bucket"] / skill["name"]
         destination = target / skill["name"]
         source_hash = tree_hash(source)
         installed_hash = expected_tree_hash(
@@ -194,7 +241,10 @@ def main() -> int:
         receipt["conflicts"].append(str(marker))
     elif existing_marker is not None:
         existing_harness = existing_marker.get("harness", "codex")
-        if existing_harness != args.harness:
+        if (
+            existing_harness != args.harness
+            or existing_marker.get("profile", "core") != args.profile
+        ):
             receipt["conflicts"].append(str(marker))
 
     if receipt["conflicts"]:
@@ -210,6 +260,7 @@ def main() -> int:
         and existing_marker.get("catalog_version") == receipt["catalog_version"]
         and existing_marker.get("source_commit") == receipt["source_commit"]
         and existing_marker.get("harness", "codex") == args.harness
+        and existing_marker.get("profile", "core") == args.profile
         and existing_marker.get("skills") == receipt["skills"]
     )
     if not pending and marker_is_current:
@@ -249,7 +300,7 @@ def main() -> int:
             "installed_at": datetime.now(UTC).isoformat(),
             "planned": [],
         }
-        marker_temp = target / f".{MARKER_NAME}.{os.getpid()}.tmp"
+        marker_temp = target / f".{marker_name}.{os.getpid()}.tmp"
         marker_temp.write_text(
             json.dumps(final_marker, ensure_ascii=False, indent=2, sort_keys=True)
             + "\n",

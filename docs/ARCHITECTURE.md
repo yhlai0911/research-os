@@ -124,7 +124,7 @@ The repository-owned installer is the suite authority:
 3. stage and hash every pending skill;
 4. promote the complete set or roll back;
 5. write `.research-os-install.json` with catalog version, source commit, mode, and per-skill hashes;
-6. run `scripts/verify_install.py` to read back all 39 directories, required Codex metadata, hashes, and receipt.
+6. run `scripts/verify_install.py` to read back all 42 core directories, required Codex metadata, hashes, and receipt.
 
 Claude plugin manifests are outside this Codex-first contract. Adding one cannot prove a complete Codex installation.
 

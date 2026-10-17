@@ -1,0 +1,7 @@
+version: "0.1.0"
+profile: finance-social-science
+requires_core: "2.0.0"
+skills:
+  - name: research-finance-social-science
+    bucket: orchestrators
+    invocation: user

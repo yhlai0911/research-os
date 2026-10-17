@@ -6,6 +6,10 @@ For the canonical path inventory and authority rules, see [workspace-contract.md
 
 ## Resolve before reading
 
+### Language and stable identifiers
+
+Follow the user's explicit output-language preference; otherwise match their current language (English or Traditional Chinese). Keep commands, paths, IDs, and schema/status values unchanged. Preserve original quotations and label translations. Bilingual explanations do not authorize duplicate canonical artifacts or competing current pointers.
+
 1. Read only `.research/config.yaml` first. Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
 2. Resolve every canonical key the current task needs from that file. Resolve relative values against the repository root; preserve absolute values.
 3. Bind the resolved values and read and write only through those bindings.
