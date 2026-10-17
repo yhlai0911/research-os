@@ -138,21 +138,23 @@ def test_writeback_protocol_binding_fails_closed() -> None:
 
     assert run_script("validate_repository.py").returncode == 0
 
-    target.write_text(
-        original.replace(
-            "[writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md)",
-            "the workspace contract",
-        ),
-        encoding="utf-8",
-    )
-    try:
-        failing = run_script("validate_repository.py")
-        assert failing.returncode == 1
-        assert "must link to references/writeback-protocol.md" in failing.stdout
-    finally:
-        target.write_text(original, encoding="utf-8")
+    # Exercise the validator with in-memory variants. Mutating the checkout
+    # races concurrent installation/hash checks and can contaminate releases.
+    from scripts.validate_repository import validate_workspace_contract
 
-    assert run_script("validate_repository.py").returncode == 0
+    errors: list[str] = []
+    validate_workspace_contract("falsification-first", target, original, errors)
+    assert not errors
+    changed = original.replace(
+        "[writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md)",
+        "the workspace contract",
+    )
+    validate_workspace_contract("falsification-first", target, changed, errors)
+    assert any("must link to references/writeback-protocol.md" in error for error in errors)
+    restored_errors: list[str] = []
+    validate_workspace_contract("falsification-first", target, original, restored_errors)
+    assert not restored_errors
+    assert target.read_text(encoding="utf-8") == original
 
 
 def test_workspace_initializer_is_additive_and_idempotent(tmp_path: Path) -> None:

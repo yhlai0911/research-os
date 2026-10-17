@@ -1,6 +1,6 @@
 # 從 v1.1 升級到 v2.0
 
-v2.0 重新命名了全部 16 個 user-invoked orchestrators，並新增三個 skill。這是 **breaking change**：舊名稱不再存在，也沒有別名。
+v2.0 將 v1.1 原有 13 個 user-invoked orchestrators 中的 12 個重新命名，保留 `to-proposal`，並新增三個 orchestrators，合計 16 個。這是 **breaking change**：已改名的 12 個舊名稱不再提供，也沒有別名。
 
 工作區格式沒有改變。既有的 `.research/` 目錄、`config.yaml`、claim registry、Artifact index 與所有既有 artifacts **完全相容**，不需要遷移。25 個 model-invoked primitives 的名稱也維持不變。
 
@@ -42,7 +42,7 @@ cd /path/to/research-os
 git pull
 uv sync --locked
 
-# 1. 移除 v1.1 的 16 個舊 skill 目錄
+# 1. 移除 v1.1 已改名的 12 個舊 skill 目錄（先備份自訂內容）
 cd ~/.claude/skills
 rm -rf setup-research-os grill-research-idea to-research-brief \
        to-workpackages execute-workpackage to-research-plan \

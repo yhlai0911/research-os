@@ -49,6 +49,10 @@ An artifact is complete only when:
 
 A release ZIP must be produced from a clean committed source tree. The archive is deterministic, contains `MANIFEST.sha256`, and has an external SHA-256 sidecar plus a receipt naming the source commit and file count.
 
+Build releases on a POSIX platform with descriptor-relative `os.open`, `O_NOFOLLOW`, `O_DIRECTORY`, and `O_NONBLOCK` support (for example, Linux or macOS). Packaging fails closed when these primitives are unavailable; it does not fall back to following symlinks. This restriction applies to release creation, not to reading or installing an existing release.
+
+The inventory starts from tracked regular files and explicitly applies repository `.gitignore` rules, including to files already tracked. Global Git excludes and `.git/info/exclude` do not affect the archive. Credential-like paths fail the release before artifact filtering; generated caches, backups, renders, and old release outputs are excluded. Filename checks are not a full secret-content scanner. Symlinks, submodules, unresolved index entries, missing source files, and unsafe manifest paths are rejected. Source changes detected during packaging prevent publication, and temporary output files use unique, exclusive creation.
+
 Before release, forward evaluations run the public prompts against fresh agents in isolated workspaces. At minimum they cover a vague seed, an imported equation or method, an existing design, a blocked novelty or data premise, and a manuscript request without results.
 
 ## Codex installation gate

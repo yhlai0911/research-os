@@ -19,6 +19,11 @@ Breaking: every user-invoked orchestrator was renamed. See [`docs/MIGRATION-v2.m
 
 ## Unreleased
 
+- Added English README/quickstart and a shared English/Traditional Chinese output-language convention; corrected v2 invocation and migration counts.
+- Kept the generic 42-skill core unchanged in scope and added an opt-in, separately catalogued finance/social-science profile in the same repository. Its installer verifies the compatible core and keeps a separate receipt.
+- Hardened release packaging against tracked ignored artifacts, credential-like paths, unsafe archive paths, and symlink traversal; added regression coverage for profile installation, documentation links, and release safety.
+- These are tooling and instruction changes, not evidence of improved empirical research outcomes.
+
 - Clarified that Research OS is a 39-skill Codex suite rather than one root skill, and added a copyable Codex installation workflow.
 - Made the installer default to `$CODEX_HOME/skills` or `~/.codex/skills` and added final installed-tree hash readback.
 - Added `scripts/verify_install.py` to verify every catalogued skill, Codex metadata file, content hash, and installation receipt.

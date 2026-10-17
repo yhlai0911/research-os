@@ -14,6 +14,7 @@ Use **route** as the leading concept. Diagnose the research state, recommend one
 
 ## Guardrails
 
+- Follow the user's explicit language preference; otherwise match their current language (English or Traditional Chinese). Keep command names and machine-readable values unchanged.
 - After successful path resolution, read `CONTEXT`, `CLAIMS`, and only the canonical artifacts relevant to the route.
 - Investigate discoverable facts yourself. Ask the user only for objectives, priorities, risk tolerance, and other decisions.
 - Never invoke another user-invoked skill. Name the recommended skill and yield control to the user.

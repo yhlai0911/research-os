@@ -1,10 +1,25 @@
 # Research OS
 
+**繁體中文** · [English](README.en.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
+
 Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向、方程式、現象、資料、草稿或審查意見，透過自適應對話推進成可反駁、可執行、可審查的研究計畫、企劃案或論文。它不把「寫出很多字」當作完成；它會主動查證文獻與資料、區分研究者決策和可查事實、模擬審查攻擊、修補根因，再把已驗證狀態封裝成單一 Research Brief，最後依目的轉譯成所需成果。
 
-本專案深層研究了 [Matt Pocock Skills](https://github.com/mattpocock/skills) 的完整 skill 架構與提示詞設計，但沒有逐句移植。Research OS 保留其最有效的底層原則：router 與 primitive 分工、leading concept、可檢查的 completion criterion、progressive disclosure、single source of truth、真實 feedback loop；並補上學術研究需要的 claim-evidence ledger、counterfactual、falsification、資料可得性、倫理、重現性與交接 receipt。
+本專案研究了 [Matt Pocock Skills](https://github.com/mattpocock/skills) 的 skill 架構與提示詞設計，但沒有逐句移植。Research OS 採用其主要設計原則：router 與 primitive 分工、leading concept、可檢查的 completion criterion、progressive disclosure、single source of truth、feedback loop；並補上學術研究需要的 claim-evidence ledger、counterfactual、falsification、資料可得性、倫理、重現性與交接 receipt。
+
+**版本與安裝：**本文件說明 v2 六步主線、雙語操作與選用領域擴充。以下指令使用 `main`；安裝後請以 receipt 的 source commit 確認實際版本。既有 v1.1 使用者請先閱讀 [升級指南](docs/MIGRATION-v2.md)。
+
+**同一個 repository，核心與選用擴充分開。**預設仍安裝 42 個通用核心 skills，適用於不同學科。金融與社會科學的額外檢查放在本 repo 內獨立、需明確選用的 [finance-social-science profile（繁體中文）](profiles/finance-social-science/README.zh-TW.md)／[English](profiles/finance-social-science/README.md)。它不是另一個 repo，不會預設安裝或自動套用到其他研究。
+
+## 語言與說明
+
+- `/research-help` 可用繁體中文或英文描述目前狀態；它推薦一個入口後停止，不會代你執行整條流程。
+- 對話與研究成果優先依照你明確指定的語言；未指定時配合你目前使用的語言。可分別要求「用繁體中文討論，論文草稿用英文」。
+- skill 名稱、命令、檔案路徑、claim IDs 與機械可讀狀態保持原樣；來源標題與引用不因翻譯而變成已查證證據。
+- 詳細慣例見 [語言規範](docs/LANGUAGE.md)。英文讀者可從 [English README](README.en.md) 或 [English quickstart](docs/QUICKSTART.en.md) 開始。
 
 ## 主線：六步，打 `/research-` 就照號碼排好
+
+下列以 `/skill-name` 顯示入口；Claude Code 使用這個 slash command，Codex 可用 `$skill-name` 明確指定同一個 skill。名稱與六步順序相同。
 
 ```text
 一次性
@@ -43,6 +58,7 @@ Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repositor
 
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
+請使用 main 分支，並在安裝後回報實際 source commit。
 這是 42 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
@@ -58,7 +74,7 @@ Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repositor
 ### 在終端機手動安裝
 
 ```bash
-git clone https://github.com/yhlai0911/research-os.git
+git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
 uv sync --locked
 uv run python scripts/install_skills.py --dry-run
@@ -74,7 +90,7 @@ uv run python scripts/verify_install.py
 
 ## 安裝到 Claude Code（完整 42 skills）
 
-Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`。Research OS 會在安裝時從同一份 catalog 生成 Claude Code invocation adapter：14 個 user-only skills 加上 `disable-model-invocation: true`，25 個 model-only skills 加上 `user-invocable: false`；repository 內的 canonical `SKILL.md` 不會被改寫。這是純 skills 安裝，不需要 plugin manifest。[Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills#where-skills-live)
+Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`。Research OS 會在安裝時從同一份 catalog 生成 Claude Code invocation adapter：17 個 user-only skills（16 個 orchestrators 加 1 個 meta skill）加上 `disable-model-invocation: true`，25 個 model-only skills 加上 `user-invocable: false`；repository 內的 canonical `SKILL.md` 不會被改寫。這是純 skills 安裝，不需要 plugin manifest。[Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills#where-skills-live)
 
 ### 直接交給 Claude Code 安裝
 
@@ -82,6 +98,7 @@ Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`�
 
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
+請使用 main 分支，並在安裝後回報實際 source commit。
 這是 42 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
@@ -96,7 +113,7 @@ Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`�
 ### 在終端機安裝為個人 skills
 
 ```bash
-git clone https://github.com/yhlai0911/research-os.git
+git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
 uv sync --locked
 uv run python scripts/install_skills.py --harness claude-code --dry-run
@@ -124,6 +141,18 @@ uv run python scripts/verify_install.py \
 如果 `~/.claude/skills/` 或專案 `.claude/skills/` 在 Claude Code session 啟動時已存在，新增 skills 可被即時偵測；若頂層 skills 目錄是安裝時才建立，請重啟 Claude Code。可用 `/skills` 檢查清單；輸入 `/research-` 應看到主線六步依號碼排列。[Claude Code 官方 live change detection](https://code.claude.com/docs/en/skills#live-change-detection)
 
 Claude Code 官方安裝規格、standalone skills 與 Marketplace plugin 的差異，整理於 [`docs/research/claude-code-skills-installation.md`](docs/research/claude-code-skills-installation.md)。
+
+### 選用金融與社會科學 profile
+
+先完成並驗證上述 42 個核心 skills，再視研究需求另外安裝：
+
+```bash
+uv run python scripts/install_skills.py --profile finance-social-science --dry-run
+uv run python scripts/install_skills.py --profile finance-social-science
+uv run python scripts/verify_install.py --profile finance-social-science
+```
+
+Claude Code 的三個指令都加上 `--harness claude-code`；若核心使用自訂 `--target`，profile 也必須指定同一目錄。這會加入獨立入口 `/research-finance-social-science`（Codex 使用 `$research-finance-social-science`），不改寫核心 catalog，也不改變核心的 42 個計數。profile 不會因題目提到金融或社會科學而自動啟用。用途、啟用與限制見 [profile 說明](profiles/finance-social-science/README.zh-TW.md)。
 
 ### 維護者驗證 repository
 
@@ -158,7 +187,7 @@ uv run pytest
 （同樣的題目描述）
 ```
 
-從 v1.1 升級請先讀 [`docs/MIGRATION-v2.md`](docs/MIGRATION-v2.md)：所有 orchestrator 都改了名稱，舊目錄需要手動移除。
+從 v1.1 升級請先讀 [`docs/MIGRATION-v2.md`](docs/MIGRATION-v2.md)：12 個 orchestrators 改名、`to-proposal` 保留，另新增三個入口；已改名的舊目錄需要先備份並手動處理。
 
 端到端主流程也會在明確授權的專案範圍內自動建立這份 additive contract。`.research/` 包含研究脈絡、決策紀錄、claim ledger、研究 brief、研究計畫、workpackage、review、pilot、proposal、paper 與 handoff 的 canonical paths。
 
@@ -211,7 +240,7 @@ v2.0 共 42 個 catalogued skills：16 個 orchestrators、25 個 primitives、1
 
 完整清單由 [`skills/catalog.yaml`](skills/catalog.yaml) 單點管理，並自動生成 [`docs/SKILL_CATALOG.md`](docs/SKILL_CATALOG.md)。架構、invocation 與品質標準見 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) 與 [`docs/QUALITY_GATES.md`](docs/QUALITY_GATES.md)。
 
-41 個 upstream skills 的逐檔 prompt 稽核、移植矩陣與修補紀錄見 [`docs/MATT_SKILLS_ANALYSIS.md`](docs/MATT_SKILLS_ANALYSIS.md)、[`docs/MATT_PORT_MAP.yaml`](docs/MATT_PORT_MAP.yaml) 與 [`docs/PORT_REMEDIATION.md`](docs/PORT_REMEDIATION.md)；fresh-agent 行為測試收在 [`tests/forward-evals/`](tests/forward-evals/)。
+41 個 upstream skills 的逐檔 prompt 稽核、移植矩陣與修補紀錄見 [`docs/MATT_SKILLS_ANALYSIS.md`](docs/MATT_SKILLS_ANALYSIS.md)、[`docs/MATT_PORT_MAP.yaml`](docs/MATT_PORT_MAP.yaml) 與 [`docs/PORT_REMEDIATION.md`](docs/PORT_REMEDIATION.md)；forward-evaluation 情境與評估材料收在 [`tests/forward-evals/`](tests/forward-evals/)。這些材料的存在，以及 catalog／安裝／單元測試通過，都不能單獨證明 fresh-agent 行為測試已執行或研究品質已改善。雙語支援與 profile 的實際行為效果需另以已記錄的評估結果判斷。
 
 本版以 catalog 作為跨 harness source of truth：Codex 的 `agents/openai.yaml` 由 catalog 生成並機械驗證；Claude Code 則在安裝時生成對應的 `disable-model-invocation`／`user-invocable` frontmatter 並做 readback。其他 Agent harness 在沒有 generated adapter 與驗證前，不宣稱具備相同的 invocation enforcement。
 
@@ -232,9 +261,9 @@ ZIP 內含逐檔 `MANIFEST.sha256`；外部另產生 archive checksum 與指向�
 - 公開投稿、寄信、建 issue、推送、付費資料或其他外部寫入，不會因研究流程自動獲得授權。
 - 論文與 proposal 只能從已有 provenance 的研究 artifacts 草擬；缺證據不以流暢 prose 補齊。
 
-## English summary
+## English documentation
 
-Research OS is a composable Agent Skill system that adaptively develops a topic, direction, equation, dataset, draft, or reviewer concern into a falsifiable Research Brief and a fit-for-purpose research plan, proposal, paper blueprint, or manuscript. It separates human decisions from discoverable facts, attacks the design before rendering it, and maintains a durable `.research/` contract for provenance and continuity.
+Read the [English README](README.en.md) for the full overview and the [English quickstart](docs/QUICKSTART.en.md) for installation, a first run, migration guidance, and permission boundaries.
 
 ## License and attribution
 
