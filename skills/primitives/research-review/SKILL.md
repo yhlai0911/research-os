@@ -7,6 +7,8 @@ description: "Review research as a skeptical journal panel across contribution, 
 
 Ask what would make a skeptical reviewer **reject** the work. Keep the six review axes independent so strength on one axis cannot hide failure on another.
 
+For academic manuscript targets, also read the shared [academic-prose contract](../research-writing/references/academic-prose.md). Check connected argument, clear referents, consistent precise terms, the applicable citation style (APA by default), and preserved uncertainty. Flag slide-like prose and unsupported ASD-STE100 compliance claims with locations and concrete repairs; retain necessary tables, equations, hypotheses, method steps and actionable review structures. A fixed sentence length or controlled-English word list is not an academic acceptance gate, and polished prose cannot offset a validity failure.
+
 ## Pin the review target
 
 1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
@@ -40,6 +42,8 @@ Require each axis to report:
 - what was checked when no issue was found.
 
 Assign stable finding IDs. For each required repair, also name the decision or execution owner, affected artifact and dependencies, observable acceptance test, and recommended return workflow. Keep findings `open`, `resolved`, `accepted-limitation`, or `blocked` in the review. A review-only request ends with actionable feedback and does not authorize silently changing the target. A requested revision is complete only after the actual changed artifact and the failed gate are checked; a proposed edit or response letter alone cannot resolve a finding.
+
+When a repair changes the reviewed artifact, name comparison-mode `research-review` with the pinned original and revised targets as its return workflow. Do not recommend first-review full-target mode for that revision or close a finding from proposed prose alone.
 
 Justify repair dependencies from the target's actual claim and acceptance condition. Removing an unsupported causal statement can proceed before producing new results, provided the revision makes no unexecuted result claim. A broken magnitude-based unit validator is a diagnostic finding, not by itself proof that documented units are inconsistent or a reason to block every other repair. Preserve its failed receipt and route the defective check separately; never manufacture a research stop gate from its exit code.
 

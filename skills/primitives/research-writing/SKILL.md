@@ -7,6 +7,10 @@ description: "Write and revise evidence-led academic prose as a cumulative argum
 
 Build an **argument** in which each paragraph earns the next claim. Write from verified research artifacts rather than from plausible memory.
 
+## Default academic prose
+
+Read [academic-prose.md](references/academic-prose.md) before drafting or revising academic text in any language. Apply it without requiring the user to repeat a style prompt: connected scholarly paragraphs, clear and economical sentences, consistent precise terms, and explicit evidence-to-inference links. Use APA author-date citations by default when no user, institution, or venue style is specified. Preserve necessary tables, equations, hypotheses, method steps, uncertainty, and limitations. Borrow ASD-STE100 clarity principles without imposing its controlled-English vocabulary or word limits, claiming formal compliance, or simplifying an association into causation.
+
 ## Load the research contract
 
 1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
