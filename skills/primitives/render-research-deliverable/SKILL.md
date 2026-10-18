@@ -43,6 +43,8 @@ Use the selected output profile. Keep the Research Brief's question, constructs,
 
 Invoke `$research-writing` for evidence-led academic prose. Invoke `$citation-audit` before finalizing factual claims and references. Invoke `$research-review` when the artifact claims submission, funding, or decision readiness. In revision mode, pass the identical frozen comparison packet to both; never let separate reviewers reconstruct different deltas.
 
+For academic plans, proposals, blueprints and manuscripts, apply the shared [academic-prose contract](../research-writing/references/academic-prose.md) by default in the requested language. Render the body as a connected scholarly argument, preserve necessary technical structures and claim strength, and use APA unless a supplied citation style takes precedence. Do not turn the ASD-STE100 clarity adaptation into a compliance claim or rigid English-language restrictions.
+
 Use the user's requested language and venue conventions. Default to Markdown. Use LaTeX for an equation-heavy academic artifact when requested; compile PDF only when requested and a supported local document workflow is available. Do not create DOCX, slides, budgets, forms, or submission packages unless requested.
 
 Write the canonical artifact to the resolved destination:

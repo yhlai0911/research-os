@@ -1,0 +1,263 @@
+{
+  "date": "2026-10-18",
+  "base_commit": "4f7c1625b45a9896378bc890fd65b2626977bdf6",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "service_tier": "default",
+  "cli_version": "0.162.1",
+  "overrides": [],
+  "limits": "Six bounded observations, not a repeated-run estimate or full-workflow acceptance. Full local artifacts and raw events retained separately. Published response is the final message; primary-source bodies and command transcripts are excluded.",
+  "cases": [
+    {
+      "id": "initial/zh-write",
+      "prompt": "Use $research-writing at <TEST_ROOT>/frozen-sources/zh-write/skills/primitives/research-writing/SKILL.md to handle the researcher request. Follow workspace AGENTS.md, read the selected skill and its applicable resources, and use only fixed source roots.\n\n請完成 PAPER-STYLE 的討論段，修正不受已存紀錄支持的表述。保留既有研究問題、數字、引文與方法內容；不要重做分析，也不要改其他段落。請直接修改並保存現有稿件。\n",
+      "expected": "Semantic artifact inspection: connected academic prose/located review; clear consistent terms; preserve exact numbers, citation metadata, nuance and necessary methods/table/equation; reject unsupported causality/no-effect/compliance; no rigid language restrictions; correct canonical writeback; no unrequested manuscript mutation.\n",
+      "execution": {
+        "exit": 0,
+        "process_status": "finished",
+        "seconds": 129.271,
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "service_tier": "default",
+        "overrides": [],
+        "turn_completed": true,
+        "raw_sha256": "e35d98ed767c129234280501c3bd319c05f7c39549a3b22601641d99f515def6"
+      },
+      "source_sha256": {
+        "primitives/research-writing/SKILL.md": "e9f467b788fdc66b745dff3b0132776fa7e78697add1a595ce1ba251cfcbad26",
+        "primitives/research-writing/references/academic-prose.md": "c251029c437560d3273f87517c632c7d7a1be75fe3d43ca06bc654448a940edd"
+      },
+      "judgment": {
+        "case": "zh-write",
+        "verdict": "pass",
+        "scope": "bounded academic-prose output behavior only",
+        "judgment_method": "primary agent full-artifact and source readback, supported by protected-content equality checks; not a keyword or exit-code judgment",
+        "actual": "主代理逐篇閱讀保存稿與來源：三段依序解釋不確定關聯、合成紀錄／未重算限制、寫作原則與認證界線。數字未改，未新增文獻；必要術語保留。APA 作者日期及既有參考條目保留。完成狀態明說只指討論修訂。",
+        "equality_checks": {
+          "prefix_methods_equation_table_byte_identical": true,
+          "references_byte_identical": true,
+          "saved_record_byte_identical": true,
+          "discussion_actually_changed": true
+        },
+        "paper_after_sha256": "c96855d8164d67ab0154176619f80887862cd6a908fa3d10bddc1ebc909ebea6"
+      },
+      "response": "已直接修訂並保存 [PAPER-STYLE 討論段](<TEST_ROOT>/runs/zh-write/.research/papers/PAPER-STYLE.md:21)。\n\n已修正因果、完全無作用及標準認證等不受紀錄支持的表述，補明合成紀錄與推論限制。讀回確認：既有數字、引文、方法及其他段落均保留，未重做分析。",
+      "artifact_sha256": "c96855d8164d67ab0154176619f80887862cd6a908fa3d10bddc1ebc909ebea6",
+      "paper_before_sha256": "a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434",
+      "paper_after_sha256": "c96855d8164d67ab0154176619f80887862cd6a908fa3d10bddc1ebc909ebea6",
+      "artifact_excerpt": "本合成教學紀錄中的術語一致性指數與理解正確率，僅能依保存欄位討論其關聯：beta=0.02、95% CI=[-0.05,0.09]、p=0.57、n=120。雖然係數為正，區間仍涵蓋零及正負值，因此不能將這組紀錄解讀為確定的正向關聯或重大效果。同樣地，p 值不顯著也不能證明完全沒有作用；本紀錄未提供等效性檢定，無法據此判定效果等同於零。"
+    },
+    {
+      "id": "initial/en-write",
+      "prompt": "Use $research-writing at <TEST_ROOT>/frozen-sources/en-write/skills/primitives/research-writing/SKILL.md to handle the researcher request. Follow workspace AGENTS.md, read the selected skill and its applicable resources, and use only fixed source roots.\n\nRevise and save the discussion in PAPER-STYLE for the existing academic teaching note. Correct statements unsupported by the saved records. Preserve the question, numbers, citations and methods; do not rerun analysis or edit other sections.\n",
+      "expected": "Semantic artifact inspection: connected academic prose/located review; clear consistent terms; preserve exact numbers, citation metadata, nuance and necessary methods/table/equation; reject unsupported causality/no-effect/compliance; no rigid language restrictions; correct canonical writeback; no unrequested manuscript mutation.\n",
+      "execution": {
+        "exit": 0,
+        "process_status": "finished",
+        "seconds": 158.799,
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "service_tier": "default",
+        "overrides": [],
+        "turn_completed": true,
+        "raw_sha256": "f40a7b3e0673786fb77caffad1e2461fa6ccb7ee76a5e9e647a65aa059ab4af1"
+      },
+      "source_sha256": {
+        "primitives/research-writing/SKILL.md": "e9f467b788fdc66b745dff3b0132776fa7e78697add1a595ce1ba251cfcbad26",
+        "primitives/research-writing/references/academic-prose.md": "c251029c437560d3273f87517c632c7d7a1be75fe3d43ca06bc654448a940edd"
+      },
+      "judgment": {
+        "case": "en-write",
+        "verdict": "pass",
+        "scope": "bounded academic-prose output behavior only",
+        "judgment_method": "primary agent full-artifact and source readback, supported by protected-content equality checks; not a keyword or exit-code judgment",
+        "actual": "主代理逐篇閱讀保存稿與來源：四段依序解釋不確定關聯、數字來源限制、原則與證據界線、專業術語與合規界線。無因果／無效果斷言、無字典或固定句長門檻。完成狀態限定 Discussion revision only。",
+        "equality_checks": {
+          "prefix_methods_equation_table_byte_identical": true,
+          "references_byte_identical": true,
+          "saved_record_byte_identical": true,
+          "discussion_actually_changed": true
+        },
+        "paper_after_sha256": "1331de0466d16b2311b67ec86341f064e9881bc97593dd1f6e75d2232c6f8a31"
+      },
+      "response": "Revised and saved the [Discussion in PAPER-STYLE](<TEST_ROOT>/runs/en-write/.research/papers/PAPER-STYLE.md:21) as connected academic paragraphs, correcting unsupported causal, no-effect, and compliance claims.\n\nReadback confirmed that the question, numbers, citations, methods, and other sections were preserved. No analysis was rerun. Claim-use pointers and the scoped audit record were updated.",
+      "artifact_sha256": "1331de0466d16b2311b67ec86341f064e9881bc97593dd1f6e75d2232c6f8a31",
+      "paper_before_sha256": "7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a",
+      "paper_after_sha256": "1331de0466d16b2311b67ec86341f064e9881bc97593dd1f6e75d2232c6f8a31",
+      "artifact_excerpt": "In the saved synthetic record, terminology consistency has a positive coefficient for its association with comprehension accuracy: beta=0.02, 95% CI=[-0.05,0.09], p=0.57, n=120. The interval includes zero and values in both directions, so the record does not establish a precise positive association. Nonsignificance also does not demonstrate that the association is absent; no equivalence test is recorded. The appropriate reading is therefore an uncertain association within the supplied fixture, rather than evidence that terminology consistency improves comprehension."
+    },
+    {
+      "id": "initial/zh-review",
+      "prompt": "Use $research-review at <TEST_ROOT>/frozen-sources/zh-review/skills/primitives/research-review/SKILL.md to handle the researcher request. Follow workspace AGENTS.md, read the selected skill and its applicable resources, and use only fixed source roots.\n\n請全文審查 PAPER-STYLE，檢查其論證、寫法與主張是否站得住腳，給具位置與驗收條件的修正意見。這輪只審查，不改稿、不重做分析；以繁體中文交付。\n",
+      "expected": "Semantic artifact inspection: connected academic prose/located review; clear consistent terms; preserve exact numbers, citation metadata, nuance and necessary methods/table/equation; reject unsupported causality/no-effect/compliance; no rigid language restrictions; correct canonical writeback; no unrequested manuscript mutation.\n",
+      "execution": {
+        "exit": 0,
+        "process_status": "finished",
+        "seconds": 335.472,
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "service_tier": "default",
+        "overrides": [],
+        "turn_completed": true,
+        "raw_sha256": "7f564f614545433649cf1a07bdfe7283e5eba13e258294e22b22d3002b3db3ff"
+      },
+      "source_sha256": {
+        "primitives/research-review/SKILL.md": "71fd065b42104b13b1a939abdb765fd478171b62965d9fcb50b1be8c8a8defcf",
+        "primitives/research-writing/references/academic-prose.md": "c251029c437560d3273f87517c632c7d7a1be75fe3d43ca06bc654448a940edd"
+      },
+      "judgment": {
+        "case": "zh-review",
+        "verdict": "pass",
+        "scope": "bounded academic-prose review and return recommendation, not execution of the next revision",
+        "judgment_method": "primary agent full-review, source, claims and index readback plus protected-file byte equality; not keyword or process-exit grading",
+        "actual": "逐篇讀完整審查、保存 claims 與 index：六軸具位置與修正驗收，未把錯誤推論當成數字錯誤；正文需連續推論，保留技術結構，無固定句長或認證。只審不改，finding 開放且 paper 維持 partial，末段明確回 comparison。",
+        "equality_checks": {
+          ".research/papers/PAPER-STYLE.md": true,
+          ".research/briefs/BRIEF-STYLE.md": true,
+          "results.json": true,
+          "source-note.md": true
+        }
+      },
+      "response": "全文審查完成，整體判定為 **major-revision（須大幅修正）**。\n\n主要問題集中在討論段：\n\n- **第 22–23 行**：合成紀錄不足以支持重大效益或因果效果；p=0.57 也不能證明完全無效。\n- **第 24 行**：固定官方來源不支持中文稿正式認證、每句少於 20 字或刪除必要術語的主張。\n- **第 22–24 行**：條列標語、指涉不明與互相矛盾的結論，削弱論證。\n\n[完整審查報告](<TEST_ROOT>/runs/zh-review/.research/reviews/PAPER-STYLE-research-review.md) 包含六軸獨立判定，以及六項具位置、影響、負責角色與驗收條件的修正意見。\n\n原稿與數據雜湊均未改變；未重跑分析。審查報告、主張登錄與索引已完成讀回核對，六項修正仍待處理。",
+      "artifact_sha256": "816902881ec009712676e86a822d7f653eac105f55e65880ff019bb2ad21b863",
+      "paper_before_sha256": "a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434",
+      "paper_after_sha256": "a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434",
+      "artifact_excerpt": "Status: complete\nUpdated: 2026-10-18\nReview mode: full-target\nReview ID: PAPER-STYLE-research-review\nTarget: PAPER-STYLE, Version 1, `.research/papers/PAPER-STYLE.md`\nTarget SHA-256: a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434\nBase / comparison packet: 不適用；本輪是全文初審，並非版本比較。\nOverall verdict: major-revision\nScope: 全文第 1–27 行；僅審查合成教學紀錄的論證、寫法及主張支持程度。未改稿、未執行研究、未重算估計，亦未進行外部查詢。六軸以同一固定全文逐軸獨立判斷，未使用子代理。\n\n本稿需要大幅修正討論段，才符合自身設定的教學用途。方法已明確限定為合成紀錄的欄位轉錄，討論卻把它解讀為重大因果效果，又以不顯著宣告完全無效，並聲稱中文稿取得標準認證。這些是推論及來源支持的缺陷，不能靠縮短句子處理。各問題在既定範圍內均可藉由收斂討論修復，未發現必須重做研究才可保留這份教學稿的致命缺陷；這不代表它已具備真實實證研究的證據。\n\n"
+    },
+    {
+      "id": "initial/en-review",
+      "prompt": "Use $research-review at <TEST_ROOT>/frozen-sources/en-review/skills/primitives/research-review/SKILL.md to handle the researcher request. Follow workspace AGENTS.md, read the selected skill and its applicable resources, and use only fixed source roots.\n\nReview the full PAPER-STYLE manuscript, including its argument, presentation and claim strength. Give located findings with concrete repair and acceptance conditions in English. Review only: do not edit the paper or rerun analysis.\n",
+      "expected": "Semantic artifact inspection: connected academic prose/located review; clear consistent terms; preserve exact numbers, citation metadata, nuance and necessary methods/table/equation; reject unsupported causality/no-effect/compliance; no rigid language restrictions; correct canonical writeback; no unrequested manuscript mutation.\n",
+      "execution": {
+        "exit": 0,
+        "process_status": "finished",
+        "seconds": 243.372,
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "service_tier": "default",
+        "overrides": [],
+        "turn_completed": true,
+        "raw_sha256": "aa292c86b3e4a98a6dbc32931b9090900b9531d7a348736ef4ca846f899a7d7b"
+      },
+      "source_sha256": {
+        "primitives/research-review/SKILL.md": "71fd065b42104b13b1a939abdb765fd478171b62965d9fcb50b1be8c8a8defcf",
+        "primitives/research-writing/references/academic-prose.md": "c251029c437560d3273f87517c632c7d7a1be75fe3d43ca06bc654448a940edd"
+      },
+      "judgment": {
+        "case": "en-review",
+        "verdict": "fail",
+        "scope": "bounded academic-prose review and return recommendation, not execution of the next revision",
+        "judgment_method": "primary agent full-review, source, claims and index readback plus protected-file byte equality; not keyword or process-exit grading",
+        "actual": "正文風格、證據限制與只審不改均符合；但 F01 的修訂後回流明寫 full-target research-review，與既有 comparison 規則矛盾。此項列首輪失敗，不以其餘項目通過抵銷。已補強修正清單回流規範，另跑 v2。",
+        "equality_checks": {
+          ".research/papers/PAPER-STYLE.md": true,
+          ".research/briefs/BRIEF-STYLE.md": true,
+          "results.json": true,
+          "source-note.md": true
+        }
+      },
+      "response": "**Overall verdict: major revision.** The full manuscript was reviewed; its numbers are transcribed correctly, but its Discussion exceeds the evidence.\n\nLocations below refer to [PAPER-STYLE](<TEST_ROOT>/runs/en-review/.research/papers/PAPER-STYLE.md:21).\n\n| Finding | Location | Required repair and acceptance condition |\n|---|---|---|\n| **F01: Unsupported impact** | Line 22 | Explain the bounded teaching contribution. Remove claims of demonstrated effectiveness or major impact. |\n| **F02: Construct confusion** | Lines 22–23 | Distinguish general clarity, terminology consistency, and comprehension accuracy. Do not imply a tested mechanism. |\n| **F03: Unsupported causality** | Line 23 | Describe the saved association, retaining the synthetic and nonreproduced limitations. Remove causal-improvement claims. |\n| **F04: Invalid no-effect conclusion** | Line 23 | Explain that nonsignificance establishes neither absence nor equivalence. Preserve the reported interval and p-value. |\n| **F05: Unsupported compliance claim** | Line 24 | Withdraw compliance/certification assertions and the sentence-length shortcut. Describe only supported adoption of clarity principles; retain necessary technical terminology. |\n| **F06: Fragmented argument** | Lines 22–24 | Replace slogans and bullets with connected Discussion paragraphs linking evidence, interpretation, and limitations. Preserve the Methods, equation, table, and ordered steps. |\n\nThe six axis verdicts are: contribution **major revision**; theory **minor revision**; identification **major revision**; measurement/data **pass within the synthetic-transcription scope**; evidence **major revision**; execution/presentation **major revision**.\n\nThe [complete review](<TEST_ROOT>/runs/en-review/.research/reviews/PAPER-STYLE-research-review.md) includes source locators, repair owners, dependencies, and acceptance tests. Its registration and claim cross-references passed readback. The manuscript is unchanged, no analysis was rerun, and all six findings remain open.",
+      "artifact_sha256": "acdb99ef48d6ac66e806906e8ecb85de91dad04d4f91ed1390a85c17bdb36029",
+      "paper_before_sha256": "7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a",
+      "paper_after_sha256": "7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a",
+      "artifact_excerpt": "Status: complete\nUpdated: 2026-10-18\nReview mode: full-target\nTarget: PAPER-STYLE, Version 1, `.research/papers/PAPER-STYLE.md`, lines 1–27\nTarget SHA-256: `7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a`\nBase identity: not applicable\nComparison packet: not applicable\nScope: Full manuscript, including argument, presentation, terminology, citations, numerical transcription, uncertainty, and claim strength. Review only; no manuscript edits, estimation, demonstrations, or external searches.\nOverall verdict: major-revision\n\nThe manuscript requires major revision because its Discussion makes causal, no-effect, and standards-compliance claims that its own Methods and fixed sources do not support. The numerical transcription is correct, and the synthetic teaching-note purpose remains viable. The unsupported conclusions are fatal to the manuscript's current argument, but they are repairable within the authorized Discussion-only revision scope; a new study is not a prerequisite for withdrawing them.\n\n"
+    },
+    {
+      "id": "regression-v2/zh-review",
+      "prompt": "Use $research-review at <TEST_ROOT>/regression-v2/frozen-sources/zh-review/skills/primitives/research-review/SKILL.md to handle the researcher request. Follow workspace AGENTS.md, read the selected skill and its applicable resources, and use only fixed source roots.\n\n請全文審查 PAPER-STYLE，檢查其論證、寫法與主張是否站得住腳，給具位置與驗收條件的修正意見。這輪只審查，不改稿、不重做分析；以繁體中文交付。\n",
+      "expected": "Semantic artifact inspection: connected academic prose/located review; clear consistent terms; preserve exact numbers, citation metadata, nuance and necessary methods/table/equation; reject unsupported causality/no-effect/compliance; no rigid language restrictions; correct canonical writeback; no unrequested manuscript mutation.\n",
+      "execution": {
+        "exit": 0,
+        "process_status": "finished",
+        "seconds": 213.27,
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "service_tier": "default",
+        "overrides": [],
+        "turn_completed": true,
+        "raw_sha256": "d1a14c72ab8c61120a2d21b14343d7ac29856e39ed5138d556090763c6c1c43d"
+      },
+      "source_sha256": {
+        "primitives/research-review/SKILL.md": "fcbdcf5b017e9a5d331236f3692e8268d7fbb8300b644ef10968a99066a65fe9",
+        "primitives/research-writing/references/academic-prose.md": "c251029c437560d3273f87517c632c7d7a1be75fe3d43ca06bc654448a940edd"
+      },
+      "judgment": {
+        "case": "zh-review",
+        "verdict": "pass",
+        "scope": "bounded academic-prose review and return recommendation, not execution of the next revision",
+        "judgment_method": "primary agent full-review, source, claims and index readback plus protected-file byte equality; not keyword or process-exit grading",
+        "actual": "已完整讀回六軸報告、F01–F06 修正表、claims 與唯一 index 列。連續論證、數字／術語／結構保留、來源與不確定性均有可觀察驗收條件；所有會改稿的 finding 明列 comparison-mode、原版 hash、實際修訂稿與同一比較封包。只審不改，未把教學稿變成新研究，也未將開放 finding 判為 resolved。",
+        "equality_checks": {
+          ".research/papers/PAPER-STYLE.md": true,
+          ".research/briefs/BRIEF-STYLE.md": true,
+          "results.json": true,
+          "source-note.md": true
+        }
+      },
+      "response": "全文審查完成，整體判定為 **重大修正（major-revision）**。主要缺陷是討論的主張超出合成紀錄與引用來源能支持的範圍。\n\n[完整審查報告](<TEST_ROOT>/regression-v2/runs/zh-review/.research/reviews/PAPER-STYLE-research-review.md)，包含六軸判定、來源定位、修正負責角色及驗收條件。\n\n| 意見 | 原稿位置 | 修正與驗收條件 |\n|---|---|---|\n| F01 因果推論不成立 | 第23行 | 撤回「造成」，限定為合成保存紀錄的解讀。 |\n| F02 統計結論過度且矛盾 | 第22–23行 | 撤回「效果重大」及「證明完全沒有作用」；保留全部數值與不確定性。 |\n| F03 認證主張無來源支持 | 第24行 | 撤回完全符合、正式認證及每句20字條件；區分借用清晰原則與符合完整標準。 |\n| F04 論證與指涉不清 | 第12–15、22–24行 | 討論改為連貫段落，交代主張、依據與限制；釐清「它」、概念及符號。 |\n| F05 實質效果缺乏量尺依據 | 第15、19、22–23行 | 說明量尺資訊不足，不將係數推成實質改善或真實理解效度。 |\n| F06 教學貢獻未說清楚 | 第1、6、22行 | 說明本例能展示的判讀與推論邊界，不宣稱已證明教學成效。 |\n\n數值轉錄與合成資料揭露核對一致。本輪未改稿、未重跑分析；報告及登錄已讀回，原稿與保存數值的雜湊均未變。六項意見目前均待修正。",
+      "artifact_sha256": "326f68637a24743ba1793ba68c4f421326b1591b68b55d7d315d55c9dcae2964",
+      "paper_before_sha256": "a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434",
+      "paper_after_sha256": "a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434",
+      "artifact_excerpt": "Status: complete\nUpdated: 2026-10-18\nReview ID: PAPER-STYLE-research-review\nReview mode: full-target\nTarget: PAPER-STYLE, Version 1, .research/papers/PAPER-STYLE.md\nTarget SHA-256: a5a4e9ca61e2110cfdfeba626428431a61955567510214d931154e511215f434\nBase identity: 不適用；本次為首次全文審查。\nComparison packet: 不適用；未進行版本比較。\nOverall verdict: major-revision\nScope: 全文第1–27行；合成教學紀錄的論證、學術寫法、主張與來源支持程度。僅審查，不改稿、不重算、不執行示範。\n\n整體判定為 major-revision。方法已明確揭露合成紀錄與未重算的限制，但討論同時宣稱因果、重大效果、完全無作用及正式標準認證，均超出保存欄位與指定來源可支持的範圍。這些是可修復的主張問題；不必為了修正文句新增實驗、等效性檢定或因果分析。本次審查已完成，不表示稿件已通過驗收。\n\n"
+    },
+    {
+      "id": "regression-v2/en-review",
+      "prompt": "Use $research-review at <TEST_ROOT>/regression-v2/frozen-sources/en-review/skills/primitives/research-review/SKILL.md to handle the researcher request. Follow workspace AGENTS.md, read the selected skill and its applicable resources, and use only fixed source roots.\n\nReview the full PAPER-STYLE manuscript, including its argument, presentation and claim strength. Give located findings with concrete repair and acceptance conditions in English. Review only: do not edit the paper or rerun analysis.\n",
+      "expected": "Semantic artifact inspection: connected academic prose/located review; clear consistent terms; preserve exact numbers, citation metadata, nuance and necessary methods/table/equation; reject unsupported causality/no-effect/compliance; no rigid language restrictions; correct canonical writeback; no unrequested manuscript mutation.\n",
+      "execution": {
+        "exit": 0,
+        "process_status": "finished",
+        "seconds": 187.714,
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "service_tier": "default",
+        "overrides": [],
+        "turn_completed": true,
+        "raw_sha256": "c956b36d9a2d7f24b9da962e914c853071e2b7bb39e959734778dc0cdfd3e107"
+      },
+      "source_sha256": {
+        "primitives/research-review/SKILL.md": "fcbdcf5b017e9a5d331236f3692e8268d7fbb8300b644ef10968a99066a65fe9",
+        "primitives/research-writing/references/academic-prose.md": "c251029c437560d3273f87517c632c7d7a1be75fe3d43ca06bc654448a940edd"
+      },
+      "judgment": {
+        "case": "en-review",
+        "verdict": "pass",
+        "scope": "bounded academic-prose review and return recommendation, not execution of the next revision",
+        "judgment_method": "primary agent full-review, source, claims and index readback plus protected-file byte equality; not keyword or process-exit grading",
+        "actual": "已完整讀回六軸報告、F01–F05、claims 與 index。各修正回流及 closure gate 均明列 comparison-mode 與固定原版／修訂版；沒有首輪 F01 的 full-target 回流錯誤。風格意見要求實際推論而非移除 bullets，保留術語、數字、方法結構及合成／未重算限制。六軸分歧與 open findings 保留，未暗改稿或聲稱研究完成。",
+        "equality_checks": {
+          ".research/papers/PAPER-STYLE.md": true,
+          ".research/briefs/BRIEF-STYLE.md": true,
+          "results.json": true,
+          "source-note.md": true
+        }
+      },
+      "response": "**Overall verdict: major revision.** The full review is complete and saved in [PAPER-STYLE-research-review.md](<TEST_ROOT>/regression-v2/runs/en-review/.research/reviews/PAPER-STYLE-research-review.md).\n\nFive findings remain open:\n\n| Finding | Manuscript location | Required repair and acceptance condition |\n|---|---|---|\n| **F01: Unsupported impact** | Line 22 | Describe the contribution as a synthetic teaching illustration. Acceptance requires explicit referents and no unsupported effectiveness or practical-impact claims. |\n| **F02: Unsupported causation** | Line 23, first sentence | Describe the recorded association. Acceptance requires removing causal implications while retaining the synthetic-data limitation. |\n| **F03: Nonsignificance misinterpreted** | Line 23, final sentence | Explain that the supplied interval includes zero. Acceptance requires no claim that nonsignificance proves absence, equality or equivalence. |\n| **F04: Unsupported STE compliance** | Line 24 | Distinguish adopting clarity principles from formal conformity. Remove the certification shortcut and preserve necessary technical terminology. Acceptance requires source-supported statements without a fixed sentence-length gate. |\n| **F05: Fragmented argument** | Lines 21–24 | Develop connected paragraphs linking the record, uncertainty, limitations and source scope. Acceptance requires a coherent argument with clear referents; removing bullets alone is insufficient. |\n\nThe six independent verdicts are: contribution **major revision**; theory **minor revision**; identification **major revision**; measurement and data **pass within the transcription scope**; evidence **major revision**; execution **major revision**.\n\nThe Methods and numerical table accurately disclose and transcribe the supplied record. That finding does not validate estimation or offset the Discussion’s unsupported conclusions.\n\nThe report specifies repair owners, dependencies and acceptance tests. Readback confirmed consistent review registration and claim links. **The manuscript is unchanged, and no analysis was rerun.** Any revision should return through comparison-mode review against the pinned original.",
+      "artifact_sha256": "f1cdf95f78c30fe7ff47ecf498f99611e6c3257928f424663b600b9bab706123",
+      "paper_before_sha256": "7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a",
+      "paper_after_sha256": "7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a",
+      "artifact_excerpt": "Status: complete\nUpdated: 2026-10-18T10:55:58+00:00\nReview mode: full-target\nReview ID: PAPER-STYLE-research-review\nPinned target: PAPER-STYLE, Version 1; `.research/papers/PAPER-STYLE.md`, lines 1–27\nTarget SHA-256: `7b43b2bb365df23173033fdd941bf62bdba02bd02db1b6aae1ae84eb1a1db62a`\nBase identity: not applicable (first full-target review)\nComparison packet: not applicable\nScope: Entire manuscript, including argument, presentation, citation entailment and claim strength. Review only; no paper edits, estimation, demonstrations or new research.\nOverall verdict: major-revision\nFinding state: F01–F05 are open.\n\nThe manuscript requires major revision because its Discussion draws causal, null-effect and compliance conclusions that its own Methods and fixed sources do not support. The teaching-note purpose remains viable: the saved numbers can illustrate bounded interpretation of a synthetic association. The review is complete; the manuscript remains partial and has not passed a revision gate.\n\n"
+    }
+  ],
+  "fixture": {
+    "synthetic": true,
+    "results": {
+      "synthetic": true,
+      "n": 120,
+      "beta": 0.02,
+      "ci95": [
+        -0.05,
+        0.09
+      ],
+      "p": 0.57,
+      "ci_method_label": "heteroskedasticity-robust (supplied label, not recomputed)",
+      "estimation_reproduced": false
+    },
+    "brief": "# Research Brief: Terminology consistency and comprehension accuracy\n- ID: BRIEF-STYLE\n- Status: partial\n- Working title: accepted provisional teaching-note title; not a degree or journal commitment.\n## Research question\nWhat association between terminology consistency and comprehension accuracy is recorded in this synthetic teaching fixture?\n## Scope\nSynthetic saved software record, not real human observations. n=120, beta=0.02, 95% CI=[-0.05,0.09], p=0.57. These values are a transcription target, not recomputed estimates. The CI method label is supplied as heteroskedasticity-robust but no implementation is provided. No causal identification, equivalence test, real participants or market study is claimed. Null results do not prove no effect. Keep limitations visible.\n## Sources\nOnly the supplied official FAQ and local record. The FAQ permits adopting principles in other writing contexts but is not a certificate of compliance or evidence that this synthetic example improves real comprehension. No new literature or metadata is needed.\n## Task boundary\nWriting may change the Discussion only. Review may write canonical review/claims/index only and may not edit the paper. Preserve Methods, equation, table and ordered steps; their structure has a research communication purpose. No new threshold or question.\n",
+    "claims": "schema_version: 1\nstatuses:\n- unverified\n- verified\n- contested\n- superseded\n- blocked\nclaims:\n- id: claim-record\n  text: The synthetic record contains n=120,beta=.02,CI=[-.05,.09],p=.57; no estimate\n    reproduction or actual study is claimed.\n  status: verified\n  scope: saved fields only\n  sources:\n  - locator: results.json\n    sha256: 995e4b6b080711d1e321fdf9aafd74fb22cbdfa0fee669f40db1698f520700de\n- id: claim-design\n  text: The fixture has no causal identification, actual observations or equivalence\n    test. Numerical labels are not independently verified methods.\n  status: verified\n  sources:\n  - locator: .research/briefs/BRIEF-STYLE.md\n- id: claim-ste-scope\n  text: The official FAQ concerns controlled technical English and permits adopting\n    useful clarity principles elsewhere; this does not certify an academic text.\n  status: verified\n  sources:\n  - locator: source-note.md and its fixed primary text\n    url: https://www.asd-ste100.org/STE_faq.html\n",
+    "source_note": "# Fixed primary source\nAuthor: ASD Simplified Technical English Maintenance Group\nDate: n.d. (no publication date established on this FAQ)\nTitle: Frequently asked questions\nURL: https://www.asd-ste100.org/STE_faq.html\nPrimary text: <TEST_ROOT>/faq.txt\nHTML manifest: <TEST_ROOT>/official-source-manifest.json\nLocator: About STE > What is ASD-STE100; Use and application > Who needs to write in STE; Misconceptions > Can anyone use STE.\nScope paraphrase: STE is controlled English for technical documentation. The FAQ permits adopting useful clarity principles in other writing contexts. That does not establish formal compliance, academic validity or an effect in this synthetic record.\n",
+    "paper_zh": "# 術語一致性與理解正確率：合成教學紀錄\n- ID: PAPER-STYLE\n- Version: 1\n\n## 方法\n本稿只轉錄合成紀錄，並非真實受試者研究；異質變異穩健（heteroskedasticity-robust）為供件中的區間方法標籤，未重算。\n\n1. 讀取保存的欄位。\n2. 比對文字與欄位，不更換門檻。\n\n\\[\ny_i = \\alpha + \\beta x_i + \\epsilon_i\n\\]\n\nHere x is the terminology-consistency index and y is comprehension accuracy (proportion); these are fixture variable definitions.\n\n| n | beta | 95% CI | p |\n|---|---|---|---|\n| 120 | 0.02 | [-0.05,0.09] | 0.57 |\n\n## 討論\n- 清晰很重要。效果重大。這說明它有效。\n- 術語一致性造成理解正確率提高；beta=0.02、95% CI=[-0.05,0.09]、p=0.57、n=120。p不顯著，證明完全沒有作用。\n- ASD Simplified Technical English Maintenance Group（STEMG, n.d.）討論清晰原則，因此本中文學術稿完全符合 ASD-STE100。只要每句少於20字並刪除異質變異穩健等難詞，就能正式認證。\n\n## 參考文獻\nASD Simplified Technical English Maintenance Group. (n.d.). Frequently asked questions. https://www.asd-ste100.org/STE_faq.html\n",
+    "paper_en": "# Terminology consistency and comprehension accuracy: a synthetic teaching record\n- ID: PAPER-STYLE\n- Version: 1\n\n## Methods\nThis note transcribes a synthetic record, not observations from real participants. Heteroskedasticity-robust is the supplied interval-method label; its implementation was not reproduced.\n\n1. Read the saved fields.\n2. Compare the text with the fields without changing thresholds.\n\n\\[\ny_i = \\alpha + \\beta x_i + \\epsilon_i\n\\]\n\nHere x is the terminology-consistency index and y is comprehension accuracy (proportion); these are fixture variable definitions.\n\n| n | beta | 95% CI | p |\n|---|---|---|---|\n| 120 | 0.02 | [-0.05,0.09] | 0.57 |\n\n## Discussion\n- Clarity matters. Major impact. This proves it works.\n- Terminology consistency caused higher comprehension accuracy: beta=0.02, 95% CI=[-0.05,0.09], p=0.57, n=120. Nonsignificance proves there is no effect.\n- ASD Simplified Technical English Maintenance Group (STEMG, n.d.) discusses clarity; therefore this academic paper is fully ASD-STE100-compliant. Certification only needs sentences below 20 words and removal of difficult terms such as heteroskedasticity-robust.\n\n## References\nASD Simplified Technical English Maintenance Group. (n.d.). Frequently asked questions. https://www.asd-ste100.org/STE_faq.html\n",
+    "setup": "Initialize a new disposable workspace using research-workspace-contract. Set Mission to synthetic association-only teaching note, register BRIEF-STYLE and PAPER-STYLE as partial, save the supplied fixture files and verified scoped claims. Pin official source snapshots separately. Invoke one selected skill with the case prompt; no research estimation or external writes are authorized."
+  }
+}
