@@ -5,6 +5,7 @@ defaults:
   distribution: "core"
   replaced_by: null
 composition:
+  research-1-grill: [research-grilling]
   research-help: [research-grilling]
   research-setup: [research-workspace-contract]
   research-2-brief: [research-workspace-contract, synthesize-research-brief]

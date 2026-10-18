@@ -24,8 +24,10 @@
 
 ## Required repairs
 
-| Priority | Finding | Evidence | Required repair | Recheck |
-|---|---|---|---|---|
+| Finding ID | Priority | Target location | Evidence | Required repair | Owner | Acceptance test | Return workflow | Disposition |
+|---|---|---|---|---|---|---|---|---|
+
+Keep review completion separate from target readiness. Resolve a finding only after inspecting the changed target and its recheck evidence.
 
 ## Readback
 

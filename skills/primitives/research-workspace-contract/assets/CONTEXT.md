@@ -15,6 +15,13 @@ This table is the single registry of current research artifacts and task outcome
 
 Unresolved.
 
+## Working title
+
+- Title: unresolved
+- State: unresolved (use proposed or accepted when justified)
+- Question/decision pointer: unresolved
+- Revisit when: the question, scope, inference, or evidence changes
+
 ## Unit of analysis and scope
 
 Unresolved.
