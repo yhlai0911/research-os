@@ -2,6 +2,8 @@
 
 **English** · [繁體中文](README.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
+**New practical tutorial:** [Watch voiced v4 (7:57.93, Traditional Chinese)](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [English walkthrough](docs/TUTORIAL_GRANGER.en.md) · [40 scenes and offline rebuild sources](jobs/research-os-granger-tutorial/v4/README.md). Follow installation, the six research steps, a diagnostic revision, and delivery of a bounded first draft using public Treasury data. The [original 4:01 overview](jobs/research-os-tutorial/README.md) remains available.
+
 Research OS is a composable set of Agent Skills for turning a topic, equation, dataset, draft, or reviewer concern into a falsifiable research brief and an evidence-led plan, proposal, or paper. It separates researcher decisions from discoverable facts, records uncertainty and provenance, and makes the conditions for completing or stopping each stage explicit.
 
 Its design draws on [Matt Pocock's skills](https://github.com/mattpocock/skills), including narrow primitives, explicit completion criteria, progressive disclosure, and feedback loops. Research OS adds claim–evidence tracking, counterfactuals, falsification, data feasibility, ethics, reproducibility, and durable handoffs. These are design intentions, not a claim that the system has demonstrated better research outcomes.

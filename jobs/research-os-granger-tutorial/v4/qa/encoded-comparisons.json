@@ -1,0 +1,322 @@
+[
+  {
+    "scene": 0,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-001.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-00-at-3s.png",
+    "mae": 2.2965671617798353,
+    "fraction_over40": 7.474922839506173e-05,
+    "pass": true
+  },
+  {
+    "scene": 1,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-002.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-03-at-14s.png",
+    "mae": 2.289798578960905,
+    "fraction_over40": 0.0002565586419753086,
+    "pass": true
+  },
+  {
+    "scene": 2,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-003.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-08-at-28.933s.png",
+    "mae": 2.2271440972222223,
+    "fraction_over40": 7.764274691358025e-05,
+    "pass": true
+  },
+  {
+    "scene": 3,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-004.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-09-at-38.067s.png",
+    "mae": 2.2892226080246916,
+    "fraction_over40": 0.000427758487654321,
+    "pass": true
+  },
+  {
+    "scene": 4,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-005.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-13-at-55s.png",
+    "mae": 2.222533114711934,
+    "fraction_over40": 8.53587962962963e-05,
+    "pass": true
+  },
+  {
+    "scene": 5,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-006.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-14-at-61.5s.png",
+    "mae": 2.3188882458847737,
+    "fraction_over40": 0.0003660300925925926,
+    "pass": true
+  },
+  {
+    "scene": 6,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-007.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-18-at-77.533s.png",
+    "mae": 2.2444852752057614,
+    "fraction_over40": 7.764274691358025e-05,
+    "pass": true
+  },
+  {
+    "scene": 7,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-008.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-19-at-85.6s.png",
+    "mae": 2.4559765625,
+    "fraction_over40": 0.00014226466049382716,
+    "pass": true
+  },
+  {
+    "scene": 8,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-009.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-20-at-101.533s.png",
+    "mae": 2.243957047325103,
+    "fraction_over40": 7.523148148148149e-05,
+    "pass": true
+  },
+  {
+    "scene": 9,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-010.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-21-at-112.233s.png",
+    "mae": 2.218400688014403,
+    "fraction_over40": 7.523148148148149e-05,
+    "pass": true
+  },
+  {
+    "scene": 10,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-011.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-22-at-123.133s.png",
+    "mae": 2.2781577932098767,
+    "fraction_over40": 7.571373456790123e-05,
+    "pass": true
+  },
+  {
+    "scene": 11,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-012.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-23-at-135.267s.png",
+    "mae": 2.236707658179012,
+    "fraction_over40": 7.716049382716049e-05,
+    "pass": true
+  },
+  {
+    "scene": 12,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-013.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-24-at-143.433s.png",
+    "mae": 2.3310362011316874,
+    "fraction_over40": 0.00048755787037037035,
+    "pass": true
+  },
+  {
+    "scene": 13,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-014.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-29-at-161.967s.png",
+    "mae": 2.3034638631687243,
+    "fraction_over40": 0.00032166280864197533,
+    "pass": true
+  },
+  {
+    "scene": 14,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-015.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-31-at-171.367s.png",
+    "mae": 2.242529738940329,
+    "fraction_over40": 0.00015239197530864197,
+    "pass": true
+  },
+  {
+    "scene": 15,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-016.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-32-at-179.367s.png",
+    "mae": 2.3891772762345678,
+    "fraction_over40": 0.0003187692901234568,
+    "pass": true
+  },
+  {
+    "scene": 16,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-017.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-33-at-195.2s.png",
+    "mae": 2.2249297518004116,
+    "fraction_over40": 7.233796296296296e-05,
+    "pass": true
+  },
+  {
+    "scene": 17,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-018.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-34-at-201.3s.png",
+    "mae": 2.359792309670782,
+    "fraction_over40": 0.0003298611111111111,
+    "pass": true
+  },
+  {
+    "scene": 18,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-019.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-35-at-216.367s.png",
+    "mae": 2.231171071244856,
+    "fraction_over40": 8.391203703703703e-05,
+    "pass": true
+  },
+  {
+    "scene": 19,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-020.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-36-at-224.2s.png",
+    "mae": 2.4083174189814813,
+    "fraction_over40": 0.0005680941358024691,
+    "pass": true
+  },
+  {
+    "scene": 20,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-021.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-37-at-240.167s.png",
+    "mae": 2.2558273855452673,
+    "fraction_over40": 0.00010127314814814815,
+    "pass": true
+  },
+  {
+    "scene": 21,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-022.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-38-at-251.233s.png",
+    "mae": 2.2252896733539096,
+    "fraction_over40": 9.307484567901234e-05,
+    "pass": true
+  },
+  {
+    "scene": 22,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-023.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-42-at-264.467s.png",
+    "mae": 2.15611127186214,
+    "fraction_over40": 0.0001080246913580247,
+    "pass": true
+  },
+  {
+    "scene": 23,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-024.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-44-at-270.767s.png",
+    "mae": 2.4122845936213992,
+    "fraction_over40": 0.00033130787037037037,
+    "pass": true
+  },
+  {
+    "scene": 24,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-025.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-48-at-287.933s.png",
+    "mae": 2.1687329603909467,
+    "fraction_over40": 7.619598765432098e-05,
+    "pass": true
+  },
+  {
+    "scene": 25,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-026.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-50-at-293.6s.png",
+    "mae": 2.4407294881687243,
+    "fraction_over40": 0.000427758487654321,
+    "pass": true
+  },
+  {
+    "scene": 26,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-027.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-51-at-306.8s.png",
+    "mae": 2.235865322788066,
+    "fraction_over40": 7.8125e-05,
+    "pass": true
+  },
+  {
+    "scene": 27,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-028.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-52-at-316.967s.png",
+    "mae": 2.5798630401234566,
+    "fraction_over40": 0.0016767939814814816,
+    "pass": true
+  },
+  {
+    "scene": 28,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-029.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-53-at-334.633s.png",
+    "mae": 2.2405770961934155,
+    "fraction_over40": 0.00019145447530864197,
+    "pass": true
+  },
+  {
+    "scene": 29,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-030.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-54-at-342.1s.png",
+    "mae": 2.4553759966563784,
+    "fraction_over40": 0.0006983024691358025,
+    "pass": true
+  },
+  {
+    "scene": 30,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-031.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-58-at-366.967s.png",
+    "mae": 2.224580439814815,
+    "fraction_over40": 0.0002025462962962963,
+    "pass": true
+  },
+  {
+    "scene": 31,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-032.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-59-at-374.967s.png",
+    "mae": 2.283518840020576,
+    "fraction_over40": 7.619598765432098e-05,
+    "pass": true
+  },
+  {
+    "scene": 32,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-033.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-60-at-383.967s.png",
+    "mae": 2.4904126478909463,
+    "fraction_over40": 0.0005984760802469136,
+    "pass": true
+  },
+  {
+    "scene": 33,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-034.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-61-at-396.633s.png",
+    "mae": 2.415380658436214,
+    "fraction_over40": 0.00032841435185185187,
+    "pass": true
+  },
+  {
+    "scene": 34,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-035.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-62-at-408.833s.png",
+    "mae": 2.4384378215020575,
+    "fraction_over40": 0.0007865547839506173,
+    "pass": true
+  },
+  {
+    "scene": 35,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-036.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-63-at-421.1s.png",
+    "mae": 2.38798353909465,
+    "fraction_over40": 0.0006910686728395062,
+    "pass": true
+  },
+  {
+    "scene": 36,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-037.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-65-at-433.2s.png",
+    "mae": 2.6158056841563786,
+    "fraction_over40": 0.00040557484567901235,
+    "pass": true
+  },
+  {
+    "scene": 37,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-038.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-66-at-445.567s.png",
+    "mae": 2.673309381430041,
+    "fraction_over40": 0.00044656635802469135,
+    "pass": true
+  },
+  {
+    "scene": 38,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-039.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-67-at-457.7s.png",
+    "mae": 2.4091857960390946,
+    "fraction_over40": 0.0006573109567901235,
+    "pass": true
+  },
+  {
+    "scene": 39,
+    "encoded_file": "voiced-v4/qa/decoded-scenes/frame-040.png",
+    "source_file": "voiced-v4/qa/final-original-stills/frame-68-at-470.533s.png",
+    "mae": 2.336074459876543,
+    "fraction_over40": 9.211033950617283e-05,
+    "pass": true
+  }
+]

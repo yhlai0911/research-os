@@ -1,0 +1,322 @@
+[
+  {
+    "scene": 0,
+    "audio_start": 0.25,
+    "audio_end": 9.13,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994062940811315,
+    "rms": 0.14988206326961517,
+    "pass": true
+  },
+  {
+    "scene": 1,
+    "audio_start": 11.25,
+    "audio_end": 21.310000000000002,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993528972402546,
+    "rms": 0.14362938702106476,
+    "pass": true
+  },
+  {
+    "scene": 2,
+    "audio_start": 22.28333333333333,
+    "audio_end": 31.30333333333333,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993677793526686,
+    "rms": 0.14723625779151917,
+    "pass": true
+  },
+  {
+    "scene": 3,
+    "audio_start": 35.31666666666666,
+    "audio_end": 44.32666666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994511808479731,
+    "rms": 0.16127587854862213,
+    "pass": true
+  },
+  {
+    "scene": 4,
+    "audio_start": 48.349999999999994,
+    "audio_end": 56.25999999999999,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993818870858953,
+    "rms": 0.1513797640800476,
+    "pass": true
+  },
+  {
+    "scene": 5,
+    "audio_start": 58.74999999999999,
+    "audio_end": 67.36999999999999,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993095377314337,
+    "rms": 0.15031583607196808,
+    "pass": true
+  },
+  {
+    "scene": 6,
+    "audio_start": 70.88333333333333,
+    "audio_end": 78.84333333333332,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994465142138379,
+    "rms": 0.15157140791416168,
+    "pass": true
+  },
+  {
+    "scene": 7,
+    "audio_start": 82.85,
+    "audio_end": 90.88,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994596780859468,
+    "rms": 0.15215736627578735,
+    "pass": true
+  },
+  {
+    "scene": 8,
+    "audio_start": 94.88333333333333,
+    "audio_end": 101.58333333333333,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9991343787433661,
+    "rms": 0.1338430941104889,
+    "pass": true
+  },
+  {
+    "scene": 9,
+    "audio_start": 105.58333333333333,
+    "audio_end": 112.48333333333333,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994274407834178,
+    "rms": 0.14711180329322815,
+    "pass": true
+  },
+  {
+    "scene": 10,
+    "audio_start": 116.48333333333333,
+    "audio_end": 125.13333333333334,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993365265407483,
+    "rms": 0.14135771989822388,
+    "pass": true
+  },
+  {
+    "scene": 11,
+    "audio_start": 128.61666666666667,
+    "audio_end": 136.67666666666668,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994634001244164,
+    "rms": 0.16821689903736115,
+    "pass": true
+  },
+  {
+    "scene": 12,
+    "audio_start": 140.68333333333334,
+    "audio_end": 149.70333333333335,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994701984841216,
+    "rms": 0.16167095303535461,
+    "pass": true
+  },
+  {
+    "scene": 13,
+    "audio_start": 153.71666666666667,
+    "audio_end": 162.88666666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993488267842537,
+    "rms": 0.14605000615119934,
+    "pass": true
+  },
+  {
+    "scene": 14,
+    "audio_start": 164.71666666666667,
+    "audio_end": 172.60666666666665,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994432187269905,
+    "rms": 0.14945809543132782,
+    "pass": true
+  },
+  {
+    "scene": 15,
+    "audio_start": 176.61666666666667,
+    "audio_end": 184.52666666666667,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994319850263677,
+    "rms": 0.150079146027565,
+    "pass": true
+  },
+  {
+    "scene": 16,
+    "audio_start": 188.55,
+    "audio_end": 196.08,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994687099215337,
+    "rms": 0.1604791283607483,
+    "pass": true
+  },
+  {
+    "scene": 17,
+    "audio_start": 198.55,
+    "audio_end": 205.70000000000002,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9992833306044093,
+    "rms": 0.14788945019245148,
+    "pass": true
+  },
+  {
+    "scene": 18,
+    "audio_start": 209.71666666666667,
+    "audio_end": 217.44666666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9992848173092117,
+    "rms": 0.14881601929664612,
+    "pass": true
+  },
+  {
+    "scene": 19,
+    "audio_start": 221.45,
+    "audio_end": 229.5,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9992682482684938,
+    "rms": 0.15352587401866913,
+    "pass": true
+  },
+  {
+    "scene": 20,
+    "audio_start": 233.51666666666665,
+    "audio_end": 240.55666666666664,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9992964340391175,
+    "rms": 0.15087653696537018,
+    "pass": true
+  },
+  {
+    "scene": 21,
+    "audio_start": 244.58333333333331,
+    "audio_end": 255.26333333333332,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9992621811542067,
+    "rms": 0.1486293524503708,
+    "pass": true
+  },
+  {
+    "scene": 22,
+    "audio_start": 256.21666666666664,
+    "audio_end": 264.00666666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994255796075555,
+    "rms": 0.14925336837768555,
+    "pass": true
+  },
+  {
+    "scene": 23,
+    "audio_start": 268.01666666666665,
+    "audio_end": 277.27666666666664,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994046007896343,
+    "rms": 0.15156050026416779,
+    "pass": true
+  },
+  {
+    "scene": 24,
+    "audio_start": 281.2833333333333,
+    "audio_end": 289.8733333333333,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.999294526944988,
+    "rms": 0.1475064605474472,
+    "pass": true
+  },
+  {
+    "scene": 25,
+    "audio_start": 290.84999999999997,
+    "audio_end": 300.03999999999996,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.999498860425677,
+    "rms": 0.15945254266262054,
+    "pass": true
+  },
+  {
+    "scene": 26,
+    "audio_start": 304.04999999999995,
+    "audio_end": 313.25999999999993,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994110760442518,
+    "rms": 0.15507802367210388,
+    "pass": true
+  },
+  {
+    "scene": 27,
+    "audio_start": 314.21666666666664,
+    "audio_end": 327.00666666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994307930753914,
+    "rms": 0.16140638291835785,
+    "pass": true
+  },
+  {
+    "scene": 28,
+    "audio_start": 327.9833333333333,
+    "audio_end": 335.32333333333327,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993992852117249,
+    "rms": 0.14181682467460632,
+    "pass": true
+  },
+  {
+    "scene": 29,
+    "audio_start": 339.34999999999997,
+    "audio_end": 356.29999999999995,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994483416800347,
+    "rms": 0.16194212436676025,
+    "pass": true
+  },
+  {
+    "scene": 30,
+    "audio_start": 360.3166666666666,
+    "audio_end": 369.7366666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993539544822958,
+    "rms": 0.15366049110889435,
+    "pass": true
+  },
+  {
+    "scene": 31,
+    "audio_start": 372.2166666666666,
+    "audio_end": 380.0866666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993656227623251,
+    "rms": 0.15010525286197662,
+    "pass": true
+  },
+  {
+    "scene": 32,
+    "audio_start": 381.2166666666666,
+    "audio_end": 389.86666666666656,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994587768910981,
+    "rms": 0.15760904550552368,
+    "pass": true
+  },
+  {
+    "scene": 33,
+    "audio_start": 393.88333333333327,
+    "audio_end": 405.1243537414965,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994045999146104,
+    "rms": 0.15660999715328217,
+    "pass": true
+  },
+  {
+    "scene": 34,
+    "audio_start": 406.08333333333326,
+    "audio_end": 414.33333333333326,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993409050090694,
+    "rms": 0.15197263658046722,
+    "pass": true
+  },
+  {
+    "scene": 35,
+    "audio_start": 418.3499999999999,
+    "audio_end": 426.44999999999993,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994472650620594,
+    "rms": 0.15349936485290527,
+    "pass": true
+  },
+  {
+    "scene": 36,
+    "audio_start": 430.44999999999993,
+    "audio_end": 438.7899999999999,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994415298125265,
+    "rms": 0.15021082758903503,
+    "pass": true
+  },
+  {
+    "scene": 37,
+    "audio_start": 442.8166666666666,
+    "audio_end": 450.9466666666666,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993845203411584,
+    "rms": 0.15517105162143707,
+    "pass": true
+  },
+  {
+    "scene": 38,
+    "audio_start": 454.94999999999993,
+    "audio_end": 463.7699999999999,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9994602402197703,
+    "rms": 0.14612972736358643,
+    "pass": true
+  },
+  {
+    "scene": 39,
+    "audio_start": 467.78333333333325,
+    "audio_end": 477.0725170068026,
+    "muxed_vs_expected_wave_correlation_at_exact_timeline_offset": 0.9993110913420218,
+    "rms": 0.15144382417201996,
+    "pass": true
+  }
+]

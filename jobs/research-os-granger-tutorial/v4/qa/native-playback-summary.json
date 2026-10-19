@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "started_utc": "2026-10-18T14:30:55.359Z",
+  "ended_utc": "2026-10-18T14:38:53.324Z",
+  "elapsed_seconds": 477.9657999997139,
+  "media_seconds": 477.933333,
+  "rate": 1,
+  "unmuted": true,
+  "unexpected_events": [],
+  "decoded_video_frames": 14338,
+  "dropped_video_frames": 28,
+  "output_signal_rms_max": 0.5124563477696864,
+  "scope": "Actual browser full-duration1x unmuted playback and decoded signal; does not claim human ear listening"
+}

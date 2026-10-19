@@ -1,0 +1,2 @@
+# Preserve the third-party distribution and its license header byte for byte.
+jobs/research-os-granger-tutorial/v4/composition/assets/gsap.min.js -whitespace
