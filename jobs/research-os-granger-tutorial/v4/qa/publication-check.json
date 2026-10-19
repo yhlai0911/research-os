@@ -1,0 +1,38 @@
+{
+  "checked_date": "2026-10-19",
+  "scope": "Checks repeated for public distribution; no new film render or speech generation",
+  "full_delivered_video_audio_decode": "pass: ffmpeg -v error, both streams, full duration",
+  "delivered_movie_sha256": "765e97ed4f253107a215afdd476d9d8cd422b531cba5f82087988f295ceb115c",
+  "movie_bytes": 19403538,
+  "offline_audio_rebuild": {
+    "sha256": "22c36c4ecaa317810c9a0fbc08f4da6368bc4e9fdf7879b23117689d6c549900",
+    "bytes": 42153798,
+    "matches_retained_production_rebuild_byte_for_byte": true,
+    "new_TTS_calls": 0
+  },
+  "hyperframes_check": {
+    "version": "0.8.167",
+    "runtime_errors": 0,
+    "layout_issues": 0,
+    "motion_errors": 0,
+    "contrast_AA_pass": 124,
+    "contrast_checks": 124,
+    "lint_errors": 0,
+    "lint_warning": "nested_structure_needs_subcomposition: retained single-track composition"
+  },
+  "repository_checks": {
+    "sync_catalog": "42 skills, pass",
+    "validate_repository": "42 skills, 0 errors",
+    "pytest": "94 passed",
+    "git_diff_check": "pass",
+    "relative_Markdown_links": "pass"
+  },
+  "privacy_checks": {
+    "known_credential_patterns_found": 0,
+    "private_repo_or_private_network_references_found": 0,
+    "raw_records_snapshots_research_workspaces_included": false,
+    "teaching_excerpts_and_demo_folder_path_retained": true,
+    "limitations": "Pattern scanning is not a universal secret-detection proof; public allowlist and selected source review are also applied"
+  },
+  "manual_ear_listening_certification_claimed": false
+}

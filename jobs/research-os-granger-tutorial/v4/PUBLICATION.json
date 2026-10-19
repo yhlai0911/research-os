@@ -1,0 +1,36 @@
+{
+  "version": "granger-tutorial-voiced-v4",
+  "production_completed_date": "2026-10-18",
+  "publication_prepared_date": "2026-10-19",
+  "example_source_commits": ["4f7c1625b45a9896378bc890fd65b2626977bdf6", "a9174de708cd88e7e4bff4c967f2fe87cf36d286"],
+  "publication_base_commit": "aa94b85436866c2bd01269e8bff983fd4c3639ca",
+  "asset": {
+    "name": "research-os-granger-follow-along-voiced-v4.mp4",
+    "url": "https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4",
+    "bytes": 19403538,
+    "sha256": "765e97ed4f253107a215afdd476d9d8cd422b531cba5f82087988f295ceb115c",
+    "duration_seconds": 477.9333333333332,
+    "scenes": 40,
+    "frames": 14338,
+    "resolution": [1920, 1080],
+    "fps": 30,
+    "audio_codec": "aac"
+  },
+  "scope": {
+    "visuals": "Compiled teaching excerpts and illustrated UI actions already used in the delivered film",
+    "audio": "Retained recordings and exact selected sample boundaries; no new generation",
+    "excluded": ["full original private conversations", "installation receipts", "complete research workspace", "private skills", "credentials", "browser state", "production caches"],
+    "visible_example_path": "/Users/apple/Documents/Codex/2026-10-17/task",
+    "example_path_is_build_dependency": false,
+    "raw_provenance_files_not_included": true,
+    "original_local_versions_preserved": true,
+    "old_public_overview_preserved": true
+  },
+  "new_TTS_calls_this_publication": 0,
+  "new_video_generation_this_publication": false,
+  "manual_ear_listening_certification_claimed": false,
+  "third_party": {
+    "font": "composition/assets/OFL-NotoSansCJK.txt",
+    "gsap": "Original GSAP 3.14.2 copyright and standard-license URL retained in minified file header"
+  }
+}

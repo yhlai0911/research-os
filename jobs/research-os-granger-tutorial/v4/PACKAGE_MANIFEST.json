@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "scene_count": 40,
+  "scope": "Public rebuild inputs only; original private raw sources excluded",
+  "files": {
+    ".gitignore": {
+      "bytes": 69,
+      "sha256": "662065a62a535bf389cef5a9bf6762fd40c700a7034606b4fed1a6847b33a38d"
+    },
+    "PUBLICATION.json": {
+      "bytes": 1798,
+      "sha256": "ce371acc6ede62e80a46200c3ee69f07c33e851a38045fc77435e6ccf56208a5"
+    },
+    "README.md": {
+      "bytes": 4409,
+      "sha256": "f4d06e7fe7ab5d3b601b741b90edfc410e3a1440a8b92e38582023e6462a594d"
+    },
+    "SCRIPT.zh-TW.md": {
+      "bytes": 7766,
+      "sha256": "f5a5c3f8ccd0cafeed0770cb6b847d6e819c65ebc1035c8513f3d58277455331"
+    },
+    "STORYBOARD.zh-TW.md": {
+      "bytes": 12505,
+      "sha256": "12a4f7920faf88ff9bb75e80dd8685d2b875c9c2ac55232418c3ef108e470898"
+    },
+    "composition/assets/OFL-NotoSansCJK.txt": {
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    "composition/assets/ResearchSans.otf": {
+      "bytes": 340304,
+      "sha256": "9ca42367c9f364a12a6e418035228d41d97c5eaccaa4eb7bfc6d64b172a650e5"
+    },
+    "composition/assets/f5bb09c40839bf57.png": {
+      "bytes": 260192,
+      "sha256": "f5bb09c40839bf575701135fabc3f4bc2749d4a8161aa64b13c49883abf3337e"
+    },
+    "composition/assets/gsap.min.js": {
+      "bytes": 72779,
+      "sha256": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "composition/hyperframes.json": {
+      "bytes": 30,
+      "sha256": "d648a0d737d59b9589a848c55f083cb6cc105b272860f4b6a69da5ddc43bcfcd"
+    },
+    "composition/index.html": {
+      "bytes": 105642,
+      "sha256": "aff7b9ddbb2edf9f8f216acc1a46772eafa4476e80aac2daf9e0b6b97b6aea33"
+    },
+    "package.json": {
+      "bytes": 213,
+      "sha256": "edc93a330e4f87735b2b0ed445c78bb9b2742c1ead248b409e2fde19bf40f182"
+    },
+    "qa/audio-sync-comparisons.json": {
+      "bytes": 9351,
+      "sha256": "588bd62e5a89b3ded750765c799e8f7ff9db4c22219a7ece1468705e5ff7bd91"
+    },
+    "qa/encoded-comparisons.json": {
+      "bytes": 10602,
+      "sha256": "74f5e0fdc0f7474cba45c3484fa8ad5bf05c78f7eacad1eac1ac8c79715d3704"
+    },
+    "qa/loudness-after.json": {
+      "bytes": 263,
+      "sha256": "a528690c85c35fa77b92d98d4a00d9535385ba3bd7f74b70c73d63551fcc6148"
+    },
+    "qa/media.json": {
+      "bytes": 1772,
+      "sha256": "2ecbbbf5085e76a58b264677e5f7b1452bc7a41502742cd02839c73dab265887"
+    },
+    "qa/native-playback-summary.json": {
+      "bytes": 464,
+      "sha256": "2b4b3bafa9719596d463c13e98e7a8c1e1cf29948484c41f7c5bba26f7adf9c4"
+    },
+    "qa/publication-check.json": {
+      "bytes": 1539,
+      "sha256": "a8ac5f318c523a0e9c28255b67aae203f1fa6ef02360419ba475b6fffda399b9"
+    },
+    "scripts/rebuild.py": {
+      "bytes": 3345,
+      "sha256": "3429affc9c548720534d7e89dd0f28a9dc410c2768a78a148b09c3d90188da49"
+    },
+    "scripts/verify_package.py": {
+      "bytes": 4348,
+      "sha256": "2ec05fcef4fff9ef35fbb77ff924d1084c293bda41b72d36b931ae7775070b7d"
+    },
+    "timeline.json": {
+      "bytes": 15704,
+      "sha256": "2a1a41a2122ff18b90104cea2ae43e4c4841d575acf7e383014dd2331247a9eb"
+    },
+    "voice/full-narration.mp3": {
+      "bytes": 5434523,
+      "sha256": "b926ef007a183d54dca797413493fbf7708ea8eb641b6521fabc35d33ead37a4"
+    },
+    "voice/narration-final.txt": {
+      "bytes": 5401,
+      "sha256": "9857cb23195b740290d9455b7efcf0e3d627c74b79281e3985077deb6e570fb2"
+    },
+    "voice/retakes.mp3": {
+      "bytes": 1119513,
+      "sha256": "36bf6f63bf3e33f51936de5df8fbbfa0923be508d07efabfd9db9ad5747addf9"
+    },
+    "voice/selection.json": {
+      "bytes": 34984,
+      "sha256": "9547e6a07d853d1688bd08010cc49d2e8e7a2b05842d185188a887b8cbeefb8c"
+    }
+  }
+}

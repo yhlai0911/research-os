@@ -1,0 +1,8 @@
+{
+  "name": "research-os-granger-tutorial-v4",
+  "private": true,
+  "scripts": {
+    "check": "npx --yes hyperframes@0.8.167 check composition",
+    "render": "uv run --no-project python scripts/rebuild.py"
+  }
+}

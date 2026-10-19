@@ -2,6 +2,8 @@
 
 **繁體中文** · [English](README.en.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
+**新版實作教學：**[觀看完整有聲 v4（7:57.93）](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [照著做的說明](docs/TUTORIAL_GRANGER.zh-TW.md) · [40 場景與離線重建來源](jobs/research-os-granger-tutorial/v4/README.md)。用公開公債資料走過安裝、六步研究、模型診斷修訂與初稿交付。
+
 Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向、方程式、現象、資料、草稿或審查意見，透過自適應對話推進成可反駁、可執行、可審查的研究計畫、企劃案或論文。它不把「寫出很多字」當作完成；它會主動查證文獻與資料、區分研究者決策和可查事實、模擬審查攻擊、修補根因，再把已驗證狀態封裝成單一 Research Brief，最後依目的轉譯成所需成果。
 
 本專案研究了 [Matt Pocock Skills](https://github.com/mattpocock/skills) 的 skill 架構與提示詞設計，但沒有逐句移植。Research OS 採用其主要設計原則：router 與 primitive 分工、leading concept、可檢查的 completion criterion、progressive disclosure、single source of truth、feedback loop；並補上學術研究需要的 claim-evidence ledger、counterfactual、falsification、資料可得性、倫理、重現性與交接 receipt。
@@ -224,7 +226,9 @@ uv run pytest
 
 ### 影片教學
 
-Repository 內附一支 4 分 01 秒的繁體中文 HyperFrames 教學影片，走完整條六步主線：從模糊題目、一次一個決策、預先反證、拆解與執行，到 Research Brief 與不同成果輸出：
+建議先看[完整有聲 v4](docs/TUTORIAL_GRANGER.zh-TW.md)：40 場景、7 分 57.93 秒，示範從 GitHub 安裝到實際研究初稿。影片與下載校驗碼放在 [GitHub Release](https://github.com/yhlai0911/research-os/releases/tag/granger-tutorial-voiced-v4)，重建來源保存在本 repo，無須重新付費配音。
+
+原有 4 分 01 秒的繁體中文 HyperFrames 教學仍保留，適合先看六步主線概要：
 
 - [觀看 MP4](jobs/research-os-tutorial/output/research-os-tutorial-zh-TW.mp4)
 - [分鏡與重製說明](jobs/research-os-tutorial/README.md)

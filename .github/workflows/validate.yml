@@ -17,5 +17,7 @@ jobs:
         run: uv run python scripts/sync_catalog.py --check
       - name: Validate repository
         run: uv run python scripts/validate_repository.py
+      - name: Validate public tutorial source hashes and 40-scene timing
+        run: uv run python jobs/research-os-granger-tutorial/v4/scripts/verify_package.py
       - name: Run tests
         run: uv run pytest
