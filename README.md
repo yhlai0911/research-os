@@ -1,10 +1,10 @@
 # Research OS
 
-**本地研究助理整合試作：**`research-assistant` 已納入本分支的 43 個核心技能與安裝流程，可在研究全程提供指引、建議、受委託決策與已授權執行。見[一頁新手說明](docs/RESEARCH_ASSISTANT.zh-TW.md)。本分支未發布；下方指向公開 `main` 的安裝範例不包含這項本地試作。測試請使用本 checkout，勿以此說明推定全域 skills 已更新。
+**由研究助理帶路，從沒有題目到成文。** `research-assistant` 已隨 [PR #6](https://github.com/yhlai0911/research-os/pull/6) 合併到 `main`，包含在同一套 **43 個核心 skills** 與安裝流程中。它辨認階段、選擇並交接適用 skill，再讀回產物與下一步；具體研究由接收 skill 實施。新手不必先記技能名稱。先看[研究助理入門](docs/RESEARCH_ASSISTANT.zh-TW.md)。既有安裝需核對來源 commit；合併不會自動更新你電腦上的副本。
 
 **繁體中文** · [English](README.en.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
-**新版實作教學：**[觀看完整有聲 v4（7:57.93）](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [照著做的說明](docs/TUTORIAL_GRANGER.zh-TW.md) · [40 場景與離線重建來源](jobs/research-os-granger-tutorial/v4/README.md)。用公開公債資料走過安裝、六步研究、模型診斷修訂與初稿交付。
+**既有影片範例：**[Granger 有聲 v4（7:57.93）](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [逐步說明](docs/TUTORIAL_GRANGER.zh-TW.md) · [40 場景與重建來源](jobs/research-os-granger-tutorial/v4/README.md)。這是較早的公開公債資料案例；目前技能與安裝方式以本文件為準，舊片不作為新版研究助理原生啟動證據。銀行碩士教學案例的 ElevenLabs 重配尚在製作，尚無可在此提供的公開新版影片 release 或下載連結（狀態：2026-10-25）。
 
 Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向、方程式、現象、資料、草稿或審查意見，透過自適應對話推進成可反駁、可執行、可審查的研究計畫、企劃案或論文。它不把「寫出很多字」當作完成；它會主動查證文獻與資料、區分研究者決策和可查事實、模擬審查攻擊、修補根因，再把已驗證狀態封裝成單一 Research Brief，最後依目的轉譯成所需成果。
 
@@ -38,20 +38,20 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
   /research-6-review     審查：用期刊審稿人的角度攻擊自己
 
 隨時
-  $research-assistant    讀取目前研究，指引、建議、受託決策及授權內協助
+  $research-assistant    辨認階段、選擇與交接 skill、核對產物與下一步
   /research-status       我在第幾步、已經有什麼、還缺什麼
 
 成果
   /to-plan   /to-proposal   /to-paper
 ```
 
-**每一步都會主動交棒。** 跑完 `/research-1-grill`，它會告訴你這個想法已經「可研究」了、下一步是 `/research-2-brief`，然後停下來——它不會自己往下跑。收斂條件是可檢查的，不是靠你喊停：每個 stage 都有明確的 `Complete when:`，每個 stop branch 都會說明現在是什麼狀態、下一步該做什麼。
+**每一步有可檢查的門檻。** 直接呼叫主線時，該 skill 完成自己的工作、指出下一步後停止。透過研究助理委託流程時，助理會讀回同一產物、領域判斷與檢查結果，確認前置成立後再交接下一個適用 skill。必要研究選擇、證據或授權仍缺時，停在該門檻並指出補足方式；不是寫出文件就算通過。
 
 `/research-3-falsify` 刻意排在拆任務之前。理由跟 TDD 先寫失敗測試一樣：先講定什麼結果會殺死這個設計，才不會把成本投進一個無法被推翻的主張。事後才調閾值不算數。
 
-**你只需要記住上面這幾個名字。** 另外 26 個 model-invoked primitives（文獻地圖、gap 稽核、識別設計、資料可行性、引用查核……）由 Agent 依當下瓶頸自動取用，不需要你記、也不需要你叫。
+**不需要背完全部技能。** 每篇研究只使用適用技能，不強迫跑齊 43 項。 另外 26 個 model-invoked primitives（文獻地圖、gap 稽核、識別設計、資料可行性、引用查核……）由 Agent 依當下瓶頸自動取用，不需要你記、也不需要你叫。
 
-新手可以先用 `$research-assistant` 說明目標、已有材料與允許它做的事。助理會讀目前成果，協助處理已授權的小型工作，並解釋何時需要你決定或明確啟動主線；推薦一個技能不代表已執行。
+新手可以直接說：「我想寫論文，但完全沒有題目，應該從哪裡開始？」助理會選擇 `research-1-grill`，由該 skill 問第一個必要的背景或興趣問題，不先套用舊題目。指引、建議、明確委託的技術代決與已授權執行要分清楚：助理選路，資料、分析、寫作和審閱由適用 skill 完成；重要研究決策仍由研究者確認。單純翻譯或潤稿不應啟動整套流程。
 
 不想逐步下指令時，可明確呼叫 `/research-auto`，一次交代研究目標與執行範圍：它每次只解決最影響下游的 frontier，並保留你排除過的領域、方法與資料限制。啟動後由它選用適用的研究技能，不必逐一呼叫內部工具。研究助理仍可解釋產物、核對進度與協助續做。其餘入口見下方「其他入口」。
 
@@ -66,6 +66,8 @@ Research OS 是一套 **43 個 skills 的集合**，不是一個可由 repositor
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
 請使用 main 分支，並在安裝後回報實際 source commit。
+只安裝到已確認研究專案的 .agents/skills，所有 install/verify 命令
+使用同一 --target；未確認位置前不要寫入個人 skills 目錄。
 這是 43 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
@@ -80,6 +82,8 @@ Research OS 是一套 **43 個 skills 的集合**，不是一個可由 repositor
 
 ### 在終端機手動安裝
 
+以下未帶 `--target` 的命令會寫入個人預設目錄。若只供一個研究專案使用，先 clone 與 `uv sync --locked`，再對每個 install／verify 命令加上同一個 `--target /absolute/path/to/project/.agents/skills`。建議先用專案範圍；[使用教學](docs/USAGE_GUIDE.zh-TW.md)提供 Bash 與 PowerShell 寫法。
+
 ```bash
 git clone --branch main https://github.com/yhlai0911/research-os.git
 cd research-os
@@ -89,13 +93,21 @@ uv run python scripts/install_skills.py
 uv run python scripts/verify_install.py
 ```
 
-未提供 `--target` 時，安裝器會使用 `$CODEX_HOME/skills`；若未設定 `CODEX_HOME`，則使用 `~/.codex/skills`。只有刻意安裝到其他 Codex skills 目錄時才需加上 `--target /明確的/skills/路徑`。
+此安裝器省略 `--target` 時使用 `$CODEX_HOME/skills`，未設定則是 `~/.codex/skills`；這是安裝器的既有預設，不是所有新版宿主的通用 discovery 保證。Codex 官方目前說明的專案位置是 `.agents/skills`；個人位置也應依宿主版本選定並明確傳入 target。先查實際清單與來源，不靠複製同名技能猜測修復。[Codex 官方 skills 說明](https://developers.openai.com/codex/build-skills)
 
 安裝器會先完成 43 個目標的全批 preflight；任何同名 skill 內容不同時，整批停止、不覆寫，也不留下半套新安裝。複製模式會將來源 bucket 間的 Markdown 連結轉為扁平安裝的相對路徑，並在暫存的整套技能中逐一讀取共享依賴；symlink 模式保留來源路徑。成功後寫入 `.research-os-install.json`，`verify_install.py` 會核對 catalog、目錄、metadata、hash、receipt，以及每個本地 Markdown 依賴是否存在且可讀。已有舊副本不會自動覆寫，應先保留版本，再在乾淨目錄驗證更新。
 
 `INSTALL OK` 只代表安裝檔案與依賴的靜態驗證通過，不等於宿主選單已列出、技能已載入、主線已執行或研究已完成。仍須在正確的專案範圍核對實際發現及呼叫結果；未列出的原因未經實測不得歸為單一因素。研究助理可以持續引導與協助授權內工作，但推薦主線並不代表主線已跑。新手實操示範的真實證據及畫面語言要求見 [`novice-demonstration.md`](skills/primitives/research-assistant/references/novice-demonstration.md)。
 
 第一次使用可接著閱讀 [`docs/USAGE_GUIDE.zh-TW.md`](docs/USAGE_GUIDE.zh-TW.md)。常用提示詞可直接複製自 [`docs/PROMPT_COOKBOOK.zh-TW.md`](docs/PROMPT_COOKBOOK.zh-TW.md)，遇到卡關則查閱 [`docs/TROUBLESHOOTING.zh-TW.md`](docs/TROUBLESHOOTING.zh-TW.md)。
+
+## 真實閱讀頁與學術交付
+
+助理可交給 `render-research-deliverable`，將實際表格與段落產生為自包含 HTML：依真實輸入提供排序、篩選、同步圖表、高亮及前後修訂對照。回覆是「簡短說明 → 真實產物標題與可開啟連結 → 下一步」；先產檔與驗證目標，缺檔或交付不可用就明說。本機路徑／localhost 不冒充跨裝置網址，沒有兩版文字也不造對照。
+
+`research-writing` 與 `to-paper` 要求專業學術散文、完整論證鏈、已核實文獻與 APA 書目、編號方程式及符號／單位定義。正文使用學科語言；程式、技能和操作資訊另放技術附錄，AI 協助按適用規範揭露。中文採清楚精確與術語一致的原則，不宣稱中文正式符合英文 ASD-STE100，也不靠固定篇數或字數湊完整度。
+
+正式論文交付含可編輯 `.tex`／`.bib`、必要圖表、**同版來源真正 LaTeX 編譯的 PDF**、編譯與引用檢查、首次全頁視覺 QA 及重現來源包。HTML 或 Word 轉 PDF 不能取代 LaTeX。Git、uv 與 agent 宿主用於安裝；瀏覽器、統計套件、LaTeX 引擎、Biber 與中文字型則按實際任務提供，安裝 skills 不會一併供應或授權它們。詳見[閱讀頁、論文與工具需求](docs/DELIVERABLES.zh-TW.md)。
 
 ## 安裝到 Claude Code（完整 43 skills）
 
@@ -243,7 +255,7 @@ uv run pytest
 
 ## Skill 組成
 
-- user-invoked orchestrators：需要研究者明確啟動的長流程與產出。
+- user-invoked orchestrators：直接呼叫需明確啟動；也可承接研究助理在有效研究委託內的交接，由接收 skill 負責實施與門檻。
 - model-invoked primitives：Agent 可依任務自動取用的研究紀律。
 - meta skill：維護 Research OS 本身的 skill engineering 規格。
 

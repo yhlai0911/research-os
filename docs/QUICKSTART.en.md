@@ -30,6 +30,27 @@ If you are upgrading from v1.1, go to [Migration](#migration-from-v11) before ru
 
 Choose one of the following. A dry-run is an inspection step: **run the installation only when it reports no conflicts**. The installer will also enforce the conflict check when run normally.
 
+### Codex: project-only installation
+
+Run from the Research OS checkout and replace the absolute project path:
+
+```bash
+uv run python scripts/install_skills.py --target /absolute/path/to/project/.agents/skills --dry-run
+uv run python scripts/install_skills.py --target /absolute/path/to/project/.agents/skills
+uv run python scripts/verify_install.py --target /absolute/path/to/project/.agents/skills
+```
+
+Windows PowerShell uses the same options:
+
+```powershell
+$researchSkills = 'C:\Research\MyProject\.agents\skills'
+uv run python scripts/install_skills.py --target $researchSkills --dry-run
+uv run python scripts/install_skills.py --target $researchSkills
+uv run python scripts/verify_install.py --target $researchSkills
+```
+
+Use the same target for all commands. Copy mode rewrites and checks readable shared references; copying only `SKILL.md` is insufficient. Open that research project in the host and inspect its effective skill inventory. Installation receipts do not prove native loading or behavior.
+
 ### Codex: personal installation
 
 ```bash
@@ -38,7 +59,7 @@ uv run python scripts/install_skills.py
 uv run python scripts/verify_install.py
 ```
 
-Target: `$CODEX_HOME/skills`, or `~/.codex/skills` if `CODEX_HOME` is unset. For a custom Codex skills directory, pass the same `--target /absolute/path/to/skills` on all three commands. New skills load on the next turn or task.
+This installer's personal default is `$CODEX_HOME/skills`, or `~/.codex/skills` if unset. Use an explicit project `.agents/skills` target for bounded installation. Current host discovery must be checked separately; a next turn is not proof that a skill loaded. See [official Codex locations](https://developers.openai.com/codex/build-skills).
 
 ### Claude Code: personal installation
 
@@ -73,7 +94,17 @@ If the dry-run reports a conflict, inspect the exact path. Back up local customi
 
 ## 3. Set the language and research workspace
 
-Open the research project where you want artifacts stored. Invoke:
+Open the research project where you want artifacts stored. A novice can start here, before choosing a topic:
+
+```text
+$research-assistant
+
+I want to write a thesis but have no topic. Guide me through the applicable
+skills. You may add the local Research OS workspace in this project while
+preserving existing files. Ask me the consequential research choices.
+```
+
+The assistant selects the next skill, whose instructions own the work. It may first delegate authorized setup, then let grill ask the first prerequisite question. Do not prefill a topic or method. For explicit manual setup instead, invoke:
 
 ```text
 /research-setup
@@ -91,6 +122,8 @@ Unsure where to begin? Use `/research-help` with a short description of what you
 For guided progression, ask `$research-assistant` in ordinary language, including "I want to write a thesis but have no topic." It selects and delegates the applicable workflow, whose instructions own the actual research work, then checks the returned result before guiding the next step. You need not type each skill name; missing research decisions still require your answer. Native invocation and fully read delegated instruction-followthrough must be reported separately when the host has no native skill interface.
 
 ## 4. Work through the six-step mainline
+
+You can let the assistant guide and delegate these stages within your research request, or invoke them directly as below. A receiving skill ends its own invocation at the handoff; the assistant checks returned evidence before delegating onward. Neither route runs every primitive regardless of relevance.
 
 Start with one bounded seed:
 
@@ -134,7 +167,7 @@ The independent `/research-finance-social-science` entry point (`$research-finan
 
 ## Migration from v1.1
 
-Read [MIGRATION-v2.md](MIGRATION-v2.md) for the exact old-to-new name mapping. Of the 13 v1.1 orchestrators, 12 were renamed and `to-proposal` retained its name; three new orchestrators bring v2 to 16. The 25 primitives keep their names, and existing `.research/` workspaces remain compatible.
+Read [MIGRATION-v2.md](MIGRATION-v2.md) for the exact old-to-new name mapping. Of the 13 v1.1 orchestrators, 12 were renamed and `to-proposal` retained its name; three new orchestrators bring v2 to 16. The 25 earlier primitives keep their names; the current catalog also includes `research-assistant`, for 26 primitives and 43 core skills in total. Existing `.research/` workspaces remain compatible.
 
 The installer does not remove old names. Back up customizations, identify the old directories from the mapping, and remove only those you intend to replace. Do not delete the research workspace. Same-name content changes can still cause installation conflicts and need deliberate resolution. Then rerun dry-run, installation, and verification for the correct harness and target.
 
@@ -157,3 +190,7 @@ uv run pytest
 ```
 
 Continue with the [skill catalog](SKILL_CATALOG.md), [architecture](ARCHITECTURE.md), and [quality gates](QUALITY_GATES.md).
+
+## Reading views, papers and dependencies
+
+Use [the assistant guide](RESEARCH_ASSISTANT.en.md) for no-topic, data-first, draft and continuation requests. [Deliverables and dependencies](DELIVERABLES.en.md) explains real HTML reply links, local versus cross-device access, academic prose/APA/equations, genuine LaTeX PDF compilation, source packaging and tool requirements. Skills do not supply or authorize missing browsers, numerical libraries, paid sources or TeX installations.

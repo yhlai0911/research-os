@@ -11,7 +11,9 @@ Research OS 是 43 個 skills 的套件，不是單一 skill。Codex 的單一 s
 直接把下面整段交給 Codex 即可：
 
 ```text
-請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
+請從 https://github.com/yhlai0911/research-os 的 main 安裝完整 Research OS。
+只安裝到已確認研究專案的 .agents/skills；三個 install/verify 命令
+都帶同一 --target，位置未確認前不要寫入個人 skills 目錄。
 這是 43 個 skills 的集合，不是單一 skill。
 請 clone repository，以 uv 執行 install_skills.py 的 dry-run 與正式安裝，
 再執行 verify_install.py；遇到任何 conflict 必須停止，不得覆寫。
@@ -31,21 +33,34 @@ uv run python scripts/install_skills.py
 uv run python scripts/verify_install.py
 ```
 
-預設安裝目標是 `$CODEX_HOME/skills`；若未設定 `CODEX_HOME`，則是 `~/.codex/skills`。只有需要非預設位置時才明確指定：
+此安裝器的個人預設仍是 `$CODEX_HOME/skills`，未設定則 `~/.codex/skills`。目前 Codex 官方專案位置是 `.agents/skills`；明確指定 target 並核對當前專案與實際技能清單。不要把安裝器的歷史個人預設當成每個宿主都會發現的保證。專案安裝範例：
 
 ```bash
 uv run python scripts/install_skills.py \
-  --target /absolute/path/to/skills \
+  --target /absolute/path/to/project/.agents/skills \
   --dry-run
 uv run python scripts/install_skills.py \
-  --target /absolute/path/to/skills
+  --target /absolute/path/to/project/.agents/skills
 uv run python scripts/verify_install.py \
-  --target /absolute/path/to/skills
+  --target /absolute/path/to/project/.agents/skills
 ```
 
 安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，43 個 skills 整批停止，不覆寫既有資料，也不留下半套安裝。複製安裝會調整共享規範的相對連結並逐項讀取檢查。`INSTALL OK: 43 skills` 代表檔案與相依驗證通過，仍須在正確專案確認 Codex 是否發現、載入並實際呼叫技能，不能只憑此訊息宣稱實操成功。
 
-**本地分支注意：**本分支已將 `research-assistant` 納入 43 個核心技能。上面的公開網址不代表公開主線已有這項更新；試作請用此 checkout，並明確指定乾淨測試專案的 `.agents/skills`，不安裝到全域或覆寫既有副本。
+**目前版本：**`research-assistant` 已納入 `main` 的 43 個核心技能。建議先明確安裝到研究專案 `.agents/skills`；省略 target 的命令屬個人安裝，不是專案隔離。舊副本須核對來源 commit 與衝突後再更新，不會因遠端合併自動升級。
+
+### Windows PowerShell：只安裝到一個研究專案
+
+從 Research OS checkout 執行，將目標換成實際研究專案；此變數只用於本 PowerShell 行程：
+
+```powershell
+$researchSkills = 'C:\Research\MyProject\.agents\skills'
+uv run python scripts/install_skills.py --target $researchSkills --dry-run
+uv run python scripts/install_skills.py --target $researchSkills
+uv run python scripts/verify_install.py --target $researchSkills
+```
+
+dry-run 無 conflicts 才正式安裝。所有命令使用同一 target；不要把本例路徑原封不動套在別的專案。Claude Code 的三個命令都加 `--harness claude-code`，目標改為該專案 `.claude/skills`。
 
 ### Claude Code
 
@@ -271,3 +286,7 @@ Research OS 會保留這些排除條件，不會在後續悄悄把被排除的�
 - 研究計畫可以在證據不足時停止；停止比製造漂亮但不可執行的成果更有價值。
 
 下一步可從 [`PROMPT_COOKBOOK.zh-TW.md`](PROMPT_COOKBOOK.zh-TW.md) 複製最符合你情境的啟動提示詞。
+
+## 閱讀頁、論文與工具需求
+
+當實際回覆附上有效閱讀頁連結，再依任務檢視表圖、排序或兩版段落，不把 HTML 功能當成研究本身。只有來源與產物已存在才給連結。學術正文保留學科語言、完整論證與核實 APA 引用，技術資訊另存。正式論文需同版 LaTeX 來源、真正編譯 PDF、引用檢查、全頁 QA 與重現包。完整步驟與依賴見[交付指南](DELIVERABLES.zh-TW.md)。

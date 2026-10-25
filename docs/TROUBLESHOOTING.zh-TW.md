@@ -140,3 +140,19 @@ uv run pytest
 ```
 
 先修第一個失敗 gate，再重跑全部 gates。不要只修改輸出的錯誤文字或略過驗證。
+
+## Codex 看不到研究助理，但安裝顯示成功
+
+先以同一 source checkout、harness、target 驗證，核對 receipt 的來源 commit，再確認目前開的是該研究專案。專案技能應在其 `.agents/skills/<name>/SKILL.md`，不是多包一層 repo；多份同名技能先查來源，不一律刪除。依宿主支援方式重整清單／重新開任務。`INSTALL OK`、完整規範讀取、原生 discovery/loading/invocation 是不同層次，不能互相代替，也不能僅憑選單缺項猜原因。[官方位置說明](https://developers.openai.com/codex/build-skills)
+
+## 研究助理只報技能名稱，沒有推進
+
+先確認委託範圍與前置。要求助理說明選路理由，將真實輸入交給適用 skill，由該 skill 完成義務，再讀回產物、判斷與下一門檻。缺必要研究決策就先問；不是每步都要求新手背名稱，也不能把一句推薦重標成執行。見[研究助理入門](RESEARCH_ASSISTANT.zh-TW.md)。
+
+## HTML 連結打不開，或論文只有 HTML／Word PDF
+
+核對產物是否生成、連結是否指向同版檔案，以及它是本機還是跨裝置交付。不要編造網址或用後製按鈕假裝點擊。正式論文仍需可編輯 LaTeX、Bib、實際編譯 PDF 與當版 QA；缺引擎、Biber 或字型要回報缺項，不能把來源稿或 Word 轉檔稱為通過。見[交付與依賴](DELIVERABLES.zh-TW.md)。
+
+## Windows 的 symlink／release 測試失敗
+
+一般使用選預設 copy 安裝。symlink 權限與 release 所需 POSIX 安全原語是不同問題；不要為測試全綠調整 ACL、關閉保護或略過檢查。Windows 失敗與支援平台 CI 分開回報；release 限制見[品質關卡](QUALITY_GATES.md)。
