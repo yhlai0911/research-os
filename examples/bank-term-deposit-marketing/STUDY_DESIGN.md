@@ -1,0 +1,12 @@
+# Fixed study design and inference scope
+
+- Data: UCI Bank Marketing, DOI [10.24432/C5K306](https://doi.org/10.24432/C5K306), bank-additional-full.csv, 41,188 ordered records and 21 columns, source CSV SHA256 `74adfc578bf77a7ff4bb1ba4a9f8709d9e3c6907342959c2c8416847e0afb4d8`. UCI licenses this source under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Records are not unique-person counts.
+- Question: do validation and information assumptions change chosen models, top-capacity lists and observed subscriptions on the same evaluation records?
+- Development: first 32,950 records; common evaluation: last 8,238 records. Source order is retained, without inventing exact dates. The evaluation set is not used for model selection or calibration.
+- Candidates: six ridge-logistic recipes, linear/quadratic forms × penalty 0.0001/0.001/0.01. Within development, random and ordered validation select recipes by observed top-20% subscription fraction, then Brier score, then declared simplicity/penalty tie rules. All candidates exclude call duration.
+- Primary: conservative S0 information and 20% capacity. S1 adds macro information with unresolved data-vintage availability; S2 is a richer retrospective comparison. They are not asserted to be deployable information sets.
+- Prespecified sensitivities: capacities 10/20/30%, four split seeds, paired blocks 128/256/512 and IID. Ordered results are reused across irrelevant seed changes. A later review identified omitted fixed-seed tie handling; its repair and limits are retained rather than backdated.
+- Main comparison: 1,647 selected records contain 1,021 versus 1,019 observed subscriptions; ordered-minus-random is −0.121433 per100 selected, Jaccard0.970096. See all six primary-seed information/procedure rows in [focal-policy.csv](focal-policy.csv).
+- Interpretation: strong evaluation-segment prevalence variation limits bootstrap ranges to descriptive fixed-model sensitivity. Training/selection uncertainty, causality, real profit, current deployment and population equivalence are not established. Counterexamples across information, capacity and ties are retained.
+
+The source ZIP supplies 72policy rows,36selector contrasts,30information contrasts,264bootstrap ranges,72tie-policy rows and66tie contrasts. Its LaTeX/Bib sources contain the literature, equations, definitions, evidence and limitations; this light index does not replace the paper.

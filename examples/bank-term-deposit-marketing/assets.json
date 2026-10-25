@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "title": "銀行定期存款行銷與聯繫優先序：Research-OS教學範例",
+  "tag": "bank-term-deposit-tutorial-v1",
+  "release_url": "https://github.com/yhlai0911/research-os/releases/tag/bank-term-deposit-tutorial-v1",
+  "source_base_commit": "bd342a397005074de43100d0c13fdc22cdadde69",
+  "voice": "ivan-advanced",
+  "speech_model": "Eleven v4 standard",
+  "video_seconds": 531.506,
+  "pdf_pages": 30,
+  "native_invocation_verified": false,
+  "human_listening_verified": false,
+  "data": {
+    "doi": "10.24432/C5K306",
+    "license": "CC BY 4.0",
+    "records": 41188,
+    "csv_sha256": "74adfc578bf77a7ff4bb1ba4a9f8709d9e3c6907342959c2c8416847e0afb4d8"
+  },
+  "verification": {
+    "public_download_HTTP": 200,
+    "all_three_downloaded_SHA256_match": true,
+    "primary_refit_max_prediction_error": 0,
+    "saved_policy_rows": 72,
+    "selector_contrasts": 36,
+    "information_contrasts": 30,
+    "bootstrap_ranges": 264,
+    "tie_contrasts": 66
+  },
+  "assets": [
+    {
+      "name": "PUBLIC_ASSETS_SHA256SUMS.txt",
+      "bytes": 474,
+      "sha256": "1167c828ae6833a99a1538a287e8f648eee3da3bf09fbbd4c32014e46cdf26bc",
+      "url": "https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/PUBLIC_ASSETS_SHA256SUMS.txt"
+    },
+    {
+      "name": "Research-OS_bank-term-deposit-marketing-contact-priority_assistant-tutorial_ivan-advanced_v4_v1.mp4",
+      "bytes": 14533990,
+      "sha256": "f522ae7366868e641c9b08fefd0a3353f7ef1a8a1398f1b399fe903e0cf8c55d",
+      "url": "https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/Research-OS_bank-term-deposit-marketing-contact-priority_assistant-tutorial_ivan-advanced_v4_v1.mp4"
+    },
+    {
+      "name": "Research-OS_bank-term-deposit-marketing-contact-priority_LaTeX-empirical-sources_v1.zip",
+      "bytes": 2736186,
+      "sha256": "53453e5490184df1f6cc1797d94f69a3e11be2c544042b8eb8ecb100a609a68f",
+      "url": "https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/Research-OS_bank-term-deposit-marketing-contact-priority_LaTeX-empirical-sources_v1.zip"
+    },
+    {
+      "name": "Research-OS_bank-term-deposit-marketing-contact-priority_master-thesis-example_v0.3.pdf",
+      "bytes": 640851,
+      "sha256": "62db23ff0d30bea7eb61c5824064ae2a4445a68e440f2884d7ac84cd5d7ad3e8",
+      "url": "https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/Research-OS_bank-term-deposit-marketing-contact-priority_master-thesis-example_v0.3.pdf"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 486,
+      "sha256": "d622e2824c6144b45be50c931239b9a7b775af0638850cfabf5fa6cab1b26d30",
+      "url": "https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/SHA256SUMS.txt"
+    }
+  ]
+}

@@ -4,7 +4,9 @@
 
 **繁體中文** · [English](README.en.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
-**既有影片範例：**[Granger 有聲 v4（7:57.93）](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [逐步說明](docs/TUTORIAL_GRANGER.zh-TW.md) · [40 場景與重建來源](jobs/research-os-granger-tutorial/v4/README.md)。這是較早的公開公債資料案例；目前技能與安裝方式以本文件為準，舊片不作為新版研究助理原生啟動證據。銀行碩士教學案例的 ElevenLabs 重配尚在製作，尚無可在此提供的公開新版影片 release 或下載連結（狀態：2026-10-25）。
+**銀行定期存款行銷與聯繫優先序範例：**[本人 ivan-advanced／Eleven v4 教學影片（8:51.506）](https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/Research-OS_bank-term-deposit-marketing-contact-priority_assistant-tutorial_ivan-advanced_v4_v1.mp4) · [30 頁 LaTeX 論文教學 PDF](https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/Research-OS_bank-term-deposit-marketing-contact-priority_master-thesis-example_v0.3.pdf) · [LaTeX／實證來源包](https://github.com/yhlai0911/research-os/releases/download/bank-term-deposit-tutorial-v1/Research-OS_bank-term-deposit-marketing-contact-priority_LaTeX-empirical-sources_v1.zip) · [跟做教學](docs/TUTORIAL_BANK.zh-TW.md)。同一案例示範從沒有題目、選題轉向，到設計、實證、寫作與審閱；研究助理選路，接收 skill 實施。影片為教學角色問答與真實瀏覽器產物取材，未宣稱原生 Codex 自動啟動。影片中的待編譯進度屬當時畫面，隨附 PDF 是後續完成的成果。
+
+**較早的影片範例：**[Granger 有聲 v4（7:57.93）](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [逐步說明](docs/TUTORIAL_GRANGER.zh-TW.md) · [40 場景與重建來源](jobs/research-os-granger-tutorial/v4/README.md)。這是較早的公開公債資料案例；目前技能與安裝方式以本文件為準，舊片不作為新版研究助理原生啟動證據。
 
 Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向、方程式、現象、資料、草稿或審查意見，透過自適應對話推進成可反駁、可執行、可審查的研究計畫、企劃案或論文。它不把「寫出很多字」當作完成；它會主動查證文獻與資料、區分研究者決策和可查事實、模擬審查攻擊、修補根因，再把已驗證狀態封裝成單一 Research Brief，最後依目的轉譯成所需成果。
 
@@ -245,7 +247,9 @@ uv run pytest
 
 ### 影片教學
 
-建議先看[完整有聲 v4](docs/TUTORIAL_GRANGER.zh-TW.md)：40 場景、7 分 57.93 秒，示範從 GitHub 安裝到實際研究初稿。影片與下載校驗碼放在 [GitHub Release](https://github.com/yhlai0911/research-os/releases/tag/granger-tutorial-voiced-v4)，重建來源保存在本 repo，無須重新付費配音。
+從[銀行商管財金碩士教學](docs/TUTORIAL_BANK.zh-TW.md)開始：13 章、8 分 51.506 秒，包含沒有題目時如何問研究助理、每個適用 skill 的用途與產物，以及真實結果與修訂。影片、30 頁 PDF、乾淨重現包與公開檔名校驗碼放在[銀行範例 Release](https://github.com/yhlai0911/research-os/releases/tag/bank-term-deposit-tutorial-v1)；[輕量研究索引](examples/bank-term-deposit-marketing/README.zh-TW.md)保留設計與主要比較。
+
+較早的[Granger 有聲 v4](docs/TUTORIAL_GRANGER.zh-TW.md)為 40 場景、7 分 57.93 秒，示範 GitHub 安裝到研究初稿。其[獨立 Release](https://github.com/yhlai0911/research-os/releases/tag/granger-tutorial-voiced-v4)與重建來源仍保留。
 
 原有 4 分 01 秒的繁體中文 HyperFrames 教學仍保留，適合先看六步主線概要：
 
