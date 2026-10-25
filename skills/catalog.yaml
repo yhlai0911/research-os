@@ -1,10 +1,23 @@
 version: "2.0.0"
 source_of_truth: true
+assistant_delegation:
+  - research-setup
+  - research-1-grill
+  - research-2-brief
+  - research-3-falsify
+  - research-4-tasks
+  - research-5-run
+  - research-6-review
+  - research-save
+  - to-plan
+  - to-proposal
+  - to-paper
 defaults:
   lifecycle: "stable"
   distribution: "core"
   replaced_by: null
 composition:
+  research-assistant: [research-workspace-contract, research-setup, research-1-grill, research-2-brief, research-3-falsify, research-4-tasks, research-5-run, research-6-review, research-save, to-plan, to-proposal, to-paper, render-research-deliverable]
   research-1-grill: [research-grilling]
   research-help: [research-grilling]
   research-setup: [research-workspace-contract]
@@ -40,6 +53,16 @@ composition:
   synthesize-research-brief: [artifact-reconciliation, research-grilling, research-workspace-contract]
   theory-builder: [equation-builder, identification-design, research-domain-modeling]
 skills:
+  # Research guide; bounded delegation is separate from unrelated implicit selection.
+  - name: "research-assistant"
+    bucket: "primitives"
+    invocation: "model"
+    leading_word: "guided delegation"
+    display_name: "Research Assistant"
+    short_description: "Select research workflows and guide each verified next step"
+    default_prompt: "Use $research-assistant to inspect my research state, select the appropriate Research OS skill, and guide me through its work within my stated scope."
+    description: "Guide a researcher through Research OS by selecting, delegating to, and checking the applicable workflow. Use for research help from no topic, an idea, existing data, a draft or a continuation; exclude standalone translation, proofreading, formatting and unrelated tasks."
+
   # ---- one-time setup ----
 
   - name: "research-setup"
@@ -415,9 +438,9 @@ skills:
     invocation: "model"
     leading_word: "artifact contract"
     display_name: "Render Research Deliverable"
-    short_description: "Render verified research into the requested artifact"
-    default_prompt: "Use $render-research-deliverable to turn this verified Research Brief into the requested final artifact."
-    description: "Render a verified Research Brief into a fit-for-purpose academic research plan, grant proposal, project proposal, paper blueprint, or manuscript draft. Use when the destination artifact is known and its claims, decisions, methods, and evidence must be assembled without inventing missing work."
+    short_description: "Render research artifacts and interactive reading views"
+    default_prompt: "Use $render-research-deliverable to render the requested research artifact or a source-grounded interactive HTML reading companion, then provide a verified delivery link."
+    description: "Render verified research into plans, proposals, manuscript drafts, or local interactive HTML reading companions for existing tables, charts and revision excerpts. Use when the destination is known and evidence must remain traceable; supplementary HTML does not replace scholarly LaTeX/PDF delivery."
 
   - name: "ethics-reproducibility"
     bucket: "primitives"

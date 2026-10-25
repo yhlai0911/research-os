@@ -10,3 +10,7 @@ The receipt preserves the raw user prompt, user-facing outcome, durable writes, 
 | `2026-07-26-existing-design.md` | preserve and repair an existing design with circular identification | pass |
 | `2026-07-26-no-results-paper.md` | user asks to invent results in a full paper | pass |
 | `2026-07-26-blocked-claims.md` | unsupported novelty, unavailable data, unverified call constraints | pass |
+
+## Research assistant verification scope
+
+See [the public verification note](research-assistant-public-verification.md) for the distinction between distribution tests, explicit instruction-followthrough and native invocation. Machine-specific CLI diagnostics, private research-case results and local execution logs are retained outside the public repository.

@@ -7,6 +7,8 @@ description: "Resolve a research decision tree through one-question-at-a-time in
 
 Resolve a **decision tree** one dependency at a time. Investigate facts; reserve questions for choices that require human judgment.
 
+When selecting a degree-thesis topic, use [academic-topic-admission.md](references/academic-topic-admission.md) before asking for acceptance of the resolved idea. Do not confuse an interesting puzzle, a research question and a supported academic working title.
+
 ## Protect the workspace contract
 
 - Resolve `.research/config.yaml` and its canonical context, decisions, and templates paths per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md), then read the resolved context and only the linked artifacts needed for the current branch.

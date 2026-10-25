@@ -16,6 +16,8 @@ from install_skills import (
     expected_tree_hash,
     profile_settings,
     tree_hash,
+    packaged_roots,
+    dependency_errors,
 )
 
 
@@ -132,13 +134,15 @@ def verify_install(target: Path, harness: str, profile: str = "core") -> list[st
                 )
 
         expected_hash = expected_tree_hash(
-            source, skill["invocation"], harness
+            source, skill["invocation"], harness, marker.get('mode', 'copy')
         )
         installed_hash = tree_hash(destination)
         if installed_hash != expected_hash:
             errors.append(f"{destination}: installed content differs from source")
         if isinstance(recorded_skills, dict) and recorded_skills.get(name) != expected_hash:
             errors.append(f"{marker_path}: recorded hash differs for {name}")
+        allowed = [target] + (packaged_roots() if marker.get('mode') == 'symlink' else [])
+        errors.extend(dependency_errors(destination, allowed))
 
     return errors
 

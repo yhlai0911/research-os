@@ -41,7 +41,7 @@ def test_optional_profile_does_not_expand_default_core(tmp_path: Path) -> None:
     profile = yaml.safe_load(
         (ROOT / "profiles" / PROFILE / "catalog.yaml").read_text()
     )
-    assert len(core["skills"]) == 42
+    assert len(core["skills"]) == 43
     assert profile["version"] == "0.1.0"
     assert profile["requires_core"] == core["version"]
     assert profile["skills"] == [
@@ -104,7 +104,7 @@ def test_profile_rejects_incompatible_core_catalog_before_writes(
     checkout = tmp_path / "checkout"
     scripts = checkout / "scripts"
     scripts.mkdir(parents=True)
-    for name in ("install_skills.py", "verify_install.py"):
+    for name in ("install_skills.py", "verify_install.py", "skill_links.py"):
         shutil.copyfile(ROOT / "scripts" / name, scripts / name)
     (checkout / "skills").mkdir()
     shutil.copyfile(ROOT / "skills" / "catalog.yaml", checkout / "skills" / "catalog.yaml")
@@ -178,7 +178,7 @@ def test_profile_coexists_with_core_and_preserves_both_receipts(
             "verify_install.py", tmp_path, "--harness", harness, "--profile", profile
         )
         assert verified.returncode == 0, verified.stdout + verified.stderr
-        count = 42 if profile == "core" else 1
+        count = 43 if profile == "core" else 1
         assert f"INSTALL OK: {count} skills" in verified.stdout
 
     profile_before = (tmp_path / PROFILE_MARKER).read_bytes()

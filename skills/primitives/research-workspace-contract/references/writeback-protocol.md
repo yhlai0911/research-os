@@ -20,9 +20,15 @@ A skill that lacks explicit local-setup authority must not initialize a missing 
 
 ## Carry the researcher's intent across steps
 
+### Assistant-mediated workflow entry
+
+A workflow may be entered by the user's named call or delegated by `research-assistant` within the user's actual research mission and mutation/resource bounds. The novice need not name each skill. The assistant selects and transfers; the receiving workflow still performs every applicable obligation, asks its own unresolved research decisions, owns its outputs, and stops its invocation at its terminal branch. The assistant verifies that return before selecting a successor. This does not permit mainlines to recursively launch one another, override a host denial or native invocation policy, or turn `research-help` into an execution controller. Distinguish native invocation from fully read, delegated instruction-followthrough when the host has no native skill API.
+
 Read the current request together with the resolved mission and accepted decisions. Preserve the research purpose, degree or non-degree destination, audience, supplied title/question, available data or draft, language, constraints, exclusions, and unresolved frontier. Ask only for a missing consequential choice; do not ask again for an answer already supplied. Treat a course, recording, demonstration, or operator's production brief as separate context unless the researcher explicitly makes it the research objective. Templates are never evidence of the user's intent.
 
 For a thesis, dissertation, or requested titled output, distinguish a **provisional working title** from the research question and from an artifact's stable ID. Once the phenomenon, question and intended inference are bounded enough, propose a revisable title using only supported scope; preserve a supplied title unless a named inconsistency requires revision. Mark it `proposed` until accepted, record why it may change, and carry it by reference through the brief, plan, draft and handoff. With only a broad direction, record `working title: unresolved` and resolve the next research choice first. Never invent a population, period, method, causal effect, or novelty to make a title sound precise. Non-degree work does not acquire thesis, journal, finance, chapter-count, or defense requirements from this rule.
+
+For degree-topic admission, preserve the learner's plain-language puzzle separately from the bounded research question and academic working title. Check scholarly naming against supported constructs/relationships, population/scope, literature contribution and actual data feasibility together. A cosmetic title change does not clear a failed premise. Follow [academic-topic-admission.md](../../research-grilling/references/academic-topic-admission.md); institution-specific title/cover conventions remain unresolved until supplied.
 
 Persist this mission and title state in the owning context or artifact. Routine title wording is reversible and does not by itself qualify for a Research Decision Record.
 

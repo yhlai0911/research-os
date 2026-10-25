@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Assistant"
+  short_description: "Select research workflows and guide each verified next step"
+  default_prompt: "Use $research-assistant to inspect my research state, select the appropriate Research OS skill, and guide me through its work within my stated scope."

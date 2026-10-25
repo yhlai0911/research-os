@@ -28,6 +28,7 @@ First check that the current request is research work. If the user asks only for
 
 Classify the request:
 
+- Ongoing guidance, recommendations, or bounded delegated assistance across research stages, without requesting an end-to-end workflow run → `research-assistant`; the companion can explain and support authorized local work but does not implicitly launch user-only workflows
 - A topic, direction, equation, phenomenon, dataset, draft, or reviewer concern that the user wants developed end to end into a verdict, brief, plan, proposal, blueprint, or paper → `research-auto`
 - Explicit request only to initialize the workspace contract → `research-setup`
 - Missing workspace contract during an end-to-end request → still `research-auto`; that workflow is authorized to establish the contract

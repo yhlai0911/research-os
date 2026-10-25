@@ -12,6 +12,8 @@ Run `$render-research-deliverable` with:
 - source: the current canonical Research Brief and registered result artifacts;
 - journal, language, format, and style from the user's request.
 
+For paper/thesis delivery, require the renderer's scholarly-delivery contract: developed academic prose and verified literature, explained numbered equations, managed APA citations, editable LaTeX, an actual LaTeX-compiled PDF, first-build evidence, visual QA and a source package. Missing compilation or evidence means partial/blocked delivery, not permission to substitute Word-to-PDF or invent sources. A blueprint remains a blueprint even when its PDF compiles.
+
 This wrapper requires a current canonical Research Brief. If the workspace or brief is missing, stop and recommend `$research-auto` or `$research-2-brief`; do not silently create the prerequisite here.
 
 Stop after readback. Never fill a results section with expected, simulated, or plausible findings unless they are explicitly labeled as such and the requested artifact permits them.

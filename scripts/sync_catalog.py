@@ -14,6 +14,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG_PATH = ROOT / "skills" / "catalog.yaml"
 DOC_PATH = ROOT / "docs" / "SKILL_CATALOG.md"
+ASSISTANT_ROUTES_PATH = ROOT / "skills/primitives/research-assistant/assets/workflow-routes.json"
 
 
 def parse_args() -> argparse.Namespace:
@@ -100,6 +101,17 @@ def main() -> int:
         )
         reconcile(path, openai_yaml(skill), args.check, errors)
     reconcile(DOC_PATH, catalog_doc(catalog), args.check, errors)
+    skills_by_name = {s["name"]: s for s in catalog["skills"]}
+    routes = {
+        "schema_version": 1,
+        "source": "skills/catalog.yaml:assistant_delegation",
+        "native_policy_override": False,
+        "workflows": [
+            {key: skills_by_name[name][key] for key in ("name", "bucket", "invocation", "description")}
+            for name in catalog.get("assistant_delegation", [])
+        ],
+    }
+    reconcile(ASSISTANT_ROUTES_PATH, json.dumps(routes, ensure_ascii=False, indent=2) + "\n", args.check, errors)
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1

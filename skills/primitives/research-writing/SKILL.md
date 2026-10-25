@@ -11,6 +11,10 @@ Build an **argument** in which each paragraph earns the next claim. Write from v
 
 Read [academic-prose.md](references/academic-prose.md) before drafting or revising academic text in any language. Apply it without requiring the user to repeat a style prompt: connected scholarly paragraphs, clear and economical sentences, consistent precise terms, and explicit evidence-to-inference links. Use APA author-date citations by default when no user, institution, or venue style is specified. Preserve necessary tables, equations, hypotheses, method steps, uncertainty, and limitations. Borrow ASD-STE100 clarity principles without imposing its controlled-English vocabulary or word limits, claiming formal compliance, or simplifying an association into causation.
 
+Keep the academic body in the discipline's language. Explain sampling, measurement, transformations, estimators, assumptions and diagnostics without exposing skill names, workflow states, executors, paths, code identifiers or test logs. Put implementation and reproduction details in a separately identified technical appendix or companion. Preserve an appropriate AI-assistance statement; moving operational details must not conceal how the work was produced. Read [body-language-examples.md](references/body-language-examples.md) when revising a mixed academic/operational draft, and run `scripts/check_academic_body.py <manuscript.md>` as a non-mutating leak check. Its findings require located review; a clean result is not proof of scholarly quality or research validity.
+
+For a paper or degree-thesis deliverable, read [scholarly-delivery.md](references/scholarly-delivery.md). Require a developed scholarly argument, verified literature coverage, numbered and explained mathematical displays, managed APA citations, editable LaTeX sources, an actual LaTeX-compiled PDF, first-build evidence, visual QA and a reproducible source package. Markdown may remain an input or review aid; Word-to-PDF, ReportLab or another direct PDF generator cannot satisfy this paper/thesis compilation requirement. A paragraph edit does not by itself authorize rebuilding a whole thesis.
+
 ## Load the research contract
 
 1. Resolve `.research/config.yaml` per [writeback-protocol.md](../research-workspace-contract/references/writeback-protocol.md). Stop with `blocked: research_workspace_not_initialized` when it is absent or invalid.
@@ -27,6 +31,8 @@ Preserve the resolved claims registry's `schema_version`, declared `statuses`, e
 3. Map each material factual or literature claim to a `verified` entry in the resolved claims registry.
 4. Mark interpretation, inference, limitation, and speculation explicitly.
 5. Remove claims that do not advance the section's conclusion.
+
+Check the full chain: research problem → closest verified knowledge and unresolved issue → mechanism or research rationale → question/hypothesis → estimand, data and model choice → results and uncertainty → warranted conclusion. Develop warrants, alternatives and counterevidence in prose. Judge completeness by these functions and the actual discipline, not a fixed word count, page count or number of references. If the evidence cannot support the chain, narrow the claim or mark the draft partial; do not pad it.
 
 Choose one interaction mode:
 
@@ -81,6 +87,8 @@ Finish only when:
 - citations are placed on the claims they entail;
 - the draft path and claim-use pointers are updated;
 - no prose substitutes for missing research evidence;
+- academic methods and counterevidence survive the removal of implementation language, and the technical companion and AI disclosure remain linked outside the body;
+- for a paper/thesis delivery, the scholarly-delivery gates pass: literature and equation coverage, reconciled verified bibliography, actual LaTeX build, clean citation/reference/glyph diagnostics, visual QA and complete source package; missing gates remain partial or blocked, never a completed paper;
 - the saved draft, affected claim and decision records, and Artifact-index row are re-read and agree on target identity, IDs, paths, claim strength, and status; and
 - interactive-mode source identity, accepted blocks, and user edits are preserved; and
 - the run is reported `complete` only after that readback passes, otherwise `partial` or `blocked` according to the status rule above.

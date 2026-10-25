@@ -30,6 +30,8 @@ For each inventory item:
 7. Verify quotations word-for-word and within their qualifying context.
 8. Check reference-list integrity in both directions: every in-text citation resolves, and every listed reference is used.
 
+For a paper/thesis, audit the actual `.bib` entries and the compiled author-date citations, not a separately retyped reference list. Verify each entry's author order/spelling, year and version, title, venue and DOI against the publisher/DOI record or other authoritative bibliographic source; distinguish a verified absent DOI from an unverified one. A resolving DOI with mismatched metadata fails identity verification. Pin citation keys to source locators and the audited file version. Bibliographic existence is separate from claim entailment: inaccessible full text cannot support an uninspected substantive claim. Report abstract-only scope honestly. Never invent metadata, add irrelevant sources to meet a quota, or mark an audit's negative findings as repaired merely because all rows are inventoried. Use BibTeX/BibLaTeX and final compiler diagnostics to reconcile citation keys, references and locators; undefined citations/references prevent completed paper delivery.
+
 Invoke `$evidence-research` when a missing or weak claim needs a replacement source. Do not perform a broad literature landscape inside this audit.
 
 ## Write back

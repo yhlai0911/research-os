@@ -16,6 +16,11 @@ from pathlib import Path
 
 import yaml
 
+try:
+    from .skill_links import dependency_errors, rebase_markdown
+except ImportError:
+    from skill_links import dependency_errors, rebase_markdown
+
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = yaml.safe_load((ROOT / "skills" / "catalog.yaml").read_text())
@@ -65,6 +70,9 @@ def adapt_skill_markdown(text: str, invocation: str, harness: str) -> str:
         return text
     if harness != "claude-code":
         raise ValueError(f"unsupported harness: {harness}")
+    # Git for Windows may check out CRLF. Adapt semantic frontmatter while
+    # preserving Codex's byte-identical path above and the source file itself.
+    text = text.replace("\r\n", "\n")
     if not text.startswith("---\n"):
         raise ValueError("SKILL.md is missing YAML frontmatter")
     frontmatter_end = text.find("\n---\n", 4)
@@ -88,15 +96,37 @@ def tree_hash(path: Path) -> str:
     return digest.hexdigest()
 
 
-def expected_tree_hash(path: Path, invocation: str, harness: str) -> str:
+def packaged_roots() -> list[Path]:
+    roots = [ROOT / 'skills' / skill['bucket'] / skill['name'] for skill in CATALOG['skills']]
+    for profile in PROFILES:
+        if profile == 'core':
+            continue
+        try:
+            catalog, skills, _marker = profile_settings(profile)
+        except ValueError:
+            continue  # Unselected optional profiles cannot block core.
+        roots.extend(skills / skill['bucket'] / skill['name'] for skill in catalog['skills'])
+    return roots
+
+
+def installed_payload(item: Path, source: Path, invocation: str, harness: str) -> bytes:
+    payload = item.read_bytes()
+    if item.suffix.lower() == '.md':
+        text = payload.decode('utf-8')
+        if item.relative_to(source).as_posix() == 'SKILL.md':
+            text = adapt_skill_markdown(text, invocation, harness)
+        text = rebase_markdown(text, item, packaged_roots())
+        payload = text.encode('utf-8')
+    return payload
+
+
+def expected_tree_hash(path: Path, invocation: str, harness: str, mode: str = 'copy') -> str:
+    if mode == 'symlink':
+        return tree_hash(path)
     digest = hashlib.sha256()
     for item in sorted(candidate for candidate in path.rglob("*") if candidate.is_file()):
         relative = item.relative_to(path).as_posix()
-        payload = item.read_bytes()
-        if relative == "SKILL.md":
-            payload = adapt_skill_markdown(
-                payload.decode("utf-8"), invocation, harness
-            ).encode("utf-8")
+        payload = installed_payload(item, path, invocation, harness)
         digest.update(relative.encode())
         digest.update(b"\0")
         digest.update(payload)
@@ -108,13 +138,9 @@ def materialize_skill(
     source: Path, destination: Path, invocation: str, harness: str
 ) -> None:
     shutil.copytree(source, destination)
-    if harness == "claude-code":
-        skill_path = destination / "SKILL.md"
-        skill_path.write_text(
-            adapt_skill_markdown(
-                skill_path.read_text(encoding="utf-8"), invocation, harness
-            ),
-            encoding="utf-8",
+    for item in source.rglob('*.md'):
+        (destination / item.relative_to(source)).write_bytes(
+            installed_payload(item, source, invocation, harness)
         )
 
 
@@ -177,6 +203,7 @@ def main() -> int:
     receipt: dict[str, object] = {
         "managed_by": "research-os",
         "receipt_schema": 2,
+        "content_adapter": "flat-markdown-links-v1",
         "harness": args.harness,
         "catalog_version": catalog["version"],
         "source_commit": git_value("rev-parse", "HEAD", fallback="uncommitted"),
@@ -206,12 +233,21 @@ def main() -> int:
             return 2
 
     pending: list[tuple[Path, Path, str, str]] = []
+    roots = packaged_roots()
+    source_errors = []
+    for skill in catalog['skills']:
+        source_errors.extend(dependency_errors(skills_root / skill['bucket'] / skill['name'], roots))
+    if source_errors:
+        receipt['failure'] = 'source dependency validation failed'
+        receipt['dependency_errors'] = source_errors
+        print(json.dumps(receipt, ensure_ascii=False, indent=2, sort_keys=True))
+        return 2
     for skill in catalog["skills"]:
         source = skills_root / skill["bucket"] / skill["name"]
         destination = target / skill["name"]
         source_hash = tree_hash(source)
         installed_hash = expected_tree_hash(
-            source, skill["invocation"], args.harness
+            source, skill["invocation"], args.harness, args.mode
         )
         receipt["source_skills"][skill["name"]] = source_hash
         receipt["skills"][skill["name"]] = installed_hash
@@ -284,6 +320,14 @@ def main() -> int:
                 if staged_path.resolve() != source.resolve():
                     raise RuntimeError(f"staged symlink mismatch: {source.name}")
             staged.append((staged_path, destination))
+
+        # Cross-skill links resolve across the entire staged view, including
+        # a previously verified core when an optional profile is added.
+        for staged_path, _destination in staged:
+            allowed = [stage, target] + (roots if args.mode == 'symlink' else [])
+            errors = dependency_errors(staged_path, allowed, fallback=(stage, target))
+            if errors:
+                raise RuntimeError('staged dependency validation failed: ' + '; '.join(errors))
 
         target.mkdir(parents=True, exist_ok=True)
         for staged_path, destination in staged:

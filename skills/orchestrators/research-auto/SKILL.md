@@ -9,6 +9,8 @@ Run an **adaptive loop**, not a fixed academic checklist. Start from whatever th
 
 Read [adaptive-routing.md](references/adaptive-routing.md) when selecting the next research primitive, handling a route change, or deciding whether alternative designs are needed.
 
+When explicitly invoked from a `research-assistant` handoff, inspect its pinned inputs, evidenced delegation, accepted choices and unresolved gates. Reuse still-valid decisions and bounds; do not restart topic selection or request duplicate permission for authorized reversible work. This explicit mission owns the adaptive loop and applicable primitive selection. A companion recommendation or generated handoff alone does not establish that this workflow was invoked or executed.
+
 ## Establish the mission
 
 Extract the seed, desired destination, audience, intended use or decision, constraints, exclusions, available evidence, current stage, language, required template or format, and preferred export path. A seed may be a phenomenon, equation, theory, dataset, policy, draft, reviewer comment, or vague interest. Do not re-ask fields already supplied.

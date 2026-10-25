@@ -51,6 +51,8 @@ Use `research-grilling` for the interview discipline and `research-domain-modeli
 
 Try to break the idea with the closest prior work, data constraints, rival mechanisms, identification threats, measurement failure, and ethical constraints. Convert each surviving uncertainty into a testable question rather than optimistic prose.
 
+For degree-topic selection, apply [academic-topic-admission.md](../../primitives/research-grilling/references/academic-topic-admission.md). Compare concrete directions against original literature, an actual small data-access/measurement check when empirical data are required, and a defensible degree-level contribution. A familiar managerial puzzle, an existing related paper, a metadata page or a polished title alone is insufficient. Return `repair` or `blocked` when a load-bearing premise fails; do not manufacture novelty, a mechanism or a moderator to make the topic pass.
+
 **Complete when:** the idea has at least one credible failure condition and no hidden assumption that would invalidate the whole design. Use descriptive or interpretive logic when appropriate; do not invent a causal mechanism just to pass this step.
 
 ## Stage 4 — Write the resolved idea
@@ -59,6 +61,7 @@ Write or update the resolved-idea outcome in `CONTEXT`, linking consequential de
 
 - confirmed research question and intended contribution;
 - research purpose and destination; for degree work or a requested titled output, a proposed or accepted revisable working title, or an explicit unresolved title with the missing prerequisite;
+- for degree work, distinguish the original plain-language puzzle, the bounded research question and the academic working title; check the title's constructs/relationship and supported population/scope together with the literature and feasibility evidence, not as a cosmetic naming exercise;
 - construct and mechanism definitions;
 - unit, population, setting, and scope;
 - required evidence and current claim-chain links;

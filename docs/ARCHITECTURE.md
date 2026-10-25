@@ -8,7 +8,7 @@ Research OS seeks process predictability under uncertain evidence. It does not p
 
 ### User-invoked orchestrators
 
-These skills expose long flows, project setup, durable synthesis, or artifact creation. Codex metadata sets `policy.allow_implicit_invocation: false`. The agent may recommend one through `/research-help`, but a user-only skill never silently launches another user-only skill.
+These skills expose long flows, project setup, durable synthesis, or artifact creation. Codex metadata sets `policy.allow_implicit_invocation: false` for their direct discovery. They can also receive a bounded delegation from `research-assistant` under the user's actual research mission. A mainline does not recursively launch another mainline; `research-help` still recommends and stops. Native explicit-selection metadata is not a per-caller delegation implementation.
 
 Six of them form the **mainline**, `research-1-grill` through `research-6-review`. The numbering is load-bearing rather than cosmetic: the pipeline's order is the first thing a user sees in the skill list, and each mainline skill states its own position and names its successor on reaching a completion gate. Handing off is not the same as launching — a mainline skill names the next step and stops. `research-3-falsify` precedes decomposition so that no execution cost is committed to a claim with no predeclared way to fail.
 
@@ -17,6 +17,8 @@ Six of them form the **mainline**, `research-1-grill` through `research-6-review
 `research-status` is read-only. It reports mainline position, current artifacts, and unresolved claims from the Artifact index and the claim registry, and never advances or repairs anything.
 
 ### Model-invoked primitives
+
+`research-assistant` is the guide/controller in this layer. It reads actual state, selects the applicable skill, transfers the bounded task, and checks the receiving skill's output before guiding the next step. The novice need not type every name. The assistant does not replace the receiving skill with an embedded research pipeline. Missing setup can be delegated to `research-setup` only inside an actual additive local-write grant; other missing facts or research choices remain gates. With no native skill interface, fully read delegated instruction-followthrough is a separate, honestly labelled execution mode, never a native-invocation claim or a fallback around denial. The non-mutating handoff helper reports contract prerequisites, not research readiness. `research-help` retains its route-only contract.
 
 These skills contain reusable research discipline and rich trigger descriptions. An orchestrator may rely on them without duplicating their rules. Examples include mechanism building, counterfactual design, evidence research, citation entailment, and falsification.
 
@@ -115,7 +117,7 @@ Codex metadata is generated in the repository. Claude Code metadata is generated
 
 ### Codex installation contract
 
-Research OS is distributed as one catalogued suite of 42 skills, not as one root skill. A bare GitHub repository URL is therefore not a valid input to Codex's single-skill installer, which requires one or more internal skill paths.
+Research OS is distributed as one catalogued suite of 43 skills, not as one root skill. A bare GitHub repository URL is therefore not a valid input to Codex's single-skill installer, which requires one or more internal skill paths.
 
 The repository-owned installer is the suite authority:
 
@@ -124,13 +126,13 @@ The repository-owned installer is the suite authority:
 3. stage and hash every pending skill;
 4. promote the complete set or roll back;
 5. write `.research-os-install.json` with catalog version, source commit, mode, and per-skill hashes;
-6. run `scripts/verify_install.py` to read back all 42 core directories, required Codex metadata, hashes, and receipt.
+6. run `scripts/verify_install.py` to read back all 43 core directories, required Codex metadata, hashes, and receipt.
 
 Claude plugin manifests are outside this Codex-first contract. Adding one cannot prove a complete Codex installation.
 
 ### Claude Code installation contract
 
-Claude Code discovers standalone personal skills at `~/.claude/skills/<name>/SKILL.md` and project skills at `.claude/skills/<name>/SKILL.md`. `scripts/install_skills.py --harness claude-code` materializes all 42 catalogued skills into one of those standard locations.
+Claude Code discovers standalone personal skills at `~/.claude/skills/<name>/SKILL.md` and project skills at `.claude/skills/<name>/SKILL.md`. `scripts/install_skills.py --harness claude-code` materializes all 43 catalogued skills into one of those standard locations.
 
 The adapter is deterministic and catalog-driven:
 

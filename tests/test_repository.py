@@ -917,7 +917,8 @@ def test_claude_code_install_generates_invocation_adapter_and_verifies(
     tmp_path: Path,
 ) -> None:
     home = tmp_path / "home"
-    env = {**os.environ, "HOME": str(home)}
+    # Path.home() uses USERPROFILE on Windows; keep this test local there too.
+    env = {**os.environ, "HOME": str(home), "USERPROFILE": str(home)}
     target = home / ".claude" / "skills"
 
     installed = run_script("install_skills.py", "--harness", "claude-code", env=env)
