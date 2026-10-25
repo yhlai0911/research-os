@@ -6,7 +6,7 @@ Load the shared rules and only the profile requested by the caller.
 
 Every output must:
 
-1. name its source Research Brief and current version;
+1. name its source Research Brief and current version for an academic plan, proposal or manuscript; a supplementary HTML reading companion instead names the pinned existing source artifact/version and its current verdict, including during pre-brief topic exploration;
 2. preserve claim strength and uncertainty;
 3. distinguish proposed work from completed work;
 4. cite inspectable evidence near material claims;
@@ -120,6 +120,8 @@ Label every planned table and result. A complete blueprint is not a complete man
 
 Purpose: present completed research as a cumulative academic argument.
 
+This profile includes degree theses. Map chapter functions to the verified institutional template; do not claim school compliance or degree approval without that evidence. Apply the shared [scholarly delivery contract](../../research-writing/references/scholarly-delivery.md). Completion is functional and evidential, never a word/page/reference quota.
+
 Required functions normally include title, abstract, introduction, literature and contribution, theory, data, identification and methods, results, robustness or falsification, discussion, limitations, conclusion, references, and appendices.
 
 A `complete-draft` requires:
@@ -129,6 +131,10 @@ A `complete-draft` requires:
 - uncertainty and negative results;
 - citations that entail material claims;
 - no placeholder presented as observation;
-- internal consistency between text, tables, figures, equations, and appendices.
+- internal consistency between text, tables, figures, equations, and appendices;
+- literature synthesis that establishes the closest verified work, unresolved issue, alternatives and bounded contribution;
+- numbered, cited equations with defined symbols, units, assumptions, derivation/source and justified model choice;
+- an APA-style BibTeX/BibLaTeX bibliography whose author/year/title/DOI identities and claim support are verified and reconciled in both directions;
+- editable LaTeX and a PDF actually compiled from it, clean final citation/reference/glyph diagnostics, page-level visual QA and a rebuildable source package.
 
 When these conditions fail, produce an `outline` or `partial` draft and name the blocked sections.

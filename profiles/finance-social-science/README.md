@@ -2,7 +2,7 @@
 
 [繁體中文](README.zh-TW.md) · [Generic core](../../README.en.md)
 
-This separately versioned **0.1.0** extension requires Research OS core **2.0.0** from this checkout. It adds one command, `research-finance-social-science`, for an empirical-design validity audit. Core remains 42 generic skills; this profile is not installed by default and does not fork or replace them.
+This separately versioned **0.1.0** extension requires Research OS core **2.0.0** from this checkout. It adds one command, `research-finance-social-science`, for an empirical-design validity audit. Core remains 43 generic skills; this profile is not installed by default and does not fork or replace them.
 
 ## Install and verify
 

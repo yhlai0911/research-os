@@ -1,5 +1,7 @@
 # Research OS
 
+**Local research-assistant integration prototype:** `research-assistant` is part of this branch's 43-skill core catalog and installer. It provides ongoing guidance, recommendations, delegated decisions, and authorized bounded execution; see the [Traditional Chinese one-page guide](docs/RESEARCH_ASSISTANT.zh-TW.md) and [verification protocol](docs/RESEARCH_ASSISTANT_TESTING.md). This branch is unpublished. Installation examples pointing to public `main` do not include this local prototype; use this checkout for testing.
+
 **English** · [繁體中文](README.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
 **New practical tutorial:** [Watch voiced v4 (7:57.93, Traditional Chinese)](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [English walkthrough](docs/TUTORIAL_GRANGER.en.md) · [40 scenes and offline rebuild sources](jobs/research-os-granger-tutorial/v4/README.md). Follow installation, the six research steps, a diagnostic revision, and delivery of a bounded first draft using public Treasury data. The [original 4:01 overview](jobs/research-os-tutorial/README.md) remains available.
@@ -10,7 +12,7 @@ Its design draws on [Matt Pocock's skills](https://github.com/mattpocock/skills)
 
 **Version and installation:** this guide covers the v2 six-step workflow, bilingual operation, and optional domain profile. Installation commands use `main`; check the installation receipt's source commit to identify the version you actually installed. Existing v1.1 users should read the [migration guide](docs/MIGRATION-v2.md) first.
 
-**One repository, distinct core and optional extension:** the default suite remains **42 generic core skills**. The independent [finance-social-science profile](profiles/finance-social-science/README.md) ([繁體中文](profiles/finance-social-science/README.zh-TW.md)) lives in this same repository. It is not a separate repository and is not installed by default. Explicit opt-in keeps domain-specific assumptions out of the generic workflow.
+**One repository, distinct core and optional extension:** the default suite remains **43 generic core skills**. The independent [finance-social-science profile](profiles/finance-social-science/README.md) ([繁體中文](profiles/finance-social-science/README.zh-TW.md)) lives in this same repository. It is not a separate repository and is not installed by default. Explicit opt-in keeps domain-specific assumptions out of the generic workflow.
 
 ## Start with six steps
 
@@ -29,6 +31,7 @@ Mainline
   /research-6-review     Challenge the work through independent review axes
 
 At any point
+  $research-assistant   Ground current state; guide, advise, decide or act within authority
   /research-status      Read current progress, artifacts, gaps, and next step
 
 Deliverables
@@ -37,9 +40,11 @@ Deliverables
 
 Each mainline step has checkable completion conditions. It names the next step and stops; a recommendation does not authorize launching another user-invoked skill. Falsification comes before task decomposition so the project records failure conditions before spending execution effort.
 
-The agent may use 25 model-invoked research primitives as needed. You do not need to memorize their names. The six steps are the user-facing path; they do not force every topic through every possible method.
+The agent may use 26 model-invoked research primitives as needed. You do not need to memorize their names. The six steps are the user-facing path; they do not force every topic through every possible method.
 
 For a less manual route, `/research-auto` works adaptively on the current bottleneck using model-invoked primitives. It still respects researcher decisions, workspace scope, evidence limits, and external-action permissions. `/research-help` recommends an entry point and stops.
+
+Start with `$research-assistant` in Codex when you want continuing help with the current project. The companion can perform authorized finite local work and prepare one explicit mainline or `research-auto` invocation. An explicitly launched `research-auto` mission then owns adaptive primitive selection; the novice does not need to invoke each internal primitive. The companion can explain and inspect returned artifacts without treating a recommendation as execution. In Claude Code this companion remains model-invoked rather than a slash-menu entry.
 
 ## English and Traditional Chinese
 
@@ -50,7 +55,7 @@ For a less manual route, `/research-auto` works adaptively on the current bottle
 
 See the [language convention](docs/LANGUAGE.md). For a complete first session, use the [English quickstart](docs/QUICKSTART.en.md).
 
-## Install the 42 core skills
+## Install the 43 core skills
 
 Requirements: Git, [uv](https://docs.astral.sh/uv/), Python 3.11 or newer, and the agent harness you intend to use. Run these commands from a local checkout you are authorized to modify.
 
@@ -84,11 +89,11 @@ uv run python scripts/verify_install.py --harness claude-code
 
 The default is `~/.claude/skills`. To install only for a project, add `--target /absolute/path/to/project/.claude/skills` to all three commands. Use copy mode, the default; symlink mode is rejected because Claude Code's installed metadata differs from the canonical source.
 
-The adapter generates `disable-model-invocation: true` for **17 user-only skills** (16 orchestrators and one meta skill), and `user-invocable: false` for **25 model-only primitives**. It does not modify the repository's canonical `SKILL.md` files. Use `/skills` to inspect the installed list. Restart Claude Code if its top-level skills directory was created after the session started. See the [installation research](docs/research/claude-code-skills-installation.md) and [official skills documentation](https://code.claude.com/docs/en/skills).
+The adapter generates `disable-model-invocation: true` for **17 user-only skills** (16 orchestrators and one meta skill), and `user-invocable: false` for **26 model-only primitives**. It does not modify the repository's canonical `SKILL.md` files. Use `/skills` to inspect the installed list. Restart Claude Code if its top-level skills directory was created after the session started. See the [installation research](docs/research/claude-code-skills-installation.md) and [official skills documentation](https://code.claude.com/docs/en/skills).
 
 ### Verify before starting
 
-Core verification must report `INSTALL OK: 42 skills`. The installer writes `.research-os-install.json` in the selected skills directory, recording source commit, harness, and hashes. Verification reads back the installed files and receipt. It establishes installation integrity, not the quality of future model behavior.
+Core verification must report `INSTALL OK: 43 skills`. The installer writes `.research-os-install.json` in the selected skills directory, recording source commit, harness, and hashes. Verification reads back the installed files and receipt. It establishes installation integrity, not the quality of future model behavior.
 
 The installer preflights the whole selection. If a destination has conflicting content, it stops without overwriting it. Inspect and back up your changes before resolving a conflict. Do not delete or force-overwrite unrelated skills to make an installation pass.
 
@@ -107,7 +112,7 @@ uv run python scripts/verify_install.py --profile finance-social-science
 
 For Claude Code, add `--harness claude-code` to all three commands. Use the same `--target` as the verified core if you selected a custom target.
 
-The profile adds the independent `/research-finance-social-science` entry point (`$research-finance-social-science` in Codex). It does not alter the 42-skill core catalog and is not automatically activated merely because a topic mentions finance or social science. Read its [English guide](profiles/finance-social-science/README.md) or [繁體中文說明](profiles/finance-social-science/README.zh-TW.md) for activation, scope, and limitations.
+The profile adds the independent `/research-finance-social-science` entry point (`$research-finance-social-science` in Codex). It does not alter the 43-skill core catalog and is not automatically activated merely because a topic mentions finance or social science. Read its [English guide](profiles/finance-social-science/README.md) or [繁體中文說明](profiles/finance-social-science/README.zh-TW.md) for activation, scope, and limitations.
 
 ## First session
 
@@ -143,7 +148,7 @@ The workflow resolves one consequential decision at a time. When the idea is res
 
 ## Architecture and maintenance
 
-The core contains **16 orchestrators, 25 primitives, and one meta skill**. [`skills/catalog.yaml`](skills/catalog.yaml) is the source of truth; it generates the [skill catalog](docs/SKILL_CATALOG.md) and Codex metadata. Claude Code adapters are generated at installation. Other harnesses are not claimed to enforce equivalent invocation policy without an adapter and verification.
+The core contains **16 orchestrators, 26 primitives, and one meta skill**. [`skills/catalog.yaml`](skills/catalog.yaml) is the source of truth; it generates the [skill catalog](docs/SKILL_CATALOG.md) and Codex metadata. Claude Code adapters are generated at installation. Other harnesses are not claimed to enforce equivalent invocation policy without an adapter and verification.
 
 ```bash
 uv sync --locked --all-groups

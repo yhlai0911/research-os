@@ -2,7 +2,7 @@
 
 [English README](../README.en.md) · [繁體中文 README](../README.md) · [繁體中文使用教學](USAGE_GUIDE.zh-TW.md)
 
-This guide installs the 42-skill generic core and walks through a first research session. The optional [finance-social-science profile](../profiles/finance-social-science/README.md) is a separately installed, explicit opt-in in the same repository. It is not a second repository or part of the default core installation.
+This guide installs the 43-skill generic core and walks through a first research session. The optional [finance-social-science profile](../profiles/finance-social-science/README.md) is a separately installed, explicit opt-in in the same repository. It is not a second repository or part of the default core installation.
 
 Workflow examples below use Claude Code's `/skill-name` notation. In Codex, use `$skill-name` to explicitly invoke the same skill; for example, `$research-setup` and `$research-1-grill`.
 
@@ -48,7 +48,7 @@ uv run python scripts/install_skills.py --harness claude-code
 uv run python scripts/verify_install.py --harness claude-code
 ```
 
-Target: `~/.claude/skills`. The installer generates Claude Code invocation metadata from the catalog: 17 user-only skills (16 orchestrators plus one meta skill) and 25 model-only primitives. Copy mode is required and is the default.
+Target: `~/.claude/skills`. The installer generates Claude Code invocation metadata from the catalog: 17 user-only skills (16 orchestrators plus one meta skill) and 26 model-only primitives. Copy mode is required and is the default.
 
 ### Claude Code: project-only installation
 
@@ -67,7 +67,7 @@ Use Claude Code's `/skills` to inspect the commands. If the top-level skills dir
 
 ### Check the result
 
-Expect `INSTALL OK: 42 skills`. Read `.research-os-install.json` in the selected target directory and check its `source_commit`, `harness`, and recorded hashes. The verifier checks installed files against the current source checkout and receipt.
+Expect `INSTALL OK: 43 skills`. Read `.research-os-install.json` in the selected target directory and check its `source_commit`, `harness`, and recorded hashes. The verifier checks installed files against the current source checkout and receipt.
 
 If the dry-run reports a conflict, inspect the exact path. Back up local customizations and resolve ownership or version conflicts deliberately, then rerun dry-run. The installer does not overwrite conflicting skills. A successful verification establishes installation integrity, not a guarantee of model behavior.
 
@@ -87,6 +87,8 @@ Use an explicit project path if the active directory is unclear. Setup establish
 You can instead request Traditional Chinese discussion and English deliverables. Explicit language choices take precedence; otherwise help and output follow the user's language. Skill names, command names, paths, claim IDs, and machine-readable statuses remain unchanged. See [LANGUAGE.md](LANGUAGE.md).
 
 Unsure where to begin? Use `/research-help` with a short description of what you have. It recommends a route and stops; it does not launch the next workflow for you.
+
+For guided progression, ask `$research-assistant` in ordinary language, including "I want to write a thesis but have no topic." It selects and delegates the applicable workflow, whose instructions own the actual research work, then checks the returned result before guiding the next step. You need not type each skill name; missing research decisions still require your answer. Native invocation and fully read delegated instruction-followthrough must be reported separately when the host has no native skill interface.
 
 ## 4. Work through the six-step mainline
 
@@ -128,7 +130,7 @@ uv run python scripts/verify_install.py --profile finance-social-science
 
 For Claude Code, add `--harness claude-code` to all three commands. If the core uses a custom target, pass that same `--target` to all profile commands.
 
-The independent `/research-finance-social-science` entry point (`$research-finance-social-science` in Codex) adds opt-in domain guidance without changing the 42-skill core catalog. Installing it does not make every project use it. Follow the [profile's activation and scope instructions](../profiles/finance-social-science/README.md) ([繁體中文](../profiles/finance-social-science/README.zh-TW.md)).
+The independent `/research-finance-social-science` entry point (`$research-finance-social-science` in Codex) adds opt-in domain guidance without changing the 43-skill core catalog. Installing it does not make every project use it. Follow the [profile's activation and scope instructions](../profiles/finance-social-science/README.md) ([繁體中文](../profiles/finance-social-science/README.zh-TW.md)).
 
 ## Migration from v1.1
 

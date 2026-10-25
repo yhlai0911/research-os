@@ -2,7 +2,7 @@
 
 [English](README.md) · [通用核心](../../README.md)
 
-此擴充獨立標示版本 **0.1.0**，需要此 checkout 的 Research OS core **2.0.0**。新增 `research-finance-social-science` 一個研究設計稽核入口。通用核心仍是 42 個 skills；預設安裝不含此擴充，也不以財金社科流程取代核心。
+此擴充獨立標示版本 **0.1.0**，需要此 checkout 的 Research OS core **2.0.0**。新增 `research-finance-social-science` 一個研究設計稽核入口。通用核心仍是 43 個 skills；預設安裝不含此擴充，也不以財金社科流程取代核心。
 
 ## 安裝及驗證
 

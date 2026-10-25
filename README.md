@@ -1,5 +1,7 @@
 # Research OS
 
+**本地研究助理整合試作：**`research-assistant` 已納入本分支的 43 個核心技能與安裝流程，可在研究全程提供指引、建議、受委託決策與已授權執行。見[一頁新手說明](docs/RESEARCH_ASSISTANT.zh-TW.md)。本分支未發布；下方指向公開 `main` 的安裝範例不包含這項本地試作。測試請使用本 checkout，勿以此說明推定全域 skills 已更新。
+
 **繁體中文** · [English](README.en.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
 **新版實作教學：**[觀看完整有聲 v4（7:57.93）](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [照著做的說明](docs/TUTORIAL_GRANGER.zh-TW.md) · [40 場景與離線重建來源](jobs/research-os-granger-tutorial/v4/README.md)。用公開公債資料走過安裝、六步研究、模型診斷修訂與初稿交付。
@@ -10,7 +12,7 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
 
 **版本與安裝：**本文件說明 v2 六步主線、雙語操作與選用領域擴充。以下指令使用 `main`；安裝後請以 receipt 的 source commit 確認實際版本。既有 v1.1 使用者請先閱讀 [升級指南](docs/MIGRATION-v2.md)。
 
-**同一個 repository，核心與選用擴充分開。**預設仍安裝 42 個通用核心 skills，適用於不同學科。金融與社會科學的額外檢查放在本 repo 內獨立、需明確選用的 [finance-social-science profile（繁體中文）](profiles/finance-social-science/README.zh-TW.md)／[English](profiles/finance-social-science/README.md)。它不是另一個 repo，不會預設安裝或自動套用到其他研究。
+**同一個 repository，核心與選用擴充分開。**預設仍安裝 43 個通用核心 skills，適用於不同學科。金融與社會科學的額外檢查放在本 repo 內獨立、需明確選用的 [finance-social-science profile（繁體中文）](profiles/finance-social-science/README.zh-TW.md)／[English](profiles/finance-social-science/README.md)。它不是另一個 repo，不會預設安裝或自動套用到其他研究。
 
 ## 語言與說明
 
@@ -36,6 +38,7 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
   /research-6-review     審查：用期刊審稿人的角度攻擊自己
 
 隨時
+  $research-assistant    讀取目前研究，指引、建議、受託決策及授權內協助
   /research-status       我在第幾步、已經有什麼、還缺什麼
 
 成果
@@ -46,13 +49,15 @@ Research OS 是一套可組合的 Agent Skills，用來把一個主題、方向�
 
 `/research-3-falsify` 刻意排在拆任務之前。理由跟 TDD 先寫失敗測試一樣：先講定什麼結果會殺死這個設計，才不會把成本投進一個無法被推翻的主張。事後才調閾值不算數。
 
-**你只需要記住上面這幾個名字。** 另外 25 個 model-invoked primitives（文獻地圖、gap 稽核、識別設計、資料可行性、引用查核……）由 Agent 依當下瓶頸自動取用，不需要你記、也不需要你叫。
+**你只需要記住上面這幾個名字。** 另外 26 個 model-invoked primitives（文獻地圖、gap 稽核、識別設計、資料可行性、引用查核……）由 Agent 依當下瓶頸自動取用，不需要你記、也不需要你叫。
 
-不想逐步走的話，`/research-auto` 是自動駕駛：它每輪只解決最影響下游的 frontier，並保留你排除過的領域、方法與資料限制。其餘入口見下方「其他入口」。
+新手可以先用 `$research-assistant` 說明目標、已有材料與允許它做的事。助理會讀目前成果，協助處理已授權的小型工作，並解釋何時需要你決定或明確啟動主線；推薦一個技能不代表已執行。
 
-## 安裝到 Codex（完整 42 skills）
+不想逐步下指令時，可明確呼叫 `/research-auto`，一次交代研究目標與執行範圍：它每次只解決最影響下游的 frontier，並保留你排除過的領域、方法與資料限制。啟動後由它選用適用的研究技能，不必逐一呼叫內部工具。研究助理仍可解釋產物、核對進度與協助續做。其餘入口見下方「其他入口」。
 
-Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repository 根網址當成單一 skill 安裝的 skill。不要對 `https://github.com/yhlai0911/research-os` 直接使用 Codex 的單一 skill GitHub 安裝器；它需要每個 skill 的內部路徑，也不具備本專案的整批 preflight 與 receipt。這條 Codex 安裝流程不需要 `.claude-plugin/plugin.json`。
+## 安裝到 Codex（完整 43 skills）
+
+Research OS 是一套 **43 個 skills 的集合**，不是一個可由 repository 根網址當成單一 skill 安裝的 skill。不要對 `https://github.com/yhlai0911/research-os` 直接使用 Codex 的單一 skill GitHub 安裝器；它需要每個 skill 的內部路徑，也不具備本專案的整批 preflight 與 receipt。這條 Codex 安裝流程不需要 `.claude-plugin/plugin.json`。
 
 ### 直接交給 Codex 安裝
 
@@ -61,7 +66,7 @@ Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repositor
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
 請使用 main 分支，並在安裝後回報實際 source commit。
-這是 42 個 skills 的集合，不是單一 skill。
+這是 43 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
 2. uv run python scripts/install_skills.py --dry-run
@@ -70,7 +75,7 @@ Research OS 是一套 **42 個 skills 的集合**，不是一個可由 repositor
 不要使用單一 skill GitHub 安裝器處理 repository 根網址，
 也不要尋找或建立 .claude-plugin/plugin.json。
 最後讀回 .research-os-install.json，回報 source commit，
-並確認結果為 INSTALL OK: 42 skills。
+並確認結果為 INSTALL OK: 43 skills。
 ```
 
 ### 在終端機手動安裝
@@ -86,13 +91,15 @@ uv run python scripts/verify_install.py
 
 未提供 `--target` 時，安裝器會使用 `$CODEX_HOME/skills`；若未設定 `CODEX_HOME`，則使用 `~/.codex/skills`。只有刻意安裝到其他 Codex skills 目錄時才需加上 `--target /明確的/skills/路徑`。
 
-安裝器會先完成 42 個目標的全批 preflight；任何同名 skill 內容不同時，整批停止、不覆寫，也不留下半套新安裝。成功後會寫入 `.research-os-install.json`，`verify_install.py` 會重新核對 catalog、42 個 skill 目錄、`SKILL.md`、`agents/openai.yaml`、內容 hash 與 receipt。新 skills 會在 Codex 的下一輪或新 task 載入。
+安裝器會先完成 43 個目標的全批 preflight；任何同名 skill 內容不同時，整批停止、不覆寫，也不留下半套新安裝。複製模式會將來源 bucket 間的 Markdown 連結轉為扁平安裝的相對路徑，並在暫存的整套技能中逐一讀取共享依賴；symlink 模式保留來源路徑。成功後寫入 `.research-os-install.json`，`verify_install.py` 會核對 catalog、目錄、metadata、hash、receipt，以及每個本地 Markdown 依賴是否存在且可讀。已有舊副本不會自動覆寫，應先保留版本，再在乾淨目錄驗證更新。
+
+`INSTALL OK` 只代表安裝檔案與依賴的靜態驗證通過，不等於宿主選單已列出、技能已載入、主線已執行或研究已完成。仍須在正確的專案範圍核對實際發現及呼叫結果；未列出的原因未經實測不得歸為單一因素。研究助理可以持續引導與協助授權內工作，但推薦主線並不代表主線已跑。新手實操示範的真實證據及畫面語言要求見 [`novice-demonstration.md`](skills/primitives/research-assistant/references/novice-demonstration.md)。
 
 第一次使用可接著閱讀 [`docs/USAGE_GUIDE.zh-TW.md`](docs/USAGE_GUIDE.zh-TW.md)。常用提示詞可直接複製自 [`docs/PROMPT_COOKBOOK.zh-TW.md`](docs/PROMPT_COOKBOOK.zh-TW.md)，遇到卡關則查閱 [`docs/TROUBLESHOOTING.zh-TW.md`](docs/TROUBLESHOOTING.zh-TW.md)。
 
-## 安裝到 Claude Code（完整 42 skills）
+## 安裝到 Claude Code（完整 43 skills）
 
-Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`。Research OS 會在安裝時從同一份 catalog 生成 Claude Code invocation adapter：17 個 user-only skills（16 個 orchestrators 加 1 個 meta skill）加上 `disable-model-invocation: true`，25 個 model-only skills 加上 `user-invocable: false`；repository 內的 canonical `SKILL.md` 不會被改寫。這是純 skills 安裝，不需要 plugin manifest。[Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills#where-skills-live)
+Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`。Research OS 會在安裝時從同一份 catalog 生成 Claude Code invocation adapter：17 個 user-only skills（16 個 orchestrators 加 1 個 meta skill）加上 `disable-model-invocation: true`，26 個 model-only skills 加上 `user-invocable: false`；repository 內的 canonical `SKILL.md` 不會被改寫。這是純 skills 安裝，不需要 plugin manifest。[Claude Code 官方 skills 文件](https://code.claude.com/docs/en/skills#where-skills-live)
 
 ### 直接交給 Claude Code 安裝
 
@@ -101,7 +108,7 @@ Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`�
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
 請使用 main 分支，並在安裝後回報實際 source commit。
-這是 42 個 skills 的集合，不是單一 skill。
+這是 43 個 skills 的集合，不是單一 skill。
 請 clone repository，使用 uv 執行：
 1. uv sync --locked
 2. uv run python scripts/install_skills.py --harness claude-code --dry-run
@@ -109,7 +116,7 @@ Claude Code 官方支援個人 `~/.claude/skills/` 與專案 `.claude/skills/`�
    uv run python scripts/install_skills.py --harness claude-code
 4. uv run python scripts/verify_install.py --harness claude-code
 最後讀回 ~/.claude/skills/.research-os-install.json，
-回報 source commit，並確認結果為 INSTALL OK: 42 skills。
+回報 source commit，並確認結果為 INSTALL OK: 43 skills。
 ```
 
 ### 在終端機安裝為個人 skills
@@ -146,7 +153,7 @@ Claude Code 官方安裝規格、standalone skills 與 Marketplace plugin 的差
 
 ### 選用金融與社會科學 profile
 
-先完成並驗證上述 42 個核心 skills，再視研究需求另外安裝：
+先完成並驗證上述 43 個核心 skills，再視研究需求另外安裝：
 
 ```bash
 uv run python scripts/install_skills.py --profile finance-social-science --dry-run
@@ -154,7 +161,7 @@ uv run python scripts/install_skills.py --profile finance-social-science
 uv run python scripts/verify_install.py --profile finance-social-science
 ```
 
-Claude Code 的三個指令都加上 `--harness claude-code`；若核心使用自訂 `--target`，profile 也必須指定同一目錄。這會加入獨立入口 `/research-finance-social-science`（Codex 使用 `$research-finance-social-science`），不改寫核心 catalog，也不改變核心的 42 個計數。profile 不會因題目提到金融或社會科學而自動啟用。用途、啟用與限制見 [profile 說明](profiles/finance-social-science/README.zh-TW.md)。
+Claude Code 的三個指令都加上 `--harness claude-code`；若核心使用自訂 `--target`，profile 也必須指定同一目錄。這會加入獨立入口 `/research-finance-social-science`（Codex 使用 `$research-finance-social-science`），不改寫核心 catalog，也不改變核心的 43 個計數。profile 不會因題目提到金融或社會科學而自動啟用。用途、啟用與限制見 [profile 說明](profiles/finance-social-science/README.zh-TW.md)。
 
 ### 維護者驗證 repository
 
@@ -206,7 +213,7 @@ uv run pytest
 | 不知道該用哪個 | `/research-help` | 診斷現況、推薦一個入口，然後停下 |
 
 <details>
-<summary>25 個 model-invoked primitives（你不需要記，Agent 會自己取用）</summary>
+<summary>26 個 model-invoked primitives（你不需要記，Agent 會自己取用）</summary>
 
 文獻與定位：`literature-landscape`、`gap-audit`、`evidence-research`、`contribution-design`、`journal-fit`
 
@@ -216,7 +223,7 @@ uv run pytest
 
 品質與收尾：`research-review`、`research-diagnosis`、`citation-audit`、`research-writing`、`ethics-reproducibility`
 
-系統層：`research-workspace-contract`、`artifact-reconciliation`、`research-grilling`、`synthesize-research-brief`、`render-research-deliverable`
+系統層：`research-assistant`、`research-workspace-contract`、`artifact-reconciliation`、`research-grilling`、`synthesize-research-brief`、`render-research-deliverable`
 
 完整說明見 [`docs/SKILL_CATALOG.md`](docs/SKILL_CATALOG.md)。
 
@@ -240,7 +247,7 @@ uv run pytest
 - model-invoked primitives：Agent 可依任務自動取用的研究紀律。
 - meta skill：維護 Research OS 本身的 skill engineering 規格。
 
-v2.0 共 42 個 catalogued skills：16 個 orchestrators、25 個 primitives、1 個 meta skill。
+v2.0 共 43 個 catalogued skills：16 個 orchestrators、26 個 primitives、1 個 meta skill。
 
 完整清單由 [`skills/catalog.yaml`](skills/catalog.yaml) 單點管理，並自動生成 [`docs/SKILL_CATALOG.md`](docs/SKILL_CATALOG.md)。架構、invocation 與品質標準見 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) 與 [`docs/QUALITY_GATES.md`](docs/QUALITY_GATES.md)。
 

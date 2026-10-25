@@ -6,18 +6,18 @@ Research OS 不是「輸入題目，立刻吐出三十頁文字」的生成器�
 
 ## 1. 安裝與驗證
 
-Research OS 是 42 個 skills 的套件，不是單一 skill。Codex 的單一 skill GitHub 安裝器不能只靠 repository 根網址安裝整套 Research OS；請先 clone repository，再使用本專案的 catalog-driven 安裝器。這個流程不使用 Claude plugin，也不需要 `.claude-plugin/plugin.json`。
+Research OS 是 43 個 skills 的套件，不是單一 skill。Codex 的單一 skill GitHub 安裝器不能只靠 repository 根網址安裝整套 Research OS；請先 clone repository，再使用本專案的 catalog-driven 安裝器。這個流程不使用 Claude plugin，也不需要 `.claude-plugin/plugin.json`。
 
 直接把下面整段交給 Codex 即可：
 
 ```text
 請從 https://github.com/yhlai0911/research-os 安裝完整 Research OS。
-這是 42 個 skills 的集合，不是單一 skill。
+這是 43 個 skills 的集合，不是單一 skill。
 請 clone repository，以 uv 執行 install_skills.py 的 dry-run 與正式安裝，
 再執行 verify_install.py；遇到任何 conflict 必須停止，不得覆寫。
 不要使用單一 skill GitHub 安裝器處理 repository 根網址，
 也不要尋找或建立 .claude-plugin/plugin.json。
-完成時必須回報 source commit 與 INSTALL OK: 42 skills。
+完成時必須回報 source commit 與 INSTALL OK: 43 skills。
 ```
 
 若要在終端機手動安裝：
@@ -43,7 +43,9 @@ uv run python scripts/verify_install.py \
   --target /absolute/path/to/skills
 ```
 
-安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，42 個 skills 整批停止，不覆寫既有資料，也不留下半套安裝。成功後必須看到 `INSTALL OK: 42 skills`；新 skills 會在 Codex 下一輪或新 task 載入。
+安裝器採 fail-closed：只要目標已有同名但內容不同的 skill，43 個 skills 整批停止，不覆寫既有資料，也不留下半套安裝。複製安裝會調整共享規範的相對連結並逐項讀取檢查。`INSTALL OK: 43 skills` 代表檔案與相依驗證通過，仍須在正確專案確認 Codex 是否發現、載入並實際呼叫技能，不能只憑此訊息宣稱實操成功。
+
+**本地分支注意：**本分支已將 `research-assistant` 納入 43 個核心技能。上面的公開網址不代表公開主線已有這項更新；試作請用此 checkout，並明確指定乾淨測試專案的 `.agents/skills`，不安裝到全域或覆寫既有副本。
 
 ### Claude Code
 
@@ -58,7 +60,7 @@ uv run python scripts/install_skills.py --harness claude-code
 uv run python scripts/verify_install.py --harness claude-code
 ```
 
-這會將完整 42 skills 安裝到 `~/.claude/skills/`。若只供一個專案使用，三個 install／verify commands 都加上：
+這會將完整 43 skills 安裝到 `~/.claude/skills/`。若只供一個專案使用，三個 install／verify commands 都加上：
 
 ```bash
 --target /absolute/path/to/project/.claude/skills
@@ -75,11 +77,19 @@ uv run python scripts/validate_repository.py
 uv run pytest
 ```
 
-## 2. 選一條路：主線或自動駕駛
+## 2. 先叫研究助理，再選主線節奏
 
-兩條路會抵達同樣的 `.research/` 狀態，差別在誰控制節奏。
+在 Codex 開啟你的研究專案，輸入：
 
-**主線（推薦第一次使用）**——六步，每步結束會告訴你下一步是什麼，然後停下來等你：
+```text
+$research-assistant
+我是新手。請先讀目前的研究問題、資料和成果，
+解釋卡在哪裡，建議下一步；目前先不要改檔。
+```
+
+它負責選擇與交接適用skill，由接收skill執行研究，再讀回產出帶你往下；不需要先知道每個技能名稱。完全沒題目也可以直接說「我想寫論文，但完全沒有題目，應該從哪裡開始？」。助理會帶到`research-1-grill`，由grill先釐清背景與興趣，不預選資料或方法。詳見[一頁新手說明](RESEARCH_ASSISTANT.zh-TW.md)。
+
+**技能主線**——助理可以依研究委託與完成條件帶你銜接；若偏好自行呼叫，也保留以下入口：
 
 ```text
 /research-setup        建立 .research/ 工作區（一次性）
@@ -93,7 +103,7 @@ uv run pytest
 
 任何時候都可以用 `/research-status` 查看自己在第幾步、已經有什麼、還缺什麼。
 
-**自動駕駛**——你不想逐步下指令時，`/research-auto` 會自己判斷該走哪一步。
+**逐步導引**——由助理辨認階段與前置，交接給接收skill完成工作；每次讀回真實產物後再決定下一步。重要研究選擇仍詢問你，沒有回答就不假裝通過。`research-auto`是可另行明確選用的整合流程，不是新手使用助理的必要前提。
 
 ## 3. 用一句完整任務啟動
 

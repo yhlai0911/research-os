@@ -2,7 +2,7 @@
 
 ## 把 GitHub repository 網址交給 Codex，但安裝失敗
 
-Research OS 是 42 個 skills 的集合，不是單一 skill。Codex 的單一 skill GitHub 安裝器收到 repository 根網址時會缺少內部 `--path`，不能代表整套安裝流程。
+Research OS 是 43 個 skills 的集合，不是單一 skill。Codex 的單一 skill GitHub 安裝器收到 repository 根網址時會缺少內部 `--path`，不能代表整套安裝流程。
 
 不要補建 `.claude-plugin/plugin.json`，也不要改用 Claude plugin 規則。請 clone repository 後執行：
 
@@ -13,7 +13,7 @@ uv run python scripts/install_skills.py
 uv run python scripts/verify_install.py
 ```
 
-預設目標是 `$CODEX_HOME/skills` 或 `~/.codex/skills`。只有 `verify_install.py` 回報 `INSTALL OK: 42 skills`，才能宣稱完整安裝。
+預設目標是 `$CODEX_HOME/skills` 或 `~/.codex/skills`。只有 `verify_install.py` 回報 `INSTALL OK: 43 skills`，才能宣稱完整安裝。
 
 ## 看起來只安裝了一部分 skills
 
@@ -23,7 +23,7 @@ uv run python scripts/verify_install.py
 uv run python scripts/verify_install.py
 ```
 
-驗證器會逐一核對 catalog、42 個目錄、`SKILL.md`、`agents/openai.yaml`、內容 hash 與 `.research-os-install.json`。若出現 `INSTALL FAILED`，保留錯誤輸出；不要以手動補檔或建立 Claude plugin manifest 代替完整重裝。若目標有同名但不同內容的 skill，安裝器會列在 `conflicts` 並在寫入前整批停止。
+驗證器會逐一核對 catalog、43 個目錄、`SKILL.md`、`agents/openai.yaml`、內容 hash 與 `.research-os-install.json`。若出現 `INSTALL FAILED`，保留錯誤輸出；不要以手動補檔或建立 Claude plugin manifest 代替完整重裝。若目標有同名但不同內容的 skill，安裝器會列在 `conflicts` 並在寫入前整批停止。
 
 ## Claude Code 看不到 Research OS
 

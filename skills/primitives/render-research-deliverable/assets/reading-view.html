@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-__SCRIPT_HASH__'; style-src 'sha256-__STYLE_HASH__'; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>__PAGE_TITLE__</title>
+<style>
+:root{color-scheme:light;--ink:#18353e;--accent:#176f63;--pale:#e7f2ec;--line:#ccdcd6}*{box-sizing:border-box}body{margin:0;background:#f3f6f2;color:var(--ink);font-family:system-ui,"Microsoft JhengHei",sans-serif;font-size:18px;line-height:1.6}header,main,footer{max-width:1150px;margin:auto;padding:24px}h1{font-size:clamp(24px,4vw,36px);line-height:1.4;margin:0 0 12px}h2{font-size:26px;margin:0 0 16px}p{margin:0 0 16px;white-space:pre-line;overflow-wrap:anywhere}nav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}a{color:var(--accent);text-underline-offset:4px}nav a,.back{display:inline-block;padding:9px 15px;border:1px solid var(--line);border-radius:8px;background:white}nav a[aria-current=page]{background:var(--accent);color:white}section{background:white;border:1px solid var(--line);border-radius:12px;padding:25px;margin-bottom:22px}[hidden]{display:none!important}.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:15px}label{display:flex;align-items:center;gap:7px}input[type=search]{font:inherit;max-width:100%;width:270px;padding:9px;border:1px solid #94b5a9;border-radius:6px}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b47b11;outline-offset:3px}.count,.note{font-size:16px;color:#526a70}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse}th,td{padding:13px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}th{background:#edf4ef}th button{border:0;background:none;color:var(--ink);font-size:17px;font-weight:650;padding:3px;text-align:left;white-space:normal}th small{display:block;font-weight:400}td.numeric{text-align:right;font-size:25px;font-variant-numeric:tabular-nums;white-space:nowrap}td.missing{color:#687b7e}.empty{padding:28px;text-align:center;color:#526a70}.chart-row{display:grid;grid-template-columns:minmax(150px,1fr) 3fr 110px;gap:15px;align-items:center;margin:24px 0}.chart-label{overflow-wrap:anywhere}.chart-value{text-align:right;font-weight:650;font-size:25px;font-variant-numeric:tabular-nums}.chart-row svg{width:100%;height:40px;display:block}.prose{font-family:"Noto Serif CJK TC","Microsoft JhengHei",serif;font-size:22px;line-height:1.95;white-space:pre-wrap}.revision-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.revision-grid h3{font-size:21px;margin-top:5px}.revision-grid p{font-size:19px;line-height:1.95;white-space:pre-wrap}mark{background:#ffe6a0;color:inherit}.added{background:#dcf1df}.deleted{background:#ffe1df;text-decoration:line-through}.revision-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.revision-actions button{background:white;color:var(--ink);padding:7px 15px;border:1px solid var(--line);border-radius:6px}.revision-actions button[aria-pressed=true]{background:var(--pale);border-color:var(--accent)}#sources ul{padding-left:22px}#sources li{margin-bottom:20px}.back{margin-top:18px}footer{font-size:15px;color:#526a70;padding-top:0}
+.revision-grid.after-only{grid-template-columns:1fr}
+.chart-row svg{grid-column:2;grid-row:1}.chart-value{grid-column:3;grid-row:1}
+@media(max-width:600px){body{font-size:16px}header,main,footer{padding:16px}section{padding:15px}h2{font-size:23px}nav a{padding:8px 10px}.toolbar{display:block}.toolbar label{margin-bottom:10px}input[type=search]{width:100%}th,td{padding:10px 6px}th button{font-size:14px}td{font-size:15px}td.numeric{font-size:19px}.chart-row{grid-template-columns:1fr 83px;gap:5px 10px;margin:25px 0}.chart-row svg{grid-column:1/-1;grid-row:2;height:32px}.chart-value{font-size:23px}.revision-grid{grid-template-columns:1fr}.prose{font-size:19px}.revision-grid p{font-size:18px}}
+@media(max-width:600px){.chart-value{grid-column:2}.chart-row svg{grid-column:1/-1;grid-row:2}}
+</style></head><body>
+<header><h1 id="title"></h1><p id="intro"></p><nav aria-label="閱讀內容">
+<a href="#summary" data-view="summary">摘要</a><a href="#table" data-view="table">比較表</a><a href="#chart" data-view="chart">圖表</a><a href="#excerpt" data-view="excerpt">選摘段落</a><a href="#revision" data-view="revision">修訂對照</a><a href="#sources" data-view="sources">來源與單位</a>
+</nav></header>
+<main>
+<section id="summary" data-panel="summary"><h2>本次閱讀重點</h2><p id="summary-detail"></p><p>開啟比較表，對照已核實的內容與尚待確認的事項。</p><a class="back" href="#table" data-view="table">開啟比較表</a></section>
+<section id="table" data-panel="table" hidden><h2 id="table-title"></h2><div class="toolbar"><label>篩選資料 <input id="filter" type="search" placeholder="輸入方法或數值"></label><label><input id="raw-values" type="checkbox">顯示原始數值</label></div><p id="row-count" class="count" role="status" aria-live="polite"></p><div class="table-scroll"><table id="comparison-table"><thead></thead><tbody></tbody></table></div><p class="note">點選欄名排序；「—」表示未提供的值，沒有補成零。顯示值四捨五入，排序依原始精度。</p><a class="back" href="#summary" data-view="summary">返回摘要</a></section>
+<section id="chart" data-panel="chart" hidden><h2 id="chart-title">圖表</h2><p id="chart-unit" class="note"></p><div id="chart-content"></div><a class="back" href="#table" data-view="table">返回比較表</a></section>
+<section id="excerpt" data-panel="excerpt" hidden><h2 id="excerpt-title">選摘段落</h2><p id="excerpt-content" class="prose"></p><a class="back" href="#table" data-view="table">返回比較表</a></section>
+<section id="revision" data-panel="revision" hidden><h2 id="revision-title">修訂對照</h2><p id="revision-note" class="note"></p><div class="revision-actions" hidden><button id="show-both" aria-pressed="true">前後並排</button><button id="show-after" aria-pressed="false">只看修訂後</button></div><div class="revision-grid"><div id="before-column"><h3>修訂前</h3><p id="before-content"></p></div><div id="after-column"><h3>修訂後</h3><p id="after-content"></p></div></div><a class="back" href="#excerpt" data-view="excerpt">返回選摘段落</a></section>
+<section id="sources" data-panel="sources" hidden><h2>來源與單位</h2><ul id="source-list"></ul><a class="back" href="#summary" data-view="summary">返回摘要</a></section>
+</main><footer>本地閱讀輔助頁。學術正文、引用與正式PDF依原研究文件核對。</footer>
+<script type="application/json" id="reading-data">__READING_DATA__</script>
+<script id="reading-app">
+'use strict';
+const data=JSON.parse(document.getElementById('reading-data').textContent);
+const byId=id=>document.getElementById(id);
+const state={query:'',sort:null,direction:1,raw:false};
+const setText=(id,value)=>{byId(id).textContent=value;};
+setText('title',data.title);setText('intro','研究內容閱讀檢視');setText('summary-detail',data.summary);setText('table-title',data.table_title);
+function addText(parent,tag,value,className){const el=document.createElement(tag);el.textContent=value;if(className)el.className=className;parent.appendChild(el);return el;}
+function filteredRows(){
+ const query=state.query.trim().toLocaleLowerCase();
+ const rows=data.rows.filter(row=>!query||data.columns.some(col=>{const c=row.cells[col.key];return ((c.raw??'')+' '+c.display).toLocaleLowerCase().includes(query);}));
+ if(state.sort){const col=data.columns.find(c=>c.key===state.sort);rows.sort((a,b)=>{const x=a.cells[col.key],y=b.cells[col.key];if(x.missing!==y.missing)return x.missing?1:-1;if(x.missing)return a.index-b.index;const order=col.type==='number'?x.rank-y.rank:String(x.raw).localeCompare(String(y.raw),'zh-Hant');return order*state.direction||a.index-b.index;});}
+ return rows;
+}
+function drawTable(){
+ const rows=filteredRows(),body=byId('comparison-table').querySelector('tbody');body.replaceChildren();
+ rows.forEach(row=>{const tr=document.createElement('tr');data.columns.forEach(col=>{const c=row.cells[col.key];const td=addText(tr,'td',state.raw&&!c.missing?String(c.raw):c.display,col.type==='number'?'numeric':'');if(c.missing)td.classList.add('missing');else if(col.type==='number')td.title='原始數值：'+c.raw+' '+col.unit;});body.appendChild(tr);});
+ if(!rows.length){const tr=document.createElement('tr'),td=addText(tr,'td',data.rows.length?'沒有符合的資料':'尚無資料','empty');td.colSpan=data.columns.length;body.appendChild(tr);}
+ setText('row-count','顯示 '+rows.length+' / '+data.rows.length+' 筆');
+ byId('comparison-table').querySelectorAll('th').forEach(th=>{const active=th.dataset.key===state.sort;th.setAttribute('aria-sort',active?(state.direction===1?'ascending':'descending'):'none');th.querySelector('.sort-direction').textContent=active?(state.direction===1?' ↑':' ↓'):' ↕';});
+ drawChart(rows);
+}
+const head=document.createElement('tr');
+data.columns.forEach(col=>{const th=document.createElement('th');th.scope='col';th.dataset.key=col.key;const button=addText(th,'button',col.label);button.type='button';addText(button,'span',' ↕','sort-direction');if(col.unit)addText(button,'small',col.unit);button.addEventListener('click',()=>{state.direction=state.sort===col.key?-state.direction:1;state.sort=col.key;drawTable();});head.appendChild(th);});
+byId('comparison-table').querySelector('thead').appendChild(head);
+byId('filter').addEventListener('input',event=>{state.query=event.target.value;drawTable();});
+byId('raw-values').addEventListener('change',event=>{state.raw=event.target.checked;drawTable();});
+function drawChart(rows){
+ const area=byId('chart-content');area.replaceChildren();
+ if(!data.chart){addText(area,'p','未提供可繪製的數值比較。','empty');return;}
+ setText('chart-title',data.chart.title);const key=data.chart.value_key,col=data.columns.find(c=>c.key===key);setText('chart-unit','單位：'+col.unit+'；沿用比較表的篩選與排序。');
+ if(!rows.length){addText(area,'p','目前沒有可顯示的資料。','empty');return;}
+ const values=rows.map(r=>r.cells[key]).filter(c=>!c.missing).map(c=>c.numeric),low=Math.min(0,...values),high=Math.max(0,...values),span=high-low||1;
+ if(!Number.isFinite(span)){addText(area,'p','數值範圍無法在此圖呈現；請閱讀原始表格。','empty');return;}
+ rows.forEach(row=>{const c=row.cells[key],line=document.createElement('div');line.className='chart-row';addText(line,'div',row.cells[data.chart.label_key].display,'chart-label');
+ if(c.missing){addText(line,'div','缺值','chart-value');area.appendChild(line);return;}
+ addText(line,'div',c.display,'chart-value');const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 600 40');svg.setAttribute('role','img');svg.setAttribute('aria-label',row.cells[data.chart.label_key].display+'：'+c.display+' '+col.unit);
+ const zero=(0-low)/span*600,x=(Math.min(0,c.numeric)-low)/span*600,rect=document.createElementNS(ns,'rect');rect.setAttribute('x',String(x));rect.setAttribute('y','5');rect.setAttribute('width',String(Math.abs(c.numeric)/span*600));rect.setAttribute('height','30');rect.setAttribute('rx','3');rect.setAttribute('fill','#267f6c');svg.appendChild(rect);
+ const axis=document.createElementNS(ns,'line');axis.setAttribute('x1',String(zero));axis.setAttribute('x2',String(zero));axis.setAttribute('y1','0');axis.setAttribute('y2','40');axis.setAttribute('stroke','#708780');svg.appendChild(axis);line.appendChild(svg);area.appendChild(line);});
+}
+function highlight(parent,value,terms){
+ let pos=0;while(pos<value.length){let at=-1,term='';for(const t of terms){const index=value.indexOf(t,pos);if(index>=0&&(at<0||index<at||(index===at&&t.length>term.length))){at=index;term=t;}}
+ if(at<0){parent.appendChild(document.createTextNode(value.slice(pos)));break;}parent.appendChild(document.createTextNode(value.slice(pos,at)));addText(parent,'mark',term);pos=at+term.length;}
+}
+if(data.excerpt){setText('excerpt-title',data.excerpt.title);highlight(byId('excerpt-content'),data.excerpt.text,data.excerpt.highlights);}else setText('excerpt-content','尚未提供選摘段落。');
+if(data.revision){setText('revision-title',data.revision.title);setText('revision-note',data.revision.identical?'兩版文字相同。':'紅色刪線標示移除文字，綠色標示新增文字。');document.querySelector('.revision-actions').hidden=false;
+ for(const side of ['before','after'])data.revision[side].forEach(piece=>addText(byId(side+'-content'),'span',piece.text,piece.kind==='add'?'added':piece.kind==='delete'?'deleted':''));
+}else{setText('revision-note','未同時提供修訂前後兩版，沒有生成比較內容。');document.querySelector('.revision-grid').hidden=true;}
+function revisionMode(afterOnly){byId('before-column').hidden=afterOnly;document.querySelector('.revision-grid').classList.toggle('after-only',afterOnly);byId('show-both').setAttribute('aria-pressed',String(!afterOnly));byId('show-after').setAttribute('aria-pressed',String(afterOnly));}
+byId('show-both').addEventListener('click',()=>revisionMode(false));byId('show-after').addEventListener('click',()=>revisionMode(true));
+data.sources.forEach(source=>{const li=document.createElement('li');if(source.url){const a=addText(li,'a',source.label);a.href=source.url;a.rel='noopener noreferrer';}else addText(li,'strong',source.label);if(source.note)addText(li,'p',source.note);byId('source-list').appendChild(li);});
+const views=['summary','table','chart','excerpt','revision','sources'];
+function showView(name){if(!views.includes(name))name='summary';document.querySelectorAll('[data-panel]').forEach(el=>{el.hidden=el.dataset.panel!==name;});document.querySelectorAll('nav [data-view]').forEach(a=>{if(a.dataset.view===name)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
+document.querySelectorAll('a[data-view]').forEach(a=>a.addEventListener('click',()=>showView(a.dataset.view)));
+window.addEventListener('hashchange',()=>showView(location.hash.slice(1)));
+showView(location.hash.slice(1)||'summary');drawTable();
+</script></body></html>

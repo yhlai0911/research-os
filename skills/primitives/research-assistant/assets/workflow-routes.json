@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "source": "skills/catalog.yaml:assistant_delegation",
+  "native_policy_override": false,
+  "workflows": [
+    {
+      "name": "research-setup",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Initialize a project with the durable Research OS workspace contract."
+    },
+    {
+      "name": "research-1-grill",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Interrogate a research idea one decision at a time until it is researchable."
+    },
+    {
+      "name": "research-2-brief",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Collapse the current discussion and evidence into a rigorous research brief."
+    },
+    {
+      "name": "research-3-falsify",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Predeclare what evidence would kill the current research design before any expensive work begins."
+    },
+    {
+      "name": "research-4-tasks",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Split a research brief into dependency-aware tracer workpackages."
+    },
+    {
+      "name": "research-5-run",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Claim and execute one eligible research workpackage with bounded authority, falsification gates, receipts, and readback."
+    },
+    {
+      "name": "research-6-review",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Attack the current research design or draft as a skeptical journal panel and record every finding."
+    },
+    {
+      "name": "research-save",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Create a verifiable handoff that preserves research continuity across sessions."
+    },
+    {
+      "name": "to-plan",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Convert a verified Research Brief into an executable academic research plan."
+    },
+    {
+      "name": "to-proposal",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Turn a research design into a grant, institutional, or project proposal."
+    },
+    {
+      "name": "to-paper",
+      "bucket": "orchestrators",
+      "invocation": "user",
+      "description": "Draft an academic paper from verified research artifacts."
+    }
+  ]
+}
