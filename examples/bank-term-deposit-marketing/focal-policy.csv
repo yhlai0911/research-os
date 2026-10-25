@@ -1,0 +1,7 @@
+information_set,procedure,selected_records,observed_subscriptions,observed_subscription_fraction
+S0,random,1647,1021,0.6199149969641773
+S0,ordered,1647,1019,0.6187006678809958
+S1,random,1647,851,0.5166970248937462
+S1,ordered,1647,851,0.5166970248937462
+S2,random,1647,1014,0.6156648451730419
+S2,ordered,1647,1007,0.6114146933819065
