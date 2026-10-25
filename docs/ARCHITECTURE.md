@@ -69,7 +69,7 @@ Revision review uses one deterministic comparison packet generated from immutabl
 
 ## Research control flow
 
-Two routes reach the same durable state. The mainline is explicit and user-paced:
+Three entry routes share the same durable state: assistant-guided delegation, direct mainline invocation, and explicit `research-auto`. The assistant is a selector/controller; receiving skills own research work and gates. In the direct, user-paced mainline:
 
 ```text
 research-setup
@@ -121,12 +121,12 @@ Research OS is distributed as one catalogued suite of 43 skills, not as one root
 
 The repository-owned installer is the suite authority:
 
-1. resolve the target to `$CODEX_HOME/skills` or `~/.codex/skills` unless explicitly overridden;
+1. honor an explicit target, preferably a project `.agents/skills`; the installer's existing personal default remains `$CODEX_HOME/skills` or `~/.codex/skills`, which is not a current-host discovery guarantee;
 2. preflight every catalogued destination and the ownership marker before any write;
 3. stage and hash every pending skill;
 4. promote the complete set or roll back;
 5. write `.research-os-install.json` with catalog version, source commit, mode, and per-skill hashes;
-6. run `scripts/verify_install.py` to read back all 43 core directories, required Codex metadata, hashes, and receipt.
+6. run `scripts/verify_install.py` to read back all 43 core directories, required Codex metadata, hashes, receipt and readable local Markdown dependencies; copy mode rewrites source-bucket links for the flattened installation. Host discovery/loading and actual workflow execution are separate validation layers.
 
 Claude plugin manifests are outside this Codex-first contract. Adding one cannot prove a complete Codex installation.
 
@@ -155,4 +155,10 @@ Keep one decision branch in one context. Use a handoff or map when the effort ex
 
 ## Lifecycle
 
-Version 1.0 ships only catalogued skills. Future experimental or deprecated buckets must be excluded from installation unless their lifecycle is explicitly represented in the catalog. Deprecation requires a replacement path and a repository-wide ghost-reference check.
+The current core ships only catalogued skills. Future experimental or deprecated buckets must be excluded from installation unless their lifecycle is explicitly represented in the catalog. Deprecation requires a replacement path and a repository-wide ghost-reference check.
+
+## Presentation and scholarly production
+
+`render-research-deliverable` owns derived reading views; `research-assistant` forwards only verified result links. The HTML renderer and reply builder are standard-library Python mechanics, not a research engine or native-chat invocation implementation. Pages preserve actual values, units, missingness and available revision versions. Device/session scope belongs in the reply; a presentation request does not authorize hosting or upload.
+
+Academic manuscripts retain disciplinary prose and managed citations. The shared writing contract requires numbered/referenced equations, defined symbols, real LaTeX and bibliography production, clean final citation/reference/glyph diagnostics, exact-source packaging and current visual QA. HTML is a companion; tool records remain outside the academic body. See [delivery requirements](DELIVERABLES.en.md).

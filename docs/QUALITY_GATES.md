@@ -65,7 +65,7 @@ The public installation path must:
 4. install every catalogued `SKILL.md` and `agents/openai.yaml`;
 5. write a source-commit and per-skill-hash receipt;
 6. pass `uv run python scripts/verify_install.py`;
-7. state that Codex loads newly installed skills on the next turn or task;
+7. document the actual target and current host refresh/discovery procedure; never use a turn change or installed-file check as native loading evidence;
 8. avoid claiming that a Claude plugin manifest proves Codex installation.
 
 ## Claude Code installation gate
@@ -81,3 +81,13 @@ The Claude Code installation path must:
 7. record both source and installed hashes with `harness: claude-code`;
 8. pass `uv run python scripts/verify_install.py --harness claude-code`;
 9. document `/skills`, live detection, and the restart condition for a newly created top-level skills directory.
+
+## User-documentation gate
+
+Entry guides must agree with the merged catalog and source commit. Check local links/anchors, executable installer/render examples, bilingual feature coverage, platform prerequisites and historical-video labels. Remove an unpublished-prototype warning after the feature reaches main; never invent a new public video URL. Historical migration/audit records retain their dated scope.
+
+## Reading-view and paper gate
+
+Generate a reading view before its reply. Check actual targets and controls; missing files, wrong bytes or unavailable delivery do not pass. Browser acceptance, saved-reply interaction, native chat and native skill invocation need distinct evidence.
+
+A scholarly delivery needs current academic/citation reviews, actual LaTeX and bibliography reruns, no unresolved citation/reference/glyph diagnostics, all-page first-delivery visual QA and a hash-matched source package. Mechanical checks do not assess scholarly merit. See [the delivery guide](DELIVERABLES.en.md). Release building requires POSIX primitives; portable copy installation does not imply Windows release/security tests passed.

@@ -1,10 +1,10 @@
 # Research OS
 
-**Local research-assistant integration prototype:** `research-assistant` is part of this branch's 43-skill core catalog and installer. It provides ongoing guidance, recommendations, delegated decisions, and authorized bounded execution; see the [Traditional Chinese one-page guide](docs/RESEARCH_ASSISTANT.zh-TW.md) and [verification protocol](docs/RESEARCH_ASSISTANT_TESTING.md). This branch is unpublished. Installation examples pointing to public `main` do not include this local prototype; use this checkout for testing.
+**A research assistant that guides the workflow, from no topic to a manuscript.** `research-assistant` is included in the **43-skill core on `main`**, following [PR #6](https://github.com/yhlai0911/research-os/pull/6). It identifies the current need, selects and delegates to the applicable skill, then checks the returned artifacts and next gate. Receiving skills perform the research; novices need not memorize their names. See the [assistant guide](docs/RESEARCH_ASSISTANT.en.md). Existing installations still need an intentional update and source-commit verification.
 
 **English** · [繁體中文](README.md) · [English quickstart](docs/QUICKSTART.en.md) · [繁體中文使用教學](docs/USAGE_GUIDE.zh-TW.md)
 
-**New practical tutorial:** [Watch voiced v4 (7:57.93, Traditional Chinese)](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [English walkthrough](docs/TUTORIAL_GRANGER.en.md) · [40 scenes and offline rebuild sources](jobs/research-os-granger-tutorial/v4/README.md). Follow installation, the six research steps, a diagnostic revision, and delivery of a bounded first draft using public Treasury data. The [original 4:01 overview](jobs/research-os-tutorial/README.md) remains available.
+**Earlier public video example:** [Granger voiced v4 (7:57.93, Traditional Chinese)](https://github.com/yhlai0911/research-os/releases/download/granger-tutorial-voiced-v4/research-os-granger-follow-along-voiced-v4.mp4) · [walkthrough](docs/TUTORIAL_GRANGER.en.md) · [40 scenes and rebuild sources](jobs/research-os-granger-tutorial/v4/README.md). It illustrates an earlier Treasury-data workflow; follow the current documentation for skills and installation. It does not establish native invocation of the new assistant. The bank-thesis demonstration is being revoiced with ElevenLabs; no public new-video release or download is linked here (status: 2026-10-25).
 
 Research OS is a composable set of Agent Skills for turning a topic, equation, dataset, draft, or reviewer concern into a falsifiable research brief and an evidence-led plan, proposal, or paper. It separates researcher decisions from discoverable facts, records uncertainty and provenance, and makes the conditions for completing or stopping each stage explicit.
 
@@ -31,20 +31,20 @@ Mainline
   /research-6-review     Challenge the work through independent review axes
 
 At any point
-  $research-assistant   Ground current state; guide, advise, decide or act within authority
+  $research-assistant   Identify the stage, delegate a skill, inspect outputs and guide the next step
   /research-status      Read current progress, artifacts, gaps, and next step
 
 Deliverables
   /to-plan   /to-proposal   /to-paper
 ```
 
-Each mainline step has checkable completion conditions. It names the next step and stops; a recommendation does not authorize launching another user-invoked skill. Falsification comes before task decomposition so the project records failure conditions before spending execution effort.
+Each mainline skill has checkable completion conditions and ends its own invocation at the handoff. Direct calls remain user-paced. In an assistant-guided mission, the assistant reads back the artifact, domain verdict and checks before delegating the next applicable workflow within the existing grant. Missing evidence, a consequential decision or missing authority remains a gate. Falsification precedes execution so failure conditions are recorded before results.
 
 The agent may use 26 model-invoked research primitives as needed. You do not need to memorize their names. The six steps are the user-facing path; they do not force every topic through every possible method.
 
 For a less manual route, `/research-auto` works adaptively on the current bottleneck using model-invoked primitives. It still respects researcher decisions, workspace scope, evidence limits, and external-action permissions. `/research-help` recommends an entry point and stops.
 
-Start with `$research-assistant` in Codex when you want continuing help with the current project. The companion can perform authorized finite local work and prepare one explicit mainline or `research-auto` invocation. An explicitly launched `research-auto` mission then owns adaptive primitive selection; the novice does not need to invoke each internal primitive. The companion can explain and inspect returned artifacts without treating a recommendation as execution. In Claude Code this companion remains model-invoked rather than a slash-menu entry.
+Start with `$research-assistant` in Codex, or ask naturally: “I want to write a thesis, but I have no topic. Where should I start?” The assistant selects `research-1-grill`; that receiving skill asks the first necessary background or interest question. Guidance, recommendations, explicitly delegated technical choices and authorized execution are distinct. The assistant routes and checks; data, analysis, writing and review stay with their respective skills. Consequential research decisions stay with the researcher. Standalone translation or proofreading should not launch a research mission. In Claude Code the assistant is model-invoked and does not have a slash-menu entry.
 
 ## English and Traditional Chinese
 
@@ -69,6 +69,8 @@ uv sync --locked
 
 ### Codex
 
+For a project-only installation, add the same `--target /absolute/path/to/project/.agents/skills` to all three commands below. Commands without a target intentionally use the installer's personal default. The [quickstart](docs/QUICKSTART.en.md) gives Bash and PowerShell examples.
+
 ```bash
 uv run python scripts/install_skills.py --dry-run
 # Continue only if the dry-run reports no conflicts.
@@ -76,7 +78,7 @@ uv run python scripts/install_skills.py
 uv run python scripts/verify_install.py
 ```
 
-The default target is `$CODEX_HOME/skills`, or `~/.codex/skills` if `CODEX_HOME` is unset. For another location, add the same `--target /absolute/path/to/skills` to all three commands. Newly installed skills load on the next Codex turn or task.
+This installer's existing default is `$CODEX_HOME/skills`, or `~/.codex/skills` when unset. That is not a universal discovery guarantee for every current host. Prefer an explicit project `.agents/skills` target, open the correct project, and verify the host's actual skill inventory. Choose a personal location according to the installed host's documentation. A turn change does not prove loading. See [official Codex skills guidance](https://developers.openai.com/codex/build-skills).
 
 ### Claude Code
 
@@ -98,6 +100,14 @@ Core verification must report `INSTALL OK: 43 skills`. The installer writes `.re
 The installer preflights the whole selection. If a destination has conflicting content, it stops without overwriting it. Inspect and back up your changes before resolving a conflict. Do not delete or force-overwrite unrelated skills to make an installation pass.
 
 For v1.1 installations, read the [v2 migration guide](docs/MIGRATION-v2.md) first. Twelve old orchestrator names changed, `to-proposal` stayed the same, and three new orchestrators were added. Existing `.research/` workspaces remain compatible. Old renamed directories are not automatically removed.
+
+## Reading views and scholarly delivery
+
+The assistant can delegate to `render-research-deliverable` for self-contained HTML reading views of actual tables and passages: sorting, filtering, synchronized charts, highlights and a before/after comparison only where real inputs exist. A reply briefly explains the result, provides the real titled artifact link, then states the next step. Generate and verify the target first. Missing output or unavailable delivery must not produce a success link. Local files and localhost are not cross-device URLs.
+
+`research-writing` and `to-paper` require connected disciplinary prose, verified literature, managed APA citations, numbered equations with defined symbols/units, uncertainty and counterevidence. Keep skill names, program notation and operation logs outside the academic body; disclose AI assistance under the applicable rules. Chinese writing adapts clarity and terminology consistency without claiming formal compliance with the English ASD-STE100 specification. Completeness is not a fixed word or reference quota.
+
+A paper delivery includes editable `.tex`/`.bib`, permitted assets, a PDF **actually compiled from those sources with LaTeX**, genuine build records, citation/reference checks, first-delivery all-page visual QA and a rebuildable source package. HTML and Word-exported PDFs do not replace that gate. Skills do not bundle research tools: source access, numerical libraries, a TeX engine, Biber and suitable fonts depend on the task and actual authorization. See [deliverables and dependencies](docs/DELIVERABLES.en.md).
 
 ## Optional finance and social-science profile
 
